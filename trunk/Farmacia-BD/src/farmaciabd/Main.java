@@ -6,8 +6,7 @@
 package farmaciabd;
 
 /**
- *
- * @author Miguel
+ * @author grupo 10
  */
 public class Main {
 
