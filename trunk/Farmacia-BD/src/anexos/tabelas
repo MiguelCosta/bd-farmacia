@@ -17,3 +17,9 @@ http://www.linhadecodigo.com.br/artigo/552/aprenda-php-e-tornese-um-bom-programa
 
 Dúvidas:
     . nas tabelas como é que é o telefone? varchar(8) ?
+
+    . como colocar um campo na tabela para inserir ficheiros?? por exemplo o folheto informativo
+
+    . na tabela lote, qual o melhor tipo para "stock"? integer ou varchar?
+
+    . na tabela produto qual a melhor forma para representar "receita" e "generico"? visto que é booliano...
