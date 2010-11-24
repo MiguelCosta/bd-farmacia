@@ -1,6 +1,7 @@
 /* a primeira vez que isto for corrido é normal que apresente erros nos drop,
-visto que as tabelas ainda não existem 
-o "MIGUEL" é o nome da vossa conta na base de dados */
+ * visto que as tabelas ainda não existem 
+ * o "MIGUEL" é o nome da vossa conta na base de dados 
+*/
 
 drop table "MIGUEL"."ADMINISTRACOES" cascade constraints;
 drop table "MIGUEL"."AREAS_TERAPEUTICAS" cascade constraints;
