@@ -3,20 +3,20 @@
  * o "MIGUEL" é o nome da vossa conta na base de dados 
 */
 
-drop table "MIGUEL"."ADMINISTRACOES" cascade constraints;
-drop table "MIGUEL"."AREAS_TERAPEUTICAS" cascade constraints;
-drop table "MIGUEL"."CODIGOS_POSTAIS" cascade constraints;
-drop table "MIGUEL"."CONSTITUINTES" cascade constraints;
-drop table "MIGUEL"."CONTRAINDICACOES" cascade constraints;
-drop table "MIGUEL"."DISTRIBUIDORAS" cascade constraints;
-drop table "MIGUEL"."FABRICANTES" cascade constraints;
-drop table "MIGUEL"."FAIXAS_ETARIAS" cascade constraints;
-drop table "MIGUEL"."FORMATOS" cascade constraints;
-drop table "MIGUEL"."LISTA_CONSTITUINTES" cascade constraints;
-drop table "MIGUEL"."LISTA_CONTRAINDICACOES" cascade constraints;
-drop table "MIGUEL"."LOTES" cascade constraints;
-drop table "MIGUEL"."PRODUTOS" cascade constraints;
-drop table "MIGUEL"."TEMPERATURAS" cascade constraints;
+drop table "MIGUEL"."ADMINISTRACOES"          cascade constraints;
+drop table "MIGUEL"."AREAS_TERAPEUTICAS"      cascade constraints;
+drop table "MIGUEL"."CODIGOS_POSTAIS"         cascade constraints;
+drop table "MIGUEL"."CONSTITUINTES"           cascade constraints;
+drop table "MIGUEL"."CONTRAINDICACOES"        cascade constraints;
+drop table "MIGUEL"."DISTRIBUIDORAS"          cascade constraints;
+drop table "MIGUEL"."FABRICANTES"             cascade constraints;
+drop table "MIGUEL"."FAIXAS_ETARIAS"          cascade constraints;
+drop table "MIGUEL"."FORMATOS"                cascade constraints;
+drop table "MIGUEL"."LISTA_CONSTITUINTES"     cascade constraints;
+drop table "MIGUEL"."LISTA_CONTRAINDICACOES"  cascade constraints;
+drop table "MIGUEL"."LOTES"                   cascade constraints;
+drop table "MIGUEL"."PRODUTOS"                cascade constraints;
+drop table "MIGUEL"."TEMPERATURAS"            cascade constraints;
 
 CREATE TABLE contraindicacoes (
   contraindicacao   varchar2(8),
