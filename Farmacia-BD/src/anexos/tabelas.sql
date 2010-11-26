@@ -126,14 +126,15 @@ CREATE TABLE fabricantes(
 
 CREATE TABLE produtos (
   produto                 varchar2(8),
-  nome                    varchar2(100),
+  nome_generico           varchar2(100),
+  nome_medicamento        varchar2(100),
   quantidade              varchar2(20),
   faixa_etaria            varchar2(8),
   reg_infarmed            varchar2(8),
   area_terapeutica        varchar2(8),
   lote                    varchar2(8),
   dosagem                 varchar2(8),
-  lista_contraindicacoes  varchar2(8), 
+  /*lista_contraindicacoes  varchar2(8),*/ 
   temperatura             varchar2(8),
   preco                   float,
   administracao           varchar2(8),
