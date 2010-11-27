@@ -37,8 +37,8 @@ CREATE TABLE codigos_postais (
 
 CREATE TABLE constituintes (
   constituinte    varchar2(8),
-  nome            varchar2(100),
-  descricao       varchar2(500),
+  nome            varchar2(500),
+  generico        numeric(1),
 
   CONSTRAINT constituintes_pk
     PRIMARY KEY (constituinte)
@@ -133,7 +133,7 @@ CREATE TABLE produtos (
   reg_infarmed            varchar2(8),
   area_terapeutica        varchar2(8),
   lote                    varchar2(8),
-  dosagem                 varchar2(8),
+  dosagem                 varchar2(20),
   /*lista_contraindicacoes  varchar2(8),*/ 
   temperatura             varchar2(8),
   preco                   float,
