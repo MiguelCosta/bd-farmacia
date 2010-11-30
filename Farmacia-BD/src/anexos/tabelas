@@ -21,3 +21,6 @@ Dúvidas:
     . na tabela lote, qual o melhor tipo para "stock"? integer ou varchar?
 
     . na tabela produto qual a melhor forma para representar "receita" e "generico"? visto que é booliano...
+        numeric(1)
+
+    . alterar as chaves primárias para nchar(8);
