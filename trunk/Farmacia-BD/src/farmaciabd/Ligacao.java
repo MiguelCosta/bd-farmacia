@@ -26,4 +26,16 @@ public class Ligacao extends Observable {
     public static void disconnect() throws SQLException {
         stmt.close();
     }
+
+    public static String arrayToString(char[] a) {
+        if (a == null) return null;
+
+        StringBuilder result = new StringBuilder();
+        if (a.length > 0) {
+            result.append(a[0]);
+            for (int i=1; i < a.length; i++)
+                result.append(a[i]);
+        }
+        return result.toString();
+    }
 }
