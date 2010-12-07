@@ -11,7 +11,6 @@
 
 package farmaciabd;
 
-import java.awt.Dimension;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
