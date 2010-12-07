@@ -17,10 +17,10 @@ package farmaciabd;
  *
  * @author Grupo 10
  */
-public class JPrincipal extends javax.swing.JFrame {
+public class Principal extends javax.swing.JFrame {
 
     /** Creates new form Principal */
-    public JPrincipal() {
+    public Principal() {
         initComponents();
     }
 
@@ -629,7 +629,7 @@ public class JPrincipal extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JPrincipal().setVisible(true);
+                new Principal().setVisible(true);
             }
         });
     }
