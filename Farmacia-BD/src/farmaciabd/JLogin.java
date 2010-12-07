@@ -138,7 +138,7 @@ public class JLogin extends javax.swing.JFrame {
         if ((UsernameBol || PasswordBol) == true) {
             JOptionPane.showMessageDialog(this, "Preencha os campos", "Produtos", WIDTH);
         } else {
-            new JInfo().setVisible(true);
+            new JPrincipal().setVisible(true);
             this.setVisible(false);
         
         ResultSet rSet = null;
