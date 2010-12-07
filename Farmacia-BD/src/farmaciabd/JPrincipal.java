@@ -11,20 +11,16 @@
 
 package farmaciabd;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
 /**
  *
  * @author Grupo 10
  */
-public class Principal extends javax.swing.JFrame {
+public class JPrincipal extends javax.swing.JFrame {
 
     /** Creates new form Principal */
-    public Principal() {
+    public JPrincipal() {
         initComponents();
     }
 
@@ -633,7 +629,7 @@ public class Principal extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Principal().setVisible(true);
+                new JPrincipal().setVisible(true);
             }
         });
     }
