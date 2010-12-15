@@ -121,6 +121,14 @@ public class JPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        try {
+            rSet = Formatos.queryFormatos();
+            DefaultListModel ligacao = new Ligacao();
+            while (rSet.next())
+            ligacao.addElement(rSet.getString("Nome"));
+            jListProdutosMedicamentos.setModel(model);
+        }
+        catch (SQLException ex) { Logger.getLogger(JApps.class.getName()).log(Level.SEVERE, null, ex); }
         jScrollPane1.setViewportView(jListProdutosMedicamentos);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Procura de Medicamentos"));
