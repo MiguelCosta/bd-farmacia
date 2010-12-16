@@ -97,7 +97,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTabbedPane2" pref="336" max="32767" attributes="0"/>
+                          <Component id="jTabbedPaneFichaProduto" pref="336" max="32767" attributes="0"/>
                           <Component id="jPanel1" alignment="0" max="32767" attributes="1"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -112,7 +112,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jPanel1" min="-2" max="-2" attributes="1"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTabbedPane2" min="-2" pref="447" max="-2" attributes="0"/>
+                              <Component id="jTabbedPaneFichaProduto" min="-2" pref="447" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jPanel3" min="-2" max="-2" attributes="1"/>
@@ -265,7 +265,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JTabbedPane" name="jTabbedPane2">
+            <Container class="javax.swing.JTabbedPane" name="jTabbedPaneFichaProduto">
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
               <SubComponents>
@@ -559,7 +559,7 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JList" name="jList2">
+                        <Component class="javax.swing.JList" name="jListConstraindicacoes">
                           <Properties>
                             <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
                               <StringArray count="0"/>
@@ -569,6 +569,28 @@
                       </SubComponents>
                     </Container>
                   </SubComponents>
+                </Container>
+                <Container class="javax.swing.JTabbedPane" name="jTabbedPane3">
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                      <JTabbedPaneConstraints tabName="Constiuintes">
+                        <Property name="tabTitle" type="java.lang.String" value="Constiuintes"/>
+                      </JTabbedPaneConstraints>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
+                </Container>
+                <Container class="javax.swing.JTabbedPane" name="jTabbedPane4">
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                      <JTabbedPaneConstraints tabName="Lote">
+                        <Property name="tabTitle" type="java.lang.String" value="Lote"/>
+                      </JTabbedPaneConstraints>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
                 </Container>
               </SubComponents>
             </Container>

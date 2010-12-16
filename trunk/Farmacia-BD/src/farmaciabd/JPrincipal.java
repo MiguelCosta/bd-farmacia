@@ -52,7 +52,7 @@ public class JPrincipal extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jRadioButtonNameProd = new javax.swing.JRadioButton();
         jRadioButtonCodProd = new javax.swing.JRadioButton();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
+        jTabbedPaneFichaProduto = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabelNomeMedicamento = new javax.swing.JLabel();
         jLabelProduto = new javax.swing.JLabel();
@@ -86,7 +86,9 @@ public class JPrincipal extends javax.swing.JFrame {
         jTextFieldFormato = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList();
+        jListConstraindicacoes = new javax.swing.JList();
+        jTabbedPane3 = new javax.swing.JTabbedPane();
+        jTabbedPane4 = new javax.swing.JTabbedPane();
         jPanel5 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jRadioButtonCodPRo1 = new javax.swing.JRadioButton();
@@ -371,9 +373,9 @@ public class JPrincipal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane2.addTab("Ficha do Produto", jPanel2);
+        jTabbedPaneFichaProduto.addTab("Ficha do Produto", jPanel2);
 
-        jScrollPane2.setViewportView(jList2);
+        jScrollPane2.setViewportView(jListConstraindicacoes);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -392,7 +394,9 @@ public class JPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane2.addTab("Contraindicações", jPanel6);
+        jTabbedPaneFichaProduto.addTab("Contraindicações", jPanel6);
+        jTabbedPaneFichaProduto.addTab("Constiuintes", jTabbedPane3);
+        jTabbedPaneFichaProduto.addTab("Lote", jTabbedPane4);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -405,7 +409,7 @@ public class JPrincipal extends javax.swing.JFrame {
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(14, 14, 14)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
+                    .addComponent(jTabbedPaneFichaProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -417,7 +421,7 @@ public class JPrincipal extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTabbedPaneFichaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -815,7 +819,7 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelReceita;
     private javax.swing.JLabel jLabelRegistoInfarmed;
     private javax.swing.JLabel jLabelTemperatura;
-    private javax.swing.JList jList2;
+    private javax.swing.JList jListConstraindicacoes;
     private javax.swing.JList jListProdutos;
     private javax.swing.JList jListProdutosStocks;
     private javax.swing.JMenu jMenu1;
@@ -845,7 +849,9 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JTabbedPane jTabbedPane3;
+    private javax.swing.JTabbedPane jTabbedPane4;
+    private javax.swing.JTabbedPane jTabbedPaneFichaProduto;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField20;
