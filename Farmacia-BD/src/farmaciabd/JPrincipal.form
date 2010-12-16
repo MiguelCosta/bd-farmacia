@@ -133,17 +133,17 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JList" name="jListProdutosMedicamentos">
+                <Component class="javax.swing.JList" name="jListProdutos">
                   <Properties>
                     <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
                       <StringArray count="0"/>
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="jListProdutosMedicamentosValueChanged"/>
+                    <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="jListProdutosValueChanged"/>
                   </Events>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try {&#xa;    rSet = Produtos.queryProdutos();&#xa;    DefaultListModel model = new DefaultListModel();&#xa;    while (rSet.next())&#xa;        model.addElement(rSet.getObject(1).toString());&#xa;    jListProdutosMedicamentos.setModel(model);&#xa;}&#xa;catch (SQLException ex) { Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); }"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try {&#xa;    rSet = Produtos.queryProdutos();&#xa;    DefaultListModel model = new DefaultListModel();&#xa;    while (rSet.next())&#xa;        model.addElement(rSet.getObject(1).toString());&#xa;    jListProdutos.setModel(model);&#xa;}&#xa;catch (SQLException ex) { Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); }"/>
                   </AuxValues>
                 </Component>
               </SubComponents>
