@@ -140,7 +140,7 @@
                     </Property>
                   </Properties>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try {&#xa;    rSet = Formatos.queryFormatos();&#xa;    DefaultListModel ligacao = new Ligacao();&#xa;    while (rSet.next())&#xa;        ligacao.addElement(rSet.getString(&quot;Nome&quot;));&#xa;    jListProdutosMedicamentos.setModel(model);&#xa;}&#xa;catch (SQLException ex) { Logger.getLogger(JApps.class.getName()).log(Level.SEVERE, null, ex); }"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try {&#xa;    rSet = Produtos.queryProdutos();&#xa;    DefaultListModel model = new DefaultListModel();&#xa;    while (rSet.next())&#xa;        model.addElement(rSet.getObject(1).toString());&#xa;    jListProdutosMedicamentos.setModel(model);&#xa;}&#xa;catch (SQLException ex) { Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); }"/>
                   </AuxValues>
                 </Component>
               </SubComponents>

@@ -11,7 +11,11 @@
 
 package farmaciabd;
 
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.*;
+import java.awt.*;
+import java.sql.*;
 
 /**
  *
@@ -19,6 +23,7 @@ package farmaciabd;
  */
 public class JPrincipal extends javax.swing.JFrame {
 
+    ResultSet rSet = null;
     /** Creates new form Principal */
     public JPrincipal() {
         initComponents();
@@ -122,13 +127,13 @@ public class JPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         try {
-            rSet = Formatos.queryFormatos();
-            DefaultListModel ligacao = new Ligacao();
+            rSet = Produtos.queryProdutos();
+            DefaultListModel model = new DefaultListModel();
             while (rSet.next())
-            ligacao.addElement(rSet.getString("Nome"));
+            model.addElement(rSet.getObject(1).toString());
             jListProdutosMedicamentos.setModel(model);
         }
-        catch (SQLException ex) { Logger.getLogger(JApps.class.getName()).log(Level.SEVERE, null, ex); }
+        catch (SQLException ex) { Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); }
         jScrollPane1.setViewportView(jListProdutosMedicamentos);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Procura de Medicamentos"));
@@ -731,6 +736,13 @@ public class JPrincipal extends javax.swing.JFrame {
     * @param args the command line arguments
     */
     public static void main(String args[]) {
+        try {
+            Model.connect();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new JPrincipal().setVisible(true);

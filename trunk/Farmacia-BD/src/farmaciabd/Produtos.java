@@ -10,8 +10,8 @@ import java.sql.*;
 /**
  * @author Grupo 10
  */
-public class Produtos extends Ligacao{
+public class Produtos extends Model{
     public static ResultSet queryProdutos () throws SQLException {
-        return Ligacao.stmt.executeQuery("SELECT * FROM produtos");
+        return Model.stmt.executeQuery("SELECT * FROM produtos");
     }
 }
