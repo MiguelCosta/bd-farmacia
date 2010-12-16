@@ -48,7 +48,7 @@ public class JPrincipal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jTextField15 = new javax.swing.JTextField();
+        jTextFieldProcura = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jRadioButtonNameProd = new javax.swing.JRadioButton();
@@ -95,20 +95,20 @@ public class JPrincipal extends javax.swing.JFrame {
         jPanel10 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        jTextFieldProcuraStock = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jListProdutosStocks = new javax.swing.JList();
         jPanel11 = new javax.swing.JPanel();
         jRadioButtonAdicionarQ = new javax.swing.JRadioButton();
         jRadioButtonRemoverQ = new javax.swing.JRadioButton();
-        jTextField16 = new javax.swing.JTextField();
+        jTextFieldAumentaQuantidadeStock = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jPanel12 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         jTextField17 = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
-        jTextField18 = new javax.swing.JTextField();
+        jTextFieldProdutoStock = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
         jTextField19 = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
@@ -164,7 +164,7 @@ public class JPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel15)
                     .addComponent(jLabel16)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextField15, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+                        .addComponent(jTextFieldProcura, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1)
                         .addGap(4, 4, 4))))
@@ -177,7 +177,7 @@ public class JPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldProcura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -481,7 +481,7 @@ public class JPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel18)
                     .addComponent(jLabel19)
                     .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldProcuraStock, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton2)))
                 .addContainerGap(49, Short.MAX_VALUE))
@@ -494,7 +494,7 @@ public class JPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldProcuraStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2))
                 .addContainerGap(13, Short.MAX_VALUE))
         );
@@ -526,7 +526,7 @@ public class JPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jTextField16, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextFieldAumentaQuantidadeStock, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel11Layout.createSequentialGroup()
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jRadioButtonAdicionarQ)
@@ -547,7 +547,7 @@ public class JPrincipal extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jButton3)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextFieldAumentaQuantidadeStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -576,7 +576,7 @@ public class JPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField17, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
                     .addComponent(jTextField19, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                    .addComponent(jTextField18, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                    .addComponent(jTextFieldProdutoStock, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
                     .addComponent(jTextField20, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -586,7 +586,7 @@ public class JPrincipal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
-                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldProdutoStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
@@ -738,22 +738,33 @@ public class JPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButtonRemoverQActionPerformed
 
     private void jListProdutosMedicamentosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListProdutosMedicamentosValueChanged
-        String sel = (String) jListProdutosMedicamentos.getSelectedValue();
-
         try {
+            String sel = (String) jListProdutosMedicamentos.getSelectedValue();
             rSet = Model.stmt.executeQuery("SELECT * FROM produtos WHERE produto =" + sel);
-        } catch (SQLException ex) {
-            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
             while (rSet.next()) {
                 jTextFieldProduto.setText(rSet.getObject(1).toString());
-                
-                
+                jTextFieldNomeGen.setText(rSet.getObject(2).toString());
+                jTextFieldNomeMedicamento.setText(rSet.getObject(3).toString());
+                jTextFieldQuantidade.setText(rSet.getObject(4).toString());
+                //jTextFieldFaixaEtaria.setText(rSet.getObject(5).toString());
+                jTextFieldRegistoInfarmed.setText(rSet.getObject(6).toString());
+                //jTextFieldAreaTerapeutica.setText(rSet.getObject(7).toString());
+                //jTextFieldLote.setText(rSet.getObject(8).toString());
+                //jTextFieldDosagem.setText(rSet.getObject(9).toString());
+                //jTextFieldTemperatura.setText(rSet.getObject(10).toString());
+                jTextFieldPreco.setText(rSet.getObject(11).toString());
+                //jTextFieldAdministracao.setText(rSet.getObject(12).toString());
+                jTextFieldReceita.setText(rSet.getObject(13).toString());
+                jTextFieldGenerico.setText(rSet.getObject(14).toString());
+                //jTextFieldFormato.setText(rSet.getObject(15).toString());
             }
         } catch (SQLException ex) {
             Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
+        catch (NullPointerException ex){
+        }
+
+       
 
     }//GEN-LAST:event_jListProdutosMedicamentosValueChanged
 
@@ -833,15 +844,12 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextFieldAdministracao;
     private javax.swing.JTextField jTextFieldAreaTerapeutica;
+    private javax.swing.JTextField jTextFieldAumentaQuantidadeStock;
     private javax.swing.JTextField jTextFieldDosagem;
     private javax.swing.JTextField jTextFieldFaixaEtaria;
     private javax.swing.JTextField jTextFieldFormato;
@@ -850,7 +858,10 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldNomeGen;
     private javax.swing.JTextField jTextFieldNomeMedicamento;
     private javax.swing.JTextField jTextFieldPreco;
+    private javax.swing.JTextField jTextFieldProcura;
+    private javax.swing.JTextField jTextFieldProcuraStock;
     private javax.swing.JTextField jTextFieldProduto;
+    private javax.swing.JTextField jTextFieldProdutoStock;
     private javax.swing.JTextField jTextFieldQuantidade;
     private javax.swing.JTextField jTextFieldReceita;
     private javax.swing.JTextField jTextFieldRegistoInfarmed;
