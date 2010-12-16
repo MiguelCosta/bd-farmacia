@@ -44,7 +44,7 @@ public class JPrincipal extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jListProdutosMedicamentos = new javax.swing.JList();
+        jListProdutos = new javax.swing.JList();
         jPanel1 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -131,15 +131,15 @@ public class JPrincipal extends javax.swing.JFrame {
             DefaultListModel model = new DefaultListModel();
             while (rSet.next())
             model.addElement(rSet.getObject(1).toString());
-            jListProdutosMedicamentos.setModel(model);
+            jListProdutos.setModel(model);
         }
         catch (SQLException ex) { Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); }
-        jListProdutosMedicamentos.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+        jListProdutos.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                jListProdutosMedicamentosValueChanged(evt);
+                jListProdutosValueChanged(evt);
             }
         });
-        jScrollPane1.setViewportView(jListProdutosMedicamentos);
+        jScrollPane1.setViewportView(jListProdutos);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Procura de Medicamentos"));
 
@@ -737,10 +737,12 @@ public class JPrincipal extends javax.swing.JFrame {
         jRadioButtonAdicionarQ.setSelected(false);
     }//GEN-LAST:event_jRadioButtonRemoverQActionPerformed
 
-    private void jListProdutosMedicamentosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListProdutosMedicamentosValueChanged
+    private void jListProdutosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListProdutosValueChanged
         try {
-            String sel = (String) jListProdutosMedicamentos.getSelectedValue();
+            String sel = (String) jListProdutos.getSelectedValue();
+            
             rSet = Model.stmt.executeQuery("SELECT * FROM produtos WHERE produto =" + sel);
+
             while (rSet.next()) {
                 jTextFieldProduto.setText(rSet.getObject(1).toString());
                 jTextFieldNomeGen.setText(rSet.getObject(2).toString());
@@ -760,13 +762,9 @@ public class JPrincipal extends javax.swing.JFrame {
             }
         } catch (SQLException ex) {
             Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        catch (NullPointerException ex){
-        }
+        } 
 
-       
-
-    }//GEN-LAST:event_jListProdutosMedicamentosValueChanged
+    }//GEN-LAST:event_jListProdutosValueChanged
 
     /**
     * @param args the command line arguments
@@ -814,7 +812,7 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelRegistoInfarmed;
     private javax.swing.JLabel jLabelTemperatura;
     private javax.swing.JList jList2;
-    private javax.swing.JList jListProdutosMedicamentos;
+    private javax.swing.JList jListProdutos;
     private javax.swing.JList jListProdutosStocks;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
