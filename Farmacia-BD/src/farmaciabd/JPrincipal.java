@@ -8,13 +8,11 @@
  *
  * Created on 6/Dez/2010, 22:39:22
  */
-
 package farmaciabd;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
-import java.awt.*;
 import java.sql.*;
 
 /**
@@ -24,6 +22,7 @@ import java.sql.*;
 public class JPrincipal extends javax.swing.JFrame {
 
     ResultSet rSet = null;
+
     /** Creates new form Principal */
     public JPrincipal() {
         initComponents();
@@ -738,37 +737,42 @@ public class JPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButtonRemoverQActionPerformed
 
     private void jListProdutosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListProdutosValueChanged
+
         try {
             String sel = (String) jListProdutos.getSelectedValue();
-            
+
             rSet = Model.stmt.executeQuery("SELECT * FROM produtos WHERE produto =" + sel);
 
+            // Preenche os campos com os dados da Query
             while (rSet.next()) {
-                jTextFieldProduto.setText(rSet.getObject(1).toString());
-                jTextFieldNomeGen.setText(rSet.getObject(2).toString());
-                jTextFieldNomeMedicamento.setText(rSet.getObject(3).toString());
-                jTextFieldQuantidade.setText(rSet.getObject(4).toString());
-                //jTextFieldFaixaEtaria.setText(rSet.getObject(5).toString());
-                jTextFieldRegistoInfarmed.setText(rSet.getObject(6).toString());
-                //jTextFieldAreaTerapeutica.setText(rSet.getObject(7).toString());
-                //jTextFieldLote.setText(rSet.getObject(8).toString());
-                //jTextFieldDosagem.setText(rSet.getObject(9).toString());
-                //jTextFieldTemperatura.setText(rSet.getObject(10).toString());
-                jTextFieldPreco.setText(rSet.getObject(11).toString());
-                //jTextFieldAdministracao.setText(rSet.getObject(12).toString());
-                jTextFieldReceita.setText(rSet.getObject(13).toString());
-                jTextFieldGenerico.setText(rSet.getObject(14).toString());
-                //jTextFieldFormato.setText(rSet.getObject(15).toString());
+                jTextFieldProduto.setText(vazio(rSet.getString(1)));
+                jTextFieldNomeGen.setText(vazio(rSet.getString(2)));
+                jTextFieldNomeMedicamento.setText(vazio(rSet.getString(3)));
+                jTextFieldQuantidade.setText(vazio(rSet.getString(4)));
+                jTextFieldFaixaEtaria.setText(vazio(rSet.getString(5)));
+                jTextFieldRegistoInfarmed.setText(vazio(rSet.getString(6)));
+                jTextFieldAreaTerapeutica.setText(vazio(rSet.getString(7)));
+                jTextFieldLote.setText(vazio(rSet.getString(8)));
+                jTextFieldDosagem.setText(vazio(rSet.getString(9)));
+                jTextFieldTemperatura.setText(vazio(rSet.getString(10)));
+                jTextFieldPreco.setText(vazio(rSet.getString(11)));
+                jTextFieldAdministracao.setText(vazio(rSet.getString(12)));
+                jTextFieldReceita.setText(sim_nao(vazio(rSet.getString(13))));
+                jTextFieldGenerico.setText(sim_nao(vazio(rSet.getString(14))));
+                jTextFieldFormato.setText(vazio(rSet.getString(15)));
             }
+
+            
         } catch (SQLException ex) {
             Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        }
+        
 
     }//GEN-LAST:event_jListProdutosValueChanged
 
     /**
-    * @param args the command line arguments
-    */
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         try {
             Model.connect();
@@ -778,12 +782,12 @@ public class JPrincipal extends javax.swing.JFrame {
             Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
         java.awt.EventQueue.invokeLater(new Runnable() {
+
             public void run() {
                 new JPrincipal().setVisible(true);
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -866,4 +870,15 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldTemperatura;
     // End of variables declaration//GEN-END:variables
 
+    private String vazio(String str) {
+        if (str == null) {
+            return "<vazio>";
+        }
+        return str;
+    }
+
+    private String sim_nao(String str) {
+        if (str.equalsIgnoreCase("1")) return "Sim";
+        else return "Não";
+    }
 }
