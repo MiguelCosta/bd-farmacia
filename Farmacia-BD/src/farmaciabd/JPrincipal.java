@@ -742,35 +742,61 @@ public class JPrincipal extends javax.swing.JFrame {
 
     private void jListProdutosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListProdutosValueChanged
 
+        String sel = (String) jListProdutos.getSelectedValue();
         try {
-            String sel = (String) jListProdutos.getSelectedValue();
+            rSet = Negocio.selProduto(sel);
 
-            rSet = Model.stmt.executeQuery("SELECT * FROM produtos WHERE produto =" + sel);
-
-            // Preenche os campos com os dados da Query
             while (rSet.next()) {
-                jTextFieldProduto.setText(vazio(rSet.getString(1)));
-                jTextFieldNomeGen.setText(vazio(rSet.getString(2)));
-                jTextFieldNomeMedicamento.setText(vazio(rSet.getString(3)));
-                jTextFieldQuantidade.setText(vazio(rSet.getString(4)));
-                jTextFieldFaixaEtaria.setText(vazio(rSet.getString(5)));
-                jTextFieldRegistoInfarmed.setText(vazio(rSet.getString(6)));
-                jTextFieldAreaTerapeutica.setText(vazio(rSet.getString(7)));
-                jTextFieldLote.setText(vazio(rSet.getString(8)));
-                jTextFieldDosagem.setText(vazio(rSet.getString(9)));
-                jTextFieldTemperatura.setText(vazio(rSet.getString(10)));
-                jTextFieldPreco.setText(vazio(rSet.getString(11)));
-                jTextFieldAdministracao.setText(vazio(rSet.getString(12)));
-                jTextFieldReceita.setText(sim_nao(vazio(rSet.getString(13))));
-                jTextFieldGenerico.setText(sim_nao(vazio(rSet.getString(14))));
-                jTextFieldFormato.setText(vazio(rSet.getString(15)));
+            jTextFieldProduto.setText(vazio(rSet.getString(1)));
+            jTextFieldNomeGen.setText(vazio(rSet.getString(2)));
+            jTextFieldNomeMedicamento.setText(vazio(rSet.getString(3)));
+            jTextFieldQuantidade.setText(vazio(rSet.getString(4)));
+            jTextFieldFaixaEtaria.setText(vazio(rSet.getString(5)));
+            jTextFieldRegistoInfarmed.setText(vazio(rSet.getString(6)));
+            jTextFieldAreaTerapeutica.setText(vazio(rSet.getString(7)));
+            jTextFieldLote.setText(vazio(rSet.getString(8)));
+            jTextFieldDosagem.setText(vazio(rSet.getString(9)));
+            jTextFieldTemperatura.setText(vazio(rSet.getString(10)));
+            jTextFieldPreco.setText(vazio(rSet.getString(11)));
+            jTextFieldAdministracao.setText(vazio(rSet.getString(12)));
+            jTextFieldReceita.setText(sim_nao(vazio(rSet.getString(13))));
+            jTextFieldGenerico.setText(sim_nao(vazio(rSet.getString(14))));
+            jTextFieldFormato.setText(vazio(rSet.getString(15)));
             }
 
-            
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
+
+        /*
+            try {
+            String sel = (String) jListProdutos.getSelectedValue();
+            rSet = Model.stmt.executeQuery("SELECT * FROM produtos WHERE produto =" + sel);
+            // Preenche os campos com os dados da Query
+            while (rSet.next()) {
+            jTextFieldProduto.setText(vazio(rSet.getString(1)));
+            jTextFieldNomeGen.setText(vazio(rSet.getString(2)));
+            jTextFieldNomeMedicamento.setText(vazio(rSet.getString(3)));
+            jTextFieldQuantidade.setText(vazio(rSet.getString(4)));
+            jTextFieldFaixaEtaria.setText(vazio(rSet.getString(5)));
+            jTextFieldRegistoInfarmed.setText(vazio(rSet.getString(6)));
+            jTextFieldAreaTerapeutica.setText(vazio(rSet.getString(7)));
+            jTextFieldLote.setText(vazio(rSet.getString(8)));
+            jTextFieldDosagem.setText(vazio(rSet.getString(9)));
+            jTextFieldTemperatura.setText(vazio(rSet.getString(10)));
+            jTextFieldPreco.setText(vazio(rSet.getString(11)));
+            jTextFieldAdministracao.setText(vazio(rSet.getString(12)));
+            jTextFieldReceita.setText(sim_nao(vazio(rSet.getString(13))));
+            jTextFieldGenerico.setText(sim_nao(vazio(rSet.getString(14))));
+            jTextFieldFormato.setText(vazio(rSet.getString(15)));
+            }
+            } catch (SQLException ex) {
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+             */
+
+
 
     }//GEN-LAST:event_jListProdutosValueChanged
 
