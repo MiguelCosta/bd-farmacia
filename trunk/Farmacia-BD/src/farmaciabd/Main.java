@@ -4,6 +4,7 @@
  */
 package farmaciabd;
 
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -14,7 +15,12 @@ import oracle.jdbc.pool.OracleDataSource;
  */
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+        Model.connect();
+        JPrincipal jPrincipal = new JPrincipal();
+        JPrincipal.main(args);
+
+        /*
         Connection con;
         String url;
         String user;
@@ -45,5 +51,6 @@ public class Main {
             System.out.println("Ocorreu um erro" + e.getMessage());
             System.exit(0);
         }
+         * */
     }
 }
