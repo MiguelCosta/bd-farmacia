@@ -10,10 +10,13 @@
  */
 package farmaciabd;
 
+import java.awt.Frame;
+import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
 import java.sql.*;
+import javax.xml.crypto.dsig.keyinfo.KeyValue;
 
 /**
  *
@@ -48,7 +51,7 @@ public class JPrincipal extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jTextFieldProcura = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jButtonProcurar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jRadioButtonNameProd = new javax.swing.JRadioButton();
         jRadioButtonCodProd = new javax.swing.JRadioButton();
@@ -91,8 +94,8 @@ public class JPrincipal extends javax.swing.JFrame {
         jTabbedPane4 = new javax.swing.JTabbedPane();
         jPanel5 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
-        jRadioButtonCodPRo1 = new javax.swing.JRadioButton();
-        jRadioButtonNomeProd1 = new javax.swing.JRadioButton();
+        jRadioButtonCodProdStock = new javax.swing.JRadioButton();
+        jRadioButtonNomeProdStock = new javax.swing.JRadioButton();
         jPanel10 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -127,6 +130,12 @@ public class JPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jTabbedPane1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTabbedPane1KeyPressed(evt);
+            }
+        });
+
         try {
             rSet = Produtos.queryProdutos();
             DefaultListModel model = new DefaultListModel();
@@ -148,10 +157,16 @@ public class JPrincipal extends javax.swing.JFrame {
 
         jLabel16.setText("visualização em que está!");
 
-        jButton1.setText("Procurar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldProcura.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldProcuraKeyPressed(evt);
+            }
+        });
+
+        jButtonProcurar.setText("Procurar");
+        jButtonProcurar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonProcurarActionPerformed(evt);
             }
         });
 
@@ -167,7 +182,7 @@ public class JPrincipal extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jTextFieldProcura, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)
+                        .addComponent(jButtonProcurar)
                         .addGap(4, 4, 4))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -179,7 +194,7 @@ public class JPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldProcura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(jButtonProcurar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -192,6 +207,7 @@ public class JPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jRadioButtonCodProd.setSelected(true);
         jRadioButtonCodProd.setText("Código do Produto");
         jRadioButtonCodProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -433,17 +449,18 @@ public class JPrincipal extends javax.swing.JFrame {
 
         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder("Modo de Visualização"));
 
-        jRadioButtonCodPRo1.setText("Código do Produto");
-        jRadioButtonCodPRo1.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonCodProdStock.setSelected(true);
+        jRadioButtonCodProdStock.setText("Código do Produto");
+        jRadioButtonCodProdStock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonCodPRo1ActionPerformed(evt);
+                jRadioButtonCodProdStockActionPerformed(evt);
             }
         });
 
-        jRadioButtonNomeProd1.setText("Nome do Produto");
-        jRadioButtonNomeProd1.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonNomeProdStock.setText("Nome do Produto");
+        jRadioButtonNomeProdStock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonNomeProd1ActionPerformed(evt);
+                jRadioButtonNomeProdStockActionPerformed(evt);
             }
         });
 
@@ -452,9 +469,9 @@ public class JPrincipal extends javax.swing.JFrame {
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addComponent(jRadioButtonCodPRo1)
+                .addComponent(jRadioButtonCodProdStock)
                 .addGap(18, 18, 18)
-                .addComponent(jRadioButtonNomeProd1)
+                .addComponent(jRadioButtonNomeProdStock)
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
@@ -462,8 +479,8 @@ public class JPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButtonCodPRo1)
-                    .addComponent(jRadioButtonNomeProd1)))
+                    .addComponent(jRadioButtonCodProdStock)
+                    .addComponent(jRadioButtonNomeProdStock)))
         );
 
         jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder("Procura de Medicamentos"));
@@ -502,6 +519,15 @@ public class JPrincipal extends javax.swing.JFrame {
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
+        try {
+            rSet = Produtos.queryProdutos();
+            DefaultListModel model = new DefaultListModel();
+            while (rSet.next())
+            model.addElement(rSet.getObject(1).toString());
+
+            jListProdutosStocks.setModel(model);
+        }
+        catch (SQLException ex) { Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); }
         jScrollPane3.setViewportView(jListProdutosStocks);
 
         jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder("Gestão de Stock"));
@@ -700,17 +726,71 @@ public class JPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
+    /*
+     * Mostra o nome_medicamento dos produtos quando está activo
+     */
     private void jRadioButtonNameProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNameProdActionPerformed
         jRadioButtonCodProd.setSelected(false);
+
+        try {
+            rSet = Produtos.queryProdutos();
+            DefaultListModel model = new DefaultListModel();
+            while (rSet.next()) {
+                model.addElement(rSet.getObject(3).toString());
+            }
+            jListProdutos.setModel(model);
+        } catch (SQLException ex) {
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_jRadioButtonNameProdActionPerformed
 
+    /*
+     * Mostra o produto, ou seja, o codigo, de todos os produtos quando está activo
+     */
     private void jRadioButtonCodProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonCodProdActionPerformed
-         jRadioButtonNameProd.setSelected(false);
+        jRadioButtonNameProd.setSelected(false);
+
+        try {
+            rSet = Produtos.queryProdutos();
+            DefaultListModel model = new DefaultListModel();
+            while (rSet.next()) {
+                model.addElement(rSet.getObject(1).toString());
+            }
+            jListProdutos.setModel(model);
+        } catch (SQLException ex) {
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jRadioButtonCodProdActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    /*
+     * Procuro o(s) medicamento(s) que está em jTextFieldProcura conforme o modo de
+     * vista que está seleccionado (Codigo Produto ou nome do medicamento)
+     */
+    private void jButtonProcurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProcurarActionPerformed
+        String sel = jTextFieldProcura.getText();
+        DefaultListModel model = new DefaultListModel();
+
+        try {
+            if (jRadioButtonNameProd.isSelected()) {
+                rSet = Negocio.selProdutoNome(sel);
+                while (rSet.next()) {
+                    model.addElement(rSet.getObject(3).toString());
+                }
+                jListProdutos.setModel(model);
+            } else {
+                rSet = Negocio.selProduto(sel);
+                while (rSet.next()) {
+                    model.addElement(rSet.getObject(1).toString());
+                }
+                jListProdutos.setModel(model);
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButtonProcurarActionPerformed
 
     private void jTextFieldLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldLoteActionPerformed
         // TODO add your handling code here:
@@ -724,81 +804,108 @@ public class JPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldReceitaActionPerformed
 
-    private void jRadioButtonNomeProd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNomeProd1ActionPerformed
-        jRadioButtonCodPRo1.setSelected(false);
-    }//GEN-LAST:event_jRadioButtonNomeProd1ActionPerformed
+    private void jRadioButtonNomeProdStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNomeProdStockActionPerformed
+        jRadioButtonCodProdStock.setSelected(false);
+        jRadioButtonCodProd.setSelected(false);
+        jRadioButtonNameProd.setSelected(true);
+
+        try {
+            rSet = Produtos.queryProdutos();
+            DefaultListModel model = new DefaultListModel();
+            while (rSet.next()) {
+                model.addElement(rSet.getObject(3).toString());
+            }
+            jListProdutosStocks.setModel(model);
+        } catch (SQLException ex) {
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jRadioButtonNomeProdStockActionPerformed
 
     private void jRadioButtonAdicionarQActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonAdicionarQActionPerformed
         jRadioButtonRemoverQ.setSelected(false);
     }//GEN-LAST:event_jRadioButtonAdicionarQActionPerformed
 
-    private void jRadioButtonCodPRo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonCodPRo1ActionPerformed
-       jRadioButtonNomeProd1.setSelected(false);
-    }//GEN-LAST:event_jRadioButtonCodPRo1ActionPerformed
+    private void jRadioButtonCodProdStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonCodProdStockActionPerformed
+        jRadioButtonNomeProdStock.setSelected(false);
+        jRadioButtonCodProd.setSelected(true);
+        jRadioButtonNameProd.setSelected(false);
+
+        try {
+            rSet = Produtos.queryProdutos();
+            DefaultListModel model = new DefaultListModel();
+            while (rSet.next()) {
+                model.addElement(rSet.getObject(1).toString());
+            }
+            jListProdutosStocks.setModel(model);
+        } catch (SQLException ex) {
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jRadioButtonCodProdStockActionPerformed
 
     private void jRadioButtonRemoverQActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonRemoverQActionPerformed
         jRadioButtonAdicionarQ.setSelected(false);
     }//GEN-LAST:event_jRadioButtonRemoverQActionPerformed
 
     private void jListProdutosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListProdutosValueChanged
-
         String sel = (String) jListProdutos.getSelectedValue();
+
         try {
-            rSet = Negocio.selProduto(sel);
+            if (jRadioButtonNameProd.isSelected()) {
+                rSet = Negocio.selProdutoNome(sel);
+            } else {
+                rSet = Negocio.selProduto(sel);
+            }
 
             while (rSet.next()) {
-            jTextFieldProduto.setText(vazio(rSet.getString(1)));
-            jTextFieldNomeGen.setText(vazio(rSet.getString(2)));
-            jTextFieldNomeMedicamento.setText(vazio(rSet.getString(3)));
-            jTextFieldQuantidade.setText(vazio(rSet.getString(4)));
-            jTextFieldFaixaEtaria.setText(vazio(rSet.getString(5)));
-            jTextFieldRegistoInfarmed.setText(vazio(rSet.getString(6)));
-            jTextFieldAreaTerapeutica.setText(vazio(rSet.getString(7)));
-            jTextFieldLote.setText(vazio(rSet.getString(8)));
-            jTextFieldDosagem.setText(vazio(rSet.getString(9)));
-            jTextFieldTemperatura.setText(vazio(rSet.getString(10)));
-            jTextFieldPreco.setText(vazio(rSet.getString(11)));
-            jTextFieldAdministracao.setText(vazio(rSet.getString(12)));
-            jTextFieldReceita.setText(sim_nao(vazio(rSet.getString(13))));
-            jTextFieldGenerico.setText(sim_nao(vazio(rSet.getString(14))));
-            jTextFieldFormato.setText(vazio(rSet.getString(15)));
+                jTextFieldProduto.setText(vazio(rSet.getString(1)));
+                jTextFieldNomeGen.setText(vazio(rSet.getString(2)));
+                jTextFieldNomeMedicamento.setText(vazio(rSet.getString(3)));
+                jTextFieldQuantidade.setText(vazio(rSet.getString(4)));
+                jTextFieldFaixaEtaria.setText(vazio(rSet.getString(5)));
+                jTextFieldRegistoInfarmed.setText(vazio(rSet.getString(6)));
+                jTextFieldAreaTerapeutica.setText(vazio(rSet.getString(7)));
+                jTextFieldLote.setText(vazio(rSet.getString(8)));
+                jTextFieldDosagem.setText(vazio(rSet.getString(9)));
+                jTextFieldTemperatura.setText(vazio(rSet.getString(10)));
+                jTextFieldPreco.setText(vazio(rSet.getString(11)));
+                jTextFieldAdministracao.setText(vazio(rSet.getString(12)));
+                jTextFieldReceita.setText(sim_nao(vazio(rSet.getString(13))));
+                jTextFieldGenerico.setText(sim_nao(vazio(rSet.getString(14))));
+                jTextFieldFormato.setText(vazio(rSet.getString(15)));
             }
 
         } catch (Exception ex) {
             Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-
-        /*
-            try {
-            String sel = (String) jListProdutos.getSelectedValue();
-            rSet = Model.stmt.executeQuery("SELECT * FROM produtos WHERE produto =" + sel);
-            // Preenche os campos com os dados da Query
-            while (rSet.next()) {
-            jTextFieldProduto.setText(vazio(rSet.getString(1)));
-            jTextFieldNomeGen.setText(vazio(rSet.getString(2)));
-            jTextFieldNomeMedicamento.setText(vazio(rSet.getString(3)));
-            jTextFieldQuantidade.setText(vazio(rSet.getString(4)));
-            jTextFieldFaixaEtaria.setText(vazio(rSet.getString(5)));
-            jTextFieldRegistoInfarmed.setText(vazio(rSet.getString(6)));
-            jTextFieldAreaTerapeutica.setText(vazio(rSet.getString(7)));
-            jTextFieldLote.setText(vazio(rSet.getString(8)));
-            jTextFieldDosagem.setText(vazio(rSet.getString(9)));
-            jTextFieldTemperatura.setText(vazio(rSet.getString(10)));
-            jTextFieldPreco.setText(vazio(rSet.getString(11)));
-            jTextFieldAdministracao.setText(vazio(rSet.getString(12)));
-            jTextFieldReceita.setText(sim_nao(vazio(rSet.getString(13))));
-            jTextFieldGenerico.setText(sim_nao(vazio(rSet.getString(14))));
-            jTextFieldFormato.setText(vazio(rSet.getString(15)));
-            }
-            } catch (SQLException ex) {
-            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-            }
-             */
-
-
-
     }//GEN-LAST:event_jListProdutosValueChanged
+
+    /*
+     * Quando na caixa de procura se clica enter na caixa de texto ele faz a procura
+     * Quando clica F1 aparece a ajuda da procura
+     */
+    private void jTextFieldProcuraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldProcuraKeyPressed
+        int key = evt.getKeyCode();
+        if (key == KeyEvent.VK_ENTER) {
+            transferFocus();
+            jButtonProcurarActionPerformed(null);
+            //System.out.println("ola");
+        } else {
+            //System.out.println("ola2");
+        }
+        if (key == KeyEvent.VK_F1) {
+            JOptionPane.showMessageDialog(new Frame(), MensagensAjuda.ajudaProcura(), "Ajuda Procura", JOptionPane.NO_OPTION);
+        }
+
+    }//GEN-LAST:event_jTextFieldProcuraKeyPressed
+
+    private void jTabbedPane1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTabbedPane1KeyPressed
+        int key = evt.getKeyCode();
+        if (key == KeyEvent.VK_F1) {
+            JOptionPane.showMessageDialog(new Frame(), MensagensAjuda.ajudaGeral(), "Ajuda", JOptionPane.NO_OPTION);
+        }
+
+    }//GEN-LAST:event_jTabbedPane1KeyPressed
 
     /**
      * @param args the command line arguments
@@ -819,9 +926,9 @@ public class JPrincipal extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButtonProcurar;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
@@ -866,10 +973,10 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JRadioButton jRadioButtonAdicionarQ;
-    private javax.swing.JRadioButton jRadioButtonCodPRo1;
     private javax.swing.JRadioButton jRadioButtonCodProd;
+    private javax.swing.JRadioButton jRadioButtonCodProdStock;
     private javax.swing.JRadioButton jRadioButtonNameProd;
-    private javax.swing.JRadioButton jRadioButtonNomeProd1;
+    private javax.swing.JRadioButton jRadioButtonNomeProdStock;
     private javax.swing.JRadioButton jRadioButtonRemoverQ;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -910,7 +1017,10 @@ public class JPrincipal extends javax.swing.JFrame {
     }
 
     private String sim_nao(String str) {
-        if (str.equalsIgnoreCase("1")) return "Sim";
-        else return "Não";
+        if (str.equalsIgnoreCase("1")) {
+            return "Sim";
+        } else {
+            return "Não";
+        }
     }
 }

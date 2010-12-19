@@ -74,6 +74,9 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
+      <Events>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTabbedPane1KeyPressed"/>
+      </Events>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
@@ -168,7 +171,7 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jTextFieldProcura" pref="231" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButtonProcurar" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -184,7 +187,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jTextFieldProcura" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonProcurar" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -203,13 +206,16 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldProcura">
+                  <Events>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldProcuraKeyPressed"/>
+                  </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton1">
+                <Component class="javax.swing.JButton" name="jButtonProcurar">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Procurar"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonProcurarActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -257,6 +263,7 @@
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="jRadioButtonCodProd">
                   <Properties>
+                    <Property name="selected" type="boolean" value="true"/>
                     <Property name="text" type="java.lang.String" value="C&#xf3;digo do Produto"/>
                   </Properties>
                   <Events>
@@ -661,9 +668,9 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jRadioButtonCodPRo1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jRadioButtonCodProdStock" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jRadioButtonNomeProd1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jRadioButtonNomeProdStock" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="25" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -673,28 +680,29 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jRadioButtonCodPRo1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButtonNomeProd1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButtonCodProdStock" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButtonNomeProdStock" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JRadioButton" name="jRadioButtonCodPRo1">
+                <Component class="javax.swing.JRadioButton" name="jRadioButtonCodProdStock">
                   <Properties>
+                    <Property name="selected" type="boolean" value="true"/>
                     <Property name="text" type="java.lang.String" value="C&#xf3;digo do Produto"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonCodPRo1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonCodProdStockActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButtonNomeProd1">
+                <Component class="javax.swing.JRadioButton" name="jRadioButtonNomeProdStock">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Nome do Produto"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonNomeProd1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonNomeProdStockActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -775,6 +783,9 @@
                       <StringArray count="0"/>
                     </Property>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try {&#xa;    rSet = Produtos.queryProdutos();&#xa;    DefaultListModel model = new DefaultListModel();&#xa;        while (rSet.next())&#xa;            model.addElement(rSet.getObject(1).toString());&#xa;    &#xa;    jListProdutosStocks.setModel(model);&#xa;}&#xa;catch (SQLException ex) { Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); }"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
