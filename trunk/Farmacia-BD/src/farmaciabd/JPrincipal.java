@@ -90,8 +90,6 @@ public class JPrincipal extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jListConstraindicacoes = new javax.swing.JList();
-        jTabbedPane3 = new javax.swing.JTabbedPane();
-        jTabbedPane4 = new javax.swing.JTabbedPane();
         jPanel5 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jRadioButtonCodProdStock = new javax.swing.JRadioButton();
@@ -411,8 +409,6 @@ public class JPrincipal extends javax.swing.JFrame {
         );
 
         jTabbedPaneFichaProduto.addTab("Contraindicações", jPanel6);
-        jTabbedPaneFichaProduto.addTab("Constiuintes", jTabbedPane3);
-        jTabbedPaneFichaProduto.addTab("Lote", jTabbedPane4);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -792,18 +788,6 @@ public class JPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonProcurarActionPerformed
 
-    private void jTextFieldLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldLoteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldLoteActionPerformed
-
-    private void jTextFieldTemperaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTemperaturaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldTemperaturaActionPerformed
-
-    private void jTextFieldReceitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldReceitaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldReceitaActionPerformed
-
     private void jRadioButtonNomeProdStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNomeProdStockActionPerformed
         jRadioButtonCodProdStock.setSelected(false);
         jRadioButtonCodProd.setSelected(false);
@@ -907,10 +891,22 @@ public class JPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jTabbedPane1KeyPressed
 
+    private void jTextFieldReceitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldReceitaActionPerformed
+        // TODO add your handling code here:
+}//GEN-LAST:event_jTextFieldReceitaActionPerformed
+
+    private void jTextFieldLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldLoteActionPerformed
+        // TODO add your handling code here:
+}//GEN-LAST:event_jTextFieldLoteActionPerformed
+
+    private void jTextFieldTemperaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTemperaturaActionPerformed
+        // TODO add your handling code here:
+}//GEN-LAST:event_jTextFieldTemperaturaActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws Exception {
         try {
             Model.connect();
         } catch (ClassNotFoundException ex) {
@@ -918,6 +914,10 @@ public class JPrincipal extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        //TESTE de abrir doc
+        Negocio.abrirPDF("C:/BD_Farmacia_docs/Sistema_Nervoso_Central.pdf");
+
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
@@ -982,8 +982,6 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTabbedPane jTabbedPane3;
-    private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTabbedPane jTabbedPaneFichaProduto;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField19;
