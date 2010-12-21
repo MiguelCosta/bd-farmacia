@@ -43,4 +43,10 @@ public class Negocio {
 
         return rSet;
     }
+
+    public static void abrirPDF(String sel) throws Exception {
+        //C:/BD_Farmacia_docs/Sistema_Nervoso_Central.pdf
+        Runtime.getRuntime().exec("cmd.exe /c start "+sel);
+    }
+
 }
