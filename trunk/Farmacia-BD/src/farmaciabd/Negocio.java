@@ -155,4 +155,42 @@ public class Negocio {
         }
         return r;
     }
+
+
+    /*
+     * Procura pelo id o Formato de um produto e devolve o nome
+     */
+    public static String procurarFormatoPorID (String sel) throws Exception{
+        String sql = "SELECT * FROM formatos WHERE formato = '";
+        ResultSet rSet = null;
+        String r = null;
+
+        //if (sel.equalsIgnoreCase("<vazio>")) return "0";
+        rSet = Model.stmt.executeQuery(sql + sel + "'");
+
+        while (rSet.next()) {
+            r = rSet.getString(2);
+            //System.out.println("resultado: " + r);
+        }
+        return r;
+    }
+
+    /*
+     * Procura pelo id o Formato de um produto e devolve o nome
+     */
+    public static String procurarFaixaEtariaPorID (String sel) throws Exception{
+        String sql = "SELECT * FROM faixas_etarias WHERE faixa_etaria = '";
+        ResultSet rSet = null;
+        String r = null;
+
+        //if (sel.equalsIgnoreCase("<vazio>")) return "0";
+        rSet = Model.stmt.executeQuery(sql + sel + "'");
+
+        while (rSet.next()) {
+            r = rSet.getString(2);
+            //System.out.println("resultado: " + r);
+        }
+        return r;
+    }
+
 }
