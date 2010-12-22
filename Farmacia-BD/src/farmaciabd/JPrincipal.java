@@ -957,11 +957,12 @@ public class JPrincipal extends javax.swing.JFrame {
             jTextFieldAreaTerapeuticaMore.setText(Negocio.procuraAreaTerapeuticaPorID(areaTerapeutica));
 
             // Desactiva o butão de abrir pdf
-            if (areaTerapeutica.equals("0") || areaTerapeutica == null) {
+            if (areaTerapeutica.equals("0") || areaTerapeutica == null || areaTerapeutica.equals("")) {
                 jButtonAreaTerapeuticaAbrirPDF.setEnabled(false);
             } else {
                 jButtonAreaTerapeuticaAbrirPDF.setEnabled(true);
             }
+            System.out.println("b:" +areaTerapeutica);
 
         } catch (Exception ex) {
             Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
