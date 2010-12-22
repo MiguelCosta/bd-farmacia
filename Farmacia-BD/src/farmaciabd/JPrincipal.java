@@ -788,7 +788,8 @@ public class JPrincipal extends javax.swing.JFrame {
             rSet = Produtos.queryProdutos();
             DefaultListModel model = new DefaultListModel();
             while (rSet.next()) {
-                model.addElement(rSet.getObject(3).toString());
+                model.addElement(rSet.getString(3));
+                //model.addElement(rSet.getObject(3).toString());
             }
             jListProdutos.setModel(model);
         } catch (SQLException ex) {
@@ -807,7 +808,8 @@ public class JPrincipal extends javax.swing.JFrame {
             rSet = Produtos.queryProdutos();
             DefaultListModel model = new DefaultListModel();
             while (rSet.next()) {
-                model.addElement(rSet.getObject(1).toString());
+                model.addElement(rSet.getString(1));
+               // model.addElement(rSet.getObject(1).toString());
             }
             jListProdutos.setModel(model);
         } catch (SQLException ex) {
@@ -888,12 +890,13 @@ public class JPrincipal extends javax.swing.JFrame {
     private void jListProdutosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListProdutosValueChanged
         String sel = (String) jListProdutos.getSelectedValue();
         String areaTerapeutica = null;
+        String administracao = null;
 
         try {
             if (jRadioButtonNameProd.isSelected()) {
-                rSet = Negocio.selProdutoNome(sel);
+                rSet = Negocio.selProdutoNome(sel); //procura por nome
             } else {
-                rSet = Negocio.selProduto(sel);
+                rSet = Negocio.selProduto(sel);     // procura por id
             }
 
             while (rSet.next()) {
@@ -903,19 +906,20 @@ public class JPrincipal extends javax.swing.JFrame {
                 jTextFieldQuantidade.setText(vazio(rSet.getString(4)));
                 jTextFieldFaixaEtaria.setText(vazio(rSet.getString(5)));
                 jTextFieldRegistoInfarmed.setText(vazio(rSet.getString(6)));
-                areaTerapeutica = vazio(rSet.getString(7));
-                //jTextFieldAreaTerapeutica.setText(vazio(rSet.getString(7)));
+                areaTerapeutica = vazio(rSet.getString(7)); //devolde o id
                 jTextFieldLote.setText(vazio(rSet.getString(8)));
                 jTextFieldDosagem.setText(vazio(rSet.getString(9)));
                 jTextFieldTemperatura.setText(vazio(rSet.getString(10)));
                 jTextFieldPreco.setText(vazio(rSet.getString(11)));
-                jTextFieldAdministracao.setText(vazio(rSet.getString(12)));
+                administracao = vazio(rSet.getString(12)); // devolve o id
                 jTextFieldReceita.setText(sim_nao(vazio(rSet.getString(13))));
                 jTextFieldGenerico.setText(sim_nao(vazio(rSet.getString(14))));
                 jTextFieldFormato.setText(vazio(rSet.getString(15)));
             }
-
+            
+            jTextFieldAdministracao.setText(Negocio.procuraAdministracaoPorID(administracao));
             jTextFieldAreaTerapeutica.setText(Negocio.procuraAreaTerapeuticaPorID(areaTerapeutica));
+
 
             //Separador mais informações
             jTextFieldAreaTerapeuticaMore.setText(Negocio.procuraAreaTerapeuticaPorID(areaTerapeutica));
@@ -950,7 +954,7 @@ public class JPrincipal extends javax.swing.JFrame {
         if (key == KeyEvent.VK_F1) {
             JOptionPane.showMessageDialog(new Frame(), MensagensAjuda.ajudaGeral(), "Ajuda", JOptionPane.NO_OPTION);
         }
-        
+
     }//GEN-LAST:event_jTabbedPane1KeyPressed
 
     private void jTextFieldReceitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldReceitaActionPerformed
