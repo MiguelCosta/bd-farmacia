@@ -12,6 +12,7 @@ package farmaciabd;
 
 import java.awt.Frame;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
@@ -942,32 +943,26 @@ public class JPrincipal extends javax.swing.JFrame {
             DefaultListModel modelConstituintes = new DefaultListModel();
             while (rSetConstituintes.next()) {
                 modelConstituintes.addElement(rSetConstituintes.getObject(1).toString());
-                
-            }            
-            jListConstituintes.setModel(modelConstituintes);
-/*
-            DefaultListModel modelConstituintesNome = new DefaultListModel();
-            while(!modelConstituintes.isEmpty()){
-                
+
             }
-            */
+            jListConstituintes.setModel(modelConstituintes);
+
             /****************************
              * Separador mais informações
              ****************************/
             jTextFieldAreaTerapeuticaMore.setText(Negocio.procuraAreaTerapeuticaPorID(areaTerapeutica));
 
             // Desactiva o butão de abrir pdf
-            if (areaTerapeutica.equals("0") || areaTerapeutica == null || areaTerapeutica.equals("")) {
+            if (areaTerapeutica.equals("0") || areaTerapeutica == null) {
                 jButtonAreaTerapeuticaAbrirPDF.setEnabled(false);
             } else {
                 jButtonAreaTerapeuticaAbrirPDF.setEnabled(true);
             }
-            System.out.println("b:" +areaTerapeutica);
+            System.out.println("b:" + areaTerapeutica);
 
         } catch (Exception ex) {
             Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+        } 
     }//GEN-LAST:event_jListProdutosValueChanged
 
     /*
@@ -986,6 +981,7 @@ public class JPrincipal extends javax.swing.JFrame {
         if (key == KeyEvent.VK_F1) {
             JOptionPane.showMessageDialog(new Frame(), MensagensAjuda.ajudaProcura(), "Ajuda Procura", JOptionPane.NO_OPTION);
         }
+        
 
     }//GEN-LAST:event_jTextFieldProcuraKeyPressed
 
