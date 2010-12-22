@@ -132,11 +132,25 @@ public class Negocio {
         String r = null;
 
         //if (sel.equalsIgnoreCase("<vazio>")) return "0";
-
         rSet = Model.stmt.executeQuery(sql + sel + "'");
 
         while (rSet.next()) {
             r = rSet.getString(1);
+            //System.out.println("resultado: " + r);
+        }
+        return r;
+    }
+
+    public static String procurarTemperaturaPorID (String sel) throws Exception{
+        String sql = "SELECT * FROM temperaturas WHERE temperatura = '";
+        ResultSet rSet = null;
+        String r = null;
+
+        //if (sel.equalsIgnoreCase("<vazio>")) return "0";
+        rSet = Model.stmt.executeQuery(sql + sel + "'");
+
+        while (rSet.next()) {
+            r = rSet.getString(2);
             //System.out.println("resultado: " + r);
         }
         return r;
