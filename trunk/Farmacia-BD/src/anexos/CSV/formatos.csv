@@ -1,0 +1,216 @@
+FORMATO;NOME
+1;Colirio, comprimido e solvente para solucao
+2;Comprimido de libertacao prolongada revestido por pelicula
+3;Concentrado para solucao injectavel ou para perfusao
+4;Emplastro para teste cutaneo
+5;Esponja medicamentosa
+6;Globulos
+7;Granulado para solucao oral ou rectal
+8;Implante, po para suspensao
+9;Pelicula orodispersivel
+10;Po e solvente para solucao injectavel ou para perfusao
+11;Po e solvente para solucao para inalacao por nebulizacao
+12;Po e solvente para solucao para uso intravesical
+13;Po e veiculo para suspensao para uso intravesical
+14;Po para solucao injectavel ou para solucao para inalacao por nebulizacao
+15;Po para solucao ou para suspensao injectavel
+16;Po para solucao vaginal
+17;Po para suspensao para implantacao
+18;Po para suspensao para perfusao
+19;Solucao injectavel ou concentrado para solucao para perfusao
+20;Solucao injectavel ou para perfusao
+21;Solucao para dispersao injectavel ou para perfusao
+22;Solucao para hemodialise, hemodiafiltracao e hemofiltracao
+23;Solucao para perfusao e para solucao oral
+24;Solucao para pulverizacao bucal ou nasal
+25;Solucao para teste cutaneo em picada
+26;Aditivo Cutaneo
+27;Aditivo para banho
+28;Capsula
+29;Capsula de libertacao modificada
+30;Capsula de libertacao prolongada
+31;Capsula gastrorresistente
+32;Capsula mole
+33;Capsula mole vaginal
+34;Cha medicinal
+35;Cha medicinal instantaneo
+36;Champo
+37;Cola para tecidos
+38;Colirio de libertacao prolongada
+39;Colirio, solucao
+40;Colirio, suspensao
+41;Comprimido
+42;Comprimido + Suspensao Oral
+43;Comprimido bucal
+44;Comprimido bucal mucoadesivo
+45;Comprimido de libertacao modificada
+46;Comprimido de libertacao prolongada
+47;Comprimido dispersivel
+48;Comprimido dispersivel ou para mastigar
+49;Comprimido efervescente
+50;Comprimido gastrorresistente
+51;Comprimido orodispersivel
+52;Comprimido para chupar
+53;Comprimido para mastigar
+54;Comprimido para suspensao rectal
+55;Comprimido revestido
+56;Comprimido revestido por pelicula
+57;Comprimido solúvel
+58;Comprimido sublingual
+59;Comprimido vaginal
+60;Concentrado e solvente para solucao para perfusao
+61;Concentrado para solucao cutanea
+62;Concentrado para solucao injectavel
+63;Concentrado para solucao injectavel ou para perfusao
+64;Concentrado para solucao oral
+65;Concentrado para solucao para perfusao
+66;Conjunto para preparacoes radiofarmaceuticas
+67;Creme
+68;Creme rectal
+69;Creme vaginal
+70;Creme vaginal + ovulo
+71;Dispositivo de libertacao intra-uterino
+72;Emplastro medicamentoso
+73;Emulsao cutanea
+74;Emulsao e suspensao para emulsao injectavel
+75;Emulsao injectavel
+76;Emulsao injectavel ou para perfusao
+77;Emulsao oral
+78;Emulsao para perfusao
+79;Espuma cutanea
+80;Espuma rectal
+81;Espuma vaginal
+82;Gas medicinal comprimido
+83;Gas medicinal criogenico
+84;Gas medicinal liquefeito
+85;Gas para inalacao
+86;Gel
+87;Gel bucal
+88;Gel dental
+89;Gel endocervical
+90;Gel intestinal
+91;Gel nasal
+92;Gel oftalmico
+93;Gel oral
+94;Gel periodontal
+95;Gel rectal
+96;Gel uretral
+97;Gel vaginal
+98;Gerador de radionuclidos
+99;Goma para mascar medicamentosa
+100;Gotas auriculares, solucao
+101;Gotas auriculares, suspensao
+102;Gotas nasais, solucao
+103;Gotas orais, solucao
+104;Gotas orais, suspensao
+105;Granulado
+106;Granulado de libertacao modificada
+107;Granulado de libertacao prolongada
+108;Granulado de libertacao prolongada para suspensao oral
+109;Granulado efervescente
+110;Granulado gastrorresistente
+111;Granulado gastrorresistente para suspensao oral
+112;Granulado para solucao oral
+113;Granulado para suspensao oral
+114;Implante
+115;Implante em cadeia
+116;Implante intravitreo em aplicador
+117;Inserto dental
+118;Inserto oftalmico
+119;Lapis uretral
+120;Liofilizado oral
+121;Liofilizado para solucao para perfusao
+122;Liquido cutaneo
+123;Liquido para inalacao por vaporizacao
+124;Liquido para irrigacao vesical
+125;ovulo
+126;Pasta bucal
+127;Pasta cutanea
+128;Pasta dentifrica
+129;Pasta oral
+130;Pastilha
+131;Pastilha mole
+132;Penso impregnado
+133;Po cutaneo
+134;Po e solucao para solucao injectavel
+135;Po e solvente para cola para tecidos
+136;Po e solvente para concentrado para solucao para perfusao
+137;Po e solvente para solucao injectavel
+138;Po e solvente para solucao injectavel em seringa pre-cheia
+139;Po e solvente para solucao oral
+140;Po e solvente para solucao para perfusao
+141;Po e suspensao para suspensao injectavel
+142;Po e veiculo para dispersao injectavel
+143;Po e veiculo para suspensao injectavel
+144;Po e veiculo para suspensao injectavel de libertacao prolongada
+145;Po e veiculo para suspensao oral
+146;Po efervescente
+147;Po oral
+148;Po para concentrado para solucao injectavel ou para perfusao
+149;Po para concentrado para solucao para perfusao
+150;Po para inalacao
+151;Po para inalacao em recipiente unidose
+152;Po para inalacao, capsula
+153;Po para liquido para irrigacao vesical
+154;Po para pulverizacao cutanea
+155;Po para solucao injectavel
+156;Po para solucao injectavel ou para perfusao
+157;Po para solucao oral
+158;Po para solucao para inalacao por nebulizacao
+159;Po para solucao para perfusao
+160;Po para suspensao injectavel
+161;Po para suspensao injectavel + Suspensao injectavel
+162;Po para suspensao oral
+163;Po para suspensao oral ou rectal
+164;Po periodontal
+165;Pomada
+166;Pomada nasal
+167;Pomada oftalmica
+168;Pomada rectal
+169;Precursor radiofarmacêutico
+170;Sistema de libertacao vaginal
+171;Sistema transdermico
+172;Solucao bucal
+173;Solucao cutanea
+174;Solucao dental
+175;Solucao gastroenterica
+176;Solucao gengival
+177;Solucao injectavel
+178;Solucao injectavel em caneta pre-cheia
+179;Solucao injectavel em seringa pre-cheia
+180;Solucao oral
+181;Solucao oral + Po para solucao oral
+182;Solucao para conservacao de orgaos
+183;Solucao para dialise peritoneal
+184;Solucao para gargarejar
+185;Solucao para hemodialise
+186;Solucao para hemodialise ou hemofiltracao
+187;Solucao para hemofiltracao
+188;Solucao para inalacao por nebulizacao
+189;Solucao para inalacao por vaporizacao
+190;Solucao para lavagem da boca
+191;Solucao para lavagem oftalmica
+192;Solucao para modificacao de fraccao sanguinea
+193;Solucao para perfusao
+194;Solucao para pulverizacao bucal
+195;Solucao para pulverizacao cutanea
+196;Solucao para pulverizacao nasal
+197;Solucao pressurizada para inalacao
+198;Solucao rectal
+199;Solucao vaginal
+200;Solucoes para cola para tecidos
+201;Solvente/Veiculo para uso parenterico
+202;Supositorio
+203;Suspensao cutanea
+204;Suspensao dental
+205;Suspensao injectavel
+206;Suspensao injectavel em seringa pre-cheia
+207;Suspensao oral
+208;Suspensao para implantacao
+209;Suspensao para inalacao por nebulizacao
+210;Suspensao para instilacao endotraqueobronquica
+211;Suspensao para pulverizacao nasal
+212;Suspensao pressurizada para inalacao
+213;Suspensao rectal
+214;Verniz para as unhas medicamentoso
+215;Xarope
