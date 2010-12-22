@@ -1,4 +1,6 @@
 
+INSERT INTO areas_terapeuticas VALUES ('0','Não Especificado',null);
+
 INSERT INTO areas_terapeuticas VALUES ('1','Medicamentos Anti-infecciosos','C:/BD_Farmacia_docs/1.pdf');
 
 INSERT INTO areas_terapeuticas VALUES ('2','Sistema Nervoso Central','C:/BD_Farmacia_docs/2.pdf');
