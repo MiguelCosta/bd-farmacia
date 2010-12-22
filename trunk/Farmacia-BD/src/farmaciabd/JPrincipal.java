@@ -809,7 +809,7 @@ public class JPrincipal extends javax.swing.JFrame {
             DefaultListModel model = new DefaultListModel();
             while (rSet.next()) {
                 model.addElement(rSet.getString(1));
-               // model.addElement(rSet.getObject(1).toString());
+                // model.addElement(rSet.getObject(1).toString());
             }
             jListProdutos.setModel(model);
         } catch (SQLException ex) {
@@ -892,6 +892,8 @@ public class JPrincipal extends javax.swing.JFrame {
         String areaTerapeutica = null;
         String administracao = null;
         String temperatura = null;
+        String formato = null;
+        String faixa_etaria = null;
 
         try {
             if (jRadioButtonNameProd.isSelected()) {
@@ -905,24 +907,27 @@ public class JPrincipal extends javax.swing.JFrame {
                 jTextFieldNomeGen.setText(vazio(rSet.getString(2)));
                 jTextFieldNomeMedicamento.setText(vazio(rSet.getString(3)));
                 jTextFieldQuantidade.setText(vazio(rSet.getString(4)));
-                jTextFieldFaixaEtaria.setText(vazio(rSet.getString(5)));
+                faixa_etaria = vazio(rSet.getString(5));
+                
                 jTextFieldRegistoInfarmed.setText(vazio(rSet.getString(6)));
                 areaTerapeutica = vazio(rSet.getString(7)); //devolde o id
                 jTextFieldLote.setText(vazio(rSet.getString(8)));
                 jTextFieldDosagem.setText(vazio(rSet.getString(9)));
-                temperatura = vazio(rSet.getString(10));           
+                temperatura = vazio(rSet.getString(10));
                 jTextFieldPreco.setText(vazio(rSet.getString(11)));
                 administracao = vazio(rSet.getString(12)); // devolve o id
                 jTextFieldReceita.setText(sim_nao(vazio(rSet.getString(13))));
                 jTextFieldGenerico.setText(sim_nao(vazio(rSet.getString(14))));
-                jTextFieldFormato.setText(vazio(rSet.getString(15)));
+                formato = vazio(rSet.getString(15));
+                
             }
-            
+
             jTextFieldAdministracao.setText(Negocio.procuraAdministracaoPorID(administracao));
             jTextFieldAreaTerapeutica.setText(Negocio.procuraAreaTerapeuticaPorID(areaTerapeutica));
             jTextFieldTemperatura.setText(Negocio.procurarTemperaturaPorID(temperatura));
-
-
+            jTextFieldFormato.setText(Negocio.procurarFormatoPorID(formato));
+            jTextFieldFaixaEtaria.setText(Negocio.procurarFaixaEtariaPorID(faixa_etaria));
+            
             //Separador mais informações
             jTextFieldAreaTerapeuticaMore.setText(Negocio.procuraAreaTerapeuticaPorID(areaTerapeutica));
 
@@ -951,6 +956,9 @@ public class JPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jTextFieldProcuraKeyPressed
 
+    /*
+     * Quando abre o programa e clica em F1 aparece a ajuda
+     */
     private void jTabbedPane1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTabbedPane1KeyPressed
         int key = evt.getKeyCode();
         if (key == KeyEvent.VK_F1) {
@@ -971,6 +979,9 @@ public class JPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
 }//GEN-LAST:event_jTextFieldTemperaturaActionPerformed
 
+    /*
+     * Clica no butão e abre o PDF correspondente à Área Terapeutica
+     */
     private void jButtonAreaTerapeuticaAbrirPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAreaTerapeuticaAbrirPDFActionPerformed
         String sel = jTextFieldAreaTerapeuticaMore.getText();
         if (sel.equalsIgnoreCase("<vazio>")) {
@@ -984,9 +995,6 @@ public class JPrincipal extends javax.swing.JFrame {
                 Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-
-
-
     }//GEN-LAST:event_jButtonAreaTerapeuticaAbrirPDFActionPerformed
 
     private void jTextFieldAreaTerapeuticaMoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAreaTerapeuticaMoreActionPerformed
