@@ -891,6 +891,7 @@ public class JPrincipal extends javax.swing.JFrame {
         String sel = (String) jListProdutos.getSelectedValue();
         String areaTerapeutica = null;
         String administracao = null;
+        String temperatura = null;
 
         try {
             if (jRadioButtonNameProd.isSelected()) {
@@ -909,7 +910,7 @@ public class JPrincipal extends javax.swing.JFrame {
                 areaTerapeutica = vazio(rSet.getString(7)); //devolde o id
                 jTextFieldLote.setText(vazio(rSet.getString(8)));
                 jTextFieldDosagem.setText(vazio(rSet.getString(9)));
-                jTextFieldTemperatura.setText(vazio(rSet.getString(10)));
+                temperatura = vazio(rSet.getString(10));           
                 jTextFieldPreco.setText(vazio(rSet.getString(11)));
                 administracao = vazio(rSet.getString(12)); // devolve o id
                 jTextFieldReceita.setText(sim_nao(vazio(rSet.getString(13))));
@@ -919,6 +920,7 @@ public class JPrincipal extends javax.swing.JFrame {
             
             jTextFieldAdministracao.setText(Negocio.procuraAdministracaoPorID(administracao));
             jTextFieldAreaTerapeutica.setText(Negocio.procuraAreaTerapeuticaPorID(areaTerapeutica));
+            jTextFieldTemperatura.setText(Negocio.procurarTemperaturaPorID(temperatura));
 
 
             //Separador mais informações
