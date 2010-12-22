@@ -950,7 +950,7 @@ public class JPrincipal extends javax.swing.JFrame {
         if (key == KeyEvent.VK_F1) {
             JOptionPane.showMessageDialog(new Frame(), MensagensAjuda.ajudaGeral(), "Ajuda", JOptionPane.NO_OPTION);
         }
-
+        
     }//GEN-LAST:event_jTabbedPane1KeyPressed
 
     private void jTextFieldReceitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldReceitaActionPerformed
