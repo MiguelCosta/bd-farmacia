@@ -90,7 +90,7 @@ public class JPrincipal extends javax.swing.JFrame {
         jTextFieldFormato = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jListConstraindicacoes = new javax.swing.JList();
+        jListConstituintes = new javax.swing.JList();
         jPanel13 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
         jTextFieldAreaTerapeuticaMore = new javax.swing.JTextField();
@@ -273,7 +273,7 @@ public class JPrincipal extends javax.swing.JFrame {
 
         jLabelDosagem.setText("Dosagem");
 
-        jLabelPreco.setText("Preço");
+        jLabelPreco.setText("Preço (€)");
 
         jLabelReceita.setText("Precisa de Receita?");
 
@@ -394,7 +394,7 @@ public class JPrincipal extends javax.swing.JFrame {
 
         jTabbedPaneFichaProduto.addTab("Ficha do Produto", jPanel2);
 
-        jScrollPane2.setViewportView(jListConstraindicacoes);
+        jScrollPane2.setViewportView(jListConstituintes);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -413,7 +413,7 @@ public class JPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPaneFichaProduto.addTab("Contraindicações", jPanel6);
+        jTabbedPaneFichaProduto.addTab("Constituintes", jPanel6);
 
         jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder("Área Terapeutica"));
 
@@ -889,6 +889,7 @@ public class JPrincipal extends javax.swing.JFrame {
 
     private void jListProdutosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListProdutosValueChanged
         String sel = (String) jListProdutos.getSelectedValue();
+        String produto = null;
         String areaTerapeutica = null;
         String administracao = null;
         String temperatura = null;
@@ -902,13 +903,15 @@ public class JPrincipal extends javax.swing.JFrame {
                 rSet = Negocio.selProduto(sel);     // procura por id
             }
 
+            /***************************************************************
+             * Colocar os campos da tabela produtos nos campos respectivos *
+             ***************************************************************/
             while (rSet.next()) {
-                jTextFieldProduto.setText(vazio(rSet.getString(1)));
+                produto = vazio(rSet.getString(1));
                 jTextFieldNomeGen.setText(vazio(rSet.getString(2)));
                 jTextFieldNomeMedicamento.setText(vazio(rSet.getString(3)));
                 jTextFieldQuantidade.setText(vazio(rSet.getString(4)));
                 faixa_etaria = vazio(rSet.getString(5));
-                
                 jTextFieldRegistoInfarmed.setText(vazio(rSet.getString(6)));
                 areaTerapeutica = vazio(rSet.getString(7)); //devolde o id
                 jTextFieldLote.setText(vazio(rSet.getString(8)));
@@ -919,17 +922,46 @@ public class JPrincipal extends javax.swing.JFrame {
                 jTextFieldReceita.setText(sim_nao(vazio(rSet.getString(13))));
                 jTextFieldGenerico.setText(sim_nao(vazio(rSet.getString(14))));
                 formato = vazio(rSet.getString(15));
-                
             }
-
+            jTextFieldProduto.setText(produto);
             jTextFieldAdministracao.setText(Negocio.procuraAdministracaoPorID(administracao));
             jTextFieldAreaTerapeutica.setText(Negocio.procuraAreaTerapeuticaPorID(areaTerapeutica));
             jTextFieldTemperatura.setText(Negocio.procurarTemperaturaPorID(temperatura));
             jTextFieldFormato.setText(Negocio.procurarFormatoPorID(formato));
             jTextFieldFaixaEtaria.setText(Negocio.procurarFaixaEtariaPorID(faixa_etaria));
-            
-            //Separador mais informações
+
+
+            /***************************
+             * Separador Constituintes *
+             ***************************/
+            ResultSet rSetConstituintes = null;
+
+            rSetConstituintes = Negocio.procurarListaConstituintes(produto);
+
+            //System.out.println(produto);
+            DefaultListModel modelConstituintes = new DefaultListModel();
+            while (rSetConstituintes.next()) {
+                modelConstituintes.addElement(rSetConstituintes.getObject(1).toString());
+                
+            }            
+            jListConstituintes.setModel(modelConstituintes);
+/*
+            DefaultListModel modelConstituintesNome = new DefaultListModel();
+            while(!modelConstituintes.isEmpty()){
+                
+            }
+            */
+            /****************************
+             * Separador mais informações
+             ****************************/
             jTextFieldAreaTerapeuticaMore.setText(Negocio.procuraAreaTerapeuticaPorID(areaTerapeutica));
+
+            // Desactiva o butão de abrir pdf
+            if (areaTerapeutica.equals("0") || areaTerapeutica == null) {
+                jButtonAreaTerapeuticaAbrirPDF.setEnabled(false);
+            } else {
+                jButtonAreaTerapeuticaAbrirPDF.setEnabled(true);
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
@@ -1051,7 +1083,7 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelReceita;
     private javax.swing.JLabel jLabelRegistoInfarmed;
     private javax.swing.JLabel jLabelTemperatura;
-    private javax.swing.JList jListConstraindicacoes;
+    private javax.swing.JList jListConstituintes;
     private javax.swing.JList jListProdutos;
     private javax.swing.JList jListProdutosStocks;
     private javax.swing.JMenu jMenu1;
