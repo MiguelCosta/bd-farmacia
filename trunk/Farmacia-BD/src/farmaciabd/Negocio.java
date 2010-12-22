@@ -5,6 +5,7 @@
 package farmaciabd;
 
 import java.sql.ResultSet;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -71,9 +72,9 @@ public class Negocio {
         String r = null;
         /*
         if (sel.equalsIgnoreCase("<vazio>")) {
-            return "<vazio>";
+        return "<vazio>";
         }
-        */
+         */
         rSet = Model.stmt.executeQuery(sql + sel + "'");
 
         while (rSet.next()) {
@@ -92,9 +93,9 @@ public class Negocio {
         String r = null;
         /*
         if (sel.equalsIgnoreCase("<vazio>")) {
-            return "<vazio>";
+        return "<vazio>";
         }
-        */
+         */
         rSet = Model.stmt.executeQuery(sql + sel + "'");
 
         while (rSet.next()) {
@@ -107,7 +108,7 @@ public class Negocio {
     /*
      * Procura pelo ID a Administracao de um produto e devolve o nome
      */
-    public static String procuraAdministracaoPorID (String sel) throws Exception{
+    public static String procuraAdministracaoPorID(String sel) throws Exception {
         String sql = "SELECT * FROM administracoes WHERE administracao = '";
         ResultSet rSet = null;
         String r = null;
@@ -126,7 +127,7 @@ public class Negocio {
     /*
      * Procura pelo nome a Administracao de um produto e devolve o id
      */
-    public static String procuraAdministracaoPorNOME (String sel) throws Exception{
+    public static String procuraAdministracaoPorNOME(String sel) throws Exception {
         String sql = "SELECT * FROM administracoes WHERE nome = '";
         ResultSet rSet = null;
         String r = null;
@@ -141,7 +142,7 @@ public class Negocio {
         return r;
     }
 
-    public static String procurarTemperaturaPorID (String sel) throws Exception{
+    public static String procurarTemperaturaPorID(String sel) throws Exception {
         String sql = "SELECT * FROM temperaturas WHERE temperatura = '";
         ResultSet rSet = null;
         String r = null;
@@ -160,7 +161,7 @@ public class Negocio {
     /*
      * Procura pelo id o Formato de um produto e devolve o nome
      */
-    public static String procurarFormatoPorID (String sel) throws Exception{
+    public static String procurarFormatoPorID(String sel) throws Exception {
         String sql = "SELECT * FROM formatos WHERE formato = '";
         ResultSet rSet = null;
         String r = null;
@@ -178,7 +179,7 @@ public class Negocio {
     /*
      * Procura pelo id o Formato de um produto e devolve o nome
      */
-    public static String procurarFaixaEtariaPorID (String sel) throws Exception{
+    public static String procurarFaixaEtariaPorID(String sel) throws Exception {
         String sql = "SELECT * FROM faixas_etarias WHERE faixa_etaria = '";
         ResultSet rSet = null;
         String r = null;
@@ -193,4 +194,40 @@ public class Negocio {
         return r;
     }
 
+    /*
+     * Recebe um produto e vai listar todos os constituintes dele, dando o nome e não o ID
+     */
+    public static ResultSet procurarListaConstituintes(String sel) throws Exception {
+        ResultSet rSet = null;
+        String sql = "SELECT constituintes.nome FROM lista_constituintes, constituintes, produtos WHERE lista_constituintes.produto = produtos.produto AND constituintes.constituinte = lista_constituintes.constituinte AND produtos.produto = '";
+
+        rSet = Model.stmt.executeQuery(sql + sel + "'");
+
+
+
+        return rSet;
+    }
+
+    public static String procurarConstituintes(String sel) throws Exception {
+        ResultSet rSet = null;
+        String sql = "SELECT * FROM constituintes WHERE constituinte = '";
+        String r = null;
+
+        rSet = Model.stmt.executeQuery(sql + sel + "'");
+
+
+        rSet = Produtos.queryProdutos();
+        DefaultListModel model = new DefaultListModel();
+        while (rSet.next()) {
+            model.addElement(rSet.getObject(1).toString());
+        }
+
+        
+        while (rSet.next()) {
+            r = rSet.getString(2);
+        }
+
+        return r;
+
+    }
 }
