@@ -15,7 +15,7 @@ import oracle.jdbc.pool.OracleDataSource;
  */
 public class Main {
 
-    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+    public static void main(String[] args) throws ClassNotFoundException, SQLException, Exception {
         Model.connect();
         JPrincipal.main(args);
 
