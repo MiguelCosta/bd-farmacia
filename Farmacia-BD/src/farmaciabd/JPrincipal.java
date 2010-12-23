@@ -40,11 +40,11 @@ public class JPrincipal extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        jDialog1 = new javax.swing.JDialog();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -138,7 +138,19 @@ public class JPrincipal extends javax.swing.JFrame {
         jMenu2.setText("Edit");
         jMenuBar1.add(jMenu2);
 
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Farmacia");
 
         jTabbedPane1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -499,6 +511,11 @@ public class JPrincipal extends javax.swing.JFrame {
         jTabbedPaneFichaProduto.addTab("Mais Informações", jPanel13);
 
         jButton1.setText("Adicionar Produto");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButtonLimparCampos.setText("Limpar campos");
         jButtonLimparCampos.addActionListener(new java.awt.event.ActionListener() {
@@ -1125,9 +1142,14 @@ public class JPrincipal extends javax.swing.JFrame {
         jTextFieldFormato.setText(null);
         jTextFieldProcura.setText(null);
 
-        jButtonAreaTerapeuticaAbrirPDF.setEnabled(false);
-        
+        jButtonAreaTerapeuticaAbrirPDF.setEnabled(false);        
     }//GEN-LAST:event_jButtonLimparCamposActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JDialogInsertProduto adicionarProduto = new JDialogInsertProduto(this, true);
+        adicionarProduto.setVisible(true);
+
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1160,6 +1182,7 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButtonFolhetoInformativo;
     private javax.swing.JButton jButtonLimparCampos;
     private javax.swing.JButton jButtonProcurar;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
