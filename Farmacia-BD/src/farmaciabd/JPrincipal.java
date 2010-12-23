@@ -961,14 +961,14 @@ public class JPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButtonRemoverQActionPerformed
 
     private void jListProdutosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListProdutosValueChanged
-        String sel = (String) jListProdutos.getSelectedValue();
-        String produto = null;
-        String areaTerapeutica = null;
-        String administracao = null;
-        String temperatura = null;
-        String formato = null;
-        String faixa_etaria = null;
-        String folheto_url = null;
+        String sel              = (String) jListProdutos.getSelectedValue();
+        String produto          = null;
+        String areaTerapeutica  = null;
+        String administracao    = null;
+        String temperatura      = null;
+        String formato          = null;
+        String faixa_etaria     = null;
+        String folheto_url      = null;
 
         try {
             if (jRadioButtonNameProd.isSelected()) {
@@ -1047,10 +1047,10 @@ public class JPrincipal extends javax.swing.JFrame {
         } 
     }//GEN-LAST:event_jListProdutosValueChanged
 
-    /*
-     * Quando na caixa de procura se clica enter na caixa de texto ele faz a procura
-     * Quando clica F1 aparece a ajuda da procura
-     */
+    /*********************************************************************************
+     * Quando na caixa de procura se clica enter na caixa de texto ele faz a procura *
+     * Quando clica F1 aparece a ajuda da procura                                    *
+     *********************************************************************************/
     private void jTextFieldProcuraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldProcuraKeyPressed
         int key = evt.getKeyCode();
         if (key == KeyEvent.VK_ENTER) {
@@ -1067,9 +1067,9 @@ public class JPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jTextFieldProcuraKeyPressed
 
-    /*
-     * Quando abre o programa e clica em F1 aparece a ajuda
-     */
+    /********************************************************
+     * Quando abre o programa e clica em F1 aparece a ajuda *
+     ********************************************************/
     private void jTabbedPane1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTabbedPane1KeyPressed
         int key = evt.getKeyCode();
         if (key == KeyEvent.VK_F1) {
