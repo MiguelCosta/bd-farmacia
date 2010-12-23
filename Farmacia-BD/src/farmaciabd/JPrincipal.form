@@ -177,7 +177,7 @@
                     <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="jListProdutosValueChanged"/>
                   </Events>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try {&#xa;    rSet = Produtos.queryProdutos();&#xa;    DefaultListModel model = new DefaultListModel();&#xa;    while (rSet.next())&#xa;        model.addElement(rSet.getObject(1).toString());&#xa;    jListProdutos.setModel(model);&#xa;}&#xa;catch (SQLException ex) { Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); }"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try {&#xa;    rSet = Produtos.queryProdutos();&#xa;    DefaultListModel model = new DefaultListModel();&#xa;    while (rSet.next())&#xa;        model.addElement(rSet.getString(1));&#xa;    jListProdutos.setModel(model);&#xa;}&#xa;catch (SQLException ex) { Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); }"/>
                   </AuxValues>
                 </Component>
               </SubComponents>

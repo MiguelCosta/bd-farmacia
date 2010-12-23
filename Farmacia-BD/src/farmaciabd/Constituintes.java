@@ -12,7 +12,7 @@ import java.sql.SQLException;
  * @author Miguel
  */
 public class Constituintes extends Model {
-    public static ResultSet queryProdutos() throws SQLException {
+    public static ResultSet queryConstituintes() throws SQLException {
         return Model.stmt.executeQuery("SELECT * FROM constituintes");
     }
 }

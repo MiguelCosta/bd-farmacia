@@ -14,7 +14,7 @@ import java.sql.*;
 public class Formatos {
 
     public static ResultSet queryFormatos () throws SQLException{
-        return Model.stmt.executeQuery("SELECT * FROM formatos");
+        return Model.stmt.executeQuery("SELECT nome FROM formatos");
     }
 
 }

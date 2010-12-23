@@ -162,7 +162,7 @@ public class JPrincipal extends javax.swing.JFrame {
             rSet = Produtos.queryProdutos();
             DefaultListModel model = new DefaultListModel();
             while (rSet.next())
-            model.addElement(rSet.getObject(1).toString());
+            model.addElement(rSet.getString(1));
             jListProdutos.setModel(model);
         }
         catch (SQLException ex) { Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); }
@@ -902,13 +902,13 @@ public class JPrincipal extends javax.swing.JFrame {
             if (jRadioButtonNameProd.isSelected()) {
                 rSet = Negocio.selProdutoNome(sel);
                 while (rSet.next()) {
-                    model.addElement(rSet.getObject(3).toString());
+                    model.addElement(rSet.getString(3));
                 }
                 jListProdutos.setModel(model);
             } else {
                 rSet = Negocio.selProduto(sel);
                 while (rSet.next()) {
-                    model.addElement(rSet.getObject(1).toString());
+                    model.addElement(rSet.getString(1));
                 }
                 jListProdutos.setModel(model);
             }

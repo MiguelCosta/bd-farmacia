@@ -89,149 +89,131 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jComboBox2" alignment="0" pref="300" max="32767" attributes="0"/>
-                  <Component id="jComboBox5" alignment="0" pref="300" max="32767" attributes="0"/>
-                  <Component id="jComboBox6" alignment="0" pref="300" max="32767" attributes="0"/>
-                  <Component id="jComboBox7" alignment="0" pref="300" max="32767" attributes="0"/>
-                  <Component id="jComboBox8" alignment="0" pref="300" max="32767" attributes="0"/>
-                  <Component id="jComboBox9" alignment="0" pref="300" max="32767" attributes="0"/>
-                  <Component id="jComboBox10" alignment="0" pref="300" max="32767" attributes="0"/>
-                  <Component id="jComboBox11" alignment="0" pref="300" max="32767" attributes="0"/>
-                  <Component id="jComboBox12" alignment="0" pref="300" max="32767" attributes="0"/>
+                  <Component id="jComboBoxConstituintes1" alignment="0" pref="300" max="32767" attributes="0"/>
+                  <Component id="jComboBoxConstituintes2" alignment="0" pref="300" max="32767" attributes="0"/>
+                  <Component id="jComboBoxConstituintes3" alignment="0" pref="300" max="32767" attributes="0"/>
+                  <Component id="jComboBoxConstituintes4" alignment="0" pref="300" max="32767" attributes="0"/>
+                  <Component id="jComboBoxConstituintes5" alignment="0" pref="300" max="32767" attributes="0"/>
+                  <Component id="jComboBoxConstituintes6" alignment="0" pref="300" max="32767" attributes="0"/>
+                  <Component id="jComboBoxConstituintes7" alignment="0" pref="300" max="32767" attributes="0"/>
+                  <Component id="jComboBoxConstituintes8" alignment="0" pref="300" max="32767" attributes="0"/>
+                  <Component id="jComboBoxConstituintes9" alignment="0" pref="300" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jComboBox2" min="-2" max="-2" attributes="0"/>
+                      <Component id="jComboBoxConstituintes1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jComboBox5" min="-2" max="-2" attributes="0"/>
+                      <Component id="jComboBoxConstituintes2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jComboBox6" min="-2" max="-2" attributes="0"/>
+                      <Component id="jComboBoxConstituintes3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jComboBox7" min="-2" max="-2" attributes="0"/>
+                      <Component id="jComboBoxConstituintes4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jComboBox8" min="-2" max="-2" attributes="0"/>
+                      <Component id="jComboBoxConstituintes5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jComboBox9" min="-2" max="-2" attributes="0"/>
+                      <Component id="jComboBoxConstituintes6" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jComboBox10" min="-2" max="-2" attributes="0"/>
+                      <Component id="jComboBoxConstituintes7" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jComboBox11" min="-2" max="-2" attributes="0"/>
+                      <Component id="jComboBoxConstituintes8" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jComboBox12" min="-2" max="-2" attributes="0"/>
+                      <Component id="jComboBoxConstituintes9" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JComboBox" name="jComboBox2">
+            <Component class="javax.swing.JComboBox" name="jComboBoxConstituintes1">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                  </StringArray>
+                  <StringArray count="0"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try {     &#xd;&#xa;    rSet = Constituintes.queryConstituintes(); &#xd;&#xa;    &#xd;&#xa;    while (rSet.next())         &#xd;&#xa;        jComboBoxConstituintes1.addItem(rSet.getString(2));     &#xd;&#xa;    }&#xd;&#xa;&#xd;&#xa;catch (SQLException ex) { &#xd;&#xa;    Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); &#xd;&#xa;}"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox5">
+            <Component class="javax.swing.JComboBox" name="jComboBoxConstituintes2">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                  </StringArray>
+                  <StringArray count="0"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try {     &#xd;&#xa;    rSet = Constituintes.queryConstituintes(); &#xd;&#xa;    &#xd;&#xa;    while (rSet.next())         &#xd;&#xa;        jComboBoxConstituintes2.addItem(rSet.getString(2));     &#xd;&#xa;    }&#xd;&#xa;&#xd;&#xa;catch (SQLException ex) { &#xd;&#xa;    Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); &#xd;&#xa;}"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox6">
+            <Component class="javax.swing.JComboBox" name="jComboBoxConstituintes3">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                  </StringArray>
+                  <StringArray count="0"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try {     &#xd;&#xa;    rSet = Constituintes.queryConstituintes(); &#xd;&#xa;    &#xd;&#xa;    while (rSet.next())         &#xd;&#xa;        jComboBoxConstituintes3.addItem(rSet.getString(2));     &#xd;&#xa;    }&#xd;&#xa;&#xd;&#xa;catch (SQLException ex) { &#xd;&#xa;    Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); &#xd;&#xa;}"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox7">
+            <Component class="javax.swing.JComboBox" name="jComboBoxConstituintes4">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                  </StringArray>
+                  <StringArray count="0"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try {     &#xd;&#xa;    rSet = Constituintes.queryConstituintes(); &#xd;&#xa;    &#xd;&#xa;    while (rSet.next())         &#xd;&#xa;        jComboBoxConstituintes4.addItem(rSet.getString(2));     &#xd;&#xa;    }&#xd;&#xa;&#xd;&#xa;catch (SQLException ex) { &#xd;&#xa;    Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); &#xd;&#xa;}"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox8">
+            <Component class="javax.swing.JComboBox" name="jComboBoxConstituintes5">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                  </StringArray>
+                  <StringArray count="0"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try {     &#xd;&#xa;    rSet = Constituintes.queryConstituintes(); &#xd;&#xa;    &#xd;&#xa;    while (rSet.next())         &#xd;&#xa;        jComboBoxConstituintes5.addItem(rSet.getString(2));     &#xd;&#xa;    }&#xd;&#xa;&#xd;&#xa;catch (SQLException ex) { &#xd;&#xa;    Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); &#xd;&#xa;}"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox9">
+            <Component class="javax.swing.JComboBox" name="jComboBoxConstituintes6">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                  </StringArray>
+                  <StringArray count="0"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try {     &#xd;&#xa;    rSet = Constituintes.queryConstituintes(); &#xd;&#xa;    &#xd;&#xa;    while (rSet.next())         &#xd;&#xa;        jComboBoxConstituintes6.addItem(rSet.getString(2));     &#xd;&#xa;    }&#xd;&#xa;&#xd;&#xa;catch (SQLException ex) { &#xd;&#xa;    Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); &#xd;&#xa;}"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox10">
+            <Component class="javax.swing.JComboBox" name="jComboBoxConstituintes7">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                  </StringArray>
+                  <StringArray count="0"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try {     &#xd;&#xa;    rSet = Constituintes.queryConstituintes(); &#xd;&#xa;    &#xd;&#xa;    while (rSet.next())         &#xd;&#xa;        jComboBoxConstituintes7.addItem(rSet.getString(2));     &#xd;&#xa;    }&#xd;&#xa;&#xd;&#xa;catch (SQLException ex) { &#xd;&#xa;    Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); &#xd;&#xa;}"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox11">
+            <Component class="javax.swing.JComboBox" name="jComboBoxConstituintes8">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                  </StringArray>
+                  <StringArray count="0"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try {     &#xd;&#xa;    rSet = Constituintes.queryConstituintes(); &#xd;&#xa;    &#xd;&#xa;    while (rSet.next())         &#xd;&#xa;        jComboBoxConstituintes8.addItem(rSet.getString(2));     &#xd;&#xa;    }&#xd;&#xa;&#xd;&#xa;catch (SQLException ex) { &#xd;&#xa;    Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); &#xd;&#xa;}"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox12">
+            <Component class="javax.swing.JComboBox" name="jComboBoxConstituintes9">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                  </StringArray>
+                  <StringArray count="0"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try {     &#xd;&#xa;    rSet = Constituintes.queryConstituintes(); &#xd;&#xa;    &#xd;&#xa;    while (rSet.next())         &#xd;&#xa;        jComboBoxConstituintes9.addItem(rSet.getString(2));     &#xd;&#xa;    }&#xd;&#xa;&#xd;&#xa;catch (SQLException ex) { &#xd;&#xa;    Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); &#xd;&#xa;}"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -266,7 +248,8 @@
                           <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jComboBoxFormatoIns" pref="303" max="32767" attributes="0"/>
                           <Component id="jSpinnerQuantidadeIns" alignment="0" pref="303" max="32767" attributes="0"/>
                           <Component id="jComboBoxAdministracaoIns" alignment="0" pref="303" max="32767" attributes="0"/>
                           <Component id="jComboBoxFaixaEtaria" alignment="0" pref="303" max="32767" attributes="0"/>
@@ -279,10 +262,6 @@
                           <Component id="jTextFieldCodProdutoIns" alignment="0" pref="303" max="32767" attributes="1"/>
                           <Component id="jTextFieldNomeGenIns" alignment="0" pref="303" max="32767" attributes="1"/>
                           <Component id="jTextFieldNomeDoMedicamento" alignment="0" pref="303" max="32767" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jTextField11" pref="293" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
@@ -385,8 +364,8 @@
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jTextField11" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jComboBoxFormatoIns" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -505,8 +484,6 @@
                 <Property name="text" type="java.lang.String" value="Formato"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField11">
-            </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldRegistoInfarmedIns">
             </Component>
             <Component class="javax.swing.JComboBox" name="jComboBoxFaixaEtaria">
@@ -538,21 +515,43 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Sim"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonReceitaSimInsActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="jRadioButtonReceitaNaoIns">
               <Properties>
                 <Property name="text" type="java.lang.String" value="N&#xe3;o"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonReceitaNaoInsActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="jRadioButtonGenericoSim">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Sim"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonGenericoSimActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="jRadioButtonGenericoNao">
               <Properties>
                 <Property name="text" type="java.lang.String" value="N&#xe3;o"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonGenericoNaoActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="jComboBoxFormatoIns">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try {     &#xd;&#xa;    rSet = Formatos.queryFormatos(); &#xd;&#xa;    &#xd;&#xa;    while (rSet.next())         &#xd;&#xa;        jComboBoxFormatoIns.addItem(rSet.getString(1));     &#xd;&#xa;    }&#xd;&#xa;&#xd;&#xa;catch (SQLException ex) { &#xd;&#xa;    Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); &#xd;&#xa;}"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -609,7 +608,6 @@
         <Component class="javax.swing.JButton" name="jButtonCancelarIns">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
-            <Property name="actionCommand" type="java.lang.String" value=""/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCancelarInsActionPerformed"/>
