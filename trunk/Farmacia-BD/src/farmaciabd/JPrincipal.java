@@ -100,7 +100,7 @@ public class JPrincipal extends javax.swing.JFrame {
         jButtonFolhetoInformativo = new javax.swing.JButton();
         jTextFieldFolhetoInformativo = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jButtonLimparCampos = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
@@ -424,12 +424,6 @@ public class JPrincipal extends javax.swing.JFrame {
 
         jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder("Área Terapeutica"));
 
-        jTextFieldAreaTerapeuticaMore.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldAreaTerapeuticaMoreActionPerformed(evt);
-            }
-        });
-
         jButtonAreaTerapeuticaAbrirPDF.setText("Abrir PDF com descrição");
         jButtonAreaTerapeuticaAbrirPDF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -506,10 +500,10 @@ public class JPrincipal extends javax.swing.JFrame {
 
         jButton1.setText("Adicionar Produto");
 
-        jButton4.setText("Limpar campos");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jButtonLimparCampos.setText("Limpar campos");
+        jButtonLimparCampos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jButtonLimparCamposActionPerformed(evt);
             }
         });
 
@@ -531,7 +525,7 @@ public class JPrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                        .addComponent(jButton4))
+                        .addComponent(jButtonLimparCampos))
                     .addComponent(jTabbedPaneFichaProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -550,7 +544,7 @@ public class JPrincipal extends javax.swing.JFrame {
                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jButton1)
                                 .addComponent(jButton5))
-                            .addComponent(jButton4)))
+                            .addComponent(jButtonLimparCampos)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -1096,22 +1090,10 @@ public class JPrincipal extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButtonAreaTerapeuticaAbrirPDFActionPerformed
-
-    private void jTextFieldAreaTerapeuticaMoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAreaTerapeuticaMoreActionPerformed
-        String sel = jTextFieldFolhetoInformativo.getText();
-        if (sel.equalsIgnoreCase("<vazio>")) {
-            System.out.println("out");
-        } else {
-            //System.out.println(sel);
-
-            try {
-                Negocio.abrirPDF(sel);
-            } catch (Exception ex) {
-                Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }//GEN-LAST:event_jTextFieldAreaTerapeuticaMoreActionPerformed
-
+    
+    /*****************************************************
+     * Acção do butão para mostrar o folheto informativo *
+    ******************************************************/
     private void jButtonFolhetoInformativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFolhetoInformativoActionPerformed
         String sel = jTextFieldFolhetoInformativo.getText();
 
@@ -1126,7 +1108,10 @@ public class JPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonFolhetoInformativoActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    /****************************************
+     * Acção do Botão para Limpar os campos *
+     ****************************************/
+    private void jButtonLimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparCamposActionPerformed
         jRadioButtonCodProdActionPerformed(null);
         jTextFieldNomeGen.setText(null);
         jTextFieldNomeMedicamento.setText(null);
@@ -1142,7 +1127,7 @@ public class JPrincipal extends javax.swing.JFrame {
 
         jButtonAreaTerapeuticaAbrirPDF.setEnabled(false);
         
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_jButtonLimparCamposActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1170,10 +1155,10 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButtonAreaTerapeuticaAbrirPDF;
     private javax.swing.JButton jButtonFolhetoInformativo;
+    private javax.swing.JButton jButtonLimparCampos;
     private javax.swing.JButton jButtonProcurar;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
