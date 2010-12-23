@@ -130,10 +130,10 @@ CREATE TABLE produtos (
   nome_medicamento        varchar2(100),
   quantidade              varchar2(20),
   faixa_etaria            varchar2(8),
-  reg_infarmed            varchar2(8),
+  reg_infarmed            varchar2(9),
   area_terapeutica        varchar2(8),
   lote                    varchar2(8),
-  dosagem                 varchar2(20),
+  dosagem                 varchar2(100),
   /*lista_contraindicacoes  varchar2(8),*/ 
   temperatura             varchar2(8),
   preco                   float,
@@ -141,6 +141,7 @@ CREATE TABLE produtos (
   receita                 numeric(1),
   generico                numeric(1),
   formato                 varchar2(8),
+  folheto_url             varchar2(500),
 
   CONSTRAINT produtos_pk
     PRIMARY KEY (produto),
@@ -181,8 +182,8 @@ ALTER TABLE lista_contraindicacoes
 ;
 
 CREATE TABLE lista_constituintes (
-  produto         varchar(8),
-  constituinte    varchar(8),
+  produto         varchar(9),
+  constituinte    varchar(9),
   
   CONSTRAINT lista_consti_fk_produto
     FOREIGN KEY (produto)
