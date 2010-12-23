@@ -228,6 +228,15 @@ public class Negocio {
         }
 
         return r;
+    }
+
+    public static ResultSet listarFaixasEtarias () throws Exception{
+        ResultSet rSet = null;
+        String sql = "SELECT nome FROM faixas_etarias";
+
+        rSet = Model.stmt.executeQuery(sql);
+        
+        return rSet;
 
     }
 }
