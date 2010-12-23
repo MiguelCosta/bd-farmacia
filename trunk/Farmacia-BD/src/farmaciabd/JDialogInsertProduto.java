@@ -41,15 +41,15 @@ public class JDialogInsertProduto extends java.awt.Dialog {
 
         jPanelinserirProduto = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jComboBox2 = new javax.swing.JComboBox();
-        jComboBox5 = new javax.swing.JComboBox();
-        jComboBox6 = new javax.swing.JComboBox();
-        jComboBox7 = new javax.swing.JComboBox();
-        jComboBox8 = new javax.swing.JComboBox();
-        jComboBox9 = new javax.swing.JComboBox();
-        jComboBox10 = new javax.swing.JComboBox();
-        jComboBox11 = new javax.swing.JComboBox();
-        jComboBox12 = new javax.swing.JComboBox();
+        jComboBoxConstituintes1 = new javax.swing.JComboBox();
+        jComboBoxConstituintes2 = new javax.swing.JComboBox();
+        jComboBoxConstituintes3 = new javax.swing.JComboBox();
+        jComboBoxConstituintes4 = new javax.swing.JComboBox();
+        jComboBoxConstituintes5 = new javax.swing.JComboBox();
+        jComboBoxConstituintes6 = new javax.swing.JComboBox();
+        jComboBoxConstituintes7 = new javax.swing.JComboBox();
+        jComboBoxConstituintes8 = new javax.swing.JComboBox();
+        jComboBoxConstituintes9 = new javax.swing.JComboBox();
         jPanelLote = new javax.swing.JPanel();
         jLabelCodProdutoIns = new javax.swing.JLabel();
         jTextFieldCodProdutoIns = new javax.swing.JTextField();
@@ -74,7 +74,6 @@ public class JDialogInsertProduto extends java.awt.Dialog {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
         jTextFieldRegistoInfarmedIns = new javax.swing.JTextField();
         jComboBoxFaixaEtaria = new javax.swing.JComboBox();
         jComboBoxAdministracaoIns = new javax.swing.JComboBox();
@@ -83,6 +82,7 @@ public class JDialogInsertProduto extends java.awt.Dialog {
         jRadioButtonReceitaNaoIns = new javax.swing.JRadioButton();
         jRadioButtonGenericoSim = new javax.swing.JRadioButton();
         jRadioButtonGenericoNao = new javax.swing.JRadioButton();
+        jComboBoxFormatoIns = new javax.swing.JComboBox();
         jPanel4 = new javax.swing.JPanel();
         jTextField13 = new javax.swing.JTextField();
         jButtonLimparCamposInsertproduto = new javax.swing.JButton();
@@ -97,58 +97,139 @@ public class JDialogInsertProduto extends java.awt.Dialog {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Constituintes"));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        try {     
+            rSet = Constituintes.queryConstituintes(); 
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+            while (rSet.next())         
+            jComboBoxConstituintes1.addItem(rSet.getString(2));     
+        }
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        catch (SQLException ex) { 
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); 
+        }
 
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        try {     
+            rSet = Constituintes.queryConstituintes(); 
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+            while (rSet.next())         
+            jComboBoxConstituintes2.addItem(rSet.getString(2));     
+        }
 
-        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        catch (SQLException ex) { 
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); 
+        }
 
-        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        try {     
+            rSet = Constituintes.queryConstituintes(); 
 
-        jComboBox11.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+            while (rSet.next())         
+            jComboBoxConstituintes3.addItem(rSet.getString(2));     
+        }
 
-        jComboBox12.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        catch (SQLException ex) { 
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); 
+        }
+
+        try {     
+            rSet = Constituintes.queryConstituintes(); 
+
+            while (rSet.next())         
+            jComboBoxConstituintes4.addItem(rSet.getString(2));     
+        }
+
+        catch (SQLException ex) { 
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); 
+        }
+
+        try {     
+            rSet = Constituintes.queryConstituintes(); 
+
+            while (rSet.next())         
+            jComboBoxConstituintes5.addItem(rSet.getString(2));     
+        }
+
+        catch (SQLException ex) { 
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); 
+        }
+
+        try {     
+            rSet = Constituintes.queryConstituintes(); 
+
+            while (rSet.next())         
+            jComboBoxConstituintes6.addItem(rSet.getString(2));     
+        }
+
+        catch (SQLException ex) { 
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); 
+        }
+
+        try {     
+            rSet = Constituintes.queryConstituintes(); 
+
+            while (rSet.next())         
+            jComboBoxConstituintes7.addItem(rSet.getString(2));     
+        }
+
+        catch (SQLException ex) { 
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); 
+        }
+
+        try {     
+            rSet = Constituintes.queryConstituintes(); 
+
+            while (rSet.next())         
+            jComboBoxConstituintes8.addItem(rSet.getString(2));     
+        }
+
+        catch (SQLException ex) { 
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); 
+        }
+
+        try {     
+            rSet = Constituintes.queryConstituintes(); 
+
+            while (rSet.next())         
+            jComboBoxConstituintes9.addItem(rSet.getString(2));     
+        }
+
+        catch (SQLException ex) { 
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); 
+        }
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jComboBox2, 0, 300, Short.MAX_VALUE)
-            .addComponent(jComboBox5, 0, 300, Short.MAX_VALUE)
-            .addComponent(jComboBox6, 0, 300, Short.MAX_VALUE)
-            .addComponent(jComboBox7, 0, 300, Short.MAX_VALUE)
-            .addComponent(jComboBox8, 0, 300, Short.MAX_VALUE)
-            .addComponent(jComboBox9, 0, 300, Short.MAX_VALUE)
-            .addComponent(jComboBox10, 0, 300, Short.MAX_VALUE)
-            .addComponent(jComboBox11, 0, 300, Short.MAX_VALUE)
-            .addComponent(jComboBox12, 0, 300, Short.MAX_VALUE)
+            .addComponent(jComboBoxConstituintes1, 0, 300, Short.MAX_VALUE)
+            .addComponent(jComboBoxConstituintes2, 0, 300, Short.MAX_VALUE)
+            .addComponent(jComboBoxConstituintes3, 0, 300, Short.MAX_VALUE)
+            .addComponent(jComboBoxConstituintes4, 0, 300, Short.MAX_VALUE)
+            .addComponent(jComboBoxConstituintes5, 0, 300, Short.MAX_VALUE)
+            .addComponent(jComboBoxConstituintes6, 0, 300, Short.MAX_VALUE)
+            .addComponent(jComboBoxConstituintes7, 0, 300, Short.MAX_VALUE)
+            .addComponent(jComboBoxConstituintes8, 0, 300, Short.MAX_VALUE)
+            .addComponent(jComboBoxConstituintes9, 0, 300, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBoxConstituintes1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBoxConstituintes2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBoxConstituintes3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBoxConstituintes4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBoxConstituintes5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBoxConstituintes6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBoxConstituintes7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBoxConstituintes8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jComboBoxConstituintes9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanelLote.setBorder(javax.swing.BorderFactory.createTitledBorder("Ficha do Produto"));
@@ -240,12 +321,43 @@ public class JDialogInsertProduto extends java.awt.Dialog {
         }
 
         jRadioButtonReceitaSimIns.setText("Sim");
+        jRadioButtonReceitaSimIns.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonReceitaSimInsActionPerformed(evt);
+            }
+        });
 
         jRadioButtonReceitaNaoIns.setText("Não");
+        jRadioButtonReceitaNaoIns.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonReceitaNaoInsActionPerformed(evt);
+            }
+        });
 
         jRadioButtonGenericoSim.setText("Sim");
+        jRadioButtonGenericoSim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonGenericoSimActionPerformed(evt);
+            }
+        });
 
         jRadioButtonGenericoNao.setText("Não");
+        jRadioButtonGenericoNao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonGenericoNaoActionPerformed(evt);
+            }
+        });
+
+        try {     
+            rSet = Formatos.queryFormatos(); 
+
+            while (rSet.next())         
+            jComboBoxFormatoIns.addItem(rSet.getString(1));     
+        }
+
+        catch (SQLException ex) { 
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); 
+        }
 
         javax.swing.GroupLayout jPanelLoteLayout = new javax.swing.GroupLayout(jPanelLote);
         jPanelLote.setLayout(jPanelLoteLayout);
@@ -269,23 +381,21 @@ public class JDialogInsertProduto extends java.awt.Dialog {
                     .addComponent(jLabel14)
                     .addComponent(jLabel15))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelLoteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSpinnerQuantidadeIns, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
-                    .addComponent(jComboBoxAdministracaoIns, javax.swing.GroupLayout.Alignment.LEADING, 0, 303, Short.MAX_VALUE)
-                    .addComponent(jComboBoxFaixaEtaria, javax.swing.GroupLayout.Alignment.LEADING, 0, 303, Short.MAX_VALUE)
-                    .addComponent(jTextFieldRegistoInfarmedIns, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
-                    .addComponent(jTextFieldPrecoIns, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
-                    .addComponent(jComboBoxTemperaturaIns, javax.swing.GroupLayout.Alignment.LEADING, 0, 303, Short.MAX_VALUE)
-                    .addComponent(jTextFieldDosagemIns, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
-                    .addComponent(jTextFieldLoteIns, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
-                    .addComponent(jComboBoxAreaTerapeuticaIns, javax.swing.GroupLayout.Alignment.LEADING, 0, 303, Short.MAX_VALUE)
-                    .addComponent(jTextFieldCodProdutoIns, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
-                    .addComponent(jTextFieldNomeGenIns, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
-                    .addComponent(jTextFieldNomeDoMedicamento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
+                .addGroup(jPanelLoteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBoxFormatoIns, 0, 303, Short.MAX_VALUE)
+                    .addComponent(jSpinnerQuantidadeIns, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
+                    .addComponent(jComboBoxAdministracaoIns, 0, 303, Short.MAX_VALUE)
+                    .addComponent(jComboBoxFaixaEtaria, 0, 303, Short.MAX_VALUE)
+                    .addComponent(jTextFieldRegistoInfarmedIns, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
+                    .addComponent(jTextFieldPrecoIns, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
+                    .addComponent(jComboBoxTemperaturaIns, 0, 303, Short.MAX_VALUE)
+                    .addComponent(jTextFieldDosagemIns, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
+                    .addComponent(jTextFieldLoteIns, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
+                    .addComponent(jComboBoxAreaTerapeuticaIns, 0, 303, Short.MAX_VALUE)
+                    .addComponent(jTextFieldCodProdutoIns, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
+                    .addComponent(jTextFieldNomeGenIns, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
+                    .addComponent(jTextFieldNomeDoMedicamento, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
                     .addGroup(jPanelLoteLayout.createSequentialGroup()
-                        .addComponent(jTextField11, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelLoteLayout.createSequentialGroup()
                         .addGroup(jPanelLoteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelLoteLayout.createSequentialGroup()
                                 .addComponent(jRadioButtonReceitaSimIns)
@@ -364,8 +474,8 @@ public class JDialogInsertProduto extends java.awt.Dialog {
                             .addComponent(jRadioButtonGenericoNao))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanelLoteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel15)))))
+                            .addComponent(jLabel15)
+                            .addComponent(jComboBoxFormatoIns, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Mais Informações"));
@@ -393,7 +503,6 @@ public class JDialogInsertProduto extends java.awt.Dialog {
         jButtonAdicionarProduto.setActionCommand("Adicionar");
 
         jButtonCancelarIns.setText("Cancelar");
-        jButtonCancelarIns.setActionCommand("");
         jButtonCancelarIns.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCancelarInsActionPerformed(evt);
@@ -458,6 +567,22 @@ public class JDialogInsertProduto extends java.awt.Dialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxFaixaEtariaActionPerformed
 
+    private void jRadioButtonReceitaSimInsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonReceitaSimInsActionPerformed
+        jRadioButtonReceitaNaoIns.setSelected(false);
+    }//GEN-LAST:event_jRadioButtonReceitaSimInsActionPerformed
+
+    private void jRadioButtonReceitaNaoInsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonReceitaNaoInsActionPerformed
+        jRadioButtonReceitaSimIns.setSelected(false);
+    }//GEN-LAST:event_jRadioButtonReceitaNaoInsActionPerformed
+
+    private void jRadioButtonGenericoSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonGenericoSimActionPerformed
+        jRadioButtonGenericoNao.setSelected(false);
+    }//GEN-LAST:event_jRadioButtonGenericoSimActionPerformed
+
+    private void jRadioButtonGenericoNaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonGenericoNaoActionPerformed
+        jRadioButtonGenericoSim.setSelected(false);
+    }//GEN-LAST:event_jRadioButtonGenericoNaoActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -481,18 +606,19 @@ public class JDialogInsertProduto extends java.awt.Dialog {
     private javax.swing.JButton jButtonAdicionarProduto;
     private javax.swing.JButton jButtonCancelarIns;
     private javax.swing.JButton jButtonLimparCamposInsertproduto;
-    private javax.swing.JComboBox jComboBox10;
-    private javax.swing.JComboBox jComboBox11;
-    private javax.swing.JComboBox jComboBox12;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JComboBox jComboBox5;
-    private javax.swing.JComboBox jComboBox6;
-    private javax.swing.JComboBox jComboBox7;
-    private javax.swing.JComboBox jComboBox8;
-    private javax.swing.JComboBox jComboBox9;
     private javax.swing.JComboBox jComboBoxAdministracaoIns;
     private javax.swing.JComboBox jComboBoxAreaTerapeuticaIns;
+    private javax.swing.JComboBox jComboBoxConstituintes1;
+    private javax.swing.JComboBox jComboBoxConstituintes2;
+    private javax.swing.JComboBox jComboBoxConstituintes3;
+    private javax.swing.JComboBox jComboBoxConstituintes4;
+    private javax.swing.JComboBox jComboBoxConstituintes5;
+    private javax.swing.JComboBox jComboBoxConstituintes6;
+    private javax.swing.JComboBox jComboBoxConstituintes7;
+    private javax.swing.JComboBox jComboBoxConstituintes8;
+    private javax.swing.JComboBox jComboBoxConstituintes9;
     private javax.swing.JComboBox jComboBoxFaixaEtaria;
+    private javax.swing.JComboBox jComboBoxFormatoIns;
     private javax.swing.JComboBox jComboBoxTemperaturaIns;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -518,7 +644,6 @@ public class JDialogInsertProduto extends java.awt.Dialog {
     private javax.swing.JRadioButton jRadioButtonReceitaNaoIns;
     private javax.swing.JRadioButton jRadioButtonReceitaSimIns;
     private javax.swing.JSpinner jSpinnerQuantidadeIns;
-    private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextFieldCodProdutoIns;
     private javax.swing.JTextField jTextFieldDosagemIns;
