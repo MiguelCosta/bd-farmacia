@@ -15,6 +15,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+import javax.swing.SpinnerNumberModel;
 
 /**
  *
@@ -56,7 +59,7 @@ public class JDialogInsertProduto extends java.awt.Dialog {
         jLabelNomeGenIns = new javax.swing.JLabel();
         jTextFieldNomeGenIns = new javax.swing.JTextField();
         jLabelNomeMedicamentoIns = new javax.swing.JLabel();
-        jTextFieldNomeDoMedicamento = new javax.swing.JTextField();
+        jTextFieldNomeDoMedicamentoIns = new javax.swing.JTextField();
         jLabelQuantidadeIns = new javax.swing.JLabel();
         jLabelFaixaEtariaIns = new javax.swing.JLabel();
         jLabelRegistoInfarmedIns = new javax.swing.JLabel();
@@ -84,7 +87,7 @@ public class JDialogInsertProduto extends java.awt.Dialog {
         jRadioButtonGenericoNao = new javax.swing.JRadioButton();
         jComboBoxFormatoIns = new javax.swing.JComboBox();
         jPanel4 = new javax.swing.JPanel();
-        jTextField13 = new javax.swing.JTextField();
+        jTextFieldFolhetoURLIns = new javax.swing.JTextField();
         jButtonLimparCamposInsertproduto = new javax.swing.JButton();
         jButtonAdicionarProduto = new javax.swing.JButton();
         jButtonCancelarIns = new javax.swing.JButton();
@@ -394,7 +397,7 @@ public class JDialogInsertProduto extends java.awt.Dialog {
                     .addComponent(jComboBoxAreaTerapeuticaIns, 0, 303, Short.MAX_VALUE)
                     .addComponent(jTextFieldCodProdutoIns, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
                     .addComponent(jTextFieldNomeGenIns, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
-                    .addComponent(jTextFieldNomeDoMedicamento, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
+                    .addComponent(jTextFieldNomeDoMedicamentoIns, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
                     .addGroup(jPanelLoteLayout.createSequentialGroup()
                         .addGroup(jPanelLoteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelLoteLayout.createSequentialGroup()
@@ -421,7 +424,7 @@ public class JDialogInsertProduto extends java.awt.Dialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelLoteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelNomeMedicamentoIns)
-                    .addComponent(jTextFieldNomeDoMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldNomeDoMedicamentoIns, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelLoteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelQuantidadeIns)
@@ -480,7 +483,7 @@ public class JDialogInsertProduto extends java.awt.Dialog {
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Mais Informações"));
 
-        jTextField13.setBorder(javax.swing.BorderFactory.createTitledBorder("URL do Folheto Informativo"));
+        jTextFieldFolhetoURLIns.setBorder(javax.swing.BorderFactory.createTitledBorder("URL do Folheto Informativo"));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -488,12 +491,12 @@ public class JDialogInsertProduto extends java.awt.Dialog {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField13, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE))
+                .addComponent(jTextFieldFolhetoURLIns, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextFieldFolhetoURLIns, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -501,6 +504,11 @@ public class JDialogInsertProduto extends java.awt.Dialog {
 
         jButtonAdicionarProduto.setText("Adicionar Produto");
         jButtonAdicionarProduto.setActionCommand("Adicionar");
+        jButtonAdicionarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAdicionarProdutoActionPerformed(evt);
+            }
+        });
 
         jButtonCancelarIns.setText("Cancelar");
         jButtonCancelarIns.addActionListener(new java.awt.event.ActionListener() {
@@ -543,7 +551,7 @@ public class JDialogInsertProduto extends java.awt.Dialog {
                     .addComponent(jButtonLimparCamposInsertproduto)
                     .addComponent(jButtonAdicionarProduto)
                     .addComponent(jButtonCancelarIns))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         add(jPanelinserirProduto, java.awt.BorderLayout.CENTER);
@@ -582,6 +590,60 @@ public class JDialogInsertProduto extends java.awt.Dialog {
     private void jRadioButtonGenericoNaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonGenericoNaoActionPerformed
         jRadioButtonGenericoSim.setSelected(false);
     }//GEN-LAST:event_jRadioButtonGenericoNaoActionPerformed
+
+    private void jButtonAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarProdutoActionPerformed
+        try {
+            String produto              = jTextFieldCodProdutoIns.getText();
+            String nome_generico        = jTextFieldNomeGenIns.getText();
+            String nome_medicamento     = jTextFieldNomeDoMedicamentoIns.getText();
+            SpinnerNumberModel model    = (SpinnerNumberModel) jSpinnerQuantidadeIns.getModel();
+            int quantidade              = model.getNumber().intValue();
+            String faixa_etaria         = jComboBoxFaixaEtaria.getSelectedItem().toString();
+            String reg_infarmed         = jTextFieldRegistoInfarmedIns.getText();
+            String area_terapeutica     = jComboBoxAreaTerapeuticaIns.getSelectedItem().toString();
+            String lote                 = jTextFieldLoteIns.getText();
+            String dosagem              = jTextFieldDosagemIns.getText();
+            String temperatura          = jComboBoxTemperaturaIns.getSelectedItem().toString();
+            String preco                = jTextFieldPrecoIns.getText();
+            String administracao        = jComboBoxAdministracaoIns.getSelectedItem().toString();
+            String receita              = null;
+            String generico             = null;
+            String formato              = jComboBoxFormatoIns.getSelectedItem().toString();
+            String folheto_url          = jTextFieldFolhetoURLIns.getText();
+            
+            if (jRadioButtonReceitaSimIns.isSelected()) receita  = "1";
+            if (jRadioButtonReceitaNaoIns.isSelected()) receita  = "0";
+            if (jRadioButtonGenericoSim.isSelected())   generico = "1";
+            if (jRadioButtonGenericoNao.isSelected())   generico = "0";
+
+            // Para devolver os ID
+            faixa_etaria        = Negocio.procurarFaixaEtariaPorNome(faixa_etaria);
+            area_terapeutica    = Negocio.procuraAreaTerapeuticaPorNOME(area_terapeutica);
+            temperatura         = Negocio.procurarTemperaturaPorNome(temperatura);
+            administracao       = Negocio.procuraAdministracaoPorNOME(administracao);
+            formato             = Negocio.procurarFormatoPorNome(formato);
+
+            String msgERRO = "";
+            if (produto.equalsIgnoreCase(""))           msgERRO = msgERRO + "Falta inserir produto!\n";
+            if (nome_generico.equalsIgnoreCase(""))     msgERRO = msgERRO + "Falta inserir o nome generico!\n";
+            if (nome_medicamento.equalsIgnoreCase(""))  msgERRO = msgERRO + "Falta inserir o nome do medicamento!\n";
+            if (reg_infarmed.equalsIgnoreCase(""))      msgERRO = msgERRO + "Falta inserir o registo infarmed!\n";
+            if (dosagem.equalsIgnoreCase(""))           msgERRO = msgERRO + "Falta inserir a dosagem do produto!\n";
+            if (isNumber(produto) == false)             msgERRO = msgERRO + "O codigo do produto apenas pode ter algarismos!\n";
+            if (isNumber(reg_infarmed) == false)        msgERRO = msgERRO + "O registo do infarmed apenas pode ter algarismos!\n";
+
+            System.out.println(msgERRO);
+            if (msgERRO.equalsIgnoreCase("") == false) {
+                JOptionPane.showMessageDialog(null, msgERRO, "Erro ao inserir produto", 1);
+            }
+
+            Negocio.insertProduto(produto, nome_generico, nome_medicamento, "" + quantidade + "", faixa_etaria, reg_infarmed, area_terapeutica, lote, dosagem, temperatura, preco, administracao, receita, generico, formato, folheto_url);
+
+
+        } catch (Exception ex) {
+            Logger.getLogger(JDialogInsertProduto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButtonAdicionarProdutoActionPerformed
 
     /**
     * @param args the command line arguments
@@ -644,15 +706,26 @@ public class JDialogInsertProduto extends java.awt.Dialog {
     private javax.swing.JRadioButton jRadioButtonReceitaNaoIns;
     private javax.swing.JRadioButton jRadioButtonReceitaSimIns;
     private javax.swing.JSpinner jSpinnerQuantidadeIns;
-    private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextFieldCodProdutoIns;
     private javax.swing.JTextField jTextFieldDosagemIns;
+    private javax.swing.JTextField jTextFieldFolhetoURLIns;
     private javax.swing.JTextField jTextFieldLoteIns;
-    private javax.swing.JTextField jTextFieldNomeDoMedicamento;
+    private javax.swing.JTextField jTextFieldNomeDoMedicamentoIns;
     private javax.swing.JTextField jTextFieldNomeGenIns;
     private javax.swing.JTextField jTextFieldPrecoIns;
     private javax.swing.JTextField jTextFieldRegistoInfarmedIns;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
+
+
+    public boolean isNumber (String input){
+        try {
+        Integer.parseInt(input);
+        return true;
+        }
+        catch (Exception e){
+            return false;
+        }
+    }
 
 }

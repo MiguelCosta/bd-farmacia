@@ -5,6 +5,9 @@
 package farmaciabd;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 
 /**
@@ -15,16 +18,16 @@ public class Negocio {
 
     
 
-    /*
-     * Fazer commit da Base de Dados
-     */
-    public static void commit() throws Exception {
+    /*********************************
+     * Fazer commit da Base de Dados *
+     *********************************/
+    public static void commit2() throws Exception {
         Model.stmt.executeQuery("commit");
     }
 
-    /*
-     * Faz o select de um produto recebendo um produto (codigo) e devolve uma linha da tabela
-     */
+    /******************************************************************************************
+     * Faz o select de um produto recebendo um produto (codigo) e devolve uma linha da tabela *
+     ******************************************************************************************/
     public static ResultSet selProduto(String sel) throws Exception {
         String sql = "SELECT * FROM produtos Where produto='";
 
@@ -34,9 +37,9 @@ public class Negocio {
         return rSet;
     }
 
-    /*
-     * Faz o select de um produto recebendo o nome_medicamento e devolve uma linha da tabela
-     */
+    /*****************************************************************************************
+     * Faz o select de um produto recebendo o nome_medicamento e devolve uma linha da tabela *
+     *****************************************************************************************/
     public static ResultSet selProdutoNome(String sel) throws Exception {
         String sql = "SELECT * FROM produtos WHERE nome_medicamento=";
 
@@ -46,9 +49,9 @@ public class Negocio {
         return rSet;
     }
 
-    /*
-     * Abrir documentos pdf com a descrição da área terapeutica
-     */
+    /************************************************************
+     * Abrir documentos pdf com a descrição da área terapeutica *
+     ************************************************************/
     public static void abrirPDF(String sel) throws Exception {
         //C:/BD_Farmacia_docs/Sistema_Nervoso_Central.pdf
         ResultSet rSet = null;
@@ -65,9 +68,9 @@ public class Negocio {
         Runtime.getRuntime().exec("cmd.exe /c start " + r);
     }
 
-    /*
-     * Procura pelo ID a AreaTerapeutica de um produto e devolve o nome
-     */
+    /********************************************************************
+     * Procura pelo ID a AreaTerapeutica de um produto e devolve o nome *
+     ********************************************************************/
     public static String procuraAreaTerapeuticaPorID(String sel) throws Exception {
         String sql = "SELECT * FROM areas_terapeuticas WHERE areaterapeutica = '";
         ResultSet rSet = null;
@@ -86,9 +89,9 @@ public class Negocio {
         return r;
     }
 
-    /*
-     * Procura pelo nome a AreaTerapeutica de um produto e devolve o ID
-     */
+    /********************************************************************
+     * Procura pelo nome a AreaTerapeutica de um produto e devolve o ID *
+     ********************************************************************/
     public static String procuraAreaTerapeuticaPorNOME(String sel) throws Exception {
         String sql = "SELECT * FROM areas_terapeuticas WHERE nome = '";
         ResultSet rSet = null;
@@ -107,9 +110,9 @@ public class Negocio {
         return r;
     }
 
-    /*
-     * Procura pelo ID a Administracao de um produto e devolve o nome
-     */
+    /******************************************************************
+     * Procura pelo ID a Administracao de um produto e devolve o nome *
+     ******************************************************************/
     public static String procuraAdministracaoPorID(String sel) throws Exception {
         String sql = "SELECT * FROM administracoes WHERE administracao = '";
         ResultSet rSet = null;
@@ -126,9 +129,9 @@ public class Negocio {
         return r;
     }
 
-    /*
-     * Procura pelo nome a Administracao de um produto e devolve o id
-     */
+    /******************************************************************
+     * Procura pelo nome a Administracao de um produto e devolve o id *
+     ******************************************************************/
     public static String procuraAdministracaoPorNOME(String sel) throws Exception {
         String sql = "SELECT * FROM administracoes WHERE nome = '";
         ResultSet rSet = null;
@@ -144,9 +147,9 @@ public class Negocio {
         return r;
     }
 
-    /*
-     * Procura o nome da temperatura devolvendo a string através do ID
-     */
+    /***************************************************
+     * Procura pelo ID da temperatura e devolve o nome *
+     ***************************************************/
     public static String procurarTemperaturaPorID(String sel) throws Exception {
         String sql = "SELECT * FROM temperaturas WHERE temperatura = '";
         ResultSet rSet = null;
@@ -161,10 +164,28 @@ public class Negocio {
         }
         return r;
     }
+
+    /***************************************************
+     * Procura pelo nome da temperatura e devolve o ID *
+     ***************************************************/
+    public static String procurarTemperaturaPorNome(String sel) throws Exception {
+        String sql = "SELECT * FROM temperaturas WHERE nome = '";
+        ResultSet rSet = null;
+        String r = null;
+
+        //if (sel.equalsIgnoreCase("<vazio>")) return "0";
+        rSet = Model.stmt.executeQuery(sql + sel + "'");
+
+        while (rSet.next()) {
+            r = rSet.getString(1);
+            //System.out.println("resultado: " + r);
+        }
+        return r;
+    }
     
-    /*
-     * Procura pelo id o Formato de um produto e devolve o nome
-     */
+    /************************************************************
+     * Procura pelo id o Formato de um produto e devolve o nome *
+     ************************************************************/
     public static String procurarFormatoPorID(String sel) throws Exception {
         String sql = "SELECT * FROM formatos WHERE formato = '";
         ResultSet rSet = null;
@@ -180,9 +201,27 @@ public class Negocio {
         return r;
     }
 
-    /*
-     * Procura pelo id o Formato de um produto e devolve o nome
-     */
+    /************************************************************
+     * Procura pelo nome o Formato de um produto e devolve o id *
+     ************************************************************/
+    public static String procurarFormatoPorNome(String sel) throws Exception {
+        String sql = "SELECT * FROM formatos WHERE nome = '";
+        ResultSet rSet = null;
+        String r = null;
+
+        //if (sel.equalsIgnoreCase("<vazio>")) return "0";
+        rSet = Model.stmt.executeQuery(sql + sel + "'");
+
+        while (rSet.next()) {
+            r = rSet.getString(1);
+            //System.out.println("resultado: " + r);
+        }
+        return r;
+    }
+
+    /*****************************************************************
+     * Procura pelo id a faixa etaria de um produto e devolve o nome *
+     *****************************************************************/
     public static String procurarFaixaEtariaPorID(String sel) throws Exception {
         String sql = "SELECT * FROM faixas_etarias WHERE faixa_etaria = '";
         ResultSet rSet = null;
@@ -198,9 +237,27 @@ public class Negocio {
         return r;
     }
 
-    /*
-     * Recebe um produto e vai listar todos os constituintes dele, dando o nome e não o ID
-     */
+    /*****************************************************************
+     * Procura pelo nome a faixa etaria de um produto e devolve o id *
+     *****************************************************************/
+    public static String procurarFaixaEtariaPorNome(String sel) throws Exception {
+        String sql = "SELECT faixa_etaria FROM faixas_etarias WHERE nome = '";
+        ResultSet rSet = null;
+        String r = null;
+
+        //if (sel.equalsIgnoreCase("<vazio>")) return "0";
+        rSet = Model.stmt.executeQuery(sql + sel + "'");
+
+        while (rSet.next()) {
+            r = rSet.getString(1);
+            //System.out.println("resultado: " + r);
+        }
+        return r;
+    }
+
+    /***************************************************************************************
+     * Recebe um produto e vai listar todos os constituintes dele, dando o nome e não o ID *
+     ***************************************************************************************/
     public static ResultSet procurarListaConstituintes(String sel) throws Exception {
         ResultSet rSet = null;
         String sql = "SELECT constituintes.nome FROM lista_constituintes, constituintes, produtos WHERE lista_constituintes.produto = produtos.produto AND constituintes.constituinte = lista_constituintes.constituinte AND produtos.produto = '";
@@ -212,9 +269,9 @@ public class Negocio {
         return rSet;
     }
 
-    /*
-     * Procura um constituinte, devolvendo o nome e recebendo o ID
-     */
+    /***************************************************************
+     * Procura um constituinte, devolvendo o nome e recebendo o ID *
+     ***************************************************************/
     public static String procurarConstituintes(String sel) throws Exception {
         ResultSet rSet = null;
         String sql = "SELECT * FROM constituintes WHERE constituinte = '";
@@ -235,9 +292,9 @@ public class Negocio {
         return r;
     }
 
-    /*
-     * Lista as faixas estarias devolvendo um ResultSet
-     */
+    /****************************************************
+     * Lista as faixas estarias devolvendo um ResultSet *
+     ****************************************************/
     public static ResultSet listarFaixasEtarias () throws Exception{
         ResultSet rSet = null;
         String sql = "SELECT nome FROM faixas_etarias";
@@ -248,10 +305,21 @@ public class Negocio {
 
     }
 
-    public static void insertProduto(String produto, String nome_generico, String nome_medicamento, String quantidade, String faixa_etaria, String reg_infarmed, String area_terapeutica, String lote, String dosagem, String temperatura, String preco, String Administracao, String receita, String generico, String formato, String folheto_url){
+    /***************************************
+     * Inserir um produto na base de dados *
+     ***************************************/
+    public static void insertProduto(String produto, String nome_generico, String nome_medicamento, String quantidade, String faixa_etaria, String reg_infarmed, String area_terapeutica, String lote, String dosagem, String temperatura, String preco, String administracao, String receita, String generico, String formato, String folheto_url) throws SQLException{
 
-    
+        String sql = "INSERT INTO produtos VALUES ("+produto+",'"+nome_generico+"','"+nome_medicamento+"','"+quantidade+"','"+faixa_etaria+"','"+reg_infarmed+"','"+area_terapeutica+"','"+lote+"','"+dosagem+"','"+temperatura+"','"+preco+"','"+administracao+"','"+receita+"','"+generico+"','"+formato+"','"+folheto_url+"')";
 
+        System.out.println(sql);
+
+        Model.stmt.executeQuery(sql);
+        try {
+            commit2();
+        } catch (Exception ex) {
+            Logger.getLogger(Negocio.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }
