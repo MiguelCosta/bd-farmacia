@@ -96,6 +96,12 @@ public class JPrincipal extends javax.swing.JFrame {
         jPanel14 = new javax.swing.JPanel();
         jTextFieldAreaTerapeuticaMore = new javax.swing.JTextField();
         jButtonAreaTerapeuticaAbrirPDF = new javax.swing.JButton();
+        jPanelFolhetoInformativo = new javax.swing.JPanel();
+        jButtonFolhetoInformativo = new javax.swing.JButton();
+        jTextFieldFolhetoInformativo = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jRadioButtonCodProdStock = new javax.swing.JRadioButton();
@@ -448,23 +454,66 @@ public class JPrincipal extends javax.swing.JFrame {
                 .addComponent(jButtonAreaTerapeuticaAbrirPDF))
         );
 
+        jPanelFolhetoInformativo.setBorder(javax.swing.BorderFactory.createTitledBorder("Folheto Informativo"));
+
+        jButtonFolhetoInformativo.setText("Abrir Folheto Informativo");
+        jButtonFolhetoInformativo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonFolhetoInformativoActionPerformed(evt);
+            }
+        });
+
+        jTextFieldFolhetoInformativo.setBorder(javax.swing.BorderFactory.createTitledBorder("URL"));
+
+        javax.swing.GroupLayout jPanelFolhetoInformativoLayout = new javax.swing.GroupLayout(jPanelFolhetoInformativo);
+        jPanelFolhetoInformativo.setLayout(jPanelFolhetoInformativoLayout);
+        jPanelFolhetoInformativoLayout.setHorizontalGroup(
+            jPanelFolhetoInformativoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelFolhetoInformativoLayout.createSequentialGroup()
+                .addComponent(jButtonFolhetoInformativo)
+                .addContainerGap())
+            .addComponent(jTextFieldFolhetoInformativo, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
+        );
+        jPanelFolhetoInformativoLayout.setVerticalGroup(
+            jPanelFolhetoInformativoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelFolhetoInformativoLayout.createSequentialGroup()
+                .addComponent(jTextFieldFolhetoInformativo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonFolhetoInformativo))
+        );
+
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
         jPanel13Layout.setHorizontalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanelFolhetoInformativo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(343, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelFolhetoInformativo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(236, Short.MAX_VALUE))
         );
 
         jTabbedPaneFichaProduto.addTab("Mais Informações", jPanel13);
+
+        jButton1.setText("Adicionar Produto");
+
+        jButton4.setText("Limpar campos");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setText("Alterar Produto");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -472,12 +521,18 @@ public class JPrincipal extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPaneFichaProduto)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                        .addComponent(jButton4))
+                    .addComponent(jTabbedPaneFichaProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -489,12 +544,18 @@ public class JPrincipal extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTabbedPaneFichaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTabbedPaneFichaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jButton1)
+                                .addComponent(jButton5))
+                            .addComponent(jButton4)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 513, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Ficha de Medicamentos", jPanel4);
@@ -713,7 +774,7 @@ public class JPrincipal extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -746,7 +807,7 @@ public class JPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Estatisticas", jPanel7);
@@ -762,14 +823,14 @@ public class JPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 604, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 638, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -896,6 +957,7 @@ public class JPrincipal extends javax.swing.JFrame {
         String temperatura = null;
         String formato = null;
         String faixa_etaria = null;
+        String folheto_url = null;
 
         try {
             if (jRadioButtonNameProd.isSelected()) {
@@ -923,6 +985,7 @@ public class JPrincipal extends javax.swing.JFrame {
                 jTextFieldReceita.setText(sim_nao(vazio(rSet.getString(13))));
                 jTextFieldGenerico.setText(sim_nao(vazio(rSet.getString(14))));
                 formato = vazio(rSet.getString(15));
+                folheto_url = vazio(rSet.getString(16));
             }
             jTextFieldProduto.setText(produto);
             jTextFieldAdministracao.setText(Negocio.procuraAdministracaoPorID(administracao));
@@ -958,7 +1021,15 @@ public class JPrincipal extends javax.swing.JFrame {
             } else {
                 jButtonAreaTerapeuticaAbrirPDF.setEnabled(true);
             }
-            System.out.println("b:" + areaTerapeutica);
+            //System.out.println("b:" + areaTerapeutica);
+
+            // Desactiva o butão de abrir folheto
+            jTextFieldFolhetoInformativo.setText(folheto_url);
+            if(folheto_url.equals("<vazio>")){
+                jButtonFolhetoInformativo.setEnabled(false);
+            } else {
+                jButtonFolhetoInformativo.setEnabled(true);
+            }
 
         } catch (Exception ex) {
             Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
@@ -1016,7 +1087,7 @@ public class JPrincipal extends javax.swing.JFrame {
         if (sel.equalsIgnoreCase("<vazio>")) {
             System.out.println("out");
         } else {
-            System.out.println(sel);
+            //System.out.println(sel);
 
             try {
                 Negocio.abrirPDF(sel);
@@ -1027,8 +1098,51 @@ public class JPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAreaTerapeuticaAbrirPDFActionPerformed
 
     private void jTextFieldAreaTerapeuticaMoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAreaTerapeuticaMoreActionPerformed
-        // TODO add your handling code here:
+        String sel = jTextFieldFolhetoInformativo.getText();
+        if (sel.equalsIgnoreCase("<vazio>")) {
+            System.out.println("out");
+        } else {
+            //System.out.println(sel);
+
+            try {
+                Negocio.abrirPDF(sel);
+            } catch (Exception ex) {
+                Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_jTextFieldAreaTerapeuticaMoreActionPerformed
+
+    private void jButtonFolhetoInformativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFolhetoInformativoActionPerformed
+        String sel = jTextFieldFolhetoInformativo.getText();
+
+        if (sel.equalsIgnoreCase("<vazio>")) {
+            System.out.println("out");
+        } else {
+            try {
+                Negocio.abrirPDF(sel);
+            } catch (Exception ex) {
+                Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jButtonFolhetoInformativoActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        jRadioButtonCodProdActionPerformed(null);
+        jTextFieldNomeGen.setText(null);
+        jTextFieldNomeMedicamento.setText(null);
+        jTextFieldQuantidade.setText(null);
+        jTextFieldRegistoInfarmed.setText(null);
+        jTextFieldLote.setText(null);
+        jTextFieldDosagem.setText(null);
+        jTextFieldPreco.setText(null);
+        jTextFieldReceita.setText(null);
+        jTextFieldGenerico.setText(null);
+        jTextFieldFormato.setText(null);
+        jTextFieldProcura.setText(null);
+
+        jButtonAreaTerapeuticaAbrirPDF.setEnabled(false);
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1053,9 +1167,13 @@ public class JPrincipal extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButtonAreaTerapeuticaAbrirPDF;
+    private javax.swing.JButton jButtonFolhetoInformativo;
     private javax.swing.JButton jButtonProcurar;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -1102,6 +1220,7 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JPanel jPanelFolhetoInformativo;
     private javax.swing.JRadioButton jRadioButtonAdicionarQ;
     private javax.swing.JRadioButton jRadioButtonCodProd;
     private javax.swing.JRadioButton jRadioButtonCodProdStock;
@@ -1122,6 +1241,7 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldAumentaQuantidadeStock;
     private javax.swing.JTextField jTextFieldDosagem;
     private javax.swing.JTextField jTextFieldFaixaEtaria;
+    private javax.swing.JTextField jTextFieldFolhetoInformativo;
     private javax.swing.JTextField jTextFieldFormato;
     private javax.swing.JTextField jTextFieldGenerico;
     private javax.swing.JTextField jTextFieldLote;
