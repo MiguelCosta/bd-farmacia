@@ -13,6 +13,8 @@ import javax.swing.DefaultListModel;
  */
 public class Negocio {
 
+    
+
     /*
      * Fazer commit da Base de Dados
      */
@@ -142,6 +144,9 @@ public class Negocio {
         return r;
     }
 
+    /*
+     * Procura o nome da temperatura devolvendo a string através do ID
+     */
     public static String procurarTemperaturaPorID(String sel) throws Exception {
         String sql = "SELECT * FROM temperaturas WHERE temperatura = '";
         ResultSet rSet = null;
@@ -156,8 +161,7 @@ public class Negocio {
         }
         return r;
     }
-
-
+    
     /*
      * Procura pelo id o Formato de um produto e devolve o nome
      */
@@ -208,6 +212,9 @@ public class Negocio {
         return rSet;
     }
 
+    /*
+     * Procura um constituinte, devolvendo o nome e recebendo o ID
+     */
     public static String procurarConstituintes(String sel) throws Exception {
         ResultSet rSet = null;
         String sql = "SELECT * FROM constituintes WHERE constituinte = '";
@@ -215,14 +222,12 @@ public class Negocio {
 
         rSet = Model.stmt.executeQuery(sql + sel + "'");
 
-
         rSet = Produtos.queryProdutos();
         DefaultListModel model = new DefaultListModel();
         while (rSet.next()) {
             model.addElement(rSet.getObject(1).toString());
         }
-
-        
+  
         while (rSet.next()) {
             r = rSet.getString(2);
         }
@@ -230,6 +235,9 @@ public class Negocio {
         return r;
     }
 
+    /*
+     * Lista as faixas estarias devolvendo um ResultSet
+     */
     public static ResultSet listarFaixasEtarias () throws Exception{
         ResultSet rSet = null;
         String sql = "SELECT nome FROM faixas_etarias";
@@ -239,4 +247,11 @@ public class Negocio {
         return rSet;
 
     }
+
+    public static void insertProduto(String produto, String nome_generico, String nome_medicamento, String quantidade, String faixa_etaria, String reg_infarmed, String area_terapeutica, String lote, String dosagem, String temperatura, String preco, String Administracao, String receita, String generico, String formato, String folheto_url){
+
+    
+
+    }
+
 }
