@@ -10,14 +10,19 @@
  */
 package farmaciabd;
 
+import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.Frame;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
 import java.sql.*;
+import java.util.ArrayList;
 import javax.xml.crypto.dsig.keyinfo.KeyValue;
+import oracle.sql.ARRAY;
 
 /**
  *
@@ -30,6 +35,7 @@ public class JPrincipal extends javax.swing.JFrame {
     /** Creates new form Principal */
     public JPrincipal() {
         initComponents();
+        centerOnScreen(this);
     }
 
     /** This method is called from within the constructor to
@@ -99,9 +105,9 @@ public class JPrincipal extends javax.swing.JFrame {
         jPanelFolhetoInformativo = new javax.swing.JPanel();
         jButtonFolhetoInformativo = new javax.swing.JButton();
         jTextFieldFolhetoInformativo = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jButtonAdicionarProduto = new javax.swing.JButton();
         jButtonLimparCampos = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        jButtonAlterarProduto = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jRadioButtonCodProdStock = new javax.swing.JRadioButton();
@@ -510,10 +516,10 @@ public class JPrincipal extends javax.swing.JFrame {
 
         jTabbedPaneFichaProduto.addTab("Mais Informações", jPanel13);
 
-        jButton1.setText("Adicionar Produto");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAdicionarProduto.setText("Adicionar Produto");
+        jButtonAdicionarProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonAdicionarProdutoActionPerformed(evt);
             }
         });
 
@@ -524,7 +530,12 @@ public class JPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setText("Alterar Produto");
+        jButtonAlterarProduto.setText("Alterar Produto");
+        jButtonAlterarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAlterarProdutoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -538,9 +549,9 @@ public class JPrincipal extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(jButtonAdicionarProduto)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton5)
+                        .addComponent(jButtonAlterarProduto)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                         .addComponent(jButtonLimparCampos))
                     .addComponent(jTabbedPaneFichaProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
@@ -559,8 +570,8 @@ public class JPrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jButton1)
-                                .addComponent(jButton5))
+                                .addComponent(jButtonAdicionarProduto)
+                                .addComponent(jButtonAlterarProduto))
                             .addComponent(jButtonLimparCampos)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -856,6 +867,7 @@ public class JPrincipal extends javax.swing.JFrame {
      */
     private void jRadioButtonNameProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNameProdActionPerformed
         jRadioButtonCodProd.setSelected(false);
+        jListProdutos.removeAll();
 
         try {
             rSet = Produtos.queryProdutos();
@@ -868,7 +880,6 @@ public class JPrincipal extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }//GEN-LAST:event_jRadioButtonNameProdActionPerformed
 
     /*
@@ -876,6 +887,7 @@ public class JPrincipal extends javax.swing.JFrame {
      */
     private void jRadioButtonCodProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonCodProdActionPerformed
         jRadioButtonNameProd.setSelected(false);
+        jListProdutos.removeAll();
 
         try {
             rSet = Produtos.queryProdutos();
@@ -920,8 +932,6 @@ public class JPrincipal extends javax.swing.JFrame {
 
     private void jRadioButtonNomeProdStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNomeProdStockActionPerformed
         jRadioButtonCodProdStock.setSelected(false);
-        jRadioButtonCodProd.setSelected(false);
-        jRadioButtonNameProd.setSelected(true);
 
         try {
             rSet = Produtos.queryProdutos();
@@ -941,8 +951,6 @@ public class JPrincipal extends javax.swing.JFrame {
 
     private void jRadioButtonCodProdStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonCodProdStockActionPerformed
         jRadioButtonNomeProdStock.setSelected(false);
-        jRadioButtonCodProd.setSelected(true);
-        jRadioButtonNameProd.setSelected(false);
 
         try {
             rSet = Produtos.queryProdutos();
@@ -1043,8 +1051,9 @@ public class JPrincipal extends javax.swing.JFrame {
             }
 
         } catch (Exception ex) {
+            System.out.println("ERRO: "+ex.getMessage());
             Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        }
     }//GEN-LAST:event_jListProdutosValueChanged
 
     /*********************************************************************************
@@ -1145,11 +1154,19 @@ public class JPrincipal extends javax.swing.JFrame {
         jButtonAreaTerapeuticaAbrirPDF.setEnabled(false);        
     }//GEN-LAST:event_jButtonLimparCamposActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarProdutoActionPerformed
         JDialogInsertProduto adicionarProduto = new JDialogInsertProduto(this, true);
         adicionarProduto.setVisible(true);
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonAdicionarProdutoActionPerformed
+
+    private void jButtonAlterarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarProdutoActionPerformed
+       JDialogAlterProduto alterarProduto = new JDialogAlterProduto(this, true);
+       alterarProduto.setVisible(true);
+
+       
+
+    }//GEN-LAST:event_jButtonAlterarProdutoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1176,10 +1193,10 @@ public class JPrincipal extends javax.swing.JFrame {
 
     // <editor-fold defaultstate="collapsed" desc="Variáveis">
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButtonAdicionarProduto;
+    private javax.swing.JButton jButtonAlterarProduto;
     private javax.swing.JButton jButtonAreaTerapeuticaAbrirPDF;
     private javax.swing.JButton jButtonFolhetoInformativo;
     private javax.swing.JButton jButtonLimparCampos;
@@ -1260,7 +1277,7 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldPreco;
     private javax.swing.JTextField jTextFieldProcura;
     private javax.swing.JTextField jTextFieldProcuraStock;
-    private javax.swing.JTextField jTextFieldProduto;
+    public javax.swing.JTextField jTextFieldProduto;
     private javax.swing.JTextField jTextFieldProdutoStock;
     private javax.swing.JTextField jTextFieldQuantidade;
     private javax.swing.JTextField jTextFieldReceita;
@@ -1283,4 +1300,22 @@ public class JPrincipal extends javax.swing.JFrame {
             return "Não";
         }
     }
+
+    public static void centerOnScreen(final Component target) {
+       if (target != null) {
+           Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+           Dimension dialogSize = target.getSize();
+
+           if (dialogSize.height > screenSize.height) {
+               dialogSize.height = screenSize.height;
+           }
+           if (dialogSize.width > screenSize.width) {
+               dialogSize.width = screenSize.width;
+           }
+
+           target.setLocation((screenSize.width - dialogSize.width) / 2,
+                   (screenSize.height - dialogSize.height) / 2);
+       }
+   }
+
 }

@@ -1,6 +1,6 @@
 <?xml version="1.1" encoding="UTF-8" ?>
 
-<Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.DialogFormInfo">
+<Form version="1.2" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.DialogFormInfo">
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
   </SyntheticProperties>
@@ -17,7 +17,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,-13,0,0,2,-13"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,17,0,0,2,-9"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
@@ -26,7 +26,7 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder justification="2" position="2" title="INSERIR PRODUTO">
+            <TitledBorder justification="2" position="2" title="ALTERAR PRODUTO">
               <Font PropertyName="font" name="Tahoma" size="18" style="0"/>
             </TitledBorder>
           </Border>
@@ -41,20 +41,20 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jPanelLote" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jPanel4" max="32767" attributes="0"/>
+                              <Component id="jPanel4" alignment="0" max="32767" attributes="0"/>
                               <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jButtonLimparCamposInsertproduto" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="430" max="32767" attributes="0"/>
+                          <EmptySpace pref="444" max="32767" attributes="0"/>
                           <Component id="jButtonCancelarIns" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jButtonAdicionarProduto" min="-2" max="-2" attributes="0"/>
@@ -65,14 +65,14 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jPanelLote" min="-2" max="-2" attributes="0"/>
+                      <Component id="jPanelLote" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -80,7 +80,7 @@
                       <Component id="jButtonAdicionarProduto" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonCancelarIns" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="41" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -100,15 +100,15 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jComboBoxConstituintes1" alignment="0" pref="288" max="32767" attributes="0"/>
-                  <Component id="jComboBoxConstituintes2" alignment="0" pref="288" max="32767" attributes="0"/>
-                  <Component id="jComboBoxConstituintes3" alignment="0" pref="288" max="32767" attributes="0"/>
-                  <Component id="jComboBoxConstituintes4" alignment="0" pref="288" max="32767" attributes="0"/>
-                  <Component id="jComboBoxConstituintes5" alignment="0" pref="288" max="32767" attributes="0"/>
-                  <Component id="jComboBoxConstituintes6" alignment="0" pref="288" max="32767" attributes="0"/>
-                  <Component id="jComboBoxConstituintes7" alignment="0" pref="288" max="32767" attributes="0"/>
-                  <Component id="jComboBoxConstituintes8" alignment="0" pref="288" max="32767" attributes="0"/>
-                  <Component id="jComboBoxConstituintes9" alignment="0" pref="288" max="32767" attributes="0"/>
+                  <Component id="jComboBoxConstituintes1" alignment="0" pref="292" max="32767" attributes="0"/>
+                  <Component id="jComboBoxConstituintes2" alignment="0" pref="292" max="32767" attributes="0"/>
+                  <Component id="jComboBoxConstituintes3" alignment="0" pref="292" max="32767" attributes="0"/>
+                  <Component id="jComboBoxConstituintes4" alignment="0" pref="292" max="32767" attributes="0"/>
+                  <Component id="jComboBoxConstituintes5" alignment="0" pref="292" max="32767" attributes="0"/>
+                  <Component id="jComboBoxConstituintes6" alignment="0" pref="292" max="32767" attributes="0"/>
+                  <Component id="jComboBoxConstituintes7" alignment="0" pref="292" max="32767" attributes="0"/>
+                  <Component id="jComboBoxConstituintes8" alignment="0" pref="292" max="32767" attributes="0"/>
+                  <Component id="jComboBoxConstituintes9" alignment="0" pref="292" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -258,11 +258,11 @@
                           <Component id="jLabelAdministracao" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jComboBoxFormatoIns" pref="303" max="32767" attributes="0"/>
+                          <Component id="jComboBoxFormatoIns" alignment="0" pref="303" max="32767" attributes="0"/>
                           <Component id="jComboBoxAdministracaoIns" alignment="0" pref="303" max="32767" attributes="0"/>
                           <Component id="jComboBoxFaixaEtaria" alignment="0" pref="303" max="32767" attributes="0"/>
                           <Component id="jTextFieldRegistoInfarmedIns" alignment="0" pref="303" max="32767" attributes="0"/>
@@ -286,7 +286,7 @@
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jRadioButtonGenericoNao" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRadioButtonGenericoNao" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jRadioButtonReceitaNaoIns" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
@@ -372,7 +372,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jRadioButtonGenericoSim" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -437,9 +437,6 @@
                   <StringArray count="0"/>
                 </Property>
               </Properties>
-              <BindingProperties>
-                <BindingProperty name="elements" source="Form" target="jComboBoxAreaTerapeuticaIns" targetPath="elements" updateStrategy="0" immediately="false"/>
-              </BindingProperties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try {     &#xd;&#xa;    rSet = Areas_Terapeuticas.queryAreasTerapeuticas(); &#xd;&#xa;    &#xd;&#xa;    //DefaultListModel model = new DefaultListModel();     &#xd;&#xa;&#xd;&#xa;    while (rSet.next())         &#xd;&#xa;        jComboBoxAreaTerapeuticaIns.addItem(rSet.getString(1));     &#xd;&#xa;    }&#xd;&#xa;&#xd;&#xa;catch (SQLException ex) { &#xd;&#xa;    Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); &#xd;&#xa;}"/>
               </AuxValues>
@@ -523,11 +520,6 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JSpinner" name="jSpinnerQuantidadeIns">
-              <Properties>
-                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                  <SpinnerModel initial="0" maximum="100" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
-                </Property>
-              </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JSpinner()"/>
               </AuxValues>
@@ -592,7 +584,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextFieldFolhetoURLIns" pref="278" max="32767" attributes="0"/>
+                      <Component id="jTextFieldFolhetoURLIns" pref="282" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -627,7 +619,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonAdicionarProduto">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Adicionar Produto"/>
+            <Property name="text" type="java.lang.String" value="Alterar Produto"/>
             <Property name="actionCommand" type="java.lang.String" value="Adicionar"/>
           </Properties>
           <Events>
