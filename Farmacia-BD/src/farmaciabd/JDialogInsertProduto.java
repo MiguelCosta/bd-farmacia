@@ -610,7 +610,16 @@ public class JDialogInsertProduto extends java.awt.Dialog {
             String generico             = null;
             String formato              = jComboBoxFormatoIns.getSelectedItem().toString();
             String folheto_url          = jTextFieldFolhetoURLIns.getText();
-            
+            String constituinte1        = jComboBoxConstituintes1.getSelectedItem().toString();
+            String constituinte2        = jComboBoxConstituintes2.getSelectedItem().toString();
+            String constituinte3        = jComboBoxConstituintes3.getSelectedItem().toString();
+            String constituinte4        = jComboBoxConstituintes4.getSelectedItem().toString();
+            String constituinte5        = jComboBoxConstituintes5.getSelectedItem().toString();
+            String constituinte6        = jComboBoxConstituintes6.getSelectedItem().toString();
+            String constituinte7        = jComboBoxConstituintes7.getSelectedItem().toString();
+            String constituinte8        = jComboBoxConstituintes8.getSelectedItem().toString();
+            String constituinte9        = jComboBoxConstituintes9.getSelectedItem().toString();
+
             if (jRadioButtonReceitaSimIns.isSelected()) receita  = "1";
             if (jRadioButtonReceitaNaoIns.isSelected()) receita  = "0";
             if (jRadioButtonGenericoSim.isSelected())   generico = "1";
@@ -622,24 +631,49 @@ public class JDialogInsertProduto extends java.awt.Dialog {
             temperatura         = Negocio.procurarTemperaturaPorNome(temperatura);
             administracao       = Negocio.procuraAdministracaoPorNOME(administracao);
             formato             = Negocio.procurarFormatoPorNome(formato);
+            
+            constituinte1       = Negocio.procurarConstituintesPorNome(constituinte1);
+            constituinte2       = Negocio.procurarConstituintesPorNome(constituinte2);
+            constituinte3       = Negocio.procurarConstituintesPorNome(constituinte3);
+            constituinte4       = Negocio.procurarConstituintesPorNome(constituinte4);
+            constituinte5       = Negocio.procurarConstituintesPorNome(constituinte5);
+            constituinte6       = Negocio.procurarConstituintesPorNome(constituinte6);
+            constituinte7       = Negocio.procurarConstituintesPorNome(constituinte7);
+            constituinte8       = Negocio.procurarConstituintesPorNome(constituinte8);
+            constituinte9       = Negocio.procurarConstituintesPorNome(constituinte9);
 
             String msgERRO = "";
-            if (produto.equalsIgnoreCase(""))           msgERRO = msgERRO + "Falta inserir produto!\n";
-            if (nome_generico.equalsIgnoreCase(""))     msgERRO = msgERRO + "Falta inserir o nome generico!\n";
-            if (nome_medicamento.equalsIgnoreCase(""))  msgERRO = msgERRO + "Falta inserir o nome do medicamento!\n";
-            if (reg_infarmed.equalsIgnoreCase(""))      msgERRO = msgERRO + "Falta inserir o registo infarmed!\n";
-            if (dosagem.equalsIgnoreCase(""))           msgERRO = msgERRO + "Falta inserir a dosagem do produto!\n";
-            if (isNumber(produto) == false)             msgERRO = msgERRO + "O codigo do produto apenas pode ter algarismos!\n";
-            if (isNumber(reg_infarmed) == false)        msgERRO = msgERRO + "O registo do infarmed apenas pode ter algarismos!\n";
+            if (produto.equalsIgnoreCase(""))                       msgERRO = msgERRO + "Falta inserir produto!\n";
+            if (nome_generico.equalsIgnoreCase(""))                 msgERRO = msgERRO + "Falta inserir o nome generico!\n";
+            if (nome_medicamento.equalsIgnoreCase(""))              msgERRO = msgERRO + "Falta inserir o nome do medicamento!\n";
+            if (reg_infarmed.equalsIgnoreCase(""))                  msgERRO = msgERRO + "Falta inserir o registo infarmed!\n";
+            if (dosagem.equalsIgnoreCase(""))                       msgERRO = msgERRO + "Falta inserir a dosagem do produto!\n";
+            if (isNumber(produto) == false)                         msgERRO = msgERRO + "O codigo do produto apenas pode ter algarismos!\n";
+            if (isNumber(reg_infarmed) == false)                    msgERRO = msgERRO + "O registo do infarmed apenas pode ter algarismos!\n";
+            if (Negocio.verificarProdutoExiste(produto))            msgERRO = msgERRO + "O produo já existe!\n";
+            if (Negocio.verificarRegInfarmedExiste(reg_infarmed))   msgERRO = msgERRO + "O registo infarmed inserido já existe!\n";
 
             System.out.println(msgERRO);
             if (msgERRO.equalsIgnoreCase("") == false) {
                 JOptionPane.showMessageDialog(null, msgERRO, "Erro ao inserir produto", 1);
-            }
+            } else {
 
-            Negocio.insertProduto(produto, nome_generico, nome_medicamento, "" + quantidade + "", faixa_etaria, reg_infarmed, area_terapeutica, lote, dosagem, temperatura, preco, administracao, receita, generico, formato, folheto_url);
+                Negocio.insertProduto(produto, nome_generico, nome_medicamento, "" + quantidade + "", faixa_etaria, reg_infarmed, area_terapeutica, lote, dosagem, temperatura, preco, administracao, receita, generico, formato, folheto_url);
+            
+                if(constituinte1.equalsIgnoreCase("1")==false)  Negocio.insertConstituinte(produto, constituinte1);
+                if(constituinte2.equalsIgnoreCase("1")==false)  Negocio.insertConstituinte(produto, constituinte2);
+                if(constituinte3.equalsIgnoreCase("1")==false)  Negocio.insertConstituinte(produto, constituinte3);
+                if(constituinte4.equalsIgnoreCase("1")==false)  Negocio.insertConstituinte(produto, constituinte4);
+                if(constituinte5.equalsIgnoreCase("1")==false)  Negocio.insertConstituinte(produto, constituinte5);
+                if(constituinte6.equalsIgnoreCase("1")==false)  Negocio.insertConstituinte(produto, constituinte6);
+                if(constituinte7.equalsIgnoreCase("1")==false)  Negocio.insertConstituinte(produto, constituinte7);
+                if(constituinte8.equalsIgnoreCase("1")==false)  Negocio.insertConstituinte(produto, constituinte8);
+                if(constituinte9.equalsIgnoreCase("1")==false)  Negocio.insertConstituinte(produto, constituinte9);
 
-
+                JDialogInsertProduto.this.dispose();
+                JOptionPane.showMessageDialog(null, "Produto inserido com sucesso!", "Produto inserido", 1);
+            
+                }
         } catch (Exception ex) {
             Logger.getLogger(JDialogInsertProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
