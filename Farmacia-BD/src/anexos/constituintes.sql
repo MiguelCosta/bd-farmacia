@@ -1,6 +1,6 @@
 /* http://www.infarmed.pt/pt/medicamentos/uso_humano/lista_subst_activas/lista_subst_activas.php */
 
-INSERT INTO CONSTITUINTES VALUES ('1','A/California/7/2009 (H1N1) - like virus A/Perth/16/2009 (H3N2) - like virus B/Brisbane/60/2008','0');
+INSERT INTO CONSTITUINTES VALUES ('1','Nao Especificado','0');
 
 INSERT INTO CONSTITUINTES VALUES ('2','Acarbose','1');
 
