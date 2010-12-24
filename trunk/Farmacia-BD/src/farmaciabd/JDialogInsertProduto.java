@@ -323,6 +323,8 @@ public class JDialogInsertProduto extends java.awt.Dialog {
             Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); 
         }
 
+        jSpinnerQuantidadeIns.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
+
         jRadioButtonReceitaSimIns.setText("Sim");
         jRadioButtonReceitaSimIns.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -386,7 +388,6 @@ public class JDialogInsertProduto extends java.awt.Dialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelLoteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jComboBoxFormatoIns, 0, 303, Short.MAX_VALUE)
-                    .addComponent(jSpinnerQuantidadeIns, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
                     .addComponent(jComboBoxAdministracaoIns, 0, 303, Short.MAX_VALUE)
                     .addComponent(jComboBoxFaixaEtaria, 0, 303, Short.MAX_VALUE)
                     .addComponent(jTextFieldRegistoInfarmedIns, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
@@ -409,7 +410,10 @@ public class JDialogInsertProduto extends java.awt.Dialog {
                         .addGroup(jPanelLoteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jRadioButtonGenericoNao)
                             .addComponent(jRadioButtonReceitaNaoIns))
-                        .addGap(143, 143, 143))))
+                        .addGap(143, 143, 143))
+                    .addGroup(jPanelLoteLayout.createSequentialGroup()
+                        .addComponent(jSpinnerQuantidadeIns, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         jPanelLoteLayout.setVerticalGroup(
             jPanelLoteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

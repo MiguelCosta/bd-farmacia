@@ -250,7 +250,6 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jComboBoxFormatoIns" pref="303" max="32767" attributes="0"/>
-                          <Component id="jSpinnerQuantidadeIns" alignment="0" pref="303" max="32767" attributes="0"/>
                           <Component id="jComboBoxAdministracaoIns" alignment="0" pref="303" max="32767" attributes="0"/>
                           <Component id="jComboBoxFaixaEtaria" alignment="0" pref="303" max="32767" attributes="0"/>
                           <Component id="jTextFieldRegistoInfarmedIns" alignment="0" pref="303" max="32767" attributes="0"/>
@@ -278,6 +277,10 @@
                                   <Component id="jRadioButtonReceitaNaoIns" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jSpinnerQuantidadeIns" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -510,6 +513,14 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JSpinner" name="jSpinnerQuantidadeIns">
+              <Properties>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="0" maximum="100" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JSpinner()"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JRadioButton" name="jRadioButtonReceitaSimIns">
               <Properties>
