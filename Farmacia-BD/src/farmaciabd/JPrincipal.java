@@ -1173,6 +1173,8 @@ public class JPrincipal extends javax.swing.JFrame {
             }
         });
     }
+
+    // <editor-fold defaultstate="collapsed" desc="Variáveis">
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -1265,6 +1267,7 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldRegistoInfarmed;
     private javax.swing.JTextField jTextFieldTemperatura;
     // End of variables declaration//GEN-END:variables
+// </editor-fold>
 
     private String vazio(String str) {
         if (str == null) {
