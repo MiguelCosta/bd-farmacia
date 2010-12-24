@@ -1161,10 +1161,24 @@ public class JPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAdicionarProdutoActionPerformed
 
     private void jButtonAlterarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarProdutoActionPerformed
-       JDialogAlterProduto alterarProduto = new JDialogAlterProduto(this, true);
+       if (jTextFieldProduto.getText().equalsIgnoreCase("")) {
+           JOptionPane.showMessageDialog(null, "Seleccione o produto que pretende alterar!", "Erro ao alterar Produto",1);
+       }
+       else {
+
+
+        String produto = jTextFieldProduto.getText();
+       JDialogAlterProduto alterarProduto = null;
+        try {
+            alterarProduto = new JDialogAlterProduto(this, produto, true);
+        } catch (SQLException ex) {
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
        alterarProduto.setVisible(true);
 
-       
+        }
 
     }//GEN-LAST:event_jButtonAlterarProdutoActionPerformed
 
