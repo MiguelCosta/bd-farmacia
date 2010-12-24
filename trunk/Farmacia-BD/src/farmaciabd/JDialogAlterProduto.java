@@ -4,16 +4,14 @@
  */
 
 /*
- * JDialogInsertProduto.java
+ * JDialogAlterProduto.java
  *
- * Created on 23/Dez/2010, 2:05:48
+ * Created on 24/Dez/2010, 15:03:08
  */
 
 package farmaciabd;
 
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Toolkit;
+import java.lang.String;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -25,15 +23,15 @@ import javax.swing.SpinnerNumberModel;
  *
  * @author Miguel
  */
-public class JDialogInsertProduto extends java.awt.Dialog {
-
+public class JDialogAlterProduto extends java.awt.Dialog {
     ResultSet rSet = null;
 
-    /** Creates new form JDialogInsertProduto */
-    public JDialogInsertProduto(java.awt.Frame parent, boolean modal) {
+    /** Creates new form JDialogAlterProduto */
+    public JDialogAlterProduto(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        
+        System.out.println("");
         initComponents();
-        centerOnScreen(this);
     }
 
     /** This method is called from within the constructor to
@@ -43,7 +41,6 @@ public class JDialogInsertProduto extends java.awt.Dialog {
      */
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         jPanelinserirProduto = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -101,7 +98,7 @@ public class JDialogInsertProduto extends java.awt.Dialog {
             }
         });
 
-        jPanelinserirProduto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "INSERIR PRODUTO", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 0, 18))); // NOI18N
+        jPanelinserirProduto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ALTERAR PRODUTO", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 0, 18))); // NOI18N
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Constituintes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 0, 0))); // NOI18N
 
@@ -208,15 +205,15 @@ public class JDialogInsertProduto extends java.awt.Dialog {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jComboBoxConstituintes1, 0, 288, Short.MAX_VALUE)
-            .addComponent(jComboBoxConstituintes2, 0, 288, Short.MAX_VALUE)
-            .addComponent(jComboBoxConstituintes3, 0, 288, Short.MAX_VALUE)
-            .addComponent(jComboBoxConstituintes4, 0, 288, Short.MAX_VALUE)
-            .addComponent(jComboBoxConstituintes5, 0, 288, Short.MAX_VALUE)
-            .addComponent(jComboBoxConstituintes6, 0, 288, Short.MAX_VALUE)
-            .addComponent(jComboBoxConstituintes7, 0, 288, Short.MAX_VALUE)
-            .addComponent(jComboBoxConstituintes8, 0, 288, Short.MAX_VALUE)
-            .addComponent(jComboBoxConstituintes9, 0, 288, Short.MAX_VALUE)
+            .addComponent(jComboBoxConstituintes1, 0, 292, Short.MAX_VALUE)
+            .addComponent(jComboBoxConstituintes2, 0, 292, Short.MAX_VALUE)
+            .addComponent(jComboBoxConstituintes3, 0, 292, Short.MAX_VALUE)
+            .addComponent(jComboBoxConstituintes4, 0, 292, Short.MAX_VALUE)
+            .addComponent(jComboBoxConstituintes5, 0, 292, Short.MAX_VALUE)
+            .addComponent(jComboBoxConstituintes6, 0, 292, Short.MAX_VALUE)
+            .addComponent(jComboBoxConstituintes7, 0, 292, Short.MAX_VALUE)
+            .addComponent(jComboBoxConstituintes8, 0, 292, Short.MAX_VALUE)
+            .addComponent(jComboBoxConstituintes9, 0, 292, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,9 +252,6 @@ public class JDialogInsertProduto extends java.awt.Dialog {
         jLabelRegistoInfarmedIns.setText("Registo Infarmed");
 
         jLabelAreaTerapeuticaIns.setText("Área Terapeutica");
-
-        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ObjectProperty.create(), jComboBoxAreaTerapeuticaIns, org.jdesktop.beansbinding.BeanProperty.create("elements"));
-        bindingGroup.addBinding(binding);
 
         try {     
             rSet = Areas_Terapeuticas.queryAreasTerapeuticas(); 
@@ -322,8 +316,6 @@ public class JDialogInsertProduto extends java.awt.Dialog {
         catch (SQLException ex) { 
             Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); 
         }
-
-        jSpinnerQuantidadeIns.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
 
         jRadioButtonReceitaSimIns.setText("Sim");
         jRadioButtonReceitaSimIns.addActionListener(new java.awt.event.ActionListener() {
@@ -495,7 +487,7 @@ public class JDialogInsertProduto extends java.awt.Dialog {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldFolhetoURLIns, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE))
+                .addComponent(jTextFieldFolhetoURLIns, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -511,7 +503,7 @@ public class JDialogInsertProduto extends java.awt.Dialog {
             }
         });
 
-        jButtonAdicionarProduto.setText("Adicionar Produto");
+        jButtonAdicionarProduto.setText("Alterar Produto");
         jButtonAdicionarProduto.setActionCommand("Adicionar");
         jButtonAdicionarProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -541,7 +533,7 @@ public class JDialogInsertProduto extends java.awt.Dialog {
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanelinserirProdutoLayout.createSequentialGroup()
                         .addComponent(jButtonLimparCamposInsertproduto)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 430, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 444, Short.MAX_VALUE)
                         .addComponent(jButtonCancelarIns)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonAdicionarProduto))))
@@ -560,12 +552,10 @@ public class JDialogInsertProduto extends java.awt.Dialog {
                     .addComponent(jButtonLimparCamposInsertproduto)
                     .addComponent(jButtonAdicionarProduto)
                     .addComponent(jButtonCancelarIns))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         add(jPanelinserirProduto, java.awt.BorderLayout.CENTER);
-
-        bindingGroup.bind();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -576,32 +566,54 @@ public class JDialogInsertProduto extends java.awt.Dialog {
         dispose();
     }//GEN-LAST:event_closeDialog
 
-    private void jButtonCancelarInsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarInsActionPerformed
-        JDialogInsertProduto.this.dispose();
-    }//GEN-LAST:event_jButtonCancelarInsActionPerformed
-
     private void jRadioButtonReceitaSimInsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonReceitaSimInsActionPerformed
         jRadioButtonReceitaNaoIns.setSelected(false);
-    }//GEN-LAST:event_jRadioButtonReceitaSimInsActionPerformed
+}//GEN-LAST:event_jRadioButtonReceitaSimInsActionPerformed
 
     private void jRadioButtonReceitaNaoInsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonReceitaNaoInsActionPerformed
         jRadioButtonReceitaSimIns.setSelected(false);
-    }//GEN-LAST:event_jRadioButtonReceitaNaoInsActionPerformed
+}//GEN-LAST:event_jRadioButtonReceitaNaoInsActionPerformed
 
     private void jRadioButtonGenericoSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonGenericoSimActionPerformed
         jRadioButtonGenericoNao.setSelected(false);
-    }//GEN-LAST:event_jRadioButtonGenericoSimActionPerformed
+}//GEN-LAST:event_jRadioButtonGenericoSimActionPerformed
 
     private void jRadioButtonGenericoNaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonGenericoNaoActionPerformed
         jRadioButtonGenericoSim.setSelected(false);
-    }//GEN-LAST:event_jRadioButtonGenericoNaoActionPerformed
+}//GEN-LAST:event_jRadioButtonGenericoNaoActionPerformed
 
-    /**********************************************
-     * Quando se clica no butão adicionar produto *
-     **********************************************/
-    // <editor-fold defaultstate="collapsed" desc="Butão Adicionar Produto">
+    private void jButtonLimparCamposInsertprodutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparCamposInsertprodutoActionPerformed
+        jTextFieldCodProdutoIns.setText(null);
+        jTextFieldNomeGenIns.setText(null);
+        jTextFieldNomeDoMedicamentoIns.setText(null);
+        jSpinnerQuantidadeIns.setValue(Integer.valueOf(0));
+        jComboBoxFaixaEtaria.setSelectedIndex(0);
+        jTextFieldRegistoInfarmedIns.setText(null);
+        jComboBoxAreaTerapeuticaIns.setSelectedIndex(0);
+        jTextFieldLoteIns.setText(null);
+        jTextFieldDosagemIns.setText(null);
+        jComboBoxTemperaturaIns.setSelectedIndex(0);
+        jTextFieldPrecoIns.setText(null);
+        jComboBoxAdministracaoIns.setSelectedIndex(0);
+        jRadioButtonGenericoNao.setSelected(false);
+        jRadioButtonGenericoSim.setSelected(false);
+        jRadioButtonReceitaNaoIns.setSelected(false);
+        jRadioButtonReceitaSimIns.setSelected(false);
+        jComboBoxFormatoIns.setSelectedIndex(0);
+        jComboBoxConstituintes1.setSelectedIndex(0);
+        jComboBoxConstituintes2.setSelectedIndex(0);
+        jComboBoxConstituintes3.setSelectedIndex(0);
+        jComboBoxConstituintes4.setSelectedIndex(0);
+        jComboBoxConstituintes5.setSelectedIndex(0);
+        jComboBoxConstituintes6.setSelectedIndex(0);
+        jComboBoxConstituintes7.setSelectedIndex(0);
+        jComboBoxConstituintes8.setSelectedIndex(0);
+        jComboBoxConstituintes9.setSelectedIndex(0);
+        jTextFieldFolhetoURLIns.setText(null);
+}//GEN-LAST:event_jButtonLimparCamposInsertprodutoActionPerformed
+
     private void jButtonAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarProdutoActionPerformed
-    
+
         try {
             String produto              = jTextFieldCodProdutoIns.getText();
             String nome_generico        = jTextFieldNomeGenIns.getText();
@@ -641,7 +653,7 @@ public class JDialogInsertProduto extends java.awt.Dialog {
             temperatura         = Negocio.procurarTemperaturaPorNome(temperatura);
             administracao       = Negocio.procuraAdministracaoPorNOME(administracao);
             formato             = Negocio.procurarFormatoPorNome(formato);
-            
+
             constituinte1       = Negocio.procurarConstituintesPorNome(constituinte1);
             constituinte2       = Negocio.procurarConstituintesPorNome(constituinte2);
             constituinte3       = Negocio.procurarConstituintesPorNome(constituinte3);
@@ -668,8 +680,8 @@ public class JDialogInsertProduto extends java.awt.Dialog {
                 JOptionPane.showMessageDialog(null, msgERRO, "Erro ao inserir produto", 1);
             } else {
 
-                Negocio.insertProduto(produto, nome_generico, nome_medicamento, "" + quantidade + "", faixa_etaria, reg_infarmed, area_terapeutica, lote, dosagem, temperatura, preco, administracao, receita, generico, formato, folheto_url);
-            
+                //Negocio.insertProduto(produto, nome_generico, nome_medicamento, "" + quantidade + "", faixa_etaria, reg_infarmed, area_terapeutica, lote, dosagem, temperatura, preco, administracao, receita, generico, formato, folheto_url);
+
                 if(constituinte1.equalsIgnoreCase("1")==false)  Negocio.insertConstituinte(produto, constituinte1);
                 if(constituinte2.equalsIgnoreCase("1")==false)  Negocio.insertConstituinte(produto, constituinte2);
                 if(constituinte3.equalsIgnoreCase("1")==false)  Negocio.insertConstituinte(produto, constituinte3);
@@ -680,57 +692,27 @@ public class JDialogInsertProduto extends java.awt.Dialog {
                 if(constituinte8.equalsIgnoreCase("1")==false)  Negocio.insertConstituinte(produto, constituinte8);
                 if(constituinte9.equalsIgnoreCase("1")==false)  Negocio.insertConstituinte(produto, constituinte9);
 
-                JDialogInsertProduto.this.dispose();
+                JDialogAlterProduto.this.dispose();
                 JOptionPane.showMessageDialog(null, "Produto inserido com sucesso!", "Produto inserido", 1);
-            
-                }
+
+            }
         } catch (Exception ex) {
             Logger.getLogger(JDialogInsertProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButtonAdicionarProdutoActionPerformed
-    // </editor-fold>
+}//GEN-LAST:event_jButtonAdicionarProdutoActionPerformed
 
-    /*****************
-     * Limpar campos *
-     *****************/
-    private void jButtonLimparCamposInsertprodutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparCamposInsertprodutoActionPerformed
-        jTextFieldCodProdutoIns.setText(null);
-        jTextFieldNomeGenIns.setText(null);
-        jTextFieldNomeDoMedicamentoIns.setText(null);
-        jSpinnerQuantidadeIns.setValue(Integer.valueOf(0));
-        jComboBoxFaixaEtaria.setSelectedIndex(0);
-        jTextFieldRegistoInfarmedIns.setText(null);
-        jComboBoxAreaTerapeuticaIns.setSelectedIndex(0);
-        jTextFieldLoteIns.setText(null);
-        jTextFieldDosagemIns.setText(null);
-        jComboBoxTemperaturaIns.setSelectedIndex(0);
-        jTextFieldPrecoIns.setText(null);
-        jComboBoxAdministracaoIns.setSelectedIndex(0);
-        jRadioButtonGenericoNao.setSelected(false);
-        jRadioButtonGenericoSim.setSelected(false);
-        jRadioButtonReceitaNaoIns.setSelected(false);
-        jRadioButtonReceitaSimIns.setSelected(false);
-        jComboBoxFormatoIns.setSelectedIndex(0);
-        jComboBoxConstituintes1.setSelectedIndex(0);
-        jComboBoxConstituintes2.setSelectedIndex(0);
-        jComboBoxConstituintes3.setSelectedIndex(0);
-        jComboBoxConstituintes4.setSelectedIndex(0);
-        jComboBoxConstituintes5.setSelectedIndex(0);
-        jComboBoxConstituintes6.setSelectedIndex(0);
-        jComboBoxConstituintes7.setSelectedIndex(0);
-        jComboBoxConstituintes8.setSelectedIndex(0);
-        jComboBoxConstituintes9.setSelectedIndex(0);
-        jTextFieldFolhetoURLIns.setText(null);
-    }//GEN-LAST:event_jButtonLimparCamposInsertprodutoActionPerformed
-    
+    private void jButtonCancelarInsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarInsActionPerformed
+        JDialogAlterProduto.this.dispose();
+}//GEN-LAST:event_jButtonCancelarInsActionPerformed
 
     /**
     * @param args the command line arguments
     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
+            private String produto;
             public void run() {
-                JDialogInsertProduto dialog = new JDialogInsertProduto(new java.awt.Frame(), true);
+                JDialogAlterProduto dialog = new JDialogAlterProduto(new java.awt.Frame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -742,7 +724,7 @@ public class JDialogInsertProduto extends java.awt.Dialog {
         });
     }
 
-    // <editor-fold defaultstate="collapsed" desc="Variáveis">
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAdicionarProduto;
     private javax.swing.JButton jButtonCancelarIns;
@@ -793,36 +775,16 @@ public class JDialogInsertProduto extends java.awt.Dialog {
     private javax.swing.JTextField jTextFieldNomeGenIns;
     private javax.swing.JTextField jTextFieldPrecoIns;
     private javax.swing.JTextField jTextFieldRegistoInfarmedIns;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
-    // </editor-fold>
+
 
     public boolean isNumber (String input){
         try {
-        Integer.parseInt(input);
-        return true;
+			Integer.parseInt(input);
+			return true;
         }
         catch (Exception e){
             return false;
         }
     }
-
-
-    public static void centerOnScreen(final Component target) {
-       if (target != null) {
-           Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-           Dimension dialogSize = target.getSize();
-
-           if (dialogSize.height > screenSize.height) {
-               dialogSize.height = screenSize.height;
-           }
-           if (dialogSize.width > screenSize.width) {
-               dialogSize.width = screenSize.width;
-           }
-
-           target.setLocation((screenSize.width - dialogSize.width) / 2,
-                   (screenSize.height - dialogSize.height) / 2);
-       }
-   }
-
 }
