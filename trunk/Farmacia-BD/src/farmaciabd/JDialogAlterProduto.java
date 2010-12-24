@@ -11,11 +11,13 @@
 
 package farmaciabd;
 
+import java.awt.*;
 import java.lang.String;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.SpinnerNumberModel;
 
@@ -25,13 +27,86 @@ import javax.swing.SpinnerNumberModel;
  */
 public class JDialogAlterProduto extends java.awt.Dialog {
     ResultSet rSet = null;
+    String prod = null;
 
     /** Creates new form JDialogAlterProduto */
-    public JDialogAlterProduto(java.awt.Frame parent, boolean modal) {
+    public JDialogAlterProduto(java.awt.Frame parent,String codProduto, boolean modal) throws SQLException, Exception {
         super(parent, modal);
-        
-        System.out.println("");
         initComponents();
+        centerOnScreen(this);
+
+
+        String sel              = codProduto;
+        String produto          = null;
+        String areaTerapeutica  = null;
+        String administracao    = null;
+        String temperatura      = null;
+        String formato          = null;
+        String faixa_etaria     = null;
+        String folheto_url      = null;
+        String quantidade       = null;
+        String receita          = null;
+        String generico         = null;
+        
+                rSet = Negocio.selProduto(sel);     // procura por id
+
+
+            /***************************************************************
+             * Colocar os campos da tabela produtos nos campos respectivos *
+             ***************************************************************/
+            while (rSet.next()) {
+                produto = vazio(rSet.getString(1));
+                jTextFieldNomeGenIns.setText(vazio(rSet.getString(2)));
+                jTextFieldNomeDoMedicamentoIns.setText(vazio(rSet.getString(3)));
+                jSpinnerQuantidadeIns.setValue(Integer.valueOf(0));
+                faixa_etaria = vazio(rSet.getString(5));
+                jTextFieldRegistoInfarmedIns.setText(vazio(rSet.getString(6)));
+                areaTerapeutica = vazio(rSet.getString(7)); //devolde o id
+                jTextFieldLoteIns.setText(vazio(rSet.getString(8)));
+                jTextFieldDosagemIns.setText(vazio(rSet.getString(9)));
+                temperatura = vazio(rSet.getString(10));
+                jTextFieldPrecoIns.setText(vazio(rSet.getString(11)));
+                administracao = vazio(rSet.getString(12)); // devolve o id
+                receita = (sim_nao(vazio(rSet.getString(13))));
+                generico = (sim_nao(vazio(rSet.getString(14))));
+                formato = vazio(rSet.getString(15));
+                jTextFieldFolhetoURLIns.setText(vazio(rSet.getString(16)));
+            }
+            
+            jTextFieldCodProdutoIns.setText(produto);
+            jComboBoxAdministracaoIns.setSelectedIndex(Integer.parseInt(administracao));
+            jComboBoxAreaTerapeuticaIns.setSelectedIndex(Integer.parseInt(areaTerapeutica));
+            jComboBoxTemperaturaIns.setSelectedIndex(Integer.parseInt(temperatura));
+            jComboBoxFormatoIns.setSelectedIndex(Integer.parseInt(formato)-1);
+            jComboBoxFaixaEtaria.setSelectedIndex(Integer.parseInt(faixa_etaria));
+
+            
+            if (receita.equalsIgnoreCase("Sim")) jRadioButtonReceitaSimIns.setSelected(true);
+            if (receita.equalsIgnoreCase("Não")) jRadioButtonReceitaNaoIns.setSelected(true);
+            if (generico.equalsIgnoreCase("Sim")) jRadioButtonGenericoSim.setSelected(true);
+            if (generico.equalsIgnoreCase("Não")) jRadioButtonGenericoNao.setSelected(true);
+
+            /*****************
+             * Constituintes *
+             *****************/
+            
+            ResultSet rSetConstituintes = null;
+
+            rSetConstituintes = Negocio.procurarListaConstituintes(sel);
+
+            //System.out.println(produto);
+            DefaultListModel modelConstituintes = new DefaultListModel();
+            while (rSetConstituintes.next()) {
+                modelConstituintes.addElement(rSetConstituintes.getObject(1).toString());
+
+            }
+            
+           
+            jComboBoxConstituintes1.setSelectedIndex(0);
+
+
+
+
     }
 
     /** This method is called from within the constructor to
@@ -710,16 +785,22 @@ public class JDialogAlterProduto extends java.awt.Dialog {
     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
-            private String produto;
             public void run() {
-                JDialogAlterProduto dialog = new JDialogAlterProduto(new java.awt.Frame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
+                try {
+                    JDialogAlterProduto dialog = new JDialogAlterProduto(new java.awt.Frame(), "", true);
+                    dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+
+                        @Override
+                        public void windowClosing(java.awt.event.WindowEvent e) {
+                            System.exit(0);
+                        }
+                    });
+                    dialog.setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(JDialogAlterProduto.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (Exception ex) {
+                    Logger.getLogger(JDialogAlterProduto.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -787,4 +868,37 @@ public class JDialogAlterProduto extends java.awt.Dialog {
             return false;
         }
     }
+
+    private String vazio(String str) {
+        if (str == null) {
+            return "<vazio>";
+        }
+        return str;
+    }
+
+    private String sim_nao(String str) {
+        if (str.equalsIgnoreCase("1")) {
+            return "Sim";
+        } else {
+            return "Não";
+        }
+    }
+
+    public static void centerOnScreen(final Component target) {
+       if (target != null) {
+           Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+           Dimension dialogSize = target.getSize();
+
+           if (dialogSize.height > screenSize.height) {
+               dialogSize.height = screenSize.height;
+           }
+           if (dialogSize.width > screenSize.width) {
+               dialogSize.width = screenSize.width;
+           }
+
+           target.setLocation((screenSize.width - dialogSize.width) / 2,
+                   (screenSize.height - dialogSize.height) / 2);
+       }
+   }
+
 }
