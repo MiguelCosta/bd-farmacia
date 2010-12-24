@@ -595,6 +595,9 @@ public class JDialogInsertProduto extends java.awt.Dialog {
         jRadioButtonGenericoSim.setSelected(false);
     }//GEN-LAST:event_jRadioButtonGenericoNaoActionPerformed
 
+    /**********************************************
+     * Quando se clica no butão adicionar produto *
+     **********************************************/
     private void jButtonAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarProdutoActionPerformed
         try {
             String produto              = jTextFieldCodProdutoIns.getText();
