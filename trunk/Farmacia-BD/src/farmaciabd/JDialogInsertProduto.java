@@ -598,7 +598,9 @@ public class JDialogInsertProduto extends java.awt.Dialog {
     /**********************************************
      * Quando se clica no butão adicionar produto *
      **********************************************/
+    // <editor-fold defaultstate="collapsed" desc="Butão Adicionar Produto">
     private void jButtonAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarProdutoActionPerformed
+    
         try {
             String produto              = jTextFieldCodProdutoIns.getText();
             String nome_generico        = jTextFieldNomeGenIns.getText();
@@ -685,6 +687,7 @@ public class JDialogInsertProduto extends java.awt.Dialog {
             Logger.getLogger(JDialogInsertProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButtonAdicionarProdutoActionPerformed
+    // </editor-fold>
 
     /**
     * @param args the command line arguments
@@ -704,7 +707,7 @@ public class JDialogInsertProduto extends java.awt.Dialog {
         });
     }
 
-
+    // <editor-fold defaultstate="collapsed" desc="Variáveis">
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAdicionarProduto;
     private javax.swing.JButton jButtonCancelarIns;
@@ -757,7 +760,7 @@ public class JDialogInsertProduto extends java.awt.Dialog {
     private javax.swing.JTextField jTextFieldRegistoInfarmedIns;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
-
+    // </editor-fold>
 
     public boolean isNumber (String input){
         try {
