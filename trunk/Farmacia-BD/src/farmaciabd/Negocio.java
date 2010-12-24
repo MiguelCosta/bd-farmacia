@@ -37,6 +37,37 @@ public class Negocio {
         return rSet;
     }
 
+    /***************************************************
+     * Verifica se um produto já existe recebendo o ID *
+     ***************************************************/
+    public static boolean verificarProdutoExiste(String produto) throws Exception{
+        String sql = "SELECT * FROM produtos WHERE produto ='";
+        Boolean r = false;
+        ResultSet rSet = null;
+        rSet = Model.stmt.executeQuery(sql + produto + "'");
+        
+        while(rSet.next()){
+            r = produto.equalsIgnoreCase(rSet.getString(1));
+        }
+        return r;
+    }
+
+        /***************************************************
+     * Verifica se um produto já existe recebendo o ID *
+     ***************************************************/
+    public static boolean verificarRegInfarmedExiste(String reg_infarmed) throws Exception{
+        String sql = "SELECT * FROM produtos WHERE reg_infarmed ='";
+        Boolean r = false;
+        ResultSet rSet = null;
+        rSet = Model.stmt.executeQuery(sql + reg_infarmed + "'");
+
+        while(rSet.next()){
+            r = reg_infarmed.equalsIgnoreCase(rSet.getString(6));
+            System.out.println("Resul: "+r);
+        }
+        return r;
+    }
+
     /*****************************************************************************************
      * Faz o select de um produto recebendo o nome_medicamento e devolve uma linha da tabela *
      *****************************************************************************************/
@@ -292,6 +323,24 @@ public class Negocio {
         return r;
     }
 
+    /***************************************************************
+     * Procura um constituinte, devolvendo o ID e recebendo o nome *
+     ***************************************************************/
+    public static String procurarConstituintesPorNome(String sel) throws Exception {
+        ResultSet rSet = null;
+        String sql = "SELECT * FROM constituintes WHERE nome = '";
+        String r = null;
+
+        rSet = Model.stmt.executeQuery(sql + sel + "'");
+
+        while (rSet.next()) {
+            r = rSet.getString(1);
+            System.out.println("Constituinte: " + r);
+        }
+
+        return r;
+    }
+
     /****************************************************
      * Lista as faixas estarias devolvendo um ResultSet *
      ****************************************************/
@@ -320,6 +369,26 @@ public class Negocio {
         } catch (Exception ex) {
             Logger.getLogger(Negocio.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
 
-}
+    /***************************************************************************************
+     * Inserir um constituinte e um produto na base de dados na tabela lista_constituintes *
+     ***************************************************************************************/
+    public static void insertConstituinte(String produto, String constituinte) throws SQLException{
+        String sql = "INSERT INTO lista_constituintes VALUES ("+produto+","+constituinte+")";
+        System.out.println(constituinte);
+        System.out.println(sql);
+
+
+        Model.stmt.executeQuery(sql);
+        try {
+            commit2();
+        } catch (Exception ex) {
+            Logger.getLogger(Negocio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    }
+
+
