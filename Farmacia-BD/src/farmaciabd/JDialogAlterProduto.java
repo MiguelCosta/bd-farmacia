@@ -12,7 +12,6 @@
 package farmaciabd;
 
 import java.awt.*;
-import java.lang.String;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -58,7 +57,7 @@ public class JDialogAlterProduto extends java.awt.Dialog {
                 produto = vazio(rSet.getString(1));
                 jTextFieldNomeGenIns.setText(vazio(rSet.getString(2)));
                 jTextFieldNomeDoMedicamentoIns.setText(vazio(rSet.getString(3)));
-                jSpinnerQuantidadeIns.setValue(Integer.valueOf(0));
+                jSpinnerQuantidadeIns.setValue(Integer.valueOf(rSet.getString(4)));
                 faixa_etaria = vazio(rSet.getString(5));
                 jTextFieldRegistoInfarmedIns.setText(vazio(rSet.getString(6)));
                 areaTerapeutica = vazio(rSet.getString(7)); //devolde o id
@@ -97,14 +96,75 @@ public class JDialogAlterProduto extends java.awt.Dialog {
             //System.out.println(produto);
             DefaultListModel modelConstituintes = new DefaultListModel();
             while (rSetConstituintes.next()) {
-                modelConstituintes.addElement(rSetConstituintes.getObject(1).toString());
+                modelConstituintes.addElement(rSetConstituintes.getString(1));
 
             }
-            
+
+           int tamanhoListaConstituintes = modelConstituintes.getSize();
+           System.out.println("Tamanho dalista de constituintes: "+tamanhoListaConstituintes);
            
-            jComboBoxConstituintes1.setSelectedIndex(0);
+           //constituinte1
+           if (tamanhoListaConstituintes>=1){
+                String constituinte1_string = modelConstituintes.get(0).toString();
+                int constituinte1_int = Integer.parseInt(Negocio.procurarConstituintesPorNome(constituinte1_string));
+                if (constituinte1_int != 1) jComboBoxConstituintes1.setSelectedIndex(constituinte1_int-1);
+           }
+           
+           //constituinte2
+           if (tamanhoListaConstituintes>=2){
+                String constituinte2_string = modelConstituintes.get(1).toString();
+                int constituinte2_int = Integer.parseInt(Negocio.procurarConstituintesPorNome(constituinte2_string));
+                if (constituinte2_int != 1) jComboBoxConstituintes2.setSelectedIndex(constituinte2_int-1);
+            }
 
+           //constituinte3
+           if (tamanhoListaConstituintes>=3){
+                String constituinte3_string = modelConstituintes.get(2).toString();
+                int constituinte3_int = Integer.parseInt(Negocio.procurarConstituintesPorNome(constituinte3_string));
+                if (constituinte3_int != 1) jComboBoxConstituintes3.setSelectedIndex(constituinte3_int-1);
+            }
 
+           //constituinte4
+           if (tamanhoListaConstituintes>=4){
+                String constituinte4_string = modelConstituintes.get(3).toString();
+                int constituinte4_int = Integer.parseInt(Negocio.procurarConstituintesPorNome(constituinte4_string));
+                if (constituinte4_int != 1) jComboBoxConstituintes4.setSelectedIndex(constituinte4_int-1);
+           }
+           
+           //constituinte5
+           if (tamanhoListaConstituintes>=5){
+                String constituinte5_string = modelConstituintes.get(4).toString();
+                int constituinte5_int = Integer.parseInt(Negocio.procurarConstituintesPorNome(constituinte5_string));
+                if (constituinte5_int != 1) jComboBoxConstituintes5.setSelectedIndex(constituinte5_int-1);
+           }
+
+           //constituinte6
+           if (tamanhoListaConstituintes>=6){
+                String constituinte6_string = modelConstituintes.get(5).toString();
+                int constituinte6_int = Integer.parseInt(Negocio.procurarConstituintesPorNome(constituinte6_string));
+                if (constituinte6_int != 1) jComboBoxConstituintes6.setSelectedIndex(constituinte6_int-1);
+           }
+           
+           //constituinte7
+           if (tamanhoListaConstituintes>=7){
+                String constituinte7_string = modelConstituintes.get(6).toString();
+                int constituinte7_int = Integer.parseInt(Negocio.procurarConstituintesPorNome(constituinte7_string));
+                if (constituinte7_int != 1) jComboBoxConstituintes7.setSelectedIndex(constituinte7_int-1);
+           }
+
+           //constituinte8
+           if (tamanhoListaConstituintes>=8){
+                String constituinte8_string = modelConstituintes.get(7).toString();
+                int constituinte8_int = Integer.parseInt(Negocio.procurarConstituintesPorNome(constituinte8_string));
+                if (constituinte8_int != 1) jComboBoxConstituintes8.setSelectedIndex(constituinte8_int-1);
+           }
+           
+           //constituinte9
+           if (tamanhoListaConstituintes>=9){
+                String constituinte9_string = modelConstituintes.get(8).toString();
+                int constituinte9_int = Integer.parseInt(Negocio.procurarConstituintesPorNome(constituinte9_string));
+                if (constituinte9_int != 1) jComboBoxConstituintes9.setSelectedIndex(constituinte9_int-1);
+           }
 
 
     }
