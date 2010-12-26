@@ -33,6 +33,7 @@ public class JDialogAlterProduto extends java.awt.Dialog {
         super(parent, modal);
         initComponents();
         centerOnScreen(this);
+        jTextFieldCodProdutoIns.setEnabled(false);
 
 
         String sel              = codProduto;
@@ -165,7 +166,6 @@ public class JDialogAlterProduto extends java.awt.Dialog {
                 int constituinte9_int = Integer.parseInt(Negocio.procurarConstituintesPorNome(constituinte9_string));
                 if (constituinte9_int != 1) jComboBoxConstituintes9.setSelectedIndex(constituinte9_int-1);
            }
-
 
     }
 
@@ -748,8 +748,28 @@ public class JDialogAlterProduto extends java.awt.Dialog {
 }//GEN-LAST:event_jButtonLimparCamposInsertprodutoActionPerformed
 
     private void jButtonAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarProdutoActionPerformed
-
         try {
+            String produto              = jTextFieldCodProdutoIns.getText();
+            SpinnerNumberModel model    = (SpinnerNumberModel) jSpinnerQuantidadeIns.getModel();
+            int quantidade              = model.getNumber().intValue();
+
+            Negocio.alterarNomeGenerico(produto, jTextFieldNomeGenIns.getText());
+            Negocio.alterarNomeMedicamento(produto, jTextFieldNomeDoMedicamentoIns.getText());
+            Negocio.alterarQuantidade(produto, quantidade);
+            Negocio.alterarRegistoInfarmed(produto, jTextFieldRegistoInfarmedIns.getText());
+            
+
+        } catch (SQLException ex) {
+            Logger.getLogger(JDialogAlterProduto.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(JDialogAlterProduto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+
+
+            /*
+            try {
             String produto              = jTextFieldCodProdutoIns.getText();
             String nome_generico        = jTextFieldNomeGenIns.getText();
             String nome_medicamento     = jTextFieldNomeDoMedicamentoIns.getText();
@@ -776,19 +796,16 @@ public class JDialogAlterProduto extends java.awt.Dialog {
             String constituinte7        = jComboBoxConstituintes7.getSelectedItem().toString();
             String constituinte8        = jComboBoxConstituintes8.getSelectedItem().toString();
             String constituinte9        = jComboBoxConstituintes9.getSelectedItem().toString();
-
             if (jRadioButtonReceitaSimIns.isSelected()) receita  = "1";
             if (jRadioButtonReceitaNaoIns.isSelected()) receita  = "0";
             if (jRadioButtonGenericoSim.isSelected())   generico = "1";
             if (jRadioButtonGenericoNao.isSelected())   generico = "0";
-
             // Para devolver os ID
             faixa_etaria        = Negocio.procurarFaixaEtariaPorNome(faixa_etaria);
             area_terapeutica    = Negocio.procuraAreaTerapeuticaPorNOME(area_terapeutica);
             temperatura         = Negocio.procurarTemperaturaPorNome(temperatura);
             administracao       = Negocio.procuraAdministracaoPorNOME(administracao);
             formato             = Negocio.procurarFormatoPorNome(formato);
-
             constituinte1       = Negocio.procurarConstituintesPorNome(constituinte1);
             constituinte2       = Negocio.procurarConstituintesPorNome(constituinte2);
             constituinte3       = Negocio.procurarConstituintesPorNome(constituinte3);
@@ -798,7 +815,6 @@ public class JDialogAlterProduto extends java.awt.Dialog {
             constituinte7       = Negocio.procurarConstituintesPorNome(constituinte7);
             constituinte8       = Negocio.procurarConstituintesPorNome(constituinte8);
             constituinte9       = Negocio.procurarConstituintesPorNome(constituinte9);
-
             String msgERRO = "";
             if (produto.equalsIgnoreCase(""))                       msgERRO = msgERRO + "Falta inserir produto!\n";
             if (nome_generico.equalsIgnoreCase(""))                 msgERRO = msgERRO + "Falta inserir o nome generico!\n";
@@ -809,31 +825,30 @@ public class JDialogAlterProduto extends java.awt.Dialog {
             if (isNumber(reg_infarmed) == false)                    msgERRO = msgERRO + "O registo do infarmed apenas pode ter algarismos!\n";
             if (Negocio.verificarProdutoExiste(produto))            msgERRO = msgERRO + "O produo já existe!\n";
             if (Negocio.verificarRegInfarmedExiste(reg_infarmed))   msgERRO = msgERRO + "O registo infarmed inserido já existe!\n";
-
             System.out.println(msgERRO);
             if (msgERRO.equalsIgnoreCase("") == false) {
-                JOptionPane.showMessageDialog(null, msgERRO, "Erro ao inserir produto", 1);
+            JOptionPane.showMessageDialog(null, msgERRO, "Erro ao inserir produto", 1);
             } else {
-
-                //Negocio.insertProduto(produto, nome_generico, nome_medicamento, "" + quantidade + "", faixa_etaria, reg_infarmed, area_terapeutica, lote, dosagem, temperatura, preco, administracao, receita, generico, formato, folheto_url);
-
-                if(constituinte1.equalsIgnoreCase("1")==false)  Negocio.insertConstituinte(produto, constituinte1);
-                if(constituinte2.equalsIgnoreCase("1")==false)  Negocio.insertConstituinte(produto, constituinte2);
-                if(constituinte3.equalsIgnoreCase("1")==false)  Negocio.insertConstituinte(produto, constituinte3);
-                if(constituinte4.equalsIgnoreCase("1")==false)  Negocio.insertConstituinte(produto, constituinte4);
-                if(constituinte5.equalsIgnoreCase("1")==false)  Negocio.insertConstituinte(produto, constituinte5);
-                if(constituinte6.equalsIgnoreCase("1")==false)  Negocio.insertConstituinte(produto, constituinte6);
-                if(constituinte7.equalsIgnoreCase("1")==false)  Negocio.insertConstituinte(produto, constituinte7);
-                if(constituinte8.equalsIgnoreCase("1")==false)  Negocio.insertConstituinte(produto, constituinte8);
-                if(constituinte9.equalsIgnoreCase("1")==false)  Negocio.insertConstituinte(produto, constituinte9);
-
-                JDialogAlterProduto.this.dispose();
-                JOptionPane.showMessageDialog(null, "Produto inserido com sucesso!", "Produto inserido", 1);
-
+            //Negocio.insertProduto(produto, nome_generico, nome_medicamento, "" + quantidade + "", faixa_etaria, reg_infarmed, area_terapeutica, lote, dosagem, temperatura, preco, administracao, receita, generico, formato, folheto_url);
+            if(constituinte1.equalsIgnoreCase("1")==false)  Negocio.insertConstituinte(produto, constituinte1);
+            if(constituinte2.equalsIgnoreCase("1")==false)  Negocio.insertConstituinte(produto, constituinte2);
+            if(constituinte3.equalsIgnoreCase("1")==false)  Negocio.insertConstituinte(produto, constituinte3);
+            if(constituinte4.equalsIgnoreCase("1")==false)  Negocio.insertConstituinte(produto, constituinte4);
+            if(constituinte5.equalsIgnoreCase("1")==false)  Negocio.insertConstituinte(produto, constituinte5);
+            if(constituinte6.equalsIgnoreCase("1")==false)  Negocio.insertConstituinte(produto, constituinte6);
+            if(constituinte7.equalsIgnoreCase("1")==false)  Negocio.insertConstituinte(produto, constituinte7);
+            if(constituinte8.equalsIgnoreCase("1")==false)  Negocio.insertConstituinte(produto, constituinte8);
+            if(constituinte9.equalsIgnoreCase("1")==false)  Negocio.insertConstituinte(produto, constituinte9);
+            JDialogAlterProduto.this.dispose();
+            JOptionPane.showMessageDialog(null, "Produto inserido com sucesso!", "Produto inserido", 1);
             }
-        } catch (Exception ex) {
+            } catch (Exception ex) {
             Logger.getLogger(JDialogInsertProduto.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            }
+             *
+             */
+        
+
 }//GEN-LAST:event_jButtonAdicionarProdutoActionPerformed
 
     private void jButtonCancelarInsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarInsActionPerformed
