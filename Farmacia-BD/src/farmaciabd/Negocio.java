@@ -533,6 +533,20 @@ public class Negocio {
         commit2();
     }
 
+    /****************************************
+     * Alterar o constituinte de um produto *
+     ****************************************/
+    public static void alterarConstitinte(String produto, String newConstituinte) throws SQLException, Exception{
+        newConstituinte = procurarConstituintesPorNome(newConstituinte);
+        String sql = "INSERT INTO lista_constituinte VALUES ('"+produto+"','"+newConstituinte+"')";
+
+        Model.stmt.executeQuery(sql);
+        commit2();
+    }
+
+    
+
+
     }
 
 
