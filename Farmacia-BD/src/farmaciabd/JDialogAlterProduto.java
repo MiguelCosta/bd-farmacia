@@ -102,7 +102,7 @@ public class JDialogAlterProduto extends java.awt.Dialog {
             }
 
            int tamanhoListaConstituintes = modelConstituintes.getSize();
-           System.out.println("Tamanho dalista de constituintes: "+tamanhoListaConstituintes);
+           //System.out.println("Tamanho da lista de constituintes: "+tamanhoListaConstituintes);
            
            //constituinte1
            if (tamanhoListaConstituintes>=1){
@@ -750,35 +750,53 @@ public class JDialogAlterProduto extends java.awt.Dialog {
     private void jButtonAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarProdutoActionPerformed
         try {
             String produto              = jTextFieldCodProdutoIns.getText();
+            String nome_generico        = jTextFieldNomeGenIns.getText();
+            String nome_medicamento     = jTextFieldNomeDoMedicamentoIns.getText();
+            String reg_infarmed         = jTextFieldRegistoInfarmedIns.getText();
+            String dosagem              = jTextFieldDosagemIns.getText();
             SpinnerNumberModel model    = (SpinnerNumberModel) jSpinnerQuantidadeIns.getModel();
+            String url                  = jTextFieldFolhetoURLIns.getText();
             int quantidade              = model.getNumber().intValue();
-            int receita = 0;
-            if(jRadioButtonReceitaSimIns.isSelected()) receita = 1;
-            int generico = 0;
-            if (jRadioButtonGenericoSim.isSelected()) generico = 1;
-            String url = jTextFieldFolhetoURLIns.getText();
-            System.out.println(url);
+            int receita                 = 0;
+            int generico                = 0;
+            if(jRadioButtonReceitaSimIns.isSelected())  receita = 1;
+            if (jRadioButtonGenericoSim.isSelected())   generico = 1;
 
-            Negocio.alterarNomeGenerico(produto, jTextFieldNomeGenIns.getText());
-            Negocio.alterarNomeMedicamento(produto, jTextFieldNomeDoMedicamentoIns.getText());
-            Negocio.alterarQuantidade(produto, quantidade);
-            Negocio.alterarRegistoInfarmed(produto, jTextFieldRegistoInfarmedIns.getText());
-            Negocio.alterarFaixaEtaria(produto, jComboBoxFaixaEtaria.getSelectedItem().toString());
-            Negocio.alterarDosagem(produto, jTextFieldDosagemIns.getText());
-            Negocio.alterarTemperatua(produto, jComboBoxTemperaturaIns.getSelectedItem().toString());
-            Negocio.alterarAdministracao(produto, jComboBoxAdministracaoIns.getSelectedItem().toString());
-            Negocio.alterarReceita(produto, receita);
-            Negocio.alterarGenerico(produto, generico);
-            Negocio.alterarFormato(produto, jComboBoxFormatoIns.getSelectedItem().toString());
-            if (url.equalsIgnoreCase("<vazio>")==false) Negocio.alterarURL(produto, url);
+            String msgERRO = "";
+            if (nome_generico.equalsIgnoreCase(""))                 msgERRO = msgERRO + "Falta inserir o nome generico!\n";
+            if (nome_medicamento.equalsIgnoreCase(""))              msgERRO = msgERRO + "Falta inserir o nome do medicamento!\n";
+            if (reg_infarmed.equalsIgnoreCase(""))                  msgERRO = msgERRO + "Falta inserir o registo infarmed!\n";
+            if (dosagem.equalsIgnoreCase(""))                       msgERRO = msgERRO + "Falta inserir a dosagem do produto!\n";
+            if (isNumber(produto) == false)                         msgERRO = msgERRO + "O codigo do produto apenas pode ter algarismos!\n";
+            if (isNumber(reg_infarmed) == false)                    msgERRO = msgERRO + "O registo do infarmed apenas pode ter algarismos!\n";
+            if (isNumber(Integer.toString(quantidade))==false)      msgERRO = msgERRO + "A quantoade apenas pode ter algarismos!\n";
+            System.out.println(msgERRO);
+
+            if (msgERRO.equalsIgnoreCase("") == false) {
+            JOptionPane.showMessageDialog(null, msgERRO, "Erro ao alterar produto", 1);
+            } else {
+                Negocio.alterarNomeGenerico(produto, nome_generico);
+                Negocio.alterarNomeMedicamento(produto, nome_medicamento);
+                Negocio.alterarQuantidade(produto, quantidade);
+                Negocio.alterarRegistoInfarmed(produto, reg_infarmed);
+                Negocio.alterarFaixaEtaria(produto, jComboBoxFaixaEtaria.getSelectedItem().toString());
+                Negocio.alterarDosagem(produto,dosagem);
+                Negocio.alterarTemperatua(produto, jComboBoxTemperaturaIns.getSelectedItem().toString());
+                Negocio.alterarAdministracao(produto, jComboBoxAdministracaoIns.getSelectedItem().toString());
+                Negocio.alterarReceita(produto, receita);
+                Negocio.alterarGenerico(produto, generico);
+                Negocio.alterarFormato(produto, jComboBoxFormatoIns.getSelectedItem().toString());
+                if (url.equalsIgnoreCase("<vazio>")==false) Negocio.alterarURL(produto, url);
             
+                JOptionPane.showMessageDialog(null, "Produto alterado com sucesso!", "Produto alterado", 1);
+                JDialogAlterProduto.this.dispose();
+            }
 
         } catch (SQLException ex) {
             Logger.getLogger(JDialogAlterProduto.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
             Logger.getLogger(JDialogAlterProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
-
 
 
 
@@ -950,8 +968,8 @@ public class JDialogAlterProduto extends java.awt.Dialog {
 
     public boolean isNumber (String input){
         try {
-			Integer.parseInt(input);
-			return true;
+        Integer.parseInt(input);
+        return true;
         }
         catch (Exception e){
             return false;
