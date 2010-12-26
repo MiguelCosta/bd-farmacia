@@ -34,6 +34,9 @@ public class JPrincipal extends javax.swing.JFrame {
 
     /** Creates new form Principal */
     public JPrincipal() {
+        JAbertura ab = new JAbertura(this, rootPaneCheckingEnabled);
+        centerOnScreen(ab);
+        ab.setVisible(true);
         initComponents();
         centerOnScreen(this);
     }
