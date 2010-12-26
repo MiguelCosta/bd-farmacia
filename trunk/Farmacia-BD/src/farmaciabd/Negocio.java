@@ -99,6 +99,15 @@ public class Negocio {
         Runtime.getRuntime().exec("cmd.exe /c start " + r);
     }
 
+    /****************************
+     * Abrir folheto do produto *
+     ****************************/
+    public static void abrirFolhetoURL(String sel) throws Exception {
+        //C:/BD_Farmacia_docs/Sistema_Nervoso_Central.pdf
+        
+        Runtime.getRuntime().exec("cmd.exe /c start " + sel);
+    }
+
     /********************************************************************
      * Procura pelo ID a AreaTerapeutica de um produto e devolve o nome *
      ********************************************************************/
@@ -385,7 +394,7 @@ public class Negocio {
      *****************************************/
     public static void alterarNomeGenerico(String produto, String newNomeGenerico) throws SQLException, Exception{
         String sql = "UPDATE produtos SET nome_generico = '"+newNomeGenerico+"' WHERE produto = '"+produto+"'";
-        System.out.println(sql);
+        //System.out.println(sql);
 
         Model.stmt.executeQuery(sql);
         commit2();
@@ -396,7 +405,7 @@ public class Negocio {
      ***********************************************/
     public static void alterarNomeMedicamento(String produto, String newNomeMedicamento) throws SQLException, Exception{
         String sql = "UPDATE produtos SET nome_medicamento = '"+newNomeMedicamento+"' WHERE produto = '"+produto+"'";
-        System.out.println(sql);
+        //System.out.println(sql);
 
         Model.stmt.executeQuery(sql);
         commit2();
@@ -407,7 +416,7 @@ public class Negocio {
      **************************************/
     public static void alterarQuantidade(String produto, int newQuantidade) throws SQLException, Exception{
         String sql = "UPDATE produtos SET quantidade = '"+newQuantidade+"' WHERE produto = '"+produto+"'";
-
+        //System.out.println(sql);
         Model.stmt.executeQuery(sql);
         commit2();
     }
@@ -416,7 +425,8 @@ public class Negocio {
      * Alterar o registo infarmed de um produto *
      *******************************************/
     public static void alterarRegistoInfarmed(String produto, String newRegistoInfarmed) throws SQLException, Exception{
-        String sql = "UPDATE produtos SET quantidade = '"+newRegistoInfarmed+"' WHERE produto = '"+produto+"'";
+        String sql = "UPDATE produtos SET reg_infarmed = '"+newRegistoInfarmed+"' WHERE produto = '"+produto+"'";
+        //System.out.println(sql);
 
         Model.stmt.executeQuery(sql);
         commit2();
@@ -428,6 +438,7 @@ public class Negocio {
     public static void alterarFaixaEtaria(String produto, String newFaixaEtaria) throws SQLException, Exception{
         newFaixaEtaria = procurarFaixaEtariaPorNome(newFaixaEtaria);
         String sql = "UPDATE produtos SET faixa_etaria = '"+newFaixaEtaria+"' WHERE produto = '"+produto+"'";
+        //System.out.println(sql);
 
         Model.stmt.executeQuery(sql);
         commit2();
@@ -439,6 +450,7 @@ public class Negocio {
     public static void alterarAreaTerapeutica(String produto, String newAreaTerapeutica) throws SQLException, Exception{
         newAreaTerapeutica = procuraAreaTerapeuticaPorNOME(newAreaTerapeutica);
         String sql = "UPDATE produtos SET area_terapeutica = '"+newAreaTerapeutica+"' WHERE produto = '"+produto+"'";
+        //System.out.println(sql);
 
         Model.stmt.executeQuery(sql);
         commit2();
@@ -449,6 +461,7 @@ public class Negocio {
      ***********************************/
     public static void alterarDosagem(String produto, String newDosagem) throws SQLException, Exception{
         String sql = "UPDATE produtos SET dosagem = '"+newDosagem+"' WHERE produto = '"+produto+"'";
+        //System.out.println(sql);
  
         Model.stmt.executeQuery(sql);
         commit2();
@@ -460,6 +473,7 @@ public class Negocio {
     public static void alterarTemperatua(String produto, String newTemperatura) throws SQLException, Exception{
         newTemperatura = procurarTemperaturaPorNome(newTemperatura);
         String sql = "UPDATE produtos SET temperatura = '"+newTemperatura+"' WHERE produto = '"+produto+"'";
+        //System.out.println(sql);
 
         Model.stmt.executeQuery(sql);
         commit2();
@@ -471,6 +485,7 @@ public class Negocio {
     public static void alterarAdministracao(String produto, String newAdministracao) throws SQLException, Exception{
         newAdministracao = procuraAdministracaoPorNOME(newAdministracao);
         String sql = "UPDATE produtos SET administracao = '"+newAdministracao+"' WHERE produto = '"+produto+"'";
+        //System.out.println(sql);
 
         Model.stmt.executeQuery(sql);
         commit2();
@@ -481,6 +496,7 @@ public class Negocio {
      ***********************************/
     public static void alterarReceita(String produto, int newReceita) throws SQLException, Exception{
         String sql = "UPDATE produtos SET receita = '"+newReceita+"' WHERE produto = '"+produto+"'";
+        //System.out.println(sql);
 
         Model.stmt.executeQuery(sql);
         commit2();
@@ -511,7 +527,7 @@ public class Negocio {
      * Alterar o url de um produto *
      *******************************/
     public static void alterarURL(String produto, String newURL) throws SQLException, Exception{
-        String sql = "UPDATE produtos SET receita = '"+newURL+"' WHERE produto = '"+produto+"'";
+        String sql = "UPDATE produtos SET folheto_url = '"+newURL+"' WHERE produto = '"+produto+"'";
 
         Model.stmt.executeQuery(sql);
         commit2();

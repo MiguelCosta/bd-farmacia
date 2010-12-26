@@ -1127,7 +1127,7 @@ public class JPrincipal extends javax.swing.JFrame {
             System.out.println("out");
         } else {
             try {
-                Negocio.abrirPDF(sel);
+                Negocio.abrirFolhetoURL(sel);
             } catch (Exception ex) {
                 Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
             }
