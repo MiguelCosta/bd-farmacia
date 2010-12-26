@@ -523,9 +523,9 @@ public class Negocio {
         commit2();
     }
 
-    /*******************************
-     * Alterar o url de um produto *
-     *******************************/
+    /***************************************************************************
+     * Alterar o url de um produto recebendo o ID de um produto e a string url *
+     ***************************************************************************/
     public static void alterarURL(String produto, String newURL) throws SQLException, Exception{
         String sql = "UPDATE produtos SET folheto_url = '"+newURL+"' WHERE produto = '"+produto+"'";
 
@@ -533,12 +533,23 @@ public class Negocio {
         commit2();
     }
 
-    /****************************************
-     * Alterar o constituinte de um produto *
-     ****************************************/
-    public static void alterarConstitinte(String produto, String newConstituinte) throws SQLException, Exception{
+    /**********************************************************************************************
+     * Alterar o constituinte de um produto recebendo o ID de um produto e o nome do constituinte *
+     **********************************************************************************************/
+    public static void alterarConstituinte(String produto, String newConstituinte) throws SQLException, Exception{
         newConstituinte = procurarConstituintesPorNome(newConstituinte);
-        String sql = "INSERT INTO lista_constituinte VALUES ('"+produto+"','"+newConstituinte+"')";
+        String sql = "INSERT INTO lista_constituintes VALUES ('"+produto+"','"+newConstituinte+"')";
+        System.out.println(sql);
+        Model.stmt.executeQuery(sql);
+        commit2();
+    }
+
+    /*****************************************
+     * Remove os constituintes de um produto *
+     *****************************************/
+    public static void removerConstitintes(String produto) throws SQLException, Exception{
+        String sql = "DELETE FROM lista_constituintes WHERE produto = "+produto;
+        System.out.println(sql);
 
         Model.stmt.executeQuery(sql);
         commit2();

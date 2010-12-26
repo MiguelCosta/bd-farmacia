@@ -761,6 +761,15 @@ public class JDialogAlterProduto extends java.awt.Dialog {
             int generico                = 0;
             if(jRadioButtonReceitaSimIns.isSelected())  receita = 1;
             if (jRadioButtonGenericoSim.isSelected())   generico = 1;
+            String constituinte1        = jComboBoxConstituintes1.getSelectedItem().toString();
+            String constituinte2        = jComboBoxConstituintes2.getSelectedItem().toString();
+            String constituinte3        = jComboBoxConstituintes3.getSelectedItem().toString();
+            String constituinte4        = jComboBoxConstituintes4.getSelectedItem().toString();
+            String constituinte5        = jComboBoxConstituintes5.getSelectedItem().toString();
+            String constituinte6        = jComboBoxConstituintes6.getSelectedItem().toString();
+            String constituinte7        = jComboBoxConstituintes7.getSelectedItem().toString();
+            String constituinte8        = jComboBoxConstituintes8.getSelectedItem().toString();
+            String constituinte9        = jComboBoxConstituintes9.getSelectedItem().toString();
 
             String msgERRO = "";
             if (nome_generico.equalsIgnoreCase(""))                 msgERRO = msgERRO + "Falta inserir o nome generico!\n";
@@ -787,7 +796,18 @@ public class JDialogAlterProduto extends java.awt.Dialog {
                 Negocio.alterarGenerico(produto, generico);
                 Negocio.alterarFormato(produto, jComboBoxFormatoIns.getSelectedItem().toString());
                 if (url.equalsIgnoreCase("<vazio>")==false) Negocio.alterarURL(produto, url);
-            
+                Negocio.removerConstitintes(produto);
+                if (constituinte1.equalsIgnoreCase("Não Especificado")==false) Negocio.alterarConstituinte(produto, constituinte1);
+                if (constituinte2.equalsIgnoreCase("Não Especificado")==false) Negocio.alterarConstituinte(produto, constituinte2);
+                if (constituinte3.equalsIgnoreCase("Não Especificado")==false) Negocio.alterarConstituinte(produto, constituinte3);
+                if (constituinte4.equalsIgnoreCase("Não Especificado")==false) Negocio.alterarConstituinte(produto, constituinte4);
+                if (constituinte5.equalsIgnoreCase("Não Especificado")==false) Negocio.alterarConstituinte(produto, constituinte5);
+                if (constituinte6.equalsIgnoreCase("Não Especificado")==false) Negocio.alterarConstituinte(produto, constituinte6);
+                if (constituinte7.equalsIgnoreCase("Não Especificado")==false) Negocio.alterarConstituinte(produto, constituinte7);
+                if (constituinte8.equalsIgnoreCase("Não Especificado")==false) Negocio.alterarConstituinte(produto, constituinte8);
+                if (constituinte9.equalsIgnoreCase("Não Especificado")==false) Negocio.alterarConstituinte(produto, constituinte9);
+
+
                 JOptionPane.showMessageDialog(null, "Produto alterado com sucesso!", "Produto alterado", 1);
                 JDialogAlterProduto.this.dispose();
             }
