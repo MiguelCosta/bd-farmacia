@@ -756,7 +756,9 @@ public class JDialogAlterProduto extends java.awt.Dialog {
             if(jRadioButtonReceitaSimIns.isSelected()) receita = 1;
             int generico = 0;
             if (jRadioButtonGenericoSim.isSelected()) generico = 1;
-            
+            String url = jTextFieldFolhetoURLIns.getText();
+            System.out.println(url);
+
             Negocio.alterarNomeGenerico(produto, jTextFieldNomeGenIns.getText());
             Negocio.alterarNomeMedicamento(produto, jTextFieldNomeDoMedicamentoIns.getText());
             Negocio.alterarQuantidade(produto, quantidade);
@@ -768,7 +770,7 @@ public class JDialogAlterProduto extends java.awt.Dialog {
             Negocio.alterarReceita(produto, receita);
             Negocio.alterarGenerico(produto, generico);
             Negocio.alterarFormato(produto, jComboBoxFormatoIns.getSelectedItem().toString());
-            Negocio.alterarURL(produto, jTextFieldFolhetoURLIns.getText());
+            if (url.equalsIgnoreCase("<vazio>")==false) Negocio.alterarURL(produto, url);
             
 
         } catch (SQLException ex) {
