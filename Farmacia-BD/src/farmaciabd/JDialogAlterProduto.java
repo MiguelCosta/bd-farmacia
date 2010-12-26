@@ -752,11 +752,23 @@ public class JDialogAlterProduto extends java.awt.Dialog {
             String produto              = jTextFieldCodProdutoIns.getText();
             SpinnerNumberModel model    = (SpinnerNumberModel) jSpinnerQuantidadeIns.getModel();
             int quantidade              = model.getNumber().intValue();
-
+            int receita = 0;
+            if(jRadioButtonReceitaSimIns.isSelected()) receita = 1;
+            int generico = 0;
+            if (jRadioButtonGenericoSim.isSelected()) generico = 1;
+            
             Negocio.alterarNomeGenerico(produto, jTextFieldNomeGenIns.getText());
             Negocio.alterarNomeMedicamento(produto, jTextFieldNomeDoMedicamentoIns.getText());
             Negocio.alterarQuantidade(produto, quantidade);
             Negocio.alterarRegistoInfarmed(produto, jTextFieldRegistoInfarmedIns.getText());
+            Negocio.alterarFaixaEtaria(produto, jComboBoxFaixaEtaria.getSelectedItem().toString());
+            Negocio.alterarDosagem(produto, jTextFieldDosagemIns.getText());
+            Negocio.alterarTemperatua(produto, jComboBoxTemperaturaIns.getSelectedItem().toString());
+            Negocio.alterarAdministracao(produto, jComboBoxAdministracaoIns.getSelectedItem().toString());
+            Negocio.alterarReceita(produto, receita);
+            Negocio.alterarGenerico(produto, generico);
+            Negocio.alterarFormato(produto, jComboBoxFormatoIns.getSelectedItem().toString());
+            Negocio.alterarURL(produto, jTextFieldFolhetoURLIns.getText());
             
 
         } catch (SQLException ex) {
