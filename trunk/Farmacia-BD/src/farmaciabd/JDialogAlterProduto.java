@@ -538,9 +538,7 @@ public class JDialogAlterProduto extends java.awt.Dialog {
                             .addComponent(jRadioButtonGenericoNao)
                             .addComponent(jRadioButtonReceitaNaoIns))
                         .addGap(143, 143, 143))
-                    .addGroup(jPanelLoteLayout.createSequentialGroup()
-                        .addComponent(jSpinnerQuantidadeIns, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                    .addComponent(jSpinnerQuantidadeIns, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)))
         );
         jPanelLoteLayout.setVerticalGroup(
             jPanelLoteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
