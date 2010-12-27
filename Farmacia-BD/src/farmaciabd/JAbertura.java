@@ -46,12 +46,8 @@ public class JAbertura extends java.awt.Dialog {
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabelEntrar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabelEntrar.setText("BEM VINDO");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipady = 32;
-        jPanel1.add(jLabelEntrar, gridBagConstraints);
+        jLabelEntrar.setText("BEM VINDO À:");
+        jPanel1.add(jLabelEntrar, new java.awt.GridBagConstraints());
 
         jButtonEntrar.setText("Entrar");
         jButtonEntrar.addActionListener(new java.awt.event.ActionListener() {
@@ -62,8 +58,10 @@ public class JAbertura extends java.awt.Dialog {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridheight = 7;
         gridBagConstraints.ipadx = 19;
         gridBagConstraints.ipady = 22;
+        gridBagConstraints.insets = new java.awt.Insets(14, 0, 14, 0);
         jPanel1.add(jButtonEntrar, gridBagConstraints);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/anexos/logo1.png"))); // NOI18N
