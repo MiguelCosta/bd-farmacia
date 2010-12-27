@@ -31,6 +31,7 @@ public class JPrincipal extends javax.swing.JFrame {
     /** Creates new form Principal */
     public JPrincipal() {
         // http://www.auladigital.com.br/video/?p=140
+        // http://www.taranfx.com/best-java-swing-look-and-feel-themes-professional-casual-top-10
         // mac: UIManager.setLookAndFeel(ch.randelshofer.quaqua.QuaquaManager.getLookAndFeel());
         // win: UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
         try {
