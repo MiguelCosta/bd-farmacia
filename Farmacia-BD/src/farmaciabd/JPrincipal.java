@@ -15,14 +15,10 @@ import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
-import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
 import java.sql.*;
-import java.util.ArrayList;
-import javax.xml.crypto.dsig.keyinfo.KeyValue;
-import oracle.sql.ARRAY;
 
 /**
  *
@@ -34,6 +30,18 @@ public class JPrincipal extends javax.swing.JFrame {
 
     /** Creates new form Principal */
     public JPrincipal() {
+        // http://www.auladigital.com.br/video/?p=140
+        // mac: UIManager.setLookAndFeel(ch.randelshofer.quaqua.QuaquaManager.getLookAndFeel());
+        // win: UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+        try {
+            UIManager.setLookAndFeel(ch.randelshofer.quaqua.QuaquaManager.getLookAndFeel());
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }   catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Não foi possível carregar o \"Skin\" padrão. Definindo o padrão original.", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+
+        SwingUtilities.updateComponentTreeUI(this);
         JAbertura ab = new JAbertura(this, rootPaneCheckingEnabled);
         centerOnScreen(ab);
         ab.setVisible(true);
@@ -1190,6 +1198,8 @@ public class JPrincipal extends javax.swing.JFrame {
      */
     public static void main(String args[]) throws Exception {
         try {
+            
+
             Model.connect();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
