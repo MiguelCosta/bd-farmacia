@@ -6,8 +6,6 @@ package farmaciabd;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 
 /**
@@ -16,7 +14,6 @@ import javax.swing.DefaultListModel;
  */
 public class Negocio {
 
-    
 
     /*********************************
      * Fazer commit da Base de Dados *
@@ -556,8 +553,6 @@ public class Negocio {
     }
 
     
-
-
-    }
+}
 
 
