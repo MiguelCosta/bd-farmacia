@@ -306,9 +306,12 @@ public class Negocio {
         return rSet;
     }
 
-    /***************************************************************
-     * Procura um constituinte, devolvendo o nome e recebendo o ID *
-     ***************************************************************/
+    /**
+     * Procura um constituinte, devolvendo o nome e recebendo o ID
+     * @param sel String - codigo do constituinte
+     * @return r String - nome do constituinte
+     * @throws Exception
+     */
     public static String procurarConstituintes(String sel) throws Exception {
         ResultSet rSet = null;
         String sql = "SELECT * FROM constituintes WHERE constituinte = '";
@@ -329,9 +332,12 @@ public class Negocio {
         return r;
     }
 
-    /***************************************************************
-     * Procura um constituinte, devolvendo o ID e recebendo o nome *
-     ***************************************************************/
+    /**
+     * Procura um constituinte, devolvendo o ID e recebendo o nome
+     * @param sel String - nome do constituinte
+     * @return r String - id do constituinte
+     * @throws Exception
+     */
     public static String procurarConstituintesPorNome(String sel) throws Exception {
         ResultSet rSet = null;
         String sql = "SELECT * FROM constituintes WHERE nome = '";
@@ -347,9 +353,11 @@ public class Negocio {
         return r;
     }
 
-    /****************************************************
-     * Lista as faixas estarias devolvendo um ResultSet *
-     ****************************************************/
+    /**
+     * Lista as faixas estarias devolvendo um ResultSet
+     * @return rSet ResultSet
+     * @throws Exception
+     */
     public static ResultSet listarFaixasEtarias () throws Exception{
         ResultSet rSet = null;
         String sql = "SELECT nome FROM faixas_etarias";
@@ -360,9 +368,27 @@ public class Negocio {
 
     }
 
-    /***************************************
-     * Inserir um produto na base de dados *
-     ***************************************/
+    /**
+     * Inserir um produto na base de dados
+     * @param produto String - codigo do produto
+     * @param nome_generico String
+     * @param nome_medicamento Sttring
+     * @param quantidade String
+     * @param faixa_etaria String
+     * @param reg_infarmed String
+     * @param area_terapeutica String
+     * @param lote String
+     * @param dosagem String
+     * @param temperatura String
+     * @param preco String
+     * @param administracao String
+     * @param receita String
+     * @param generico String
+     * @param formato String
+     * @param folheto_url String
+     * @throws SQLException
+     * @throws Exception
+     */
     public static void insertProduto(String produto, String nome_generico, String nome_medicamento, String quantidade, String faixa_etaria, String reg_infarmed, String area_terapeutica, String lote, String dosagem, String temperatura, String preco, String administracao, String receita, String generico, String formato, String folheto_url) throws SQLException, Exception{
 
         String sql = "INSERT INTO produtos VALUES ("+produto+",'"+nome_generico+"','"+nome_medicamento+"','"+quantidade+"','"+faixa_etaria+"','"+reg_infarmed+"','"+area_terapeutica+"','"+lote+"','"+dosagem+"','"+temperatura+"','"+preco+"','"+administracao+"','"+receita+"','"+generico+"','"+formato+"','"+folheto_url+"')";
@@ -373,9 +399,13 @@ public class Negocio {
         commit2();   
     }
 
-    /***************************************************************************************
-     * Inserir um constituinte e um produto na base de dados na tabela lista_constituintes *
-     ***************************************************************************************/
+    /**
+     * Inserir um constituinte e um produto na base de dados na tabela lista_constituintes
+     * @param produto String - codigo do produto
+     * @param constituinte String - codigo a inserir do novo constituinte
+     * @throws SQLException
+     * @throws Exception
+     */
     public static void insertConstituinte(String produto, String constituinte) throws SQLException, Exception{
         String sql = "INSERT INTO lista_constituintes VALUES ("+produto+","+constituinte+")";
         System.out.println("Constituinte: "+constituinte);
@@ -386,9 +416,13 @@ public class Negocio {
         
     }
 
-    /*****************************************
-     * Alterar o nome generico de um produto *
-     *****************************************/
+    /**
+     * Alterar o nome generico de um produto
+     * @param produto String - codigo do produto
+     * @param newNomeGenerico String - novo nome generico do medicamento
+     * @throws SQLException
+     * @throws Exception
+     */
     public static void alterarNomeGenerico(String produto, String newNomeGenerico) throws SQLException, Exception{
         String sql = "UPDATE produtos SET nome_generico = '"+newNomeGenerico+"' WHERE produto = '"+produto+"'";
         //System.out.println(sql);
@@ -397,9 +431,13 @@ public class Negocio {
         commit2();
     }
 
-    /***********************************************
-     * Alterar o nome do medicamento de um produto *
-     ***********************************************/
+    /**
+     * Alterar o nome do medicamento de um produto
+     * @param produto String - codigo do produto
+     * @param newNomeMedicamento String - novo nome do medicamento
+     * @throws SQLException
+     * @throws Exception
+     */
     public static void alterarNomeMedicamento(String produto, String newNomeMedicamento) throws SQLException, Exception{
         String sql = "UPDATE produtos SET nome_medicamento = '"+newNomeMedicamento+"' WHERE produto = '"+produto+"'";
         //System.out.println(sql);
@@ -408,9 +446,13 @@ public class Negocio {
         commit2();
     }
 
-    /**************************************
-     * Alterar a quantidade de um produto *
-     **************************************/
+    /**
+     * Alterar a quantidade de um produto
+     * @param produto String - codigo do produto
+     * @param newQuantidade int - nova quantidade
+     * @throws SQLException
+     * @throws Exception
+     */
     public static void alterarQuantidade(String produto, int newQuantidade) throws SQLException, Exception{
         String sql = "UPDATE produtos SET quantidade = '"+newQuantidade+"' WHERE produto = '"+produto+"'";
         //System.out.println(sql);
@@ -418,9 +460,13 @@ public class Negocio {
         commit2();
     }
 
-    /********************************************
-     * Alterar o registo infarmed de um produto *
-     *******************************************/
+    /**
+     * Alterar o registo infarmed de um produto
+     * @param produto String - codigo do produto
+     * @param newRegistoInfarmed String - codigo do registo infarmed
+     * @throws SQLException
+     * @throws Exception
+     */
     public static void alterarRegistoInfarmed(String produto, String newRegistoInfarmed) throws SQLException, Exception{
         String sql = "UPDATE produtos SET reg_infarmed = '"+newRegistoInfarmed+"' WHERE produto = '"+produto+"'";
         //System.out.println(sql);
@@ -429,9 +475,13 @@ public class Negocio {
         commit2();
     }
 
-    /****************************************
-     * Alterar a faixa etaria de um produto *
-     ****************************************/
+    /**
+     * Alterar a faixa etaria de um produto
+     * @param produto String - codigo do produto
+     * @param newFaixaEtaria String - codigo faixa etaria
+     * @throws SQLException
+     * @throws Exception
+     */
     public static void alterarFaixaEtaria(String produto, String newFaixaEtaria) throws SQLException, Exception{
         newFaixaEtaria = procurarFaixaEtariaPorNome(newFaixaEtaria);
         String sql = "UPDATE produtos SET faixa_etaria = '"+newFaixaEtaria+"' WHERE produto = '"+produto+"'";
@@ -441,9 +491,13 @@ public class Negocio {
         commit2();
     }
 
-    /********************************************
-     * Alterar a area terapeutica de um produto *
-     ********************************************/
+    /**
+     * Alterar a area terapeutica de um produto
+     * @param produto String - codigo do produto
+     * @param newAreaTerapeutica String codigo da areaTerapeutica
+     * @throws SQLException
+     * @throws Exception
+     */
     public static void alterarAreaTerapeutica(String produto, String newAreaTerapeutica) throws SQLException, Exception{
         newAreaTerapeutica = procuraAreaTerapeuticaPorNOME(newAreaTerapeutica);
         String sql = "UPDATE produtos SET area_terapeutica = '"+newAreaTerapeutica+"' WHERE produto = '"+produto+"'";
@@ -453,9 +507,13 @@ public class Negocio {
         commit2();
     }
 
-    /***********************************
-     * Alterar a dosagem de um produto *
-     ***********************************/
+    /**
+     * Alterar a dosagem de um produto
+     * @param produto String - codigo do produto
+     * @param newDosagem String - texto com a dosagem
+     * @throws SQLException
+     * @throws Exception
+     */
     public static void alterarDosagem(String produto, String newDosagem) throws SQLException, Exception{
         String sql = "UPDATE produtos SET dosagem = '"+newDosagem+"' WHERE produto = '"+produto+"'";
         //System.out.println(sql);
@@ -464,9 +522,14 @@ public class Negocio {
         commit2();
     }
 
-    /***************************************
-     * Alterar a temperatura de um produto *
-     ***************************************/
+    /**
+     * Alterar a temperatura de um produto
+     * @param produto String - codigo do produto
+     * @param newTemperatura String - codigo da temperatura
+     * @return void
+     * @throws SQLException
+     * @throws Exception
+     */
     public static void alterarTemperatua(String produto, String newTemperatura) throws SQLException, Exception{
         newTemperatura = procurarTemperaturaPorNome(newTemperatura);
         String sql = "UPDATE produtos SET temperatura = '"+newTemperatura+"' WHERE produto = '"+produto+"'";
@@ -476,9 +539,14 @@ public class Negocio {
         commit2();
     }
 
-    /*****************************************
-     * Alterar a administracao de um produto *
-     *****************************************/
+    /**
+     * Alterar a administracao de um produto
+     * @param produto String - codigo do produto
+     * @param newAdministracao String - codigo do novo constituinte
+     * @return void
+     * @throws SQLException
+     * @throws Exception
+     */
     public static void alterarAdministracao(String produto, String newAdministracao) throws SQLException, Exception{
         newAdministracao = procuraAdministracaoPorNOME(newAdministracao);
         String sql = "UPDATE produtos SET administracao = '"+newAdministracao+"' WHERE produto = '"+produto+"'";
@@ -488,9 +556,14 @@ public class Negocio {
         commit2();
     }
 
-    /***********************************
-     * Alterar a receita de um produto *
-     ***********************************/
+    /**
+     * Alterar a receita de um produto
+     * @param produto String - codigo do produto
+     * @param newReceita int - 1 ou 0, caso precise de receita ou nao respectivamente
+     * @return void
+     * @throws SQLException
+     * @throws Exception
+     */
     public static void alterarReceita(String produto, int newReceita) throws SQLException, Exception{
         String sql = "UPDATE produtos SET receita = '"+newReceita+"' WHERE produto = '"+produto+"'";
         //System.out.println(sql);
@@ -499,9 +572,14 @@ public class Negocio {
         commit2();
     }
 
-    /************************************
-     * Alterar o generico de um produto *
-     ************************************/
+    /**
+     * Alterar o generico de um produto
+     * @param produto String - codigo do produto
+     * @param newGenerico int - 1 ou 0 caso seja generico ou nao resepctivamente
+     * @return void
+     * @throws SQLException
+     * @throws Exception
+     */
     public static void alterarGenerico(String produto, int newGenerico) throws SQLException, Exception{
         String sql = "UPDATE produtos SET generico = '"+newGenerico+"' WHERE produto = '"+produto+"'";
 
@@ -509,9 +587,14 @@ public class Negocio {
         commit2();
     }
 
-    /***********************************
-     * Alterar o formato de um produto *
-     ***********************************/
+    /**
+     * Alterar o formato de um produto
+     * @param produto String - codigo do produto
+     * @param newFormato String - codigo do novo formato
+     * @return void
+     * @throws SQLException
+     * @throws Exception
+     */
     public static void alterarFormato(String produto, String newFormato) throws SQLException, Exception{
         newFormato = procurarFormatoPorNome(newFormato);
         String sql = "UPDATE produtos SET formato = '"+newFormato+"' WHERE produto = '"+produto+"'";
@@ -520,9 +603,14 @@ public class Negocio {
         commit2();
     }
 
-    /***************************************************************************
-     * Alterar o url de um produto recebendo o ID de um produto e a string url *
-     ***************************************************************************/
+    /**
+     * Alterar o url de um produto recebendo o ID de um produto e a string url
+     * @param produto String - codigo do produto
+     * @param newURL String - novo url
+     * @return void
+     * @throws SQLException
+     * @throws Exception
+     */
     public static void alterarURL(String produto, String newURL) throws SQLException, Exception{
         String sql = "UPDATE produtos SET folheto_url = '"+newURL+"' WHERE produto = '"+produto+"'";
 
@@ -530,9 +618,14 @@ public class Negocio {
         commit2();
     }
 
-    /**********************************************************************************************
-     * Alterar o constituinte de um produto recebendo o ID de um produto e o nome do constituinte *
-     **********************************************************************************************/
+    /**
+     * Alterar o constituinte de um produto recebendo o ID de um produto e o nome do constituinte
+     * @param produto String - codigo do produto
+     * @param newConstituinte String - codigo do novo constituinte
+     * @return void
+     * @throws SQLException
+     * @throws Exception
+     */
     public static void alterarConstituinte(String produto, String newConstituinte) throws SQLException, Exception{
         newConstituinte = procurarConstituintesPorNome(newConstituinte);
         String sql = "INSERT INTO lista_constituintes VALUES ('"+produto+"','"+newConstituinte+"')";
@@ -541,9 +634,13 @@ public class Negocio {
         commit2();
     }
 
-    /*****************************************
-     * Remove os constituintes de um produto *
-     *****************************************/
+    /**
+     * Remove os constituintes de um produto
+     * @param produto String - codigo do produto
+     * @return void
+     * @throws SQLException
+     * @throws Exception
+     */
     public static void removerConstitintes(String produto) throws SQLException, Exception{
         String sql = "DELETE FROM lista_constituintes WHERE produto = "+produto;
         System.out.println(sql);
