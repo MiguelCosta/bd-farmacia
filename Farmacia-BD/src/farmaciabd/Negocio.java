@@ -649,6 +649,16 @@ public class Negocio {
         commit2();
     }
 
+    public static void registarStock (String sel, int stock_antigo, int stock_novo) throws SQLException, Exception{
+        String sql_registar     = "INSERT INTO registo_stocks VALUES ('"+sel+"','"+stock_antigo+"','"+stock_novo+"')";
+        String sql_actualizar   = "UPDATE produtos SET quantidade = '"+stock_novo+"' WHERE produto = '"+sel+"'";
+
+        Model.stmt.executeQuery(sql_registar);
+        Model.stmt.executeQuery(sql_actualizar);
+        commit2();
+
+    }
+
     
     }
 

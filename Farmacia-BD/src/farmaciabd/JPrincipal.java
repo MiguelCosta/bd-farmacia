@@ -47,7 +47,15 @@ public class JPrincipal extends javax.swing.JFrame {
         centerOnScreen(ab);
         ab.setVisible(true);
         initComponents();
+
+        configurarComponentes();
+
         centerOnScreen(this);
+
+
+
+        
+
     }
 
     /** This method is called from within the constructor to
@@ -128,23 +136,23 @@ public class JPrincipal extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jTextFieldProcuraStock = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        jButtonProcuraStock = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jListProdutosStocks = new javax.swing.JList();
         jPanel11 = new javax.swing.JPanel();
         jRadioButtonAdicionarQ = new javax.swing.JRadioButton();
         jRadioButtonRemoverQ = new javax.swing.JRadioButton();
         jTextFieldAumentaQuantidadeStock = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        jButtonActualizarStock = new javax.swing.JButton();
         jPanel12 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
-        jTextField17 = new javax.swing.JTextField();
+        jTextFieldNomeProdutoStock = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         jTextFieldProdutoStock = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
-        jTextField19 = new javax.swing.JTextField();
+        jTextFieldNomeGenericoStock = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
-        jTextField20 = new javax.swing.JTextField();
+        jTextFieldQuantidadeStock = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -178,6 +186,12 @@ public class JPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jPanel4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPanel4KeyPressed(evt);
+            }
+        });
+
         try {
             rSet = Produtos.queryProdutos();
             DefaultListModel model = new DefaultListModel();
@@ -189,6 +203,11 @@ public class JPrincipal extends javax.swing.JFrame {
         jListProdutos.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 jListProdutosValueChanged(evt);
+            }
+        });
+        jListProdutos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jListProdutosKeyPressed(evt);
             }
         });
         jScrollPane1.setViewportView(jListProdutos);
@@ -638,7 +657,18 @@ public class JPrincipal extends javax.swing.JFrame {
 
         jLabel19.setText("visualização em que está!");
 
-        jButton2.setText("Procurar");
+        jTextFieldProcuraStock.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldProcuraStockKeyPressed(evt);
+            }
+        });
+
+        jButtonProcuraStock.setText("Procurar");
+        jButtonProcuraStock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonProcuraStockActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -652,7 +682,7 @@ public class JPrincipal extends javax.swing.JFrame {
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addComponent(jTextFieldProcuraStock, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2)))
+                        .addComponent(jButtonProcuraStock)))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
@@ -664,7 +694,7 @@ public class JPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldProcuraStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(jButtonProcuraStock))
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
@@ -677,6 +707,11 @@ public class JPrincipal extends javax.swing.JFrame {
             jListProdutosStocks.setModel(model);
         }
         catch (SQLException ex) { Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); }
+        jListProdutosStocks.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jListProdutosStocksValueChanged(evt);
+            }
+        });
         jScrollPane3.setViewportView(jListProdutosStocks);
 
         jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder("Gestão de Stock"));
@@ -695,7 +730,12 @@ public class JPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Actualizar Stock");
+        jButtonActualizarStock.setText("Actualizar Stock");
+        jButtonActualizarStock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonActualizarStockActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -710,7 +750,7 @@ public class JPrincipal extends javax.swing.JFrame {
                             .addComponent(jRadioButtonAdicionarQ)
                             .addComponent(jRadioButtonRemoverQ))
                         .addGap(18, 18, 18)
-                        .addComponent(jButton3)))
+                        .addComponent(jButtonActualizarStock)))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
@@ -723,7 +763,7 @@ public class JPrincipal extends javax.swing.JFrame {
                         .addComponent(jRadioButtonRemoverQ))
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton3)))
+                        .addComponent(jButtonActualizarStock)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextFieldAumentaQuantidadeStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(19, Short.MAX_VALUE))
@@ -752,10 +792,10 @@ public class JPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel23))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField17, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                    .addComponent(jTextField19, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                    .addComponent(jTextFieldNomeProdutoStock, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                    .addComponent(jTextFieldNomeGenericoStock, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
                     .addComponent(jTextFieldProdutoStock, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                    .addComponent(jTextField20, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
+                    .addComponent(jTextFieldQuantidadeStock, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel12Layout.setVerticalGroup(
@@ -768,15 +808,15 @@ public class JPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
-                    .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldNomeGenericoStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(13, 13, 13)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
-                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldNomeProdutoStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23)
-                    .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldQuantidadeStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -951,6 +991,7 @@ public class JPrincipal extends javax.swing.JFrame {
 
     private void jRadioButtonNomeProdStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNomeProdStockActionPerformed
         jRadioButtonCodProdStock.setSelected(false);
+        jRadioButtonNomeProdStock.setSelected(true);
 
         try {
             rSet = Produtos.queryProdutos();
@@ -966,10 +1007,12 @@ public class JPrincipal extends javax.swing.JFrame {
 
     private void jRadioButtonAdicionarQActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonAdicionarQActionPerformed
         jRadioButtonRemoverQ.setSelected(false);
+        jRadioButtonAdicionarQ.setSelected(true);
     }//GEN-LAST:event_jRadioButtonAdicionarQActionPerformed
 
     private void jRadioButtonCodProdStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonCodProdStockActionPerformed
         jRadioButtonNomeProdStock.setSelected(false);
+        jRadioButtonCodProdStock.setSelected(true);
 
         try {
             rSet = Produtos.queryProdutos();
@@ -985,6 +1028,7 @@ public class JPrincipal extends javax.swing.JFrame {
 
     private void jRadioButtonRemoverQActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonRemoverQActionPerformed
         jRadioButtonAdicionarQ.setSelected(false);
+        jRadioButtonRemoverQ.setSelected(true);
     }//GEN-LAST:event_jRadioButtonRemoverQActionPerformed
 
     private void jListProdutosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListProdutosValueChanged
@@ -1176,6 +1220,7 @@ public class JPrincipal extends javax.swing.JFrame {
     private void jButtonAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarProdutoActionPerformed
         JDialogInsertProduto adicionarProduto = new JDialogInsertProduto(this, true);
         adicionarProduto.setVisible(true);
+        jListProdutosValueChanged(null);
 
     }//GEN-LAST:event_jButtonAdicionarProdutoActionPerformed
 
@@ -1198,8 +1243,128 @@ public class JPrincipal extends javax.swing.JFrame {
        alterarProduto.setVisible(true);
 
         }
+       jListProdutosValueChanged(null);
 
     }//GEN-LAST:event_jButtonAlterarProdutoActionPerformed
+
+    private void jListProdutosStocksValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListProdutosStocksValueChanged
+        String sel              = (String) jListProdutosStocks.getSelectedValue();
+        String produto          = null;
+
+        try {
+            if (jRadioButtonNomeProdStock.isSelected()) {
+                rSet = Negocio.selProdutoNome(sel); //procura por nome
+            } else {
+                rSet = Negocio.selProduto(sel);     // procura por id
+            }
+
+            /***************************************************************
+             * Colocar os campos da tabela produtos nos campos respectivos *
+             ***************************************************************/
+            while (rSet.next()) {
+                produto = vazio(rSet.getString(1));
+                jTextFieldNomeGenericoStock.setText(vazio(rSet.getString(2)));
+                jTextFieldNomeProdutoStock.setText(vazio(rSet.getString(3)));
+                jTextFieldQuantidadeStock.setText(vazio(rSet.getString(4)));
+                
+            }
+            jTextFieldProdutoStock.setText(produto);
+
+
+        } catch (Exception ex) {
+            System.out.println("ERRO: "+ex.getMessage());
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jListProdutosStocksValueChanged
+
+    private void jButtonActualizarStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarStockActionPerformed
+        String sel          = jTextFieldProdutoStock.getText();
+        String stock_antigo = jTextFieldQuantidadeStock.getText();
+        String stock_novo   = jTextFieldAumentaQuantidadeStock.getText();
+
+        try {
+
+            if (isNumber(stock_antigo)==false || isNumber(stock_novo)==false ) {
+                JOptionPane.showMessageDialog(null, "A quantidade inserida nao é válida!", "Erro ao alterar Stock",1);
+            }
+            else {
+                if (jRadioButtonAdicionarQ.isSelected()){
+                    int adicionar = Integer.parseInt(stock_antigo) + Integer.parseInt(stock_novo);
+                    Negocio.registarStock(sel, Integer.parseInt(stock_antigo), adicionar);
+                    JOptionPane.showMessageDialog(null, "Stock adicionado com sucesso!", "Sucesso", 1);
+
+                }
+                else {
+                    int remover = Integer.parseInt(stock_antigo) - Integer.parseInt(stock_novo);
+                    if (remover > 0){
+                        Negocio.registarStock(sel, Integer.parseInt(stock_antigo), remover);
+                        JOptionPane.showMessageDialog(null, "Stock removido com sucesso!", "Sucesso",1);
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(null, "Não pode remover a quantidade inserida!", "Erro",1);
+                    }
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        jListProdutosStocksValueChanged(null);
+    }//GEN-LAST:event_jButtonActualizarStockActionPerformed
+
+    private void jButtonProcuraStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProcuraStockActionPerformed
+        String sel = jTextFieldProcuraStock.getText();
+        DefaultListModel model = new DefaultListModel();
+
+        try {
+            if (jRadioButtonNomeProdStock.isSelected()) {
+                rSet = Negocio.selProdutoNome(sel);
+                while (rSet.next()) {
+                    model.addElement(rSet.getString(3));
+                }
+                jListProdutosStocks.setModel(model);
+            } else {
+                rSet = Negocio.selProduto(sel);
+                while (rSet.next()) {
+                    model.addElement(rSet.getString(1));
+                }
+                jListProdutosStocks.setModel(model);
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButtonProcuraStockActionPerformed
+
+    private void jTextFieldProcuraStockKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldProcuraStockKeyPressed
+        int key = evt.getKeyCode();
+        if (key == KeyEvent.VK_ENTER) {
+            transferFocus();
+            jButtonProcuraStockActionPerformed(null);
+            //System.out.println("ola");
+        } else {
+            //System.out.println("ola2");
+        }
+        if (key == KeyEvent.VK_F1) {
+            JOptionPane.showMessageDialog(new Frame(), MensagensAjuda.ajudaProcura(), "Ajuda Procura", JOptionPane.NO_OPTION);
+        }
+    }//GEN-LAST:event_jTextFieldProcuraStockKeyPressed
+
+    private void jPanel4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel4KeyPressed
+        int key = evt.getKeyCode();
+        if (key == KeyEvent.VK_F1) {
+            JOptionPane.showMessageDialog(new Frame(), MensagensAjuda.ajudaFichaMedicamentos(), "Ajuda", JOptionPane.NO_OPTION);
+        }
+    }//GEN-LAST:event_jPanel4KeyPressed
+
+    private void jListProdutosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jListProdutosKeyPressed
+        int key = evt.getKeyCode();
+        if (key == KeyEvent.VK_F1) {
+            JOptionPane.showMessageDialog(new Frame(), MensagensAjuda.ajudaFichaMedicamentos(), "Ajuda", JOptionPane.NO_OPTION);
+        }
+    }//GEN-LAST:event_jListProdutosKeyPressed
 
     /**
      * @param args the command line arguments
@@ -1228,13 +1393,13 @@ public class JPrincipal extends javax.swing.JFrame {
 
     // <editor-fold defaultstate="collapsed" desc="Variáveis">
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButtonActualizarStock;
     private javax.swing.JButton jButtonAdicionarProduto;
     private javax.swing.JButton jButtonAlterarProduto;
     private javax.swing.JButton jButtonAreaTerapeuticaAbrirPDF;
     private javax.swing.JButton jButtonFolhetoInformativo;
     private javax.swing.JButton jButtonLimparCampos;
+    private javax.swing.JButton jButtonProcuraStock;
     private javax.swing.JButton jButtonProcurar;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
@@ -1295,9 +1460,6 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPaneFichaProduto;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextFieldAdministracao;
     private javax.swing.JTextField jTextFieldAreaTerapeutica;
     private javax.swing.JTextField jTextFieldAreaTerapeuticaMore;
@@ -1309,13 +1471,16 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldGenerico;
     private javax.swing.JTextField jTextFieldLote;
     private javax.swing.JTextField jTextFieldNomeGen;
+    private javax.swing.JTextField jTextFieldNomeGenericoStock;
     private javax.swing.JTextField jTextFieldNomeMedicamento;
+    private javax.swing.JTextField jTextFieldNomeProdutoStock;
     private javax.swing.JTextField jTextFieldPreco;
     private javax.swing.JTextField jTextFieldProcura;
     private javax.swing.JTextField jTextFieldProcuraStock;
     public javax.swing.JTextField jTextFieldProduto;
     private javax.swing.JTextField jTextFieldProdutoStock;
     private javax.swing.JTextField jTextFieldQuantidade;
+    private javax.swing.JTextField jTextFieldQuantidadeStock;
     private javax.swing.JTextField jTextFieldReceita;
     private javax.swing.JTextField jTextFieldRegistoInfarmed;
     private javax.swing.JTextField jTextFieldTemperatura;
@@ -1337,6 +1502,18 @@ public class JPrincipal extends javax.swing.JFrame {
         }
     }
 
+
+
+    public boolean isNumber (String input){
+        try {
+        Integer.parseInt(input);
+        return true;
+        }
+        catch (Exception e){
+            return false;
+        }
+    }
+
     public static void centerOnScreen(final Component target) {
        if (target != null) {
            Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -1353,5 +1530,33 @@ public class JPrincipal extends javax.swing.JFrame {
                    (screenSize.height - dialogSize.height) / 2);
        }
    }
+
+
+    public void configurarComponentes () {
+        jTextFieldAdministracao.setEditable(false);
+        jTextFieldAreaTerapeutica.setEditable(false);
+        jTextFieldAreaTerapeuticaMore.setEditable(false);
+        jTextFieldDosagem.setEditable(false);
+        jTextFieldFaixaEtaria.setEditable(false);
+        jTextFieldFolhetoInformativo.setEditable(false);
+        jTextFieldFormato.setEditable(false);
+        jTextFieldGenerico.setEditable(false);
+        jTextFieldLote.setEditable(false);
+        jTextFieldNomeGen.setEditable(false);
+        jTextFieldNomeGenericoStock.setEditable(false);
+        jTextFieldNomeMedicamento.setEditable(false);
+        jTextFieldNomeProdutoStock.setEditable(false);
+        jTextFieldPreco.setEditable(false);
+        jTextFieldProduto.setEditable(false);
+        jTextFieldProdutoStock.setEditable(false);
+        jTextFieldQuantidade.setEditable(false);
+        jTextFieldQuantidadeStock.setEditable(false);
+        jTextFieldReceita.setEditable(false);
+        jTextFieldRegistoInfarmed.setEditable(false);
+        jTextFieldTemperatura.setEditable(false);
+
+        jRadioButtonAdicionarQ.setSelected(true);
+
+    }
 
 }
