@@ -643,18 +643,55 @@ public class Negocio {
      */
     public static void removerConstitintes(String produto) throws SQLException, Exception{
         String sql = "DELETE FROM lista_constituintes WHERE produto = "+produto;
-        System.out.println(sql);
-
         Model.stmt.executeQuery(sql);
         commit2();
     }
 
     public static void registarStock (String sel, int stock_antigo, int stock_novo) throws SQLException, Exception{
-        String sql_registar     = "INSERT INTO registo_stocks VALUES ('"+sel+"','"+stock_antigo+"','"+stock_novo+"')";
+        String sql_registar     = "INSERT INTO registo_stocks VALUES ('"+sel+"','"+stock_antigo+"','"+stock_novo+"',sysdate)";
         String sql_actualizar   = "UPDATE produtos SET quantidade = '"+stock_novo+"' WHERE produto = '"+sel+"'";
 
         Model.stmt.executeQuery(sql_registar);
         Model.stmt.executeQuery(sql_actualizar);
+        commit2();
+
+    }
+
+    public static int proxNumeroVenda() throws SQLException{
+        String sql      = "SELECT numero FROM vendas";
+        int proxNum     = 1;
+        int aux         = 0;
+        ResultSet rSet  = null;
+
+        rSet = Model.stmt.executeQuery(sql);
+        while (rSet.next()){
+            aux = Integer.parseInt(rSet.getObject(1).toString());
+            if (aux > proxNum)
+                proxNum = aux;
+        }
+        proxNum++;
+        return proxNum;
+    }
+
+    public static float montanteMedicamento(String produto) throws SQLException{
+        float montante  = 0;
+        String mont     = "";
+        String sql      = "SELECT * FROM produtos WHERE produto = '"+produto+"'";
+        ResultSet rSet  = null;
+        rSet = Model.stmt.executeQuery(sql);
+        while(rSet.next()){
+            mont = rSet.getObject(11).toString();
+        }
+        montante = Float.parseFloat(mont);
+        
+
+        return montante;
+    }
+
+    public static void registarVenda (String produto, String nome_cliente, int numeroVenda) throws SQLException, Exception{
+        float montante      = montanteMedicamento(produto);
+        String sql          = "INSERT INTO vendas VALUES ('"+produto+"','"+nome_cliente+"','"+numeroVenda+"','"+montante+"',sysdate)";
+        Model.stmt.executeQuery(sql);
         commit2();
 
     }

@@ -1,6 +1,6 @@
-/* a primeira vez que isto for corrido é normal que apresente erros nos drop,
- * visto que as tabelas ainda não existem 
- * o "MIGUEL" é o nome da vossa conta na base de dados 
+/* a primeira vez que isto for corrido ï¿½ normal que apresente erros nos drop,
+ * visto que as tabelas ainda nï¿½o existem 
+ * o "MIGUEL" ï¿½ o nome da vossa conta na base de dados 
 */
 
 drop table "MIGUEL"."ADMINISTRACOES"          cascade constraints;
@@ -17,6 +17,9 @@ drop table "MIGUEL"."LISTA_CONTRAINDICACOES"  cascade constraints;
 drop table "MIGUEL"."LOTES"                   cascade constraints;
 drop table "MIGUEL"."PRODUTOS"                cascade constraints;
 drop table "MIGUEL"."TEMPERATURAS"            cascade constraints;
+drop table registo_stocks                     cascade constraints;
+drop table medicos                            cascade constraints;
+drop table vendas                             cascade constraints;
 
 CREATE TABLE contraindicacoes (
   contraindicacao   varchar2(8),
@@ -191,4 +194,33 @@ CREATE TABLE lista_constituintes (
   CONSTRAINT lista_consti_fk_constituinte
     FOREIGN KEY (constituinte)
     REFERENCES constituintes(constituinte)
+);
+
+CREATE TABLE registo_stocks (
+    produto             varchar2(8),
+    stock_antigo        varchar2(3),
+    stock_novo          varchar2(3),
+    data_registo        date,
+
+    CONSTRAINT produto_stock_fk
+        FOREIGN KEY (produto)
+        REFERENCES produtos(produto)
+);
+
+CREATE TABLE medicos (
+    medico      varchar2(8),
+    nome        varchar2(100)
+);
+
+
+CREATE TABLE vendas (
+    produto             varchar2(8),
+    nome_cliente        varchar2(100),
+    numero              varchar2(3),
+    montante_total      varchar2(8),
+    data_registo        date,
+
+    CONSTRAINT produto_venda_fk
+        FOREIGN KEY (produto)
+        REFERENCES produtos(produto)
 );
