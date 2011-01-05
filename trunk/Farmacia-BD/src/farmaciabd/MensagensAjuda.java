@@ -17,11 +17,12 @@ public class MensagensAjuda {
     }
 
     public static String ajudaGeral(){
-        String autor1 = "Miguel Pinto da Costa";
-        String autor2 = "Ana Isabel";
-        String autor3 = "Catarina Campos";
-        String autor4 = "Hugo Frade";
-        String msg = "Software criado para gerir medicamentos de uma farmácia\n\nCriado por:\nMiguel\nIsa\nCajanelas\nHugo";
+        String autor1 = "Miguel Pinto da Costa\n";
+        String autor2 = "Ana Isabel\n";
+        String autor3 = "Catarina Campos\n";
+        String autor4 = "Hugo Frade\n";
+        String msg = "Software criado para gerir medicamentos de uma farmácia\n\nCriado por:";
+        msg = msg + autor1 + autor2 + autor3 + autor4;
         return msg;
     }
 
