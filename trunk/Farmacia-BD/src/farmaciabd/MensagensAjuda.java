@@ -24,4 +24,20 @@ public class MensagensAjuda {
         String msg = "Software criado para gerir medicamentos de uma farmácia\n\nCriado por:\nMiguel\nIsa\nCajanelas\nHugo";
         return msg;
     }
+
+    public static String ajudaFichaMedicamentos(){
+        String msg  = "Aqui pode ver os detalhes de todos os produtos e,";
+        msg         = msg + "utilizando os respectivos butões, adicionar e/ou";
+        msg         = msg + "alterar produtos.";
+
+        return msg;
+    }
+
+    public static String ajudaGestaoStocks(){
+        String msg  = "Aqui pode gerir o stock da farmacia,";
+        msg         = msg + "adicionando ou removendo `quantidades existentes";
+
+        return msg;
+    }
+
 }
