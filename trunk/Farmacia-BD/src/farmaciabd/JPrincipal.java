@@ -1500,23 +1500,23 @@ public class JPrincipal extends javax.swing.JFrame {
         try {
 
             if (isNumber(stock_antigo)==false || isNumber(stock_novo)==false ) {
-                JOptionPane.showMessageDialog(null, "A quantidade inserida nao é válida!", "Erro ao alterar Stock",1);
+                JOptionPane.showMessageDialog(null, "A quantidade inserida nao é válida!", "Erro ao alterar Stock",JOptionPane.ERROR_MESSAGE);
             }
             else {
                 if (jRadioButtonAdicionarQ.isSelected()){
                     int adicionar = Integer.parseInt(stock_antigo) + Integer.parseInt(stock_novo);
                     Negocio.registarStock(sel, Integer.parseInt(stock_antigo), adicionar);
-                    JOptionPane.showMessageDialog(null, "Stock adicionado com sucesso!", "Sucesso", 1);
+                    JOptionPane.showMessageDialog(null, "Stock adicionado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
 
                 }
                 else {
                     int remover = Integer.parseInt(stock_antigo) - Integer.parseInt(stock_novo);
                     if (remover > 0){
                         Negocio.registarStock(sel, Integer.parseInt(stock_antigo), remover);
-                        JOptionPane.showMessageDialog(null, "Stock removido com sucesso!", "Sucesso",1);
+                        JOptionPane.showMessageDialog(null, "Stock removido com sucesso!", "Sucesso",JOptionPane.INFORMATION_MESSAGE);
                     }
                     else {
-                        JOptionPane.showMessageDialog(null, "Não pode remover a quantidade inserida!", "Erro",1);
+                        JOptionPane.showMessageDialog(null, "Não pode remover a quantidade inserida!", "Erro",JOptionPane.ERROR_MESSAGE);
                     }
                 }
             }
@@ -1613,11 +1613,17 @@ public class JPrincipal extends javax.swing.JFrame {
 
         int totalProdutosParaVender     = venda.getSize();
         jTextFieldVendasTotalProdutos.setText(""+totalProdutosParaVender);
+
+        desactivarOuActivarButaoRemoverProdutoParaVenda();
     }//GEN-LAST:event_jButtonAdicionarProdutoVendaActionPerformed
 
     private void jButtonRemoverProdutoVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoverProdutoVendaActionPerformed
         int sel = jListProdutosVendaLevar.getSelectedIndex();
+        System.out.println("index: "+sel);
 
+        String erro = "Seleccione um produto que pretenda\nretirar da lista de compras!";
+        if (sel<0)  JOptionPane.showMessageDialog(new Frame(), erro, "Erro", JOptionPane.ERROR_MESSAGE);
+        else {
         String sel_linha                = jListProdutosVendaLevar.getSelectedValue().toString();
         String produto_todo             = "";
         String delims                   = "[ ]+";
@@ -1644,9 +1650,12 @@ public class JPrincipal extends javax.swing.JFrame {
         venda.remove(sel);
         jListProdutosVendaLevar.setModel(venda);
 
+        // para alterar o textfield com o total de produtos
         int totalProdutosParaVender     = venda.getSize();
         jTextFieldVendasTotalProdutos.setText(""+totalProdutosParaVender);
 
+        desactivarOuActivarButaoRemoverProdutoParaVenda();
+        }
     }//GEN-LAST:event_jButtonRemoverProdutoVendaActionPerformed
 
     private void jButtonVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVenderActionPerformed
@@ -1892,7 +1901,14 @@ public class JPrincipal extends javax.swing.JFrame {
         // vendas
         jTextFieldVendasTotalMontante.setEditable(false);
         jTextFieldVendasTotalProdutos.setEditable(false);
+        jButtonRemoverProdutoVenda.setEnabled(false);
 
+    }
+
+    public void desactivarOuActivarButaoRemoverProdutoParaVenda(){
+        int totalProdutosVender = venda.getSize();
+        if (totalProdutosVender > 0) jButtonRemoverProdutoVenda.setEnabled(true);
+        else jButtonRemoverProdutoVenda.setEnabled(false);
     }
 
 }
