@@ -1662,9 +1662,38 @@ public class JPrincipal extends javax.swing.JFrame {
         String produto_todo             = "";
         String delims                   = "[ ]+";
         String produto                  = "";
-        
+        String factura                  = "\n";
         int totalProdutosParaVender     = venda.getSize();
 
+        
+
+
+        try {
+            factura = factura + "Produtos\t\t\tPreço\n";
+            factura = factura + "_____________________________________________\n";
+            float precoProduto = 0;
+            int i = 0;
+            while (i <totalProdutosParaVender) {
+                produto_todo = venda.getElementAt(i).toString();
+                String[] id  = produto_todo.split(delims);
+                produto      = id[0];
+                precoProduto = Negocio.montanteMedicamento(produto);
+                factura      = factura + stringParaFactura(produto_todo) + "\t" + "€ "+precoProduto + "\n";
+                i++;
+            }
+
+            factura = factura + "_____________________________________________\n";
+            factura = factura + "Montante total:\t\t\t€ "+jTextFieldVendasTotalMontante.getText();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        JDialogVender vender = new JDialogVender(this, false,factura,nome_cliente);
+        vender.setVisible(true);
+
+
+/*
         try {
 
             int numero_venda            = Negocio.proxNumeroVenda();
@@ -1674,7 +1703,7 @@ public class JPrincipal extends javax.swing.JFrame {
                 String[] id             = produto_todo.split(delims);
                 produto                 = id[0];
             
-                Negocio.registarVenda(produto, nome_cliente,numero_venda);
+                //Negocio.registarVenda(produto, nome_cliente,numero_venda);
             
                 i++;
             }
@@ -1683,6 +1712,8 @@ public class JPrincipal extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
+ *
+ */
     }//GEN-LAST:event_jButtonVenderActionPerformed
 
     /**
@@ -1908,6 +1939,30 @@ public class JPrincipal extends javax.swing.JFrame {
         int totalProdutosVender = venda.getSize();
         if (totalProdutosVender > 0) jButtonRemoverProdutoVenda.setEnabled(true);
         else jButtonRemoverProdutoVenda.setEnabled(false);
+    }
+
+    public String stringParaFactura (String nome_produto){
+
+        //45 Aceclofenac Anova 100 mg Comprimidos
+        //7 Trizivir
+
+        // necessário para quando o id tem apenas um algarismo e o nome tem menos de 10 caracteres
+        int flag = 0;
+        String produto_todo = nome_produto;
+        String delims       = "[ ]+";
+        String produto      = "";
+        String[] id         = produto_todo.split(delims);
+        produto = id[0];
+        if (nome_produto.length() <= 10 && produto.length() < 2 ) flag = 1;
+
+
+        if (nome_produto.length() > 39) nome_produto = nome_produto.substring(0, 39);
+        if (nome_produto.length() < 39) {
+            while (nome_produto.length() < 39) nome_produto = nome_produto + " ";
+        }
+        if (flag == 1) nome_produto = nome_produto + "\t";
+
+        return nome_produto;
     }
 
 }
