@@ -688,7 +688,7 @@ public class Negocio {
         return montante;
     }
 
-    public static void registarVenda (String produto, String nome_cliente, int numeroVenda) throws SQLException, Exception{
+    public static void registarVenda (String produto, String nome_cliente, String numeroVenda) throws SQLException, Exception{
         float montante      = montanteMedicamento(produto);
         String sql          = "INSERT INTO vendas VALUES ('"+produto+"','"+nome_cliente+"','"+numeroVenda+"','"+montante+"',sysdate)";
         Model.stmt.executeQuery(sql);
