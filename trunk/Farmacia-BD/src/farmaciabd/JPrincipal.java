@@ -167,6 +167,10 @@ public class JPrincipal extends javax.swing.JFrame {
         jListProdutosVendaLevar = new javax.swing.JList();
         jButtonVender = new javax.swing.JButton();
         jButtonCancelarVenda = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jTextFieldVendasTotalProdutos = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jTextFieldVendasTotalMontante = new javax.swing.JTextField();
         jPanel19 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jListProdutosVenda = new javax.swing.JList();
@@ -964,6 +968,16 @@ public class JPrincipal extends javax.swing.JFrame {
 
         jButtonCancelarVenda.setText("Cancelar");
 
+        jLabel3.setText("Total Produtos:");
+
+        jTextFieldVendasTotalProdutos.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jTextFieldVendasTotalProdutos.setText("0");
+
+        jLabel4.setText("Montante Total (€):");
+
+        jTextFieldVendasTotalMontante.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jTextFieldVendasTotalMontante.setText("0.0");
+
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
         jPanel17Layout.setHorizontalGroup(
@@ -976,8 +990,17 @@ public class JPrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                         .addComponent(jButtonCancelarVenda)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE))
-                    .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel17Layout.createSequentialGroup()
+                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel17Layout.createSequentialGroup()
+                                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldVendasTotalProdutos, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldVendasTotalMontante, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonRemoverProdutoVenda, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1000,7 +1023,15 @@ public class JPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonVender)
                     .addComponent(jButtonCancelarVenda))
-                .addContainerGap(173, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jTextFieldVendasTotalProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jTextFieldVendasTotalMontante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
 
         try {
@@ -1553,20 +1584,68 @@ public class JPrincipal extends javax.swing.JFrame {
     private void jButtonAdicionarProdutoVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarProdutoVendaActionPerformed
         String sel = jListProdutosVenda.getSelectedValue().toString();
 
+        String produto_todo             = "";
+        String delims                   = "[ ]+";
+        String produto                  = "";
+
+        // para o variável produto ficar apenas com o id
+        produto_todo                    = sel;
+        String[] id                     = produto_todo.split(delims);
+        produto                         = id[0];
+
+        // para adicionar o produto à jList de vendas
         venda.addElement(sel);
+
+        float montanteSel               = 0;
         
+        try {
+            montanteSel = Negocio.montanteMedicamento(produto);
+        } catch (SQLException ex) {}
+         
+        String montanteActualString     = jTextFieldVendasTotalMontante.getText();
+        float montanteActual            = Float.parseFloat(montanteActualString);
+        float montanteNovo              = montanteActual+montanteSel;
+
+        if (montanteSel !=0) jTextFieldVendasTotalMontante.setText(""+montanteNovo);
 
         jListProdutosVendaLevar.setModel(venda);
-        
+
+
+        int totalProdutosParaVender     = venda.getSize();
+        jTextFieldVendasTotalProdutos.setText(""+totalProdutosParaVender);
     }//GEN-LAST:event_jButtonAdicionarProdutoVendaActionPerformed
 
     private void jButtonRemoverProdutoVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoverProdutoVendaActionPerformed
         int sel = jListProdutosVendaLevar.getSelectedIndex();
 
-        venda.remove(sel);
+        String sel_linha                = jListProdutosVendaLevar.getSelectedValue().toString();
+        String produto_todo             = "";
+        String delims                   = "[ ]+";
+        String produto                  = "";
 
+        // para o variável produto ficar apenas com o id
+        produto_todo                    = sel_linha;
+        String[] id                     = produto_todo.split(delims);
+        produto                         = id[0];
+
+        float montanteSel               = 0;
+
+        try {
+            montanteSel = Negocio.montanteMedicamento(produto);
+        } catch (SQLException ex) {}
+
+        String montanteActualString     = jTextFieldVendasTotalMontante.getText();
+        float montanteActual            = Float.parseFloat(montanteActualString);
+        float montanteNovo              = montanteActual-montanteSel;
+
+        if (montanteSel !=0) jTextFieldVendasTotalMontante.setText(""+montanteNovo);
+
+        // para remover o produto à jList de vendas
+        venda.remove(sel);
         jListProdutosVendaLevar.setModel(venda);
 
+        int totalProdutosParaVender     = venda.getSize();
+        jTextFieldVendasTotalProdutos.setText(""+totalProdutosParaVender);
 
     }//GEN-LAST:event_jButtonRemoverProdutoVendaActionPerformed
 
@@ -1649,6 +1728,8 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel9FaixaEtaria;
     private javax.swing.JLabel jLabelAdministracao;
     private javax.swing.JLabel jLabelAreaTerapeutica;
@@ -1732,6 +1813,8 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldRegistoInfarmed;
     private javax.swing.JTextField jTextFieldTemperatura;
     private javax.swing.JTextField jTextFieldVendaNomeCliente;
+    private javax.swing.JTextField jTextFieldVendasTotalMontante;
+    private javax.swing.JTextField jTextFieldVendasTotalProdutos;
     // End of variables declaration//GEN-END:variables
 // </editor-fold>
 
@@ -1803,7 +1886,12 @@ public class JPrincipal extends javax.swing.JFrame {
         jTextFieldRegistoInfarmed.setEditable(false);
         jTextFieldTemperatura.setEditable(false);
 
+        // stocks
         jRadioButtonAdicionarQ.setSelected(true);
+
+        // vendas
+        jTextFieldVendasTotalMontante.setEditable(false);
+        jTextFieldVendasTotalProdutos.setEditable(false);
 
     }
 
