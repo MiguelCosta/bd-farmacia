@@ -1619,7 +1619,6 @@ public class JPrincipal extends javax.swing.JFrame {
 
     private void jButtonRemoverProdutoVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoverProdutoVendaActionPerformed
         int sel = jListProdutosVendaLevar.getSelectedIndex();
-        System.out.println("index: "+sel);
 
         String erro = "Seleccione um produto que pretenda\nretirar da lista de compras!";
         if (sel<0)  JOptionPane.showMessageDialog(new Frame(), erro, "Erro", JOptionPane.ERROR_MESSAGE);
