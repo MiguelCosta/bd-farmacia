@@ -1116,6 +1116,7 @@ public class JPrincipal extends javax.swing.JFrame {
         jMenuAjuda.setText("Menu");
 
         jMenuItemAjuda.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
+        jMenuItemAjuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/anexos/ajuda.png"))); // NOI18N
         jMenuItemAjuda.setText("Ajuda");
         jMenuItemAjuda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1125,7 +1126,8 @@ public class JPrincipal extends javax.swing.JFrame {
         jMenuAjuda.add(jMenuItemAjuda);
         jMenuAjuda.add(jSeparator1);
 
-        jMenuItemSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItemSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
+        jMenuItemSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/anexos/fechar.png"))); // NOI18N
         jMenuItemSair.setText("Sair");
         jMenuItemSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
