@@ -13,12 +13,14 @@ package farmaciabd;
 
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Frame;
 import java.awt.Toolkit;
 import java.sql.SQLException;
 import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,8 +28,12 @@ import javax.swing.DefaultListModel;
  */
 public class JDialogVender extends java.awt.Dialog {
 
+    DefaultListModel produtos_a_vender  = null;
+    String nome_cliente                 = "";
+
+    
     /** Creates new form JDialogVender */
-    public JDialogVender(java.awt.Frame parent, boolean modal, String factura, String nomeCliente) {
+    public JDialogVender(java.awt.Frame parent, boolean modal, String factura, String nomeCliente, DefaultListModel produtos_vender) {
         super(parent, modal);
         initComponents();
         centerOnScreen(this);
@@ -38,6 +44,8 @@ public class JDialogVender extends java.awt.Dialog {
 
         jTextAreaFactura.setText(factura);
         jTextFieldNomeCliente.setText(nomeCliente);
+        produtos_a_vender = produtos_vender;
+        nome_cliente = nomeCliente;
         
         GregorianCalendar data  = new GregorianCalendar();
         String data_string      = "";
@@ -97,8 +105,18 @@ public class JDialogVender extends java.awt.Dialog {
         jScrollPane1.setViewportView(jTextAreaFactura);
 
         jButtonEfectuarVenda.setText("Efectuar Venda");
+        jButtonEfectuarVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEfectuarVendaActionPerformed(evt);
+            }
+        });
 
         jButtonCancelarVenda.setText("Cancelar");
+        jButtonCancelarVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarVendaActionPerformed(evt);
+            }
+        });
 
         jLabelData.setText("Data:");
 
@@ -161,13 +179,53 @@ public class JDialogVender extends java.awt.Dialog {
         dispose();
     }//GEN-LAST:event_closeDialog
 
+    private void jButtonEfectuarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEfectuarVendaActionPerformed
+        
+        int totalProdutosParaVender     = produtos_a_vender.getSize();
+        String produto_todo             = "";
+        String delims                   = "[ ]+";
+        String produto                  = "";
+
+        int decisao = JOptionPane.showConfirmDialog(new Frame(), "Tem a certeza que pretende efectuar a venda?", "Confirmar venda", JOptionPane.YES_NO_OPTION);
+
+        if (decisao == 0) {
+            try {
+
+                String numero_venda         = jTextFieldVendaNum.getText();
+                int i                       = 0;
+                while (totalProdutosParaVender > i){
+                    produto_todo            = produtos_a_vender.getElementAt(i).toString();
+                    String[] id             = produto_todo.split(delims);
+                    produto                 = id[0];
+
+                    //insere na tabla vendas
+                    Negocio.registarVenda(produto, nome_cliente, numero_venda);
+
+                    i++;
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
+                Logger.getLogger(JDialogVender.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            JOptionPane.showMessageDialog(new Frame(), "Venda registada com sucesso!", "Venda Efectuada",JOptionPane.NO_OPTION);
+        }
+        else
+            JOptionPane.showMessageDialog(new Frame(), "Venda não efectuada!", "Venda Cancelada",JOptionPane.NO_OPTION);
+    }//GEN-LAST:event_jButtonEfectuarVendaActionPerformed
+
+    private void jButtonCancelarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarVendaActionPerformed
+       JDialogVender.this.dispose();
+    }//GEN-LAST:event_jButtonCancelarVendaActionPerformed
+
     /**
     * @param args the command line arguments
     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                JDialogVender dialog = new JDialogVender(new java.awt.Frame(), true, "", "");
+                JDialogVender dialog = new JDialogVender(new java.awt.Frame(), true, "", "", null);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

@@ -1689,7 +1689,7 @@ public class JPrincipal extends javax.swing.JFrame {
             Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        JDialogVender vender = new JDialogVender(this, false,factura,nome_cliente);
+        JDialogVender vender = new JDialogVender(this, false,factura,nome_cliente, venda);
         vender.setVisible(true);
 
 
