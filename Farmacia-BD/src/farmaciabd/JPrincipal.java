@@ -49,6 +49,9 @@ public class JPrincipal extends javax.swing.JFrame {
         ab.setVisible(true);
         initComponents();
 
+        //janela transparente
+        //AWTUtilities.setWindowOpacity(this, .7f);
+
         configurarComponentes();
 
         centerOnScreen(this);
@@ -178,7 +181,10 @@ public class JPrincipal extends javax.swing.JFrame {
         jTextFieldProcurarVenda = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
-        jMenu4 = new javax.swing.JMenu();
+        jMenuAjuda = new javax.swing.JMenu();
+        jMenuItemAjuda = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMenuItemSair = new javax.swing.JMenuItem();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -200,6 +206,11 @@ public class JPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Farmacia");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jTabbedPane1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -630,7 +641,7 @@ public class JPrincipal extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -871,7 +882,7 @@ public class JPrincipal extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 534, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -904,7 +915,7 @@ public class JPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Estatisticas", jPanel7);
@@ -1031,7 +1042,7 @@ public class JPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jTextFieldVendasTotalMontante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
 
         try {
@@ -1065,7 +1076,7 @@ public class JPrincipal extends javax.swing.JFrame {
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel19Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 493, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonProcurarVenda)
@@ -1102,8 +1113,28 @@ public class JPrincipal extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/anexos/logo2.png"))); // NOI18N
 
-        jMenu4.setText("Sair");
-        jMenuBar2.add(jMenu4);
+        jMenuAjuda.setText("Menu");
+
+        jMenuItemAjuda.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
+        jMenuItemAjuda.setText("Ajuda");
+        jMenuItemAjuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemAjudaActionPerformed(evt);
+            }
+        });
+        jMenuAjuda.add(jMenuItemAjuda);
+        jMenuAjuda.add(jSeparator1);
+
+        jMenuItemSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItemSair.setText("Sair");
+        jMenuItemSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemSairActionPerformed(evt);
+            }
+        });
+        jMenuAjuda.add(jMenuItemSair);
+
+        jMenuBar2.add(jMenuAjuda);
 
         setJMenuBar(jMenuBar2);
 
@@ -1126,7 +1157,7 @@ public class JPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 647, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 649, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1336,7 +1367,7 @@ public class JPrincipal extends javax.swing.JFrame {
 
     /*********************************************************************************
      * Quando na caixa de procura se clica enter na caixa de texto ele faz a procura *
-     * Quando clica F1 aparece a ajuda da procura                                    *
+     * Quando clica F11 aparece a ajuda da procura                                    *
      *********************************************************************************/
     private void jTextFieldProcuraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldProcuraKeyPressed
         int key = evt.getKeyCode();
@@ -1347,7 +1378,7 @@ public class JPrincipal extends javax.swing.JFrame {
         } else {
             //System.out.println("ola2");
         }
-        if (key == KeyEvent.VK_F1) {
+        if (key == KeyEvent.VK_F11) {
             JOptionPane.showMessageDialog(new Frame(), MensagensAjuda.ajudaProcura(), "Ajuda Procura", JOptionPane.NO_OPTION);
         }
         
@@ -1355,11 +1386,11 @@ public class JPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldProcuraKeyPressed
 
     /********************************************************
-     * Quando abre o programa e clica em F1 aparece a ajuda *
+     * Quando abre o programa e clica em F11 aparece a ajuda *
      ********************************************************/
     private void jTabbedPane1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTabbedPane1KeyPressed
         int key = evt.getKeyCode();
-        if (key == KeyEvent.VK_F1) {
+        if (key == KeyEvent.VK_F11) {
             JOptionPane.showMessageDialog(new Frame(), MensagensAjuda.ajudaGeral(), "Ajuda", JOptionPane.NO_OPTION);
         }
 
@@ -1562,21 +1593,21 @@ public class JPrincipal extends javax.swing.JFrame {
         } else {
             //System.out.println("ola2");
         }
-        if (key == KeyEvent.VK_F1) {
+        if (key == KeyEvent.VK_F11) {
             JOptionPane.showMessageDialog(new Frame(), MensagensAjuda.ajudaProcura(), "Ajuda Procura", JOptionPane.NO_OPTION);
         }
     }//GEN-LAST:event_jTextFieldProcuraStockKeyPressed
 
     private void jPanel4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel4KeyPressed
         int key = evt.getKeyCode();
-        if (key == KeyEvent.VK_F1) {
+        if (key == KeyEvent.VK_F11) {
             JOptionPane.showMessageDialog(new Frame(), MensagensAjuda.ajudaFichaMedicamentos(), "Ajuda", JOptionPane.NO_OPTION);
         }
     }//GEN-LAST:event_jPanel4KeyPressed
 
     private void jListProdutosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jListProdutosKeyPressed
         int key = evt.getKeyCode();
-        if (key == KeyEvent.VK_F1) {
+        if (key == KeyEvent.VK_F11) {
             JOptionPane.showMessageDialog(new Frame(), MensagensAjuda.ajudaFichaMedicamentos(), "Ajuda", JOptionPane.NO_OPTION);
         }
     }//GEN-LAST:event_jListProdutosKeyPressed
@@ -1692,29 +1723,23 @@ public class JPrincipal extends javax.swing.JFrame {
         JDialogVender vender = new JDialogVender(this, false,factura,nome_cliente, venda);
         vender.setVisible(true);
 
-
-/*
-        try {
-
-            int numero_venda            = Negocio.proxNumeroVenda();
-            int i                       = 0;
-            while (totalProdutosParaVender > i){
-                produto_todo            = venda.getElementAt(i).toString();
-                String[] id             = produto_todo.split(delims);
-                produto                 = id[0];
-            
-                //Negocio.registarVenda(produto, nome_cliente,numero_venda);
-            
-                i++;
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception ex) {
-            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
- *
- */
     }//GEN-LAST:event_jButtonVenderActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+
+        int decisao = JOptionPane.showConfirmDialog(new Frame(), "Tem a certeza que pretende sair?", "Sair", JOptionPane.YES_NO_OPTION);
+        if (decisao == 0) this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }//GEN-LAST:event_formWindowClosing
+
+    private void jMenuItemAjudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAjudaActionPerformed
+        JOptionPane.showMessageDialog(new Frame(), MensagensAjuda.ajudaGeral(), "Ajuda", JOptionPane.NO_OPTION);
+    }//GEN-LAST:event_jMenuItemAjudaActionPerformed
+
+    private void jMenuItemSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSairActionPerformed
+        int decisao = JOptionPane.showConfirmDialog(new Frame(), "Tem a certeza que pretende sair?", "Sair", JOptionPane.YES_NO_OPTION);
+        if (decisao == 0) System.exit(0);
+    }//GEN-LAST:event_jMenuItemSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1791,9 +1816,11 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JList jListProdutosVendaLevar;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenuAjuda;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItemAjuda;
+    private javax.swing.JMenuItem jMenuItemSair;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -1824,6 +1851,7 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPaneFichaProduto;
     private javax.swing.JTextField jTextFieldAdministracao;
