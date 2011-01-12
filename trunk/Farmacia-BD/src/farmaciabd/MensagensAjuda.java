@@ -21,7 +21,7 @@ public class MensagensAjuda {
         String autor2 = "Ana Isabel\n";
         String autor3 = "Catarina Campos\n";
         String autor4 = "Hugo Frade\n";
-        String msg = "Software criado para gerir medicamentos de uma farmácia\n\nCriado por:";
+        String msg = "Software criado para gerir medicamentos de uma farmácia\n\nCriado por:\n";
         msg = msg + autor1 + autor2 + autor3 + autor4;
         return msg;
     }
