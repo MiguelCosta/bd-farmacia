@@ -978,6 +978,11 @@ public class JPrincipal extends javax.swing.JFrame {
         });
 
         jButtonCancelarVenda.setText("Cancelar");
+        jButtonCancelarVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarVendaActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Total Produtos:");
 
@@ -1048,8 +1053,9 @@ public class JPrincipal extends javax.swing.JFrame {
         try {
             rSet = Produtos.queryProdutos();
             DefaultListModel model = new DefaultListModel();
+            model.addElement("Codigo - Nome - Quantidade");
             while (rSet.next())
-            model.addElement(rSet.getObject(1).toString() +" "+ rSet.getObject(3).toString());
+            model.addElement(rSet.getObject(1).toString() +" - "+ rSet.getObject(3).toString() + " - " + rSet.getObject(4).toString());
 
             jListProdutosVenda.setModel(model);
         }
@@ -1057,6 +1063,11 @@ public class JPrincipal extends javax.swing.JFrame {
         jScrollPane4.setViewportView(jListProdutosVenda);
 
         jButtonProcurarVenda.setText("Procurar");
+        jButtonProcurarVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonProcurarVendaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
         jPanel19.setLayout(jPanel19Layout);
@@ -1219,13 +1230,13 @@ public class JPrincipal extends javax.swing.JFrame {
 
         try {
             if (jRadioButtonNameProd.isSelected()) {
-                rSet = Negocio.selProdutoNome(sel);
+                rSet = Negocio.procurarProdutos(sel);
                 while (rSet.next()) {
                     model.addElement(rSet.getString(3));
                 }
                 jListProdutos.setModel(model);
             } else {
-                rSet = Negocio.selProduto(sel);
+                rSet = Negocio.procurarProdutos(sel);
                 while (rSet.next()) {
                     model.addElement(rSet.getString(1));
                 }
@@ -1568,13 +1579,13 @@ public class JPrincipal extends javax.swing.JFrame {
 
         try {
             if (jRadioButtonNomeProdStock.isSelected()) {
-                rSet = Negocio.selProdutoNome(sel);
+                rSet = Negocio.procurarProdutos(sel);
                 while (rSet.next()) {
                     model.addElement(rSet.getString(3));
                 }
                 jListProdutosStocks.setModel(model);
             } else {
-                rSet = Negocio.selProduto(sel);
+                rSet = Negocio.procurarProdutos(sel);
                 while (rSet.next()) {
                     model.addElement(rSet.getString(1));
                 }
@@ -1742,6 +1753,42 @@ public class JPrincipal extends javax.swing.JFrame {
         int decisao = JOptionPane.showConfirmDialog(new Frame(), "Tem a certeza que pretende sair?", "Sair", JOptionPane.YES_NO_OPTION);
         if (decisao == 0) System.exit(0);
     }//GEN-LAST:event_jMenuItemSairActionPerformed
+
+    private void jButtonCancelarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarVendaActionPerformed
+
+        try {
+            rSet = Produtos.queryProdutos();
+            DefaultListModel model = new DefaultListModel();
+            model.addElement("Codigo - Nome - Quantidade");
+            while (rSet.next())
+                model.addElement(rSet.getObject(1).toString() +" - "+ rSet.getObject(3).toString() + " - " + rSet.getObject(4).toString());
+
+            jListProdutosVenda.setModel(model);
+            }
+        catch (SQLException ex) { Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); }
+
+        venda = new DefaultListModel();
+        jListProdutosVendaLevar.setModel(venda);
+
+    }//GEN-LAST:event_jButtonCancelarVendaActionPerformed
+
+    private void jButtonProcurarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProcurarVendaActionPerformed
+        String sel = jTextFieldProcurarVenda.getText();
+        DefaultListModel model = new DefaultListModel();
+        model.addElement("Codigo - Nome - Quantidade");
+
+        try {
+            rSet = Negocio.procurarProdutos(sel);
+            while (rSet.next()) {
+                model.addElement(rSet.getObject(1).toString() +" - "+ rSet.getObject(3).toString() + " - " + rSet.getObject(4).toString());
+            }
+            jListProdutosVenda.setModel(model);
+        } catch (SQLException ex) {
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+    }//GEN-LAST:event_jButtonProcurarVendaActionPerformed
 
     /**
      * @param args the command line arguments

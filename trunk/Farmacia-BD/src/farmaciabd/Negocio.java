@@ -696,6 +696,17 @@ public class Negocio {
 
     }
 
+    public static ResultSet procurarProdutos (String procura) throws SQLException{
+        ResultSet rSet  = null;
+        String sql      = "SELECT * FROM produtos WHERE produto LIKE '%"+procura+"%'";
+        sql             = sql + " OR nome_medicamento LIKE '%"+procura+"%'";
+        
+        rSet = Model.stmt.executeQuery(sql);
+
+        return rSet;
+
+    }
+
     
     }
 
