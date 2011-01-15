@@ -1449,6 +1449,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Cancelar"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCancelarVendaActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel3">
                   <Properties>
@@ -1523,7 +1526,7 @@
                         </Property>
                       </Properties>
                       <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try {&#xa;    rSet = Produtos.queryProdutos();&#xa;    DefaultListModel model = new DefaultListModel();&#xa;        while (rSet.next())&#xa;            model.addElement(rSet.getObject(1).toString() +&quot; &quot;+ rSet.getObject(3).toString());&#xa;    &#xa;    jListProdutosVenda.setModel(model);&#xa;}&#xa;catch (SQLException ex) { Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); }"/>
+                        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try {&#xa;    rSet = Produtos.queryProdutos();&#xa;    DefaultListModel model = new DefaultListModel();&#xa;    model.addElement(&quot;Codigo - Nome - Quantidade&quot;);&#xa;        while (rSet.next())&#xa;            model.addElement(rSet.getObject(1).toString() +&quot; - &quot;+ rSet.getObject(3).toString() + &quot; - &quot; + rSet.getObject(4).toString());&#xa;    &#xa;    jListProdutosVenda.setModel(model);&#xa;}&#xa;catch (SQLException ex) { Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); }"/>
                       </AuxValues>
                     </Component>
                   </SubComponents>
@@ -1532,6 +1535,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Procurar"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonProcurarVendaActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldProcurarVenda">
                 </Component>
