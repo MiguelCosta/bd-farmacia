@@ -1488,7 +1488,7 @@ public class JPrincipal extends javax.swing.JFrame {
 
     private void jButtonAlterarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarProdutoActionPerformed
        if (jTextFieldProduto.getText().equalsIgnoreCase("")) {
-           JOptionPane.showMessageDialog(null, "Seleccione o produto que pretende alterar!", "Erro ao alterar Produto",1);
+           JOptionPane.showMessageDialog(null, "Seleccione o produto que pretende alterar!", "Erro ao alterar Produto",2);
            //ch.randelshofer.quaqua.JSheet.showMessageSheet(JPrincipal.this,"Seleccione o produto que pretende alterar!",2 );
        }
        else {
@@ -1506,7 +1506,7 @@ public class JPrincipal extends javax.swing.JFrame {
        alterarProduto.setVisible(true);
 
         }
-       jListProdutosValueChanged(null);
+       //jListProdutosValueChanged(null);
 
     }//GEN-LAST:event_jButtonAlterarProdutoActionPerformed
 
@@ -2015,6 +2015,11 @@ public class JPrincipal extends javax.swing.JFrame {
         jTextFieldVendasTotalMontante.setEditable(false);
         jTextFieldVendasTotalProdutos.setEditable(false);
         jButtonRemoverProdutoVenda.setEnabled(false);
+        jListProdutosVenda.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        jListProdutosVendaLevar.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+        jListProdutosVenda.setDragEnabled(true);
+        jListProdutosVendaLevar.setDragEnabled(true);
 
     }
 
