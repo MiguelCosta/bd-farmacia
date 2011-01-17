@@ -10,6 +10,9 @@
  */
 package farmaciabd;
 
+import ch.randelshofer.quaqua.QuaquaListUI;
+import ch.randelshofer.quaqua.QuaquaOptionPaneUI;
+import ch.randelshofer.quaqua.SheetEvent;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Frame;
@@ -1486,6 +1489,7 @@ public class JPrincipal extends javax.swing.JFrame {
     private void jButtonAlterarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarProdutoActionPerformed
        if (jTextFieldProduto.getText().equalsIgnoreCase("")) {
            JOptionPane.showMessageDialog(null, "Seleccione o produto que pretende alterar!", "Erro ao alterar Produto",1);
+           //ch.randelshofer.quaqua.JSheet.showMessageSheet(JPrincipal.this,"Seleccione o produto que pretende alterar!",2 );
        }
        else {
 
