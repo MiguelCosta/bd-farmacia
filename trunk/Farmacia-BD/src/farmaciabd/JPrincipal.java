@@ -1768,6 +1768,8 @@ public class JPrincipal extends javax.swing.JFrame {
         catch (SQLException ex) { Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); }
 
         venda = new DefaultListModel();
+        jTextFieldVendasTotalMontante.setText("0");
+        jTextFieldVendasTotalProdutos.setText("0");
         jListProdutosVendaLevar.setModel(venda);
 
     }//GEN-LAST:event_jButtonCancelarVendaActionPerformed
