@@ -1,0 +1,7 @@
+
+
+    - Já tem um trigger para quando se faz uma venda
+
+    - Criar um procedimento para actualizar o preço dos produtos uma certa percentagem!
+      ou seja, inflação
+
