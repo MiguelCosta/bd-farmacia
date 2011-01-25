@@ -10,9 +10,6 @@
  */
 package farmaciabd;
 
-import ch.randelshofer.quaqua.QuaquaListUI;
-import ch.randelshofer.quaqua.QuaquaOptionPaneUI;
-import ch.randelshofer.quaqua.SheetEvent;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Frame;
