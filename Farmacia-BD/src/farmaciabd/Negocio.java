@@ -712,7 +712,7 @@ public class Negocio {
     ResultSet rSet = null;
 
     String sql = "CREATE OR REPLACE VIEW produtos_vendidos AS SELECT PRODUTO FROM VENDAS;";
-    sql = sql + "SELECT * FROM (SELECT produto, count(*) as refs FROM produtos_vendidos GROUP BY PRODUTO ORDER BY refs DESC) WHERE ROWNUM <=10";
+    sql = sql + "SELECT * FROM (SELECT produto, count(*) as refs FROM (SELECT PRODUTO FROM VENDAS) GROUP BY PRODUTO ORDER BY refs DESC) WHERE ROWNUM <=10";
 
     rSet = Model.stmt.executeQuery(sql);
 
@@ -723,7 +723,7 @@ public class Negocio {
 
     ResultSet rSet = null;
 
-    String sql ="SELECT * FROM (SELECT produto, count(*) as refs FROM produtos_vendidos GROUP BY PRODUTO ORDER BY refs ASC) WHERE ROWNUM <=10";
+    String sql ="SELECT * FROM (SELECT produto, count(*) as refs FROM (SELECT PRODUTO FROM VENDAS) GROUP BY PRODUTO ORDER BY refs ASC) WHERE ROWNUM <=10";
 
     rSet = Model.stmt.executeQuery(sql);
 
@@ -734,7 +734,7 @@ public class Negocio {
 
     ResultSet rSet = null;
 
-    String sql = "SELECT * FROM vendas_melhores WHERE ROWNUM <=10";
+    String sql = "SELECT * FROM (SELECT NUMERO, SUM(TO_NUMBER(MONTANTE_TOTAL))as montante FROM VENDAS GROUP BY NUMERO ORDER BY montante DESC) WHERE ROWNUM <=10";
 
     rSet = Model.stmt.executeQuery(sql);
 
@@ -746,7 +746,7 @@ public class Negocio {
 
     ResultSet rSet = null;
 
-    String sql = "SELECT * FROM vendas_piores WHERE ROWNUM <=10";
+    String sql = "SELECT * FROM (SELECT NUMERO, SUM(TO_NUMBER(MONTANTE_TOTAL))as montante FROM VENDAS GROUP BY NUMERO ORDER BY montante ASC) WHERE ROWNUM <=10";
 
     rSet = Model.stmt.executeQuery(sql);
 
