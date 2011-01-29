@@ -45,7 +45,7 @@ public class JAbertura extends java.awt.Dialog {
 
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        jLabelEntrar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelEntrar.setFont(new java.awt.Font("Tahoma", 1, 18));
         jLabelEntrar.setText("BEM VINDO À:");
         jPanel1.add(jLabelEntrar, new java.awt.GridBagConstraints());
 
@@ -64,7 +64,7 @@ public class JAbertura extends java.awt.Dialog {
         gridBagConstraints.insets = new java.awt.Insets(14, 0, 14, 0);
         jPanel1.add(jButtonEntrar, gridBagConstraints);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/anexos/logo1.png"))); // NOI18N
+        jLabel1.setText("Logo");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
