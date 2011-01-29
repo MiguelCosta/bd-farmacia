@@ -399,6 +399,8 @@ public class Negocio {
         commit2();   
     }
 
+
+
     /**
      * Inserir um constituinte e um produto na base de dados na tabela lista_constituintes
      * @param produto String - codigo do produto
@@ -707,6 +709,18 @@ public class Negocio {
 
     }
 
+        public static ResultSet procurarClientes (String procura) throws SQLException{
+        ResultSet rSet  = null;
+        String sql      = "SELECT * FROM CLIENTES WHERE NOME_CLIENTE LIKE '%"+procura+"%'";
+        sql             = sql + " OR username LIKE '%"+procura+"%'";
+        sql             = sql + " OR email LIKE '%"+procura+"%'";
+
+        rSet = Model.stmt.executeQuery(sql);
+
+        return rSet;
+
+    }
+
     public static ResultSet topProdMais () throws SQLException {
 
         ResultSet rSet = null;
@@ -750,6 +764,62 @@ public class Negocio {
     }
     
 
+    public static ResultSet selClienteNome(String sel) throws Exception {
+        String sql = "SELECT * FROM CLIENTES WHERE nome_cliente=";
+
+        ResultSet rSet = null;
+        rSet = Model.stmt.executeQuery("SELECT * FROM produtos WHERE nome_medicamento ='" + sel + "'");
+
+        return rSet;
+    }
+
+
+    public static ResultSet selClienteUser(String sel) throws Exception {
+        String sql = "SELECT * FROM CLIENTES WHERE username=";
+
+        ResultSet rSet = null;
+        rSet = Model.stmt.executeQuery("SELECT * FROM produtos WHERE nome_medicamento ='" + sel + "'");
+
+        return rSet;
+    }
+
+    static void alterarNomeCliente(String username, String newNome) throws SQLException, Exception {
+
+        String sql = "UPDATE CLIENTES SET nome_cliente = '"+newNome+"' WHERE username = '"+username+"'";
+        Model.stmt.executeQuery(sql);
+        commit2();
+    }
+
+    static void alterarMoradaCliente(String username, String newMorada) throws SQLException, Exception {
+        String sql = "UPDATE CLIENTES SET morada = '"+newMorada+"' WHERE username = '"+username+"'";
+        Model.stmt.executeQuery(sql);
+        commit2();
+    }
+
+    static void alterarDataNasCliente(String username, String dataNas) throws SQLException, Exception {
+        String sql = "UPDATE CLIENTES SET data_nascimento = '"+dataNas+"' WHERE username = '"+username+"'";
+        Model.stmt.executeQuery(sql);
+        commit2();
+    }
+
+    static void alterarPasswordCliente(String username, String newPassword) throws SQLException, Exception {
+        String sql = "UPDATE CLIENTES SET password = '"+newPassword+"' WHERE username = '"+username+"'";
+        Model.stmt.executeQuery(sql);
+        commit2();
+    }
+
+    static void alterarEmailCliente(String username, String newEmail) throws SQLException, Exception {
+        String sql = "UPDATE CLIENTES SET email = '"+newEmail+"' WHERE username = '"+username+"'";
+        Model.stmt.executeQuery(sql);
+        commit2();
+    }
+
+    static void adiconarCliente(String nome, String morada, String user, String password, String email) throws SQLException, Exception {
+        String sql = "INSERT INTO CLIENTES VALUES ("+user+",'"+password+"','"+email+"','"+nome+"','"+morada+"','sysdate','')";
+        System.out.println(sql);
+        Model.stmt.executeQuery(sql);
+        commit2();
+    }
 }
 
 
