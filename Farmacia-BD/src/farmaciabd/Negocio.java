@@ -707,7 +707,52 @@ public class Negocio {
 
     }
 
-    
+    public static ResultSet topProdMais () throws SQLException {
+
+    ResultSet rSet = null;
+
+    String sql = "CREATE OR REPLACE VIEW produtos_vendidos AS SELECT PRODUTO FROM VENDAS;";
+    sql = sql + "SELECT * FROM (SELECT produto, count(*) as refs FROM produtos_vendidos GROUP BY PRODUTO ORDER BY refs DESC) WHERE ROWNUM <=10";
+
+    rSet = Model.stmt.executeQuery(sql);
+
+    return rSet;
+    }
+
+    public static ResultSet topProdMenos () throws SQLException {
+
+    ResultSet rSet = null;
+
+    String sql ="SELECT * FROM (SELECT produto, count(*) as refs FROM produtos_vendidos GROUP BY PRODUTO ORDER BY refs ASC) WHERE ROWNUM <=10";
+
+    rSet = Model.stmt.executeQuery(sql);
+
+    return rSet;
+    }
+
+    public static ResultSet topVendasMais () throws SQLException {
+
+    ResultSet rSet = null;
+
+    String sql = "SELECT * FROM vendas_melhores WHERE ROWNUM <=10";
+
+    rSet = Model.stmt.executeQuery(sql);
+
+    return rSet;
+    }
+
+
+    public static ResultSet topVendasMenos () throws SQLException {
+
+    ResultSet rSet = null;
+
+    String sql = "SELECT * FROM vendas_piores WHERE ROWNUM <=10";
+
+    rSet = Model.stmt.executeQuery(sql);
+
+    return rSet;
+    }
+
     }
 
 
