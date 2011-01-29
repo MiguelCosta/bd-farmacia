@@ -1,22 +1,22 @@
 /* a primeira vez que isto for corrido � normal que apresente erros nos drop,
  * visto que as tabelas ainda n�o existem 
- * o "MIGUEL" � o nome da vossa conta na base de dados 
+ * o "Hugo" � o nome da vossa conta na base de dados 
 */
 
-drop table "MIGUEL"."ADMINISTRACOES"          cascade constraints;
-drop table "MIGUEL"."AREAS_TERAPEUTICAS"      cascade constraints;
-drop table "MIGUEL"."CODIGOS_POSTAIS"         cascade constraints;
-drop table "MIGUEL"."CONSTITUINTES"           cascade constraints;
-drop table "MIGUEL"."CONTRAINDICACOES"        cascade constraints;
-drop table "MIGUEL"."DISTRIBUIDORAS"          cascade constraints;
-drop table "MIGUEL"."FABRICANTES"             cascade constraints;
-drop table "MIGUEL"."FAIXAS_ETARIAS"          cascade constraints;
-drop table "MIGUEL"."FORMATOS"                cascade constraints;
-drop table "MIGUEL"."LISTA_CONSTITUINTES"     cascade constraints;
-drop table "MIGUEL"."LISTA_CONTRAINDICACOES"  cascade constraints;
-drop table "MIGUEL"."LOTES"                   cascade constraints;
-drop table "MIGUEL"."PRODUTOS"                cascade constraints;
-drop table "MIGUEL"."TEMPERATURAS"            cascade constraints;
+drop table "ADMINISTRACOES"          cascade constraints;
+drop table "AREAS_TERAPEUTICAS"      cascade constraints;
+drop table "CODIGOS_POSTAIS"         cascade constraints;
+drop table "CONSTITUINTES"           cascade constraints;
+drop table "CONTRAINDICACOES"        cascade constraints;
+drop table "DISTRIBUIDORAS"          cascade constraints;
+drop table "FABRICANTES"             cascade constraints;
+drop table "FAIXAS_ETARIAS"          cascade constraints;
+drop table "FORMATOS"                cascade constraints;
+drop table "LISTA_CONSTITUINTES"     cascade constraints;
+drop table "LISTA_CONTRAINDICACOES"  cascade constraints;
+drop table "LOTES"                   cascade constraints;
+drop table "PRODUTOS"                cascade constraints;
+drop table "TEMPERATURAS"            cascade constraints;
 drop table registo_stocks                     cascade constraints;
 drop table vendas                             cascade constraints;
 drop table lista_vendas                       cascade constraints;
