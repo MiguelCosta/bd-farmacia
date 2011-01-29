@@ -709,48 +709,47 @@ public class Negocio {
 
     public static ResultSet topProdMais () throws SQLException {
 
-    ResultSet rSet = null;
-    String sql = "SELECT * FROM (SELECT produto, count(*) as refs FROM (SELECT PRODUTO FROM VENDAS) GROUP BY PRODUTO ORDER BY refs DESC) WHERE ROWNUM <=10";
-
-    rSet = Model.stmt.executeQuery(sql);
-
-    return rSet;
+        ResultSet rSet = null;
+        String sql = "SELECT * FROM (SELECT produto, count(*) as refs FROM (SELECT PRODUTO FROM VENDAS) GROUP BY PRODUTO ORDER BY refs DESC) WHERE ROWNUM <=10";
+        rSet = Model.stmt.executeQuery(sql);
+        return rSet;
     }
 
     public static ResultSet topProdMenos () throws SQLException {
 
-    ResultSet rSet = null;
-
-    String sql ="SELECT * FROM (SELECT produto, count(*) as refs FROM (SELECT PRODUTO FROM VENDAS) GROUP BY PRODUTO ORDER BY refs ASC) WHERE ROWNUM <=10";
-
-    rSet = Model.stmt.executeQuery(sql);
-
-    return rSet;
+        ResultSet rSet = null;
+        String sql = "SELECT * FROM (SELECT produto, count(*) as refs FROM (SELECT PRODUTO FROM VENDAS) GROUP BY PRODUTO ORDER BY refs ASC) WHERE ROWNUM <=10";
+        rSet = Model.stmt.executeQuery(sql);
+        return rSet;
     }
 
     public static ResultSet topVendasMais () throws SQLException {
 
-    ResultSet rSet = null;
-
-    String sql = "SELECT * FROM (SELECT NUMERO, SUM(TO_NUMBER(MONTANTE_TOTAL))as montante FROM VENDAS GROUP BY NUMERO ORDER BY montante DESC) WHERE ROWNUM <=10";
-
-    rSet = Model.stmt.executeQuery(sql);
-
-    return rSet;
+        ResultSet rSet = null;
+        String sql = "SELECT * FROM (SELECT NUMERO, SUM(TO_NUMBER(MONTANTE_TOTAL))as montante FROM VENDAS GROUP BY NUMERO ORDER BY montante DESC) WHERE ROWNUM <=10";
+        rSet = Model.stmt.executeQuery(sql);
+        return rSet;
     }
+
+    public static ResultSet lisCli () throws SQLException {
+
+        ResultSet rSet = null;
+        String sql = "SELECT * FROM CLIENTES";
+        rSet = Model.stmt.executeQuery(sql);
+        return rSet;
+    }
+
 
 
     public static ResultSet topVendasMenos () throws SQLException {
 
-    ResultSet rSet = null;
-
-    String sql = "SELECT * FROM (SELECT NUMERO, SUM(TO_NUMBER(MONTANTE_TOTAL))as montante FROM VENDAS GROUP BY NUMERO ORDER BY montante ASC) WHERE ROWNUM <=10";
-
-    rSet = Model.stmt.executeQuery(sql);
-
-    return rSet;
+        ResultSet rSet = null;
+        String sql = "SELECT * FROM (SELECT NUMERO, SUM(TO_NUMBER(MONTANTE_TOTAL))as montante FROM VENDAS GROUP BY NUMERO ORDER BY montante ASC) WHERE ROWNUM <=10";
+        rSet = Model.stmt.executeQuery(sql);
+        return rSet;
     }
+    
 
-    }
+}
 
 

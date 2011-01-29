@@ -57,9 +57,6 @@ public class JPrincipal extends javax.swing.JFrame {
         centerOnScreen(this);
 
 
-
-        
-
     }
 
     /** This method is called from within the constructor to
@@ -154,6 +151,30 @@ public class JPrincipal extends javax.swing.JFrame {
         jTextFieldNomeGenericoStock = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
         jTextFieldQuantidadeStock = new javax.swing.JTextField();
+        jPanel23 = new javax.swing.JPanel();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        jListClientes = new javax.swing.JList();
+        jPanel24 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jTextFieldNomeCliente = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jTextFieldMoradaCliente = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jTextFieldUserName = new javax.swing.JTextField();
+        jTextFieldPalavraPasse = new javax.swing.JTextField();
+        jTextFieldEmail = new javax.swing.JTextField();
+        jTextFieldMontanteGasto = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jTextFieldDataNas = new javax.swing.JTextField();
+        jPanel25 = new javax.swing.JPanel();
+        jTextField1 = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
         jPanel15 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -609,9 +630,9 @@ public class JPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTabbedPaneFichaProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -627,7 +648,7 @@ public class JPrincipal extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -640,8 +661,8 @@ public class JPrincipal extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(jScrollPane1)))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Ficha de Medicamentos", jPanel4);
@@ -865,7 +886,7 @@ public class JPrincipal extends javax.swing.JFrame {
                     .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -881,11 +902,187 @@ public class JPrincipal extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 559, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
         jTabbedPane1.addTab("Gestão de Stocks", jPanel5);
+
+        try {
+            rSet = Negocio.lisCli();
+            DefaultListModel model = new DefaultListModel();
+            while (rSet.next())
+            model.addElement(rSet.getObject(4).toString());
+            jListClientes.setModel(model);
+        }
+        catch (SQLException ex) {Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);}
+        jScrollPane10.setViewportView(jListClientes);
+
+        jPanel24.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ficha do Cliente", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+
+        jLabel5.setText("Nome do Cliente");
+
+        jLabel6.setText("Morada");
+
+        jLabel7.setText("Data de Nascimento");
+
+        jLabel8.setText("Montante Gasto");
+
+        jLabel9.setText("Username");
+
+        jLabel10.setText("Palavra Passe");
+
+        jLabel11.setText("Email");
+
+        jTextFieldPalavraPasse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPalavraPasseActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Alterar Cliente");
+
+        jButton2.setText("Adicionar Cliente");
+
+        jButton3.setText("Limpar Campos");
+
+        javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
+        jPanel24.setLayout(jPanel24Layout);
+        jPanel24Layout.setHorizontalGroup(
+            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel24Layout.createSequentialGroup()
+                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel24Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(14, 14, 14)
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                        .addComponent(jButton3))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel24Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel24Layout.createSequentialGroup()
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                .addGroup(jPanel24Layout.createSequentialGroup()
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                                    .addGap(2, 2, 2))
+                                .addGroup(jPanel24Layout.createSequentialGroup()
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                                    .addGap(2, 2, 2)))
+                            .addGroup(jPanel24Layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(22, 22, 22))
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel24Layout.createSequentialGroup()
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10))
+                            .addGroup(jPanel24Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldNomeCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+                            .addComponent(jTextFieldMoradaCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel24Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldMontanteGasto, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE))
+                            .addComponent(jTextFieldUserName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+                            .addComponent(jTextFieldPalavraPasse, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+                            .addComponent(jTextFieldEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+                            .addComponent(jTextFieldDataNas, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE))))
+                .addContainerGap())
+        );
+        jPanel24Layout.setVerticalGroup(
+            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel24Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jTextFieldNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldMoradaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jTextFieldDataNas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jTextFieldUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(jTextFieldPalavraPasse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
+                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jTextFieldMontanteGasto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
+                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3)))
+        );
+
+        jPanel25.setBorder(javax.swing.BorderFactory.createTitledBorder("Procurar Cliente"));
+
+        jButton4.setText("Procurar Cliente");
+
+        javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
+        jPanel25.setLayout(jPanel25Layout);
+        jPanel25Layout.setHorizontalGroup(
+            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel25Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton4)
+                .addContainerGap())
+        );
+        jPanel25Layout.setVerticalGroup(
+            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel25Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
+        jPanel23.setLayout(jPanel23Layout);
+        jPanel23Layout.setHorizontalGroup(
+            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel23Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel23Layout.setVerticalGroup(
+            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel23Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel23Layout.createSequentialGroup()
+                        .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(148, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Clientes", jPanel23);
 
         jPanel16.setBorder(javax.swing.BorderFactory.createTitledBorder("Cliente"));
 
@@ -899,7 +1096,7 @@ public class JPrincipal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldVendaNomeCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
+                .addComponent(jTextFieldVendaNomeCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel16Layout.setVerticalGroup(
@@ -1014,7 +1211,7 @@ public class JPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jTextFieldVendasTotalMontante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(146, Short.MAX_VALUE))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
 
         try {
@@ -1043,18 +1240,18 @@ public class JPrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel19Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
                     .addGroup(jPanel19Layout.createSequentialGroup()
                         .addComponent(jButtonProcurarVenda)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldProcurarVenda, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)))
+                        .addComponent(jTextFieldProcurarVenda, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel19Layout.setVerticalGroup(
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel19Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonProcurarVenda)
@@ -1101,14 +1298,14 @@ public class JPrincipal extends javax.swing.JFrame {
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel18Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel18Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1122,14 +1319,14 @@ public class JPrincipal extends javax.swing.JFrame {
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel20Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel20Layout.setVerticalGroup(
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel20Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1150,7 +1347,7 @@ public class JPrincipal extends javax.swing.JFrame {
             jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel21Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1171,7 +1368,7 @@ public class JPrincipal extends javax.swing.JFrame {
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel22Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1189,19 +1386,19 @@ public class JPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
+                                .addContainerGap()
                                 .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jPanel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(7, 7, 7))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButtonGerarEstatisticas, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)))
+                        .addComponent(jButtonGerarEstatisticas, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
@@ -1212,8 +1409,8 @@ public class JPrincipal extends javax.swing.JFrame {
                     .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonGerarEstatisticas)
                 .addGap(13, 13, 13))
@@ -1230,7 +1427,7 @@ public class JPrincipal extends javax.swing.JFrame {
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -1253,7 +1450,6 @@ public class JPrincipal extends javax.swing.JFrame {
         jMenuAjuda.add(jSeparator1);
 
         jMenuItemSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
-        jMenuItemSair.setIcon(null);
         jMenuItemSair.setText("Sair");
         jMenuItemSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1273,8 +1469,8 @@ public class JPrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE))
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 669, Short.MAX_VALUE)
+                    .addComponent(jLabel1))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -1282,8 +1478,8 @@ public class JPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 672, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 644, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleName("Procura");
@@ -1295,26 +1491,466 @@ public class JPrincipal extends javax.swing.JFrame {
     /*
      * Mostra o nome_medicamento dos produtos quando está activo
      */
-    private void jRadioButtonNameProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNameProdActionPerformed
-        jRadioButtonCodProd.setSelected(false);
-        jListProdutos.removeAll();
+    /*
+     * Mostra o produto, ou seja, o codigo, de todos os produtos quando está activo
+     */
+    /*
+     * Procuro o(s) medicamento(s) que está em jTextFieldProcura conforme o modo de
+     * vista que está seleccionado (Codigo Produto ou nome do medicamento)
+     */
+    /*********************************************************************************
+     * Quando na caixa de procura se clica enter na caixa de texto ele faz a procura *
+     * Quando clica F11 aparece a ajuda da procura                                    *
+     *********************************************************************************/
+    /********************************************************
+     * Quando abre o programa e clica em F11 aparece a ajuda *
+     ********************************************************/
+    /*
+     * Clica no butão e abre o PDF correspondente à Área Terapeutica
+     */    
+    /*****************************************************
+     * Acção do butão para mostrar o folheto informativo *
+    ******************************************************/
+    /****************************************
+     * Acção do Botão para Limpar os campos *
+     ****************************************/
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+
+        int decisao = JOptionPane.showConfirmDialog(new Frame(), "Tem a certeza que pretende sair?", "Sair", JOptionPane.YES_NO_OPTION);
+        if (decisao == 0) this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }//GEN-LAST:event_formWindowClosing
+
+    private void jMenuItemAjudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAjudaActionPerformed
+        JOptionPane.showMessageDialog(new Frame(), MensagensAjuda.ajudaGeral(), "Ajuda", JOptionPane.NO_OPTION);
+    }//GEN-LAST:event_jMenuItemAjudaActionPerformed
+
+    private void jMenuItemSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSairActionPerformed
+        int decisao = JOptionPane.showConfirmDialog(new Frame(), "Tem a certeza que pretende sair?", "Sair", JOptionPane.YES_NO_OPTION);
+        if (decisao == 0) System.exit(0);
+    }//GEN-LAST:event_jMenuItemSairActionPerformed
+
+    private void jTabbedPane1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTabbedPane1KeyPressed
+        int key = evt.getKeyCode();
+        if (key == KeyEvent.VK_F11) {
+            JOptionPane.showMessageDialog(new Frame(), MensagensAjuda.ajudaGeral(), "Ajuda", JOptionPane.NO_OPTION);
+        }
+    }//GEN-LAST:event_jTabbedPane1KeyPressed
+
+    private void jButtonGerarEstatisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGerarEstatisticasActionPerformed
+        try {
+            rSet = Negocio.topProdMais();
+            DefaultListModel model = new DefaultListModel();
+            while (rSet.next())
+                model.addElement(rSet.getObject(1).toString() + " - " + rSet.getObject(2).toString() +" Vendas");
+            jListTopProdMais.setModel(model);
+
+            rSet = Negocio.topVendasMais();
+            DefaultListModel model1 = new DefaultListModel();
+            while (rSet.next())
+                model1.addElement(rSet.getObject(1).toString() + " - " + rSet.getObject(2).toString() +" Euros");
+            jListTopVendasMais.setModel(model1);
+
+
+            rSet = Negocio.topProdMenos();
+            DefaultListModel model2 = new DefaultListModel();
+            while (rSet.next())
+                model2.addElement(rSet.getObject(1).toString()+ " - " + rSet.getObject(2).toString() +" Vendas");
+            jListTopProdMenos.setModel(model2);
+
+
+            rSet = Negocio.topVendasMenos();
+            DefaultListModel model3 = new DefaultListModel();
+            while (rSet.next())
+                model3.addElement(rSet.getObject(1).toString() + " - " + rSet.getObject(2).toString() +" Euros");
+            jListTopVendasMenos.setModel(model3);
+        } catch (SQLException ex) { Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); }
+    }//GEN-LAST:event_jButtonGerarEstatisticasActionPerformed
+
+    private void jButtonProcurarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProcurarVendaActionPerformed
+        String sel = jTextFieldProcurarVenda.getText();
+        DefaultListModel model = new DefaultListModel();
+        model.addElement("Codigo - Nome - Quantidade");
+
+        try {
+            rSet = Negocio.procurarProdutos(sel);
+            while (rSet.next()) {
+                model.addElement(rSet.getObject(1).toString() +" - "+ rSet.getObject(3).toString() + " - " + rSet.getObject(4).toString());
+            }
+            jListProdutosVenda.setModel(model);
+        } catch (SQLException ex) {
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_jButtonProcurarVendaActionPerformed
+
+    private void jButtonCancelarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarVendaActionPerformed
+
+        try {
+            rSet = Produtos.queryProdutos();
+            DefaultListModel model = new DefaultListModel();
+            model.addElement("Codigo - Nome - Quantidade");
+            while (rSet.next())
+                model.addElement(rSet.getObject(1).toString() +" - "+ rSet.getObject(3).toString() + " - " + rSet.getObject(4).toString());
+
+            jListProdutosVenda.setModel(model);
+        } catch (SQLException ex) { Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); }
+
+        venda = new DefaultListModel();
+        jTextFieldVendasTotalMontante.setText("0");
+        jTextFieldVendasTotalProdutos.setText("0");
+        jListProdutosVendaLevar.setModel(venda);
+    }//GEN-LAST:event_jButtonCancelarVendaActionPerformed
+
+    private void jButtonVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVenderActionPerformed
+        String nome_cliente             = jTextFieldVendaNomeCliente.getText();
+        String produto_todo             = "";
+        String delims                   = "[ ]+";
+        String produto                  = "";
+        String factura                  = "\n";
+        int totalProdutosParaVender     = venda.getSize();
+
+
+
+
+        try {
+            factura = factura + "Produtos\t\t\tPreço\n";
+            factura = factura + "_____________________________________________\n";
+            float precoProduto = 0;
+            int i = 0;
+            while (i <totalProdutosParaVender) {
+                produto_todo = venda.getElementAt(i).toString();
+                String[] id  = produto_todo.split(delims);
+                produto      = id[0];
+                precoProduto = Negocio.montanteMedicamento(produto);
+                factura      = factura + stringParaFactura(produto_todo) + "\t" + "€ "+precoProduto + "\n";
+                i++;
+            }
+
+            factura = factura + "_____________________________________________\n";
+            factura = factura + "Montante total:\t\t\t€ "+jTextFieldVendasTotalMontante.getText();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        JDialogVender vender = new JDialogVender(this, false,factura,nome_cliente, venda);
+        vender.setVisible(true);
+    }//GEN-LAST:event_jButtonVenderActionPerformed
+
+    private void jButtonAdicionarProdutoVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarProdutoVendaActionPerformed
+        String sel = jListProdutosVenda.getSelectedValue().toString();
+
+        String produto_todo             = "";
+        String delims                   = "[ ]+";
+        String produto                  = "";
+
+        // para o variável produto ficar apenas com o id
+        produto_todo                    = sel;
+        String[] id                     = produto_todo.split(delims);
+        produto                         = id[0];
+
+        // para adicionar o produto à jList de vendas
+        venda.addElement(sel);
+
+        float montanteSel               = 0;
+
+        try {
+            montanteSel = Negocio.montanteMedicamento(produto);
+        } catch (SQLException ex) {}
+
+        String montanteActualString     = jTextFieldVendasTotalMontante.getText();
+        float montanteActual            = Float.parseFloat(montanteActualString);
+        float montanteNovo              = montanteActual+montanteSel;
+
+        if (montanteSel !=0) jTextFieldVendasTotalMontante.setText(""+montanteNovo);
+
+        jListProdutosVendaLevar.setModel(venda);
+
+
+        int totalProdutosParaVender     = venda.getSize();
+        jTextFieldVendasTotalProdutos.setText(""+totalProdutosParaVender);
+
+        desactivarOuActivarButaoRemoverProdutoParaVenda();
+}//GEN-LAST:event_jButtonAdicionarProdutoVendaActionPerformed
+
+    private void jButtonRemoverProdutoVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoverProdutoVendaActionPerformed
+        int sel = jListProdutosVendaLevar.getSelectedIndex();
+
+        String erro = "Seleccione um produto que pretenda\nretirar da lista de compras!";
+        if (sel<0)  JOptionPane.showMessageDialog(new Frame(), erro, "Erro", JOptionPane.ERROR_MESSAGE);
+        else {
+            String sel_linha                = jListProdutosVendaLevar.getSelectedValue().toString();
+            String produto_todo             = "";
+            String delims                   = "[ ]+";
+            String produto                  = "";
+
+            // para o variável produto ficar apenas com o id
+            produto_todo                    = sel_linha;
+            String[] id                     = produto_todo.split(delims);
+            produto                         = id[0];
+
+            float montanteSel               = 0;
+
+            try {
+                montanteSel = Negocio.montanteMedicamento(produto);
+            } catch (SQLException ex) {}
+
+            String montanteActualString     = jTextFieldVendasTotalMontante.getText();
+            float montanteActual            = Float.parseFloat(montanteActualString);
+            float montanteNovo              = montanteActual-montanteSel;
+
+            if (montanteSel !=0) jTextFieldVendasTotalMontante.setText(""+montanteNovo);
+
+            // para remover o produto à jList de vendas
+            venda.remove(sel);
+            jListProdutosVendaLevar.setModel(venda);
+
+            // para alterar o textfield com o total de produtos
+            int totalProdutosParaVender     = venda.getSize();
+            jTextFieldVendasTotalProdutos.setText(""+totalProdutosParaVender);
+
+            desactivarOuActivarButaoRemoverProdutoParaVenda();
+        }
+}//GEN-LAST:event_jButtonRemoverProdutoVendaActionPerformed
+
+    private void jButtonActualizarStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarStockActionPerformed
+        String sel          = jTextFieldProdutoStock.getText();
+        String stock_antigo = jTextFieldQuantidadeStock.getText();
+        String stock_novo   = jTextFieldAumentaQuantidadeStock.getText();
+
+        try {
+
+            if (isNumber(stock_antigo)==false || isNumber(stock_novo)==false ) {
+                JOptionPane.showMessageDialog(null, "A quantidade inserida nao é válida!", "Erro ao alterar Stock",JOptionPane.ERROR_MESSAGE);
+            } else {
+                if (jRadioButtonAdicionarQ.isSelected()){
+                    int adicionar = Integer.parseInt(stock_antigo) + Integer.parseInt(stock_novo);
+                    Negocio.registarStock(sel, Integer.parseInt(stock_antigo), adicionar);
+                    JOptionPane.showMessageDialog(null, "Stock adicionado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+
+                } else {
+                    int remover = Integer.parseInt(stock_antigo) - Integer.parseInt(stock_novo);
+                    if (remover > 0){
+                        Negocio.registarStock(sel, Integer.parseInt(stock_antigo), remover);
+                        JOptionPane.showMessageDialog(null, "Stock removido com sucesso!", "Sucesso",JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Não pode remover a quantidade inserida!", "Erro",JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        jListProdutosStocksValueChanged(null);
+}//GEN-LAST:event_jButtonActualizarStockActionPerformed
+
+    private void jRadioButtonRemoverQActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonRemoverQActionPerformed
+        jRadioButtonAdicionarQ.setSelected(false);
+        jRadioButtonRemoverQ.setSelected(true);
+}//GEN-LAST:event_jRadioButtonRemoverQActionPerformed
+
+    private void jRadioButtonAdicionarQActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonAdicionarQActionPerformed
+        jRadioButtonRemoverQ.setSelected(false);
+        jRadioButtonAdicionarQ.setSelected(true);
+}//GEN-LAST:event_jRadioButtonAdicionarQActionPerformed
+
+    private void jListProdutosStocksValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListProdutosStocksValueChanged
+        String sel              = (String) jListProdutosStocks.getSelectedValue();
+        String produto          = null;
+
+        try {
+            if (jRadioButtonNomeProdStock.isSelected()) {
+                rSet = Negocio.selProdutoNome(sel); //procura por nome
+            } else {
+                rSet = Negocio.selProduto(sel);     // procura por id
+            }
+
+            /***************************************************************
+             * Colocar os campos da tabela produtos nos campos respectivos *
+             ***************************************************************/
+            while (rSet.next()) {
+                produto = vazio(rSet.getString(1));
+                jTextFieldNomeGenericoStock.setText(vazio(rSet.getString(2)));
+                jTextFieldNomeProdutoStock.setText(vazio(rSet.getString(3)));
+                jTextFieldQuantidadeStock.setText(vazio(rSet.getString(4)));
+
+            }
+            jTextFieldProdutoStock.setText(produto);
+
+
+        } catch (Exception ex) {
+            System.out.println("ERRO: "+ex.getMessage());
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+}//GEN-LAST:event_jListProdutosStocksValueChanged
+
+    private void jButtonProcuraStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProcuraStockActionPerformed
+        String sel = jTextFieldProcuraStock.getText();
+        DefaultListModel model = new DefaultListModel();
+
+        try {
+            if (jRadioButtonNomeProdStock.isSelected()) {
+                rSet = Negocio.procurarProdutos(sel);
+                while (rSet.next()) {
+                    model.addElement(rSet.getString(3));
+                }
+                jListProdutosStocks.setModel(model);
+            } else {
+                rSet = Negocio.procurarProdutos(sel);
+                while (rSet.next()) {
+                    model.addElement(rSet.getString(1));
+                }
+                jListProdutosStocks.setModel(model);
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+}//GEN-LAST:event_jButtonProcuraStockActionPerformed
+
+    private void jTextFieldProcuraStockKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldProcuraStockKeyPressed
+        int key = evt.getKeyCode();
+        if (key == KeyEvent.VK_ENTER) {
+            transferFocus();
+            jButtonProcuraStockActionPerformed(null);
+            //System.out.println("ola");
+        } else {
+            //System.out.println("ola2");
+        }
+        if (key == KeyEvent.VK_F11) {
+            JOptionPane.showMessageDialog(new Frame(), MensagensAjuda.ajudaProcura(), "Ajuda Procura", JOptionPane.NO_OPTION);
+        }
+}//GEN-LAST:event_jTextFieldProcuraStockKeyPressed
+
+    private void jRadioButtonNomeProdStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNomeProdStockActionPerformed
+        jRadioButtonCodProdStock.setSelected(false);
+        jRadioButtonNomeProdStock.setSelected(true);
 
         try {
             rSet = Produtos.queryProdutos();
             DefaultListModel model = new DefaultListModel();
             while (rSet.next()) {
-                model.addElement(rSet.getString(3));
-                //model.addElement(rSet.getObject(3).toString());
+                model.addElement(rSet.getObject(3).toString());
             }
-            jListProdutos.setModel(model);
+            jListProdutosStocks.setModel(model);
         } catch (SQLException ex) {
             Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jRadioButtonNameProdActionPerformed
+}//GEN-LAST:event_jRadioButtonNomeProdStockActionPerformed
 
-    /*
-     * Mostra o produto, ou seja, o codigo, de todos os produtos quando está activo
-     */
+    private void jRadioButtonCodProdStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonCodProdStockActionPerformed
+        jRadioButtonNomeProdStock.setSelected(false);
+        jRadioButtonCodProdStock.setSelected(true);
+
+        try {
+            rSet = Produtos.queryProdutos();
+            DefaultListModel model = new DefaultListModel();
+            while (rSet.next()) {
+                model.addElement(rSet.getObject(1).toString());
+            }
+            jListProdutosStocks.setModel(model);
+        } catch (SQLException ex) {
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+}//GEN-LAST:event_jRadioButtonCodProdStockActionPerformed
+
+    private void jPanel4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel4KeyPressed
+        int key = evt.getKeyCode();
+        if (key == KeyEvent.VK_F11) {
+            JOptionPane.showMessageDialog(new Frame(), MensagensAjuda.ajudaFichaMedicamentos(), "Ajuda", JOptionPane.NO_OPTION);
+        }
+}//GEN-LAST:event_jPanel4KeyPressed
+
+    private void jButtonAlterarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarProdutoActionPerformed
+        if (jTextFieldProduto.getText().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(null, "Seleccione o produto que pretende alterar!", "Erro ao alterar Produto",2);
+            //ch.randelshofer.quaqua.JSheet.showMessageSheet(JPrincipal.this,"Seleccione o produto que pretende alterar!",2 );
+        } else {
+
+
+            String produto = jTextFieldProduto.getText();
+            JDialogAlterProduto alterarProduto = null;
+            try {
+                alterarProduto = new JDialogAlterProduto(this, produto, true);
+            } catch (SQLException ex) {
+                Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
+                Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            alterarProduto.setVisible(true);
+
+        }
+        //jListProdutosValueChanged(null);
+    }//GEN-LAST:event_jButtonAlterarProdutoActionPerformed
+
+    private void jButtonLimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparCamposActionPerformed
+        jRadioButtonCodProdActionPerformed(null);
+        jTextFieldNomeGen.setText(null);
+        jTextFieldNomeMedicamento.setText(null);
+        jTextFieldQuantidade.setText(null);
+        jTextFieldRegistoInfarmed.setText(null);
+        jTextFieldLote.setText(null);
+        jTextFieldDosagem.setText(null);
+        jTextFieldPreco.setText(null);
+        jTextFieldReceita.setText(null);
+        jTextFieldGenerico.setText(null);
+        jTextFieldFormato.setText(null);
+        jTextFieldProcura.setText(null);
+
+        jButtonAreaTerapeuticaAbrirPDF.setEnabled(false);
+}//GEN-LAST:event_jButtonLimparCamposActionPerformed
+
+    private void jButtonAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarProdutoActionPerformed
+        JDialogInsertProduto adicionarProduto = new JDialogInsertProduto(this, true);
+        adicionarProduto.setVisible(true);
+        jListProdutosValueChanged(null);
+    }//GEN-LAST:event_jButtonAdicionarProdutoActionPerformed
+
+    private void jTextFieldTemperaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTemperaturaActionPerformed
+        // TODO add your handling code here:
+}//GEN-LAST:event_jTextFieldTemperaturaActionPerformed
+
+    private void jTextFieldLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldLoteActionPerformed
+        // TODO add your handling code here:
+}//GEN-LAST:event_jTextFieldLoteActionPerformed
+
+    private void jButtonFolhetoInformativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFolhetoInformativoActionPerformed
+        String sel = jTextFieldFolhetoInformativo.getText();
+
+        if (sel.equalsIgnoreCase("<vazio>")) {
+            System.out.println("out");
+        } else {
+            try {
+                Negocio.abrirFolhetoURL(sel);
+            } catch (Exception ex) {
+                Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+}//GEN-LAST:event_jButtonFolhetoInformativoActionPerformed
+
+    private void jButtonAreaTerapeuticaAbrirPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAreaTerapeuticaAbrirPDFActionPerformed
+        String sel = jTextFieldAreaTerapeuticaMore.getText();
+        if (sel.equalsIgnoreCase("<vazio>")) {
+            System.out.println("out");
+        } else {
+            //System.out.println(sel);
+
+            try {
+                Negocio.abrirPDF(sel);
+            } catch (Exception ex) {
+                Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+}//GEN-LAST:event_jButtonAreaTerapeuticaAbrirPDFActionPerformed
+
+    private void jTextFieldReceitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldReceitaActionPerformed
+        // TODO add your handling code here:
+}//GEN-LAST:event_jTextFieldReceitaActionPerformed
+
     private void jRadioButtonCodProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonCodProdActionPerformed
         jRadioButtonNameProd.setSelected(false);
         jListProdutos.removeAll();
@@ -1330,12 +1966,25 @@ public class JPrincipal extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jRadioButtonCodProdActionPerformed
+}//GEN-LAST:event_jRadioButtonCodProdActionPerformed
 
-    /*
-     * Procuro o(s) medicamento(s) que está em jTextFieldProcura conforme o modo de
-     * vista que está seleccionado (Codigo Produto ou nome do medicamento)
-     */
+    private void jRadioButtonNameProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNameProdActionPerformed
+        jRadioButtonCodProd.setSelected(false);
+        jListProdutos.removeAll();
+
+        try {
+            rSet = Produtos.queryProdutos();
+            DefaultListModel model = new DefaultListModel();
+            while (rSet.next()) {
+                model.addElement(rSet.getString(3));
+                //model.addElement(rSet.getObject(3).toString());
+            }
+            jListProdutos.setModel(model);
+        } catch (SQLException ex) {
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+}//GEN-LAST:event_jRadioButtonNameProdActionPerformed
+
     private void jButtonProcurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProcurarActionPerformed
         String sel = jTextFieldProcura.getText();
         DefaultListModel model = new DefaultListModel();
@@ -1358,49 +2007,29 @@ public class JPrincipal extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButtonProcurarActionPerformed
+}//GEN-LAST:event_jButtonProcurarActionPerformed
 
-    private void jRadioButtonNomeProdStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNomeProdStockActionPerformed
-        jRadioButtonCodProdStock.setSelected(false);
-        jRadioButtonNomeProdStock.setSelected(true);
-
-        try {
-            rSet = Produtos.queryProdutos();
-            DefaultListModel model = new DefaultListModel();
-            while (rSet.next()) {
-                model.addElement(rSet.getObject(3).toString());
-            }
-            jListProdutosStocks.setModel(model);
-        } catch (SQLException ex) {
-            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+    private void jTextFieldProcuraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldProcuraKeyPressed
+        int key = evt.getKeyCode();
+        if (key == KeyEvent.VK_ENTER) {
+            transferFocus();
+            jButtonProcurarActionPerformed(null);
+            //System.out.println("ola");
+        } else {
+            //System.out.println("ola2");
         }
-    }//GEN-LAST:event_jRadioButtonNomeProdStockActionPerformed
-
-    private void jRadioButtonAdicionarQActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonAdicionarQActionPerformed
-        jRadioButtonRemoverQ.setSelected(false);
-        jRadioButtonAdicionarQ.setSelected(true);
-    }//GEN-LAST:event_jRadioButtonAdicionarQActionPerformed
-
-    private void jRadioButtonCodProdStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonCodProdStockActionPerformed
-        jRadioButtonNomeProdStock.setSelected(false);
-        jRadioButtonCodProdStock.setSelected(true);
-
-        try {
-            rSet = Produtos.queryProdutos();
-            DefaultListModel model = new DefaultListModel();
-            while (rSet.next()) {
-                model.addElement(rSet.getObject(1).toString());
-            }
-            jListProdutosStocks.setModel(model);
-        } catch (SQLException ex) {
-            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        if (key == KeyEvent.VK_F11) {
+            JOptionPane.showMessageDialog(new Frame(), MensagensAjuda.ajudaProcura(), "Ajuda Procura", JOptionPane.NO_OPTION);
         }
-    }//GEN-LAST:event_jRadioButtonCodProdStockActionPerformed
 
-    private void jRadioButtonRemoverQActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonRemoverQActionPerformed
-        jRadioButtonAdicionarQ.setSelected(false);
-        jRadioButtonRemoverQ.setSelected(true);
-    }//GEN-LAST:event_jRadioButtonRemoverQActionPerformed
+    }//GEN-LAST:event_jTextFieldProcuraKeyPressed
+
+    private void jListProdutosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jListProdutosKeyPressed
+        int key = evt.getKeyCode();
+        if (key == KeyEvent.VK_F11) {
+            JOptionPane.showMessageDialog(new Frame(), MensagensAjuda.ajudaFichaMedicamentos(), "Ajuda", JOptionPane.NO_OPTION);
+        }
+}//GEN-LAST:event_jListProdutosKeyPressed
 
     private void jListProdutosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListProdutosValueChanged
         String sel              = (String) jListProdutos.getSelectedValue();
@@ -1488,454 +2117,11 @@ public class JPrincipal extends javax.swing.JFrame {
             System.out.println("ERRO: "+ex.getMessage());
             Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jListProdutosValueChanged
+}//GEN-LAST:event_jListProdutosValueChanged
 
-    /*********************************************************************************
-     * Quando na caixa de procura se clica enter na caixa de texto ele faz a procura *
-     * Quando clica F11 aparece a ajuda da procura                                    *
-     *********************************************************************************/
-    private void jTextFieldProcuraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldProcuraKeyPressed
-        int key = evt.getKeyCode();
-        if (key == KeyEvent.VK_ENTER) {
-            transferFocus();
-            jButtonProcurarActionPerformed(null);
-            //System.out.println("ola");
-        } else {
-            //System.out.println("ola2");
-        }
-        if (key == KeyEvent.VK_F11) {
-            JOptionPane.showMessageDialog(new Frame(), MensagensAjuda.ajudaProcura(), "Ajuda Procura", JOptionPane.NO_OPTION);
-        }
-        
-
-    }//GEN-LAST:event_jTextFieldProcuraKeyPressed
-
-    /********************************************************
-     * Quando abre o programa e clica em F11 aparece a ajuda *
-     ********************************************************/
-    private void jTabbedPane1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTabbedPane1KeyPressed
-        int key = evt.getKeyCode();
-        if (key == KeyEvent.VK_F11) {
-            JOptionPane.showMessageDialog(new Frame(), MensagensAjuda.ajudaGeral(), "Ajuda", JOptionPane.NO_OPTION);
-        }
-
-    }//GEN-LAST:event_jTabbedPane1KeyPressed
-
-    private void jTextFieldReceitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldReceitaActionPerformed
+    private void jTextFieldPalavraPasseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPalavraPasseActionPerformed
         // TODO add your handling code here:
-}//GEN-LAST:event_jTextFieldReceitaActionPerformed
-
-    private void jTextFieldLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldLoteActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_jTextFieldLoteActionPerformed
-
-    private void jTextFieldTemperaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTemperaturaActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_jTextFieldTemperaturaActionPerformed
-
-    /*
-     * Clica no butão e abre o PDF correspondente à Área Terapeutica
-     */
-    private void jButtonAreaTerapeuticaAbrirPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAreaTerapeuticaAbrirPDFActionPerformed
-        String sel = jTextFieldAreaTerapeuticaMore.getText();
-        if (sel.equalsIgnoreCase("<vazio>")) {
-            System.out.println("out");
-        } else {
-            //System.out.println(sel);
-
-            try {
-                Negocio.abrirPDF(sel);
-            } catch (Exception ex) {
-                Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }//GEN-LAST:event_jButtonAreaTerapeuticaAbrirPDFActionPerformed
-    
-    /*****************************************************
-     * Acção do butão para mostrar o folheto informativo *
-    ******************************************************/
-    private void jButtonFolhetoInformativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFolhetoInformativoActionPerformed
-        String sel = jTextFieldFolhetoInformativo.getText();
-
-        if (sel.equalsIgnoreCase("<vazio>")) {
-            System.out.println("out");
-        } else {
-            try {
-                Negocio.abrirFolhetoURL(sel);
-            } catch (Exception ex) {
-                Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }//GEN-LAST:event_jButtonFolhetoInformativoActionPerformed
-
-    /****************************************
-     * Acção do Botão para Limpar os campos *
-     ****************************************/
-    private void jButtonLimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparCamposActionPerformed
-        jRadioButtonCodProdActionPerformed(null);
-        jTextFieldNomeGen.setText(null);
-        jTextFieldNomeMedicamento.setText(null);
-        jTextFieldQuantidade.setText(null);
-        jTextFieldRegistoInfarmed.setText(null);
-        jTextFieldLote.setText(null);
-        jTextFieldDosagem.setText(null);
-        jTextFieldPreco.setText(null);
-        jTextFieldReceita.setText(null);
-        jTextFieldGenerico.setText(null);
-        jTextFieldFormato.setText(null);
-        jTextFieldProcura.setText(null);
-
-        jButtonAreaTerapeuticaAbrirPDF.setEnabled(false);        
-    }//GEN-LAST:event_jButtonLimparCamposActionPerformed
-
-    private void jButtonAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarProdutoActionPerformed
-        JDialogInsertProduto adicionarProduto = new JDialogInsertProduto(this, true);
-        adicionarProduto.setVisible(true);
-        jListProdutosValueChanged(null);
-
-    }//GEN-LAST:event_jButtonAdicionarProdutoActionPerformed
-
-    private void jButtonAlterarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarProdutoActionPerformed
-       if (jTextFieldProduto.getText().equalsIgnoreCase("")) {
-           JOptionPane.showMessageDialog(null, "Seleccione o produto que pretende alterar!", "Erro ao alterar Produto",2);
-           //ch.randelshofer.quaqua.JSheet.showMessageSheet(JPrincipal.this,"Seleccione o produto que pretende alterar!",2 );
-       }
-       else {
-
-
-        String produto = jTextFieldProduto.getText();
-       JDialogAlterProduto alterarProduto = null;
-        try {
-            alterarProduto = new JDialogAlterProduto(this, produto, true);
-        } catch (SQLException ex) {
-            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception ex) {
-            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-       alterarProduto.setVisible(true);
-
-        }
-       //jListProdutosValueChanged(null);
-
-    }//GEN-LAST:event_jButtonAlterarProdutoActionPerformed
-
-    private void jListProdutosStocksValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListProdutosStocksValueChanged
-        String sel              = (String) jListProdutosStocks.getSelectedValue();
-        String produto          = null;
-
-        try {
-            if (jRadioButtonNomeProdStock.isSelected()) {
-                rSet = Negocio.selProdutoNome(sel); //procura por nome
-            } else {
-                rSet = Negocio.selProduto(sel);     // procura por id
-            }
-
-            /***************************************************************
-             * Colocar os campos da tabela produtos nos campos respectivos *
-             ***************************************************************/
-            while (rSet.next()) {
-                produto = vazio(rSet.getString(1));
-                jTextFieldNomeGenericoStock.setText(vazio(rSet.getString(2)));
-                jTextFieldNomeProdutoStock.setText(vazio(rSet.getString(3)));
-                jTextFieldQuantidadeStock.setText(vazio(rSet.getString(4)));
-                
-            }
-            jTextFieldProdutoStock.setText(produto);
-
-
-        } catch (Exception ex) {
-            System.out.println("ERRO: "+ex.getMessage());
-            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jListProdutosStocksValueChanged
-
-    private void jButtonActualizarStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarStockActionPerformed
-        String sel          = jTextFieldProdutoStock.getText();
-        String stock_antigo = jTextFieldQuantidadeStock.getText();
-        String stock_novo   = jTextFieldAumentaQuantidadeStock.getText();
-
-        try {
-
-            if (isNumber(stock_antigo)==false || isNumber(stock_novo)==false ) {
-                JOptionPane.showMessageDialog(null, "A quantidade inserida nao é válida!", "Erro ao alterar Stock",JOptionPane.ERROR_MESSAGE);
-            }
-            else {
-                if (jRadioButtonAdicionarQ.isSelected()){
-                    int adicionar = Integer.parseInt(stock_antigo) + Integer.parseInt(stock_novo);
-                    Negocio.registarStock(sel, Integer.parseInt(stock_antigo), adicionar);
-                    JOptionPane.showMessageDialog(null, "Stock adicionado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
-
-                }
-                else {
-                    int remover = Integer.parseInt(stock_antigo) - Integer.parseInt(stock_novo);
-                    if (remover > 0){
-                        Negocio.registarStock(sel, Integer.parseInt(stock_antigo), remover);
-                        JOptionPane.showMessageDialog(null, "Stock removido com sucesso!", "Sucesso",JOptionPane.INFORMATION_MESSAGE);
-                    }
-                    else {
-                        JOptionPane.showMessageDialog(null, "Não pode remover a quantidade inserida!", "Erro",JOptionPane.ERROR_MESSAGE);
-                    }
-                }
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception ex) {
-            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-        jListProdutosStocksValueChanged(null);
-    }//GEN-LAST:event_jButtonActualizarStockActionPerformed
-
-    private void jButtonProcuraStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProcuraStockActionPerformed
-        String sel = jTextFieldProcuraStock.getText();
-        DefaultListModel model = new DefaultListModel();
-
-        try {
-            if (jRadioButtonNomeProdStock.isSelected()) {
-                rSet = Negocio.procurarProdutos(sel);
-                while (rSet.next()) {
-                    model.addElement(rSet.getString(3));
-                }
-                jListProdutosStocks.setModel(model);
-            } else {
-                rSet = Negocio.procurarProdutos(sel);
-                while (rSet.next()) {
-                    model.addElement(rSet.getString(1));
-                }
-                jListProdutosStocks.setModel(model);
-            }
-
-        } catch (Exception ex) {
-            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButtonProcuraStockActionPerformed
-
-    private void jTextFieldProcuraStockKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldProcuraStockKeyPressed
-        int key = evt.getKeyCode();
-        if (key == KeyEvent.VK_ENTER) {
-            transferFocus();
-            jButtonProcuraStockActionPerformed(null);
-            //System.out.println("ola");
-        } else {
-            //System.out.println("ola2");
-        }
-        if (key == KeyEvent.VK_F11) {
-            JOptionPane.showMessageDialog(new Frame(), MensagensAjuda.ajudaProcura(), "Ajuda Procura", JOptionPane.NO_OPTION);
-        }
-    }//GEN-LAST:event_jTextFieldProcuraStockKeyPressed
-
-    private void jPanel4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel4KeyPressed
-        int key = evt.getKeyCode();
-        if (key == KeyEvent.VK_F11) {
-            JOptionPane.showMessageDialog(new Frame(), MensagensAjuda.ajudaFichaMedicamentos(), "Ajuda", JOptionPane.NO_OPTION);
-        }
-    }//GEN-LAST:event_jPanel4KeyPressed
-
-    private void jListProdutosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jListProdutosKeyPressed
-        int key = evt.getKeyCode();
-        if (key == KeyEvent.VK_F11) {
-            JOptionPane.showMessageDialog(new Frame(), MensagensAjuda.ajudaFichaMedicamentos(), "Ajuda", JOptionPane.NO_OPTION);
-        }
-    }//GEN-LAST:event_jListProdutosKeyPressed
-
-    private void jButtonAdicionarProdutoVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarProdutoVendaActionPerformed
-        String sel = jListProdutosVenda.getSelectedValue().toString();
-
-        String produto_todo             = "";
-        String delims                   = "[ ]+";
-        String produto                  = "";
-
-        // para o variável produto ficar apenas com o id
-        produto_todo                    = sel;
-        String[] id                     = produto_todo.split(delims);
-        produto                         = id[0];
-
-        // para adicionar o produto à jList de vendas
-        venda.addElement(sel);
-
-        float montanteSel               = 0;
-        
-        try {
-            montanteSel = Negocio.montanteMedicamento(produto);
-        } catch (SQLException ex) {}
-         
-        String montanteActualString     = jTextFieldVendasTotalMontante.getText();
-        float montanteActual            = Float.parseFloat(montanteActualString);
-        float montanteNovo              = montanteActual+montanteSel;
-
-        if (montanteSel !=0) jTextFieldVendasTotalMontante.setText(""+montanteNovo);
-
-        jListProdutosVendaLevar.setModel(venda);
-
-
-        int totalProdutosParaVender     = venda.getSize();
-        jTextFieldVendasTotalProdutos.setText(""+totalProdutosParaVender);
-
-        desactivarOuActivarButaoRemoverProdutoParaVenda();
-    }//GEN-LAST:event_jButtonAdicionarProdutoVendaActionPerformed
-
-    private void jButtonRemoverProdutoVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoverProdutoVendaActionPerformed
-        int sel = jListProdutosVendaLevar.getSelectedIndex();
-
-        String erro = "Seleccione um produto que pretenda\nretirar da lista de compras!";
-        if (sel<0)  JOptionPane.showMessageDialog(new Frame(), erro, "Erro", JOptionPane.ERROR_MESSAGE);
-        else {
-        String sel_linha                = jListProdutosVendaLevar.getSelectedValue().toString();
-        String produto_todo             = "";
-        String delims                   = "[ ]+";
-        String produto                  = "";
-
-        // para o variável produto ficar apenas com o id
-        produto_todo                    = sel_linha;
-        String[] id                     = produto_todo.split(delims);
-        produto                         = id[0];
-
-        float montanteSel               = 0;
-
-        try {
-            montanteSel = Negocio.montanteMedicamento(produto);
-        } catch (SQLException ex) {}
-
-        String montanteActualString     = jTextFieldVendasTotalMontante.getText();
-        float montanteActual            = Float.parseFloat(montanteActualString);
-        float montanteNovo              = montanteActual-montanteSel;
-
-        if (montanteSel !=0) jTextFieldVendasTotalMontante.setText(""+montanteNovo);
-
-        // para remover o produto à jList de vendas
-        venda.remove(sel);
-        jListProdutosVendaLevar.setModel(venda);
-
-        // para alterar o textfield com o total de produtos
-        int totalProdutosParaVender     = venda.getSize();
-        jTextFieldVendasTotalProdutos.setText(""+totalProdutosParaVender);
-
-        desactivarOuActivarButaoRemoverProdutoParaVenda();
-        }
-    }//GEN-LAST:event_jButtonRemoverProdutoVendaActionPerformed
-
-    private void jButtonVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVenderActionPerformed
-        String nome_cliente             = jTextFieldVendaNomeCliente.getText();
-        String produto_todo             = "";
-        String delims                   = "[ ]+";
-        String produto                  = "";
-        String factura                  = "\n";
-        int totalProdutosParaVender     = venda.getSize();
-
-        
-
-
-        try {
-            factura = factura + "Produtos\t\t\tPreço\n";
-            factura = factura + "_____________________________________________\n";
-            float precoProduto = 0;
-            int i = 0;
-            while (i <totalProdutosParaVender) {
-                produto_todo = venda.getElementAt(i).toString();
-                String[] id  = produto_todo.split(delims);
-                produto      = id[0];
-                precoProduto = Negocio.montanteMedicamento(produto);
-                factura      = factura + stringParaFactura(produto_todo) + "\t" + "€ "+precoProduto + "\n";
-                i++;
-            }
-
-            factura = factura + "_____________________________________________\n";
-            factura = factura + "Montante total:\t\t\t€ "+jTextFieldVendasTotalMontante.getText();
-
-        } catch (SQLException ex) {
-            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        JDialogVender vender = new JDialogVender(this, false,factura,nome_cliente, venda);
-        vender.setVisible(true);
-
-    }//GEN-LAST:event_jButtonVenderActionPerformed
-
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-
-        int decisao = JOptionPane.showConfirmDialog(new Frame(), "Tem a certeza que pretende sair?", "Sair", JOptionPane.YES_NO_OPTION);
-        if (decisao == 0) this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }//GEN-LAST:event_formWindowClosing
-
-    private void jMenuItemAjudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAjudaActionPerformed
-        JOptionPane.showMessageDialog(new Frame(), MensagensAjuda.ajudaGeral(), "Ajuda", JOptionPane.NO_OPTION);
-    }//GEN-LAST:event_jMenuItemAjudaActionPerformed
-
-    private void jMenuItemSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSairActionPerformed
-        int decisao = JOptionPane.showConfirmDialog(new Frame(), "Tem a certeza que pretende sair?", "Sair", JOptionPane.YES_NO_OPTION);
-        if (decisao == 0) System.exit(0);
-    }//GEN-LAST:event_jMenuItemSairActionPerformed
-
-    private void jButtonCancelarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarVendaActionPerformed
-
-        try {
-            rSet = Produtos.queryProdutos();
-            DefaultListModel model = new DefaultListModel();
-            model.addElement("Codigo - Nome - Quantidade");
-            while (rSet.next())
-                model.addElement(rSet.getObject(1).toString() +" - "+ rSet.getObject(3).toString() + " - " + rSet.getObject(4).toString());
-
-            jListProdutosVenda.setModel(model);
-            }
-        catch (SQLException ex) { Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); }
-
-        venda = new DefaultListModel();
-        jTextFieldVendasTotalMontante.setText("0");
-        jTextFieldVendasTotalProdutos.setText("0");
-        jListProdutosVendaLevar.setModel(venda);
-
-    }//GEN-LAST:event_jButtonCancelarVendaActionPerformed
-
-    private void jButtonProcurarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProcurarVendaActionPerformed
-        String sel = jTextFieldProcurarVenda.getText();
-        DefaultListModel model = new DefaultListModel();
-        model.addElement("Codigo - Nome - Quantidade");
-
-        try {
-            rSet = Negocio.procurarProdutos(sel);
-            while (rSet.next()) {
-                model.addElement(rSet.getObject(1).toString() +" - "+ rSet.getObject(3).toString() + " - " + rSet.getObject(4).toString());
-            }
-            jListProdutosVenda.setModel(model);
-        } catch (SQLException ex) {
-            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-
-    }//GEN-LAST:event_jButtonProcurarVendaActionPerformed
-
-    private void jButtonGerarEstatisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGerarEstatisticasActionPerformed
-         try {
-            rSet = Negocio.topProdMais();
-            DefaultListModel model = new DefaultListModel();
-            while (rSet.next())
-                model.addElement(rSet.getObject(1).toString() + " - " + rSet.getObject(2).toString() +" Vendas");
-            jListTopProdMais.setModel(model);
-
-            rSet = Negocio.topVendasMais();
-            DefaultListModel model1 = new DefaultListModel();
-            while (rSet.next())
-                model1.addElement(rSet.getObject(1).toString() + " - " + rSet.getObject(2).toString() +" Euros");
-            jListTopVendasMais.setModel(model1);
-
-
-            rSet = Negocio.topProdMenos();
-            DefaultListModel model2 = new DefaultListModel();
-            while (rSet.next())
-                model2.addElement(rSet.getObject(1).toString()+ " - " + rSet.getObject(2).toString() +" Vendas");
-            jListTopProdMenos.setModel(model2);
-
-
-            rSet = Negocio.topVendasMenos();
-            DefaultListModel model3 = new DefaultListModel();
-            while (rSet.next())
-                model3.addElement(rSet.getObject(1).toString() + " - " + rSet.getObject(2).toString() +" Euros");
-            jListTopVendasMenos.setModel(model3);
-      }
-         catch (SQLException ex) { Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); }
-
-    }//GEN-LAST:event_jButtonGerarEstatisticasActionPerformed
+    }//GEN-LAST:event_jTextFieldPalavraPasseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1965,6 +2151,10 @@ public class JPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Variáveis">
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButtonActualizarStock;
     private javax.swing.JButton jButtonAdicionarProduto;
     private javax.swing.JButton jButtonAdicionarProdutoVenda;
@@ -1981,6 +2171,8 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButtonVender;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -1990,6 +2182,11 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabel9FaixaEtaria;
     private javax.swing.JLabel jLabelAdministracao;
     private javax.swing.JLabel jLabelDosagem;
@@ -2004,6 +2201,7 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelReceita;
     private javax.swing.JLabel jLabelRegistoInfarmed;
     private javax.swing.JLabel jLabelTemperatura;
+    private javax.swing.JList jListClientes;
     private javax.swing.JList jListConstituintes;
     private javax.swing.JList jListProdutos;
     private javax.swing.JList jListProdutosStocks;
@@ -2035,6 +2233,9 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
+    private javax.swing.JPanel jPanel23;
+    private javax.swing.JPanel jPanel24;
+    private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -2050,6 +2251,7 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButtonNomeProdStock;
     private javax.swing.JRadioButton jRadioButtonRemoverQ;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -2061,19 +2263,26 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPaneFichaProduto;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFieldAdministracao;
     private javax.swing.JTextField jTextFieldAreaTerapeuticaMore;
     private javax.swing.JTextField jTextFieldAumentaQuantidadeStock;
+    private javax.swing.JTextField jTextFieldDataNas;
     private javax.swing.JTextField jTextFieldDosagem;
+    private javax.swing.JTextField jTextFieldEmail;
     private javax.swing.JTextField jTextFieldFaixaEtaria;
     private javax.swing.JTextField jTextFieldFolhetoInformativo;
     private javax.swing.JTextField jTextFieldFormato;
     private javax.swing.JTextField jTextFieldGenerico;
     private javax.swing.JTextField jTextFieldLote;
+    private javax.swing.JTextField jTextFieldMontanteGasto;
+    private javax.swing.JTextField jTextFieldMoradaCliente;
+    private javax.swing.JTextField jTextFieldNomeCliente;
     private javax.swing.JTextField jTextFieldNomeGen;
     private javax.swing.JTextField jTextFieldNomeGenericoStock;
     private javax.swing.JTextField jTextFieldNomeMedicamento;
     private javax.swing.JTextField jTextFieldNomeProdutoStock;
+    private javax.swing.JTextField jTextFieldPalavraPasse;
     private javax.swing.JTextField jTextFieldPreco;
     private javax.swing.JTextField jTextFieldProcura;
     private javax.swing.JTextField jTextFieldProcuraStock;
@@ -2085,6 +2294,7 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldReceita;
     private javax.swing.JTextField jTextFieldRegistoInfarmed;
     private javax.swing.JTextField jTextFieldTemperatura;
+    private javax.swing.JTextField jTextFieldUserName;
     private javax.swing.JTextField jTextFieldVendaNomeCliente;
     private javax.swing.JTextField jTextFieldVendasTotalMontante;
     private javax.swing.JTextField jTextFieldVendasTotalProdutos;
