@@ -1512,23 +1512,23 @@
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="jPanel18" alignment="0" min="-2" max="-2" attributes="1"/>
-                                      <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jPanel18" max="32767" attributes="1"/>
+                                      <Group type="102" attributes="0">
                                           <EmptySpace min="10" pref="10" max="10" attributes="0"/>
                                           <Component id="jPanel20" max="32767" attributes="1"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                       <Component id="jPanel22" max="32767" attributes="1"/>
-                                      <Component id="jPanel21" alignment="0" max="32767" attributes="1"/>
+                                      <Component id="jPanel21" alignment="1" max="32767" attributes="1"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jButtonGerarEstatisticas" pref="575" max="32767" attributes="0"/>
+                                  <Component id="jButtonGerarEstatisticas" pref="610" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -1538,14 +1538,14 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jPanel21" max="32767" attributes="1"/>
                               <Component id="jPanel18" alignment="1" max="32767" attributes="1"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jPanel22" max="32767" attributes="1"/>
-                              <Component id="jPanel20" alignment="0" min="-2" max="-2" attributes="1"/>
+                              <Component id="jPanel20" max="32767" attributes="1"/>
+                              <Component id="jPanel22" alignment="0" max="32767" attributes="1"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jButtonGerarEstatisticas" min="-2" max="-2" attributes="0"/>
@@ -1569,7 +1569,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane6" pref="246" max="32767" attributes="0"/>
+                              <Component id="jScrollPane6" pref="265" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1607,7 +1607,7 @@
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                        <TitledBorder title="Top Produtos Menos Vendidos"/>
+                        <TitledBorder justification="2" title="Top Produtos Menos Vendidos"/>
                       </Border>
                     </Property>
                   </Properties>
@@ -1617,7 +1617,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane7" pref="236" max="32767" attributes="0"/>
+                              <Component id="jScrollPane7" pref="255" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1655,7 +1655,7 @@
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                        <TitledBorder title="Top Vendas Valor Mais Alto"/>
+                        <TitledBorder justification="2" title="Top Vendas Valor Mais Alto"/>
                       </Border>
                     </Property>
                   </Properties>
@@ -1665,8 +1665,8 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane8" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jScrollPane8" pref="274" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1703,7 +1703,7 @@
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                        <TitledBorder title="Top Vendas Valor Mais Baixo"/>
+                        <TitledBorder justification="2" title="Top Vendas Valor Mais Baixo"/>
                       </Border>
                     </Property>
                   </Properties>
@@ -1713,8 +1713,8 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane9" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jScrollPane9" pref="274" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
