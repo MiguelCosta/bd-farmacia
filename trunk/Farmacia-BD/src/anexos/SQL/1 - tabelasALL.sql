@@ -18,8 +18,9 @@ drop table "MIGUEL"."LOTES"                   cascade constraints;
 drop table "MIGUEL"."PRODUTOS"                cascade constraints;
 drop table "MIGUEL"."TEMPERATURAS"            cascade constraints;
 drop table registo_stocks                     cascade constraints;
-drop table medicos                            cascade constraints;
 drop table vendas                             cascade constraints;
+drop table lista_vendas                       cascade constraints;
+drop table clientes                           cascade constraints;
 
 CREATE TABLE contraindicacoes (
   contraindicacao   varchar2(8),
@@ -207,20 +208,30 @@ CREATE TABLE registo_stocks (
         REFERENCES produtos(produto)
 );
 
-CREATE TABLE medicos (
-    medico      varchar2(8),
-    nome        varchar2(100)
+CREATE TABLE clientes (
+    username          varchar2(20) primary key,
+    palavra_chave     varchar2(16),
+    email             varchar2(50) unique,
+    nome_cliente      varchar2(100),
+    morada            varchar2(100),
+    data_nascimento   date,
+    montante_gasto    varchar2(10)
 );
+-- criar algo para actualizar o montante gasto de cada cliente
 
+CREATE TABLE lista_vendas (
+    numero            varchar2(3) primary key,
+    data_registo      date,
+    cliente_username  varchar2(20) references clientes(username),
+    montante_total    varchar2(8)
+);
 
 CREATE TABLE vendas (
-    produto             varchar2(8),
-    nome_cliente        varchar2(100),
-    numero              varchar2(3),
-    montante_total      varchar2(8),
-    data_registo        date,
-
-    CONSTRAINT produto_venda_fk
-        FOREIGN KEY (produto)
-        REFERENCES produtos(produto)
+    produto             varchar2(8) references produtos(produto),
+    cliente_username    varchar2(100) references clientes(username),
+    numero              varchar2(3) references lista_vendas(numero),
+    montante            varchar2(8),
+    data_registo        date
 );
+
+
