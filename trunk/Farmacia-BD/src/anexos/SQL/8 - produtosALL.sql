@@ -25111,11 +25111,11 @@ INSERT INTO produtos VALUES ('12553','Tapentadol','Yantil','4','4','253326522','
 
 INSERT INTO produtos VALUES ('12554','Tasonermina','Beromun','11','6','848724584','17','','1 mg/5.3 ml','4','130,00','9','0','0','140');
 
-INSERT INTO produtos VALUES ('12555','Tecnecio (99mTc) \'pertecnetato','DRYTEC Tecnecio-99M Gerador Esteril','15','2','900250099','0','','2.5 - 100 GBq','1','11,00','10','0','0','98');
+INSERT INTO produtos VALUES ('12555','Tecnecio (99mTc) pertecnetato','DRYTEC Tecnecio-99M Gerador Esteril','15','2','900250099','0','','2.5 - 100 GBq','1','11,00','10','0','0','98');
 
-INSERT INTO produtos VALUES ('12556','Tecnecio (99mTc) \'pertecnetato','Elumatic III','13','9','611039076','10','','2 - 20 GBq','3','27,00','4','0','0','98');
+INSERT INTO produtos VALUES ('12556','Tecnecio (99mTc) pertecnetato','Elumatic III','13','9','611039076','10','','2 - 20 GBq','3','27,00','4','0','0','98');
 
-INSERT INTO produtos VALUES ('12557','Tecnecio (99mTc) \'pertecnetato','Ultra TechneKow FM','15','0','70665984','3','','2.15 - 43.00 GBq','0','142,00','10','0','0','98');
+INSERT INTO produtos VALUES ('12557','Tecnecio (99mTc) pertecnetato','Ultra TechneKow FM','15','0','70665984','3','','2.15 - 43.00 GBq','0','142,00','10','0','0','98');
 
 INSERT INTO produtos VALUES ('12558','Tecnecio (99mTc) albumina humana','Nanocoll','11','1','53040062','9','','0.5 mg','4','19,00','7','0','0','155');
 
