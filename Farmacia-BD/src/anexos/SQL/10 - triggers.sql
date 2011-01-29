@@ -9,11 +9,13 @@ BEGIN
 
   SELECT numero INTO n_venda FROM lista_vendas WHERE numero = :NEW.numero;
   
-  UPDATE lista_vendas SET montante_total = montante_total + :NEW.montante;
+  UPDATE lista_vendas SET montante_total = montante_total + :NEW.montante WHERE numero = :NEW.numero;
+  UPDATE clientes SET montante_gasto = montante_gasto + :NEW.montante WHERE username = :NEW.cliente_username;
 
    EXCEPTION when no_data_found 
     THEN
       INSERT INTO lista_vendas VALUES (:NEW.numero, sysdate, :NEW.cliente_username, :NEW.montante);
+      UPDATE clientes SET montante_gasto = montante_gasto + :NEW.montante WHERE username = :NEW.cliente_username;
 END regista_venda;
 /
 ALTER TRIGGER regista_venda ENABLE;
