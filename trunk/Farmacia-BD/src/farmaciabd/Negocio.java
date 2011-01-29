@@ -710,9 +710,7 @@ public class Negocio {
     public static ResultSet topProdMais () throws SQLException {
 
     ResultSet rSet = null;
-
-    String sql = "CREATE OR REPLACE VIEW produtos_vendidos AS SELECT PRODUTO FROM VENDAS;";
-    sql = sql + "SELECT * FROM (SELECT produto, count(*) as refs FROM (SELECT PRODUTO FROM VENDAS) GROUP BY PRODUTO ORDER BY refs DESC) WHERE ROWNUM <=10";
+    String sql = "SELECT * FROM (SELECT produto, count(*) as refs FROM (SELECT PRODUTO FROM VENDAS) GROUP BY PRODUTO ORDER BY refs DESC) WHERE ROWNUM <=10";
 
     rSet = Model.stmt.executeQuery(sql);
 

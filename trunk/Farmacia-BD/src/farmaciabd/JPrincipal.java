@@ -1917,7 +1917,7 @@ public class JPrincipal extends javax.swing.JFrame {
             DefaultListModel model1 = new DefaultListModel();
             while (rSet.next())
                 model1.addElement(rSet.getString(1));
-            jListTopVendasMais.setModel(model);
+            jListTopVendasMais.setModel(model1);
 
 
             rSet = Negocio.topProdMenos();
