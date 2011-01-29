@@ -159,7 +159,6 @@ public class JPrincipal extends javax.swing.JFrame {
         jTextFieldNomeCliente = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jTextFieldMoradaCliente = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -168,13 +167,12 @@ public class JPrincipal extends javax.swing.JFrame {
         jTextFieldPalavraPasse = new javax.swing.JTextField();
         jTextFieldEmail = new javax.swing.JTextField();
         jTextFieldMontanteGasto = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jTextFieldDataNas = new javax.swing.JTextField();
+        jButtonAlterarCliente = new javax.swing.JButton();
+        jButtonAdicionarCliente = new javax.swing.JButton();
+        jButtonLimpar = new javax.swing.JButton();
         jPanel25 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
+        jTextFieldProcuraCliente = new javax.swing.JTextField();
+        jButtonProcurarCliente = new javax.swing.JButton();
         jPanel15 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -349,6 +347,12 @@ public class JPrincipal extends javax.swing.JFrame {
         jLabelNomeMedicamento.setText("Nome do Medicamento");
 
         jLabelProduto.setText("Código do Produto");
+
+        jTextFieldProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldProdutoActionPerformed(evt);
+            }
+        });
 
         jLabelRegistoInfarmed.setText("Registo Infarmed");
 
@@ -916,6 +920,11 @@ public class JPrincipal extends javax.swing.JFrame {
             jListClientes.setModel(model);
         }
         catch (SQLException ex) {Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);}
+        jListClientes.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jListClientesValueChanged(evt);
+            }
+        });
         jScrollPane10.setViewportView(jListClientes);
 
         jPanel24.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ficha do Cliente", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
@@ -923,8 +932,6 @@ public class JPrincipal extends javax.swing.JFrame {
         jLabel5.setText("Nome do Cliente");
 
         jLabel6.setText("Morada");
-
-        jLabel7.setText("Data de Nascimento");
 
         jLabel8.setText("Montante Gasto");
 
@@ -940,11 +947,26 @@ public class JPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Alterar Cliente");
+        jButtonAlterarCliente.setText("Alterar Cliente");
+        jButtonAlterarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAlterarClienteActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Adicionar Cliente");
+        jButtonAdicionarCliente.setText("Adicionar Cliente");
+        jButtonAdicionarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAdicionarClienteActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Limpar Campos");
+        jButtonLimpar.setText("Limpar Campos");
+        jButtonLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLimparActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
         jPanel24.setLayout(jPanel24Layout);
@@ -953,44 +975,41 @@ public class JPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel24Layout.createSequentialGroup()
                 .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel24Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(jButtonAlterarCliente)
                         .addGap(14, 14, 14)
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                        .addComponent(jButton3))
+                        .addComponent(jButtonAdicionarCliente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                        .addComponent(jButtonLimpar))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel24Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel24Layout.createSequentialGroup()
+                                        .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                    .addGroup(jPanel24Layout.createSequentialGroup()
+                                        .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                                        .addGap(2, 2, 2))
+                                    .addGroup(jPanel24Layout.createSequentialGroup()
+                                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                                        .addGap(2, 2, 2)))
                                 .addGroup(jPanel24Layout.createSequentialGroup()
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                                .addGroup(jPanel24Layout.createSequentialGroup()
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
-                                    .addGap(2, 2, 2))
-                                .addGroup(jPanel24Layout.createSequentialGroup()
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
-                                    .addGap(2, 2, 2)))
-                            .addGroup(jPanel24Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(22, 22, 22))
+                                    .addComponent(jLabel8)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel24Layout.createSequentialGroup()
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10))
-                            .addGroup(jPanel24Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                .addGap(10, 10, 10)))
                         .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldNomeCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
-                            .addComponent(jTextFieldMoradaCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+                            .addComponent(jTextFieldNomeCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+                            .addComponent(jTextFieldMoradaCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel24Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldMontanteGasto, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE))
-                            .addComponent(jTextFieldUserName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
-                            .addComponent(jTextFieldPalavraPasse, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
-                            .addComponent(jTextFieldEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
-                            .addComponent(jTextFieldDataNas, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE))))
+                                .addComponent(jTextFieldMontanteGasto, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE))
+                            .addComponent(jTextFieldUserName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+                            .addComponent(jTextFieldPalavraPasse, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+                            .addComponent(jTextFieldEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel24Layout.setVerticalGroup(
@@ -1004,10 +1023,6 @@ public class JPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldMoradaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jTextFieldDataNas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
@@ -1024,16 +1039,21 @@ public class JPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jTextFieldMontanteGasto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE)
                 .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)))
+                    .addComponent(jButtonAlterarCliente)
+                    .addComponent(jButtonAdicionarCliente)
+                    .addComponent(jButtonLimpar)))
         );
 
         jPanel25.setBorder(javax.swing.BorderFactory.createTitledBorder("Procurar Cliente"));
 
-        jButton4.setText("Procurar Cliente");
+        jButtonProcurarCliente.setText("Procurar Cliente");
+        jButtonProcurarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonProcurarClienteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
         jPanel25.setLayout(jPanel25Layout);
@@ -1041,9 +1061,9 @@ public class JPrincipal extends javax.swing.JFrame {
             jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel25Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+                .addComponent(jTextFieldProcuraCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4)
+                .addComponent(jButtonProcurarCliente)
                 .addContainerGap())
         );
         jPanel25Layout.setVerticalGroup(
@@ -1051,8 +1071,8 @@ public class JPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel25Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4))
+                    .addComponent(jTextFieldProcuraCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonProcurarCliente))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1062,7 +1082,7 @@ public class JPrincipal extends javax.swing.JFrame {
             jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel23Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2123,6 +2143,85 @@ public class JPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldPalavraPasseActionPerformed
 
+    private void jButtonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparActionPerformed
+        jTextFieldNomeCliente.setText(null);
+        jTextFieldMoradaCliente.setText(null);
+        jTextFieldUserName.setText(null);
+        jTextFieldPalavraPasse.setText(null);
+        jTextFieldEmail.setText(null);
+        jTextFieldMontanteGasto.setText(null);
+    }//GEN-LAST:event_jButtonLimparActionPerformed
+
+    private void jButtonProcurarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProcurarClienteActionPerformed
+        String sel = jTextFieldProcuraCliente.getText();
+        DefaultListModel model = new DefaultListModel();
+
+        try {
+                rSet = Negocio.procurarClientes(sel);
+                while (rSet.next()) {
+                    model.addElement(rSet.getString(3));
+                }
+                jListClientes.setModel(model);
+        } catch (Exception ex) {
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButtonProcurarClienteActionPerformed
+
+    private void jTextFieldProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProdutoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldProdutoActionPerformed
+
+    private void jListClientesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListClientesValueChanged
+        String sel              = (String) jListClientes.getSelectedValue();
+        String nomeCliente      = null;
+        String morada           = null;
+        String userName         = null;
+        String password         = null;
+        String montanteGasto    = null;
+        
+        try {
+            rSet = Negocio.selClienteNome(sel);
+
+            while(rSet.next()){
+
+                jTextFieldNomeCliente.setText(rSet.getObject(4).toString());
+                jTextFieldMoradaCliente.setText(rSet.getObject(5).toString());
+                jTextFieldUserName.setText(rSet.getObject(1).toString());
+                jTextFieldPalavraPasse.setText(rSet.getObject(2).toString());
+                jTextFieldEmail.setText(rSet.getObject(3).toString());
+                jTextFieldMontanteGasto.setText(rSet.getObject(7).toString());
+
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jListClientesValueChanged
+
+    private void jButtonAlterarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarClienteActionPerformed
+
+        if (jTextFieldNomeCliente.getText().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(null, "Seleccione o cliente que pretende alterar!", "Erro ao alterar cliente",2);
+        }
+        else {
+            String userName = jTextFieldUserName.getText();
+            JDialogAlterarCliente alterarCliente = null;
+            try {
+                alterarCliente = new JDialogAlterarCliente(this, true, userName);
+            } catch (Exception ex) {
+                Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            alterarCliente.setVisible(true);
+
+        }
+        //jListProdutosValueChanged(null);
+
+    }//GEN-LAST:event_jButtonAlterarClienteActionPerformed
+
+    private void jButtonAdicionarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarClienteActionPerformed
+        
+    }//GEN-LAST:event_jButtonAdicionarClienteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2151,21 +2250,21 @@ public class JPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Variáveis">
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButtonActualizarStock;
+    private javax.swing.JButton jButtonAdicionarCliente;
     private javax.swing.JButton jButtonAdicionarProduto;
     private javax.swing.JButton jButtonAdicionarProdutoVenda;
+    private javax.swing.JButton jButtonAlterarCliente;
     private javax.swing.JButton jButtonAlterarProduto;
     private javax.swing.JButton jButtonAreaTerapeuticaAbrirPDF;
     private javax.swing.JButton jButtonCancelarVenda;
     private javax.swing.JButton jButtonFolhetoInformativo;
     private javax.swing.JButton jButtonGerarEstatisticas;
+    private javax.swing.JButton jButtonLimpar;
     private javax.swing.JButton jButtonLimparCampos;
     private javax.swing.JButton jButtonProcuraStock;
     private javax.swing.JButton jButtonProcurar;
+    private javax.swing.JButton jButtonProcurarCliente;
     private javax.swing.JButton jButtonProcurarVenda;
     private javax.swing.JButton jButtonRemoverProdutoVenda;
     private javax.swing.JButton jButtonVender;
@@ -2184,7 +2283,6 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabel9FaixaEtaria;
@@ -2263,11 +2361,9 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPaneFichaProduto;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFieldAdministracao;
     private javax.swing.JTextField jTextFieldAreaTerapeuticaMore;
     private javax.swing.JTextField jTextFieldAumentaQuantidadeStock;
-    private javax.swing.JTextField jTextFieldDataNas;
     private javax.swing.JTextField jTextFieldDosagem;
     private javax.swing.JTextField jTextFieldEmail;
     private javax.swing.JTextField jTextFieldFaixaEtaria;
@@ -2285,6 +2381,7 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldPalavraPasse;
     private javax.swing.JTextField jTextFieldPreco;
     private javax.swing.JTextField jTextFieldProcura;
+    private javax.swing.JTextField jTextFieldProcuraCliente;
     private javax.swing.JTextField jTextFieldProcuraStock;
     private javax.swing.JTextField jTextFieldProcurarVenda;
     public javax.swing.JTextField jTextFieldProduto;
