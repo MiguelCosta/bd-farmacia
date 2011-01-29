@@ -18213,7 +18213,7 @@ INSERT INTO produtos VALUES ('9104','Nonacog alfa','Benefix','5','9','277388585'
 
 INSERT INTO produtos VALUES ('9105','Nonacog alfa','Benefix','10','9','530454285','7','','500 U.I.','7','103,00','13','0','0','137');
 
-INSERT INTO produtos VALUES ('9106','Nonoxinol','Rendell\'S','5','10','590119026','4','','96 mg','7','131,00','14','0','0','125');
+INSERT INTO produtos VALUES ('9106','Nonoxinol','Rendell S','5','10','590119026','4','','96 mg','7','131,00','14','0','0','125');
 
 INSERT INTO produtos VALUES ('9107','Noradrenalina','L-Noradrenalina Braun','5','9','649587110','2','','1 mg/ml','1','128,00','13','0','0','177');
 
