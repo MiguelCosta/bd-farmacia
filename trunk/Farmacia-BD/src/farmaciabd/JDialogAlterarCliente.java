@@ -11,6 +11,9 @@
 
 package farmaciabd;
 
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -27,6 +30,7 @@ public class JDialogAlterarCliente extends javax.swing.JDialog {
     public JDialogAlterarCliente(java.awt.Frame parent, boolean modal, String username_cliente) throws Exception {
         super(parent, modal);
         initComponents();
+        centerOnScreen(this);
         jTextFieldAltUser.setEnabled(false);
 
         String sel = username_cliente;
@@ -276,4 +280,24 @@ public class JDialogAlterarCliente extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldAltUser;
     // End of variables declaration//GEN-END:variables
 
+
+
+
+
+    public static void centerOnScreen(final Component target) {
+       if (target != null) {
+           Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+           Dimension dialogSize = target.getSize();
+
+           if (dialogSize.height > screenSize.height) {
+               dialogSize.height = screenSize.height;
+           }
+           if (dialogSize.width > screenSize.width) {
+               dialogSize.width = screenSize.width;
+           }
+
+           target.setLocation((screenSize.width - dialogSize.width) / 2,
+                   (screenSize.height - dialogSize.height) / 2);
+       }
+   }
 }
