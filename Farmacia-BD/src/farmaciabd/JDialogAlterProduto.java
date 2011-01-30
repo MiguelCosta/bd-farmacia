@@ -440,6 +440,11 @@ public class JDialogAlterProduto extends java.awt.Dialog {
         catch (SQLException ex) { 
             Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); 
         }
+        jComboBoxFaixaEtaria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxFaixaEtariaActionPerformed(evt);
+            }
+        });
 
         try {     
             rSet = Administracoes.queryAdministracoes(); 
@@ -822,6 +827,10 @@ public class JDialogAlterProduto extends java.awt.Dialog {
     private void jButtonCancelarInsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarInsActionPerformed
         JDialogAlterProduto.this.dispose();
 }//GEN-LAST:event_jButtonCancelarInsActionPerformed
+
+    private void jComboBoxFaixaEtariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxFaixaEtariaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxFaixaEtariaActionPerformed
 
     /**
     * @param args the command line arguments

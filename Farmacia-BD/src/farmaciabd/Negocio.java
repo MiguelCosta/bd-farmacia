@@ -833,6 +833,46 @@ public class Negocio {
     }
 
 
+
+    static String devolveIdFaixa(String text) throws SQLException, Exception {
+        String faixa="";
+        ResultSet rSet = null;
+        String sql = "SELECT FAIXA_ETARIA FROM FAIXAS_ETARIAS WHERE NOME = '";
+        rSet = Model.stmt.executeQuery(sql + text +"'");
+        while(rSet.next()){
+            faixa = rSet.getString(1);
+        }
+        return faixa;
+     }
+
+    static String devolveIdArea(String areaTerapeutica) throws SQLException {
+        String area="";
+        ResultSet rSet = null;
+        String sql = "SELECT AREATERAPEUTICA FROM AREAS_TERAPEUTICAS WHERE NOME = '";
+        rSet = Model.stmt.executeQuery(sql + areaTerapeutica +"'");
+        while(rSet.next()){
+            area = rSet.getString(1);
+        }
+        return area;
+    }
+
+    static void actualizaPrecoGlobal(String text) throws SQLException, Exception {
+        String sql = "CALL actualizar_preco_geral("+text+")";
+        Model.stmt.executeQuery(sql);
+        commit2();
+    }
+
+    static void actualizaPrecoFaixaEtaria(String text,String idFaixa) throws SQLException, Exception {
+        String sql = "CALL actualizar_preco_faixa_etaria("+text+","+idFaixa+")";
+        Model.stmt.executeQuery(sql);
+        commit2();
+    }
+
+    static void actualizaPrecoAreaTerapeutica(String text, String idAreaTera) throws SQLException, Exception {
+        String sql = "CALL actualizar_preco_area_terapeu("+text+","+idAreaTera+")";
+        Model.stmt.executeQuery(sql);
+        commit2();
+    }
 }
 
 
