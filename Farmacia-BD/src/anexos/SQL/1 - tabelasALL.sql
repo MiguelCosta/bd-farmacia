@@ -169,6 +169,9 @@ CREATE TABLE produtos (
     REFERENCES formatos(formato)
 );
 
+ALTER TABLE produtos
+  ADD folheto_url   varchar2(500);
+
 CREATE TABLE lista_contraindicacoes (
   produto         varchar(8),
   contraindicacao varchar(8),
