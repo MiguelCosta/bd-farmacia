@@ -1629,6 +1629,8 @@ public class JPrincipal extends javax.swing.JFrame {
 
         jMenuAjuda.setText("Menu");
 
+        jMenuItemAjuda.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.ALT_MASK));
+        jMenuItemAjuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/anexos/ajuda.png"))); // NOI18N
         jMenuItemAjuda.setText("Ajuda");
         jMenuItemAjuda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
