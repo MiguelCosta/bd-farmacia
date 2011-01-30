@@ -1742,7 +1742,7 @@ public class JPrincipal extends javax.swing.JFrame {
             DefaultListModel model1 = new DefaultListModel();
             model1.addElement("NºFactura - Montante");
             while (rSet.next())
-                model1.addElement(rSet.getObject(1).toString() + " - " + rSet.getObject(2).toString() +" Euros");
+                model1.addElement(rSet.getObject(1).toString() + " - " + rSet.getObject(2).toString() +" €");
             jListTopVendasMais.setModel(model1);
 
 
@@ -1758,7 +1758,7 @@ public class JPrincipal extends javax.swing.JFrame {
             DefaultListModel model3 = new DefaultListModel();
             model3.addElement("NºFactura - Montante");
             while (rSet.next())
-                model3.addElement(rSet.getObject(1).toString() + " - " + rSet.getObject(2).toString() +" Euros");
+                model3.addElement(rSet.getObject(1).toString() + " - " + rSet.getObject(2).toString() +" €");
             jListTopVendasMenos.setModel(model3);
         } catch (SQLException ex) { Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); }
     }//GEN-LAST:event_jButtonGerarEstatisticasActionPerformed
