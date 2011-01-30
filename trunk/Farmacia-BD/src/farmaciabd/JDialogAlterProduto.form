@@ -502,6 +502,9 @@
                   <StringArray count="0"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxFaixaEtariaActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try {     &#xd;&#xa;    rSet = FaixasEtarias.queryFaixasEtarias(); &#xd;&#xa;    &#xd;&#xa;    //DefaultListModel model = new DefaultListModel();     &#xd;&#xa;&#xd;&#xa;    while (rSet.next())         &#xd;&#xa;        jComboBoxFaixaEtaria.addItem(rSet.getString(1));     &#xd;&#xa;    }&#xd;&#xa;&#xd;&#xa;catch (SQLException ex) { &#xd;&#xa;    Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); &#xd;&#xa;}"/>
               </AuxValues>
