@@ -64,7 +64,7 @@ public class JAbertura extends java.awt.Dialog {
         gridBagConstraints.insets = new java.awt.Insets(14, 0, 14, 0);
         jPanel1.add(jButtonEntrar, gridBagConstraints);
 
-        jLabel1.setText("Logo");
+        jLabel1.setText("logo");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
