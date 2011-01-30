@@ -191,7 +191,6 @@ public class JDialogAlterarCliente extends javax.swing.JDialog {
         jTextFieldAltMorada.setText(null);
         jTextFieldAltNome.setText(null);
         jTextFieldAltPass.setText(null);
-        jTextFieldAltUser.setText(null);
     }//GEN-LAST:event_jButtonLimparCamposActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed

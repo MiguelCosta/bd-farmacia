@@ -692,8 +692,12 @@ public class Negocio {
 
     public static void registarVenda (String produto, String nome_cliente, String numeroVenda) throws SQLException, Exception{
         float montante      = montanteMedicamento(produto);
-        String sql          = "INSERT INTO vendas VALUES ('"+produto+"','"+nome_cliente+"','"+numeroVenda+"','"+montante+"',sysdate)";
+        System.out.println("antes");
+        String sql          = "INSERT INTO vendas VALUES ('"+produto+"','"+nome_cliente+"','"+numeroVenda+"',"+montante+",sysdate)";
+        System.out.println("aqui");
+        System.out.print(sql);
         Model.stmt.executeQuery(sql);
+        System.out.println("depois");
         commit2();
 
     }
@@ -740,7 +744,7 @@ public class Negocio {
     public static ResultSet topVendasMais () throws SQLException {
 
         ResultSet rSet = null;
-        String sql = "SELECT * FROM (SELECT NUMERO, SUM(TO_NUMBER(MONTANTE_TOTAL))as montante FROM VENDAS GROUP BY NUMERO ORDER BY montante DESC) WHERE ROWNUM <=10";
+        String sql = "SELECT * FROM (SELECT NUMERO, SUM(MONTANTE_TOTAL)as montante FROM LISTA_VENDAS GROUP BY NUMERO ORDER BY montante DESC) WHERE ROWNUM <=10";
         rSet = Model.stmt.executeQuery(sql);
         return rSet;
     }
@@ -758,27 +762,27 @@ public class Negocio {
     public static ResultSet topVendasMenos () throws SQLException {
 
         ResultSet rSet = null;
-        String sql = "SELECT * FROM (SELECT NUMERO, SUM(TO_NUMBER(MONTANTE_TOTAL))as montante FROM VENDAS GROUP BY NUMERO ORDER BY montante ASC) WHERE ROWNUM <=10";
+        String sql = "SELECT * FROM (SELECT NUMERO, SUM(MONTANTE_TOTAL)as montante FROM LISTA_VENDAS GROUP BY NUMERO ORDER BY montante ASC) WHERE ROWNUM <=10";
         rSet = Model.stmt.executeQuery(sql);
         return rSet;
     }
     
 
     public static ResultSet selClienteNome(String sel) throws Exception {
-        String sql = "SELECT * FROM CLIENTES WHERE nome_cliente=";
+        String sql = "SELECT * FROM CLIENTES WHERE nome_cliente='";
 
         ResultSet rSet = null;
-        rSet = Model.stmt.executeQuery("SELECT * FROM produtos WHERE nome_medicamento ='" + sel + "'");
+        rSet = Model.stmt.executeQuery(sql + sel + "'");
 
         return rSet;
     }
 
 
     public static ResultSet selClienteUser(String sel) throws Exception {
-        String sql = "SELECT * FROM CLIENTES WHERE username=";
+        String sql = "SELECT * FROM CLIENTES WHERE username='";
 
         ResultSet rSet = null;
-        rSet = Model.stmt.executeQuery("SELECT * FROM produtos WHERE nome_medicamento ='" + sel + "'");
+        rSet = Model.stmt.executeQuery(sql + sel + "'");
 
         return rSet;
     }
@@ -815,11 +819,20 @@ public class Negocio {
     }
 
     static void adiconarCliente(String nome, String morada, String user, String password, String email) throws SQLException, Exception {
-        String sql = "INSERT INTO CLIENTES VALUES ("+user+",'"+password+"','"+email+"','"+nome+"','"+morada+"','sysdate','')";
+        String sql = "INSERT INTO CLIENTES VALUES ('"+user+"','"+password+"','"+email+"','"+nome+"','"+morada+"',null,0)";
         System.out.println(sql);
         Model.stmt.executeQuery(sql);
         commit2();
     }
+    public static ResultSet listaUsernames () throws SQLException {
+
+        ResultSet rSet = null;
+        String sql = "SELECT USERNAME FROM CLIENTES";
+        rSet = Model.stmt.executeQuery(sql);
+        return rSet;
+    }
+
+
 }
 
 
