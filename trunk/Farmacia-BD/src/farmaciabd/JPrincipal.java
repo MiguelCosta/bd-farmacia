@@ -1625,11 +1625,10 @@ public class JPrincipal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Gestão de Preços", jPanel26);
 
-        jLabel1.setText("Logo");
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/anexos/logo.png"))); // NOI18N
 
         jMenuAjuda.setText("Menu");
 
-        jMenuItemAjuda.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
         jMenuItemAjuda.setText("Ajuda");
         jMenuItemAjuda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1640,6 +1639,7 @@ public class JPrincipal extends javax.swing.JFrame {
         jMenuAjuda.add(jSeparator1);
 
         jMenuItemSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
+        jMenuItemSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/anexos/fechar.png"))); // NOI18N
         jMenuItemSair.setText("Sair");
         jMenuItemSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
