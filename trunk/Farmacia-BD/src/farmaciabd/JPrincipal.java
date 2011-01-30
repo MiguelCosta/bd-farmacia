@@ -2149,6 +2149,7 @@ public class JPrincipal extends javax.swing.JFrame {
 
     private void jRadioButtonCodProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonCodProdActionPerformed
         jRadioButtonNameProd.setSelected(false);
+        jRadioButtonCodProd.setSelected(true);
         jListProdutos.removeAll();
 
         try {
@@ -2166,6 +2167,7 @@ public class JPrincipal extends javax.swing.JFrame {
 
     private void jRadioButtonNameProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNameProdActionPerformed
         jRadioButtonCodProd.setSelected(false);
+        jRadioButtonNameProd.setSelected(true);
         jListProdutos.removeAll();
 
         try {
