@@ -852,6 +852,7 @@ public class Negocio {
 
     static void actualizaPrecoGlobal(String text) throws SQLException, Exception {
         String sql = "CALL actualizar_preco_geral("+text+")";
+        System.out.println(sql);
         Model.stmt.executeQuery(sql);
         commit2();
     }

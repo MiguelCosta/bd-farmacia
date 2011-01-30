@@ -11,6 +11,9 @@
 
 package farmaciabd;
 
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,6 +29,7 @@ public class JDialogAdicionarCliente extends javax.swing.JDialog {
     public JDialogAdicionarCliente(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        centerOnScreen(this);
     }
 
     /** This method is called from within the constructor to
@@ -245,5 +249,26 @@ public class JDialogAdicionarCliente extends javax.swing.JDialog {
     private javax.swing.JPasswordField jTextFieldNovoPass;
     private javax.swing.JTextField jTextFieldNovoUser;
     // End of variables declaration//GEN-END:variables
+
+
+
+    public static void centerOnScreen(final Component target) {
+       if (target != null) {
+           Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+           Dimension dialogSize = target.getSize();
+
+           if (dialogSize.height > screenSize.height) {
+               dialogSize.height = screenSize.height;
+           }
+           if (dialogSize.width > screenSize.width) {
+               dialogSize.width = screenSize.width;
+           }
+
+           target.setLocation((screenSize.width - dialogSize.width) / 2,
+                   (screenSize.height - dialogSize.height) / 2);
+       }
+   }
+
+
 
 }

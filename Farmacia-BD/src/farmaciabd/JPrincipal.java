@@ -1459,6 +1459,11 @@ public class JPrincipal extends javax.swing.JFrame {
         jPanel27.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Modo de Actualização", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
         jRadioButtonAPAT.setText("Actualizar Preço por área terapeutica");
+        jRadioButtonAPAT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonAPATActionPerformed(evt);
+            }
+        });
 
         jRadioButtonAPFE.setText("Actualizar Preço por faixa etária");
         jRadioButtonAPFE.addActionListener(new java.awt.event.ActionListener() {
@@ -1526,7 +1531,7 @@ public class JPrincipal extends javax.swing.JFrame {
 
         jLabel12.setText("Faixa Etária");
 
-        jLabel7.setText("Percentagem a aumentar");
+        jLabel7.setText("Percentagem a alterar");
 
         jLabel14.setText("%");
 
@@ -1608,7 +1613,7 @@ public class JPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel26Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(224, Short.MAX_VALUE))
+                .addContainerGap(229, Short.MAX_VALUE))
         );
         jPanel26Layout.setVerticalGroup(
             jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2350,8 +2355,11 @@ public class JPrincipal extends javax.swing.JFrame {
 
             while(rSet.next()){
 
-                nomeCliente=rSet.getObject(4).toString();
-                morada=rSet.getObject(5).toString();
+                if (rSet.getObject(4) == null) nomeCliente =  "";
+                else nomeCliente = rSet.getObject(4).toString();
+
+                if (rSet.getObject(5) == null) morada =  "";
+                else morada = rSet.getObject(5).toString();
                 userName=rSet.getObject(1).toString();
                 password=rSet.getObject(2).toString();
                 email=rSet.getObject(3).toString();
@@ -2401,18 +2409,21 @@ public class JPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAdicionarClienteActionPerformed
 
     private void jRadioButtonAPGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonAPGActionPerformed
+        jRadioButtonAPG.setSelected(true);
         jRadioButtonAPFE.setSelected(false);
         jRadioButtonAPAT.setSelected(false);
     }//GEN-LAST:event_jRadioButtonAPGActionPerformed
 
     private void jRadioButtonAPFEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonAPFEActionPerformed
         jRadioButtonAPG.setSelected(false);
+        jRadioButtonAPFE.setSelected(true);
         jRadioButtonAPAT.setSelected(false);
     }//GEN-LAST:event_jRadioButtonAPFEActionPerformed
 
     private void jButtonActualizarPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarPrecoActionPerformed
        try {
        if(jRadioButtonAPG.isEnabled()==true){
+           System.out.println(jTextFieldPerceAum.getText());
                 Negocio.actualizaPrecoGlobal(jTextFieldPerceAum.getText());
        }
        if(jRadioButtonAPFE.isEnabled()==true){
@@ -2430,7 +2441,16 @@ public class JPrincipal extends javax.swing.JFrame {
        } catch (Exception ex) {
                 Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
        }
+
+       JOptionPane.showConfirmDialog(this, "Preço alterado com sucesso!", "Preço alterado",JOptionPane.DEFAULT_OPTION);
+
     }//GEN-LAST:event_jButtonActualizarPrecoActionPerformed
+
+    private void jRadioButtonAPATActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonAPATActionPerformed
+        jRadioButtonAPG.setSelected(false);
+        jRadioButtonAPFE.setSelected(false);
+        jRadioButtonAPAT.setSelected(true);
+    }//GEN-LAST:event_jRadioButtonAPATActionPerformed
 
     /**
      * @param args the command line arguments
