@@ -37,8 +37,6 @@ public class JPrincipal extends javax.swing.JFrame {
         // win: UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
         try {
             UIManager.setLookAndFeel(ch.randelshofer.quaqua.QuaquaManager.getLookAndFeel());
-        } catch (UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }   catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Não foi possível carregar o \"Skin\" padrão. Definindo o padrão original.", "Erro", JOptionPane.ERROR_MESSAGE);
         }
@@ -131,8 +129,6 @@ public class JPrincipal extends javax.swing.JFrame {
         jRadioButtonCodProdStock = new javax.swing.JRadioButton();
         jRadioButtonNomeProdStock = new javax.swing.JRadioButton();
         jPanel10 = new javax.swing.JPanel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
         jTextFieldProcuraStock = new javax.swing.JTextField();
         jButtonProcuraStock = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -176,7 +172,7 @@ public class JPrincipal extends javax.swing.JFrame {
         jPanel15 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextFieldVendaNomeCliente = new javax.swing.JTextField();
+        jComboBoxUsernames = new javax.swing.JComboBox();
         jPanel17 = new javax.swing.JPanel();
         jButtonRemoverProdutoVenda = new javax.swing.JButton();
         jButtonAdicionarProdutoVenda = new javax.swing.JButton();
@@ -709,10 +705,6 @@ public class JPrincipal extends javax.swing.JFrame {
 
         jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder("Procura de Medicamentos"));
 
-        jLabel18.setText("A Procura será feita de acordo com o modo de ");
-
-        jLabel19.setText("visualização em que está!");
-
         jTextFieldProcuraStock.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextFieldProcuraStockKeyPressed(evt);
@@ -730,28 +722,21 @@ public class JPrincipal extends javax.swing.JFrame {
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel18)
-                    .addComponent(jLabel19)
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addComponent(jTextFieldProcuraStock, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonProcuraStock)))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addComponent(jTextFieldProcuraStock, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonProcuraStock)
+                .addContainerGap())
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addComponent(jLabel18)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel19)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap()
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldProcuraStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonProcuraStock))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         try {
@@ -886,11 +871,11 @@ public class JPrincipal extends javax.swing.JFrame {
                     .addComponent(jScrollPane3)
                     .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(45, Short.MAX_VALUE))
+                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(45, 45, 45))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -899,9 +884,9 @@ public class JPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -916,7 +901,7 @@ public class JPrincipal extends javax.swing.JFrame {
             rSet = Negocio.lisCli();
             DefaultListModel model = new DefaultListModel();
             while (rSet.next())
-            model.addElement(rSet.getObject(4).toString());
+            model.addElement(rSet.getObject(1).toString());
             jListClientes.setModel(model);
         }
         catch (SQLException ex) {Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);}
@@ -1106,7 +1091,17 @@ public class JPrincipal extends javax.swing.JFrame {
 
         jPanel16.setBorder(javax.swing.BorderFactory.createTitledBorder("Cliente"));
 
-        jLabel2.setText("Nome:");
+        jLabel2.setText("Username:");
+
+        try {
+            rSet = Negocio.listaUsernames();
+            DefaultComboBoxModel model = new DefaultComboBoxModel();
+            while (rSet.next())
+            model.addElement(rSet.getObject(1).toString());
+
+            jComboBoxUsernames.setModel(model);
+        }
+        catch (SQLException ex) { Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); }
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
@@ -1116,15 +1111,15 @@ public class JPrincipal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldVendaNomeCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jComboBoxUsernames, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(291, Short.MAX_VALUE))
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel16Layout.createSequentialGroup()
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextFieldVendaNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxUsernames, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1237,9 +1232,9 @@ public class JPrincipal extends javax.swing.JFrame {
         try {
             rSet = Produtos.queryProdutos();
             DefaultListModel model = new DefaultListModel();
-            model.addElement("Codigo - Nome - Quantidade");
+            model.addElement("Codigo - Nome");
             while (rSet.next())
-            model.addElement(rSet.getObject(1).toString() +" - "+ rSet.getObject(3).toString() + " - " + rSet.getObject(4).toString());
+            model.addElement(rSet.getObject(1).toString() +" - "+ rSet.getObject(3).toString());
 
             jListProdutosVenda.setModel(model);
         }
@@ -1561,28 +1556,32 @@ public class JPrincipal extends javax.swing.JFrame {
         try {
             rSet = Negocio.topProdMais();
             DefaultListModel model = new DefaultListModel();
+            model.addElement("Produto   Nº Vendas");
             while (rSet.next())
-                model.addElement(rSet.getObject(1).toString() + " - " + rSet.getObject(2).toString() +" Vendas");
+                model.addElement(rSet.getObject(1).toString() + "                        " + rSet.getObject(2).toString() +"");
             jListTopProdMais.setModel(model);
 
             rSet = Negocio.topVendasMais();
             DefaultListModel model1 = new DefaultListModel();
+            model1.addElement("NºFactura  Montante");
             while (rSet.next())
-                model1.addElement(rSet.getObject(1).toString() + " - " + rSet.getObject(2).toString() +" Euros");
+                model1.addElement(rSet.getObject(1).toString() + "                        " + rSet.getObject(2).toString() +" Euros");
             jListTopVendasMais.setModel(model1);
 
 
             rSet = Negocio.topProdMenos();
             DefaultListModel model2 = new DefaultListModel();
+            model2.addElement("Produto   Nº Vendas");
             while (rSet.next())
-                model2.addElement(rSet.getObject(1).toString()+ " - " + rSet.getObject(2).toString() +" Vendas");
+                model2.addElement(rSet.getObject(1).toString()+ "                        " + rSet.getObject(2).toString() +"");
             jListTopProdMenos.setModel(model2);
 
 
             rSet = Negocio.topVendasMenos();
             DefaultListModel model3 = new DefaultListModel();
+            model3.addElement("NºFactura  Montante");
             while (rSet.next())
-                model3.addElement(rSet.getObject(1).toString() + " - " + rSet.getObject(2).toString() +" Euros");
+                model3.addElement(rSet.getObject(1).toString() + "                        " + rSet.getObject(2).toString() +" Euros");
             jListTopVendasMenos.setModel(model3);
         } catch (SQLException ex) { Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); }
     }//GEN-LAST:event_jButtonGerarEstatisticasActionPerformed
@@ -1623,7 +1622,7 @@ public class JPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCancelarVendaActionPerformed
 
     private void jButtonVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVenderActionPerformed
-        String nome_cliente             = jTextFieldVendaNomeCliente.getText();
+        String nome_cliente             = jComboBoxUsernames.getSelectedItem().toString();
         String produto_todo             = "";
         String delims                   = "[ ]+";
         String produto                  = "";
@@ -2178,20 +2177,31 @@ public class JPrincipal extends javax.swing.JFrame {
         String userName         = null;
         String password         = null;
         String montanteGasto    = null;
+        String email            = null;
         
         try {
-            rSet = Negocio.selClienteNome(sel);
+            rSet = Negocio.selClienteUser(sel);
 
             while(rSet.next()){
 
-                jTextFieldNomeCliente.setText(rSet.getObject(4).toString());
-                jTextFieldMoradaCliente.setText(rSet.getObject(5).toString());
-                jTextFieldUserName.setText(rSet.getObject(1).toString());
-                jTextFieldPalavraPasse.setText(rSet.getObject(2).toString());
-                jTextFieldEmail.setText(rSet.getObject(3).toString());
-                jTextFieldMontanteGasto.setText(rSet.getObject(7).toString());
+                nomeCliente=rSet.getObject(4).toString();
+                morada=rSet.getObject(5).toString();
+                userName=rSet.getObject(1).toString();
+                password=rSet.getObject(2).toString();
+                email=rSet.getObject(3).toString();
+                if (rSet.getObject(7)==null) montanteGasto="";
+                else montanteGasto = rSet.getObject(7).toString();
 
             }
+
+            jTextFieldNomeCliente.setText(nomeCliente);
+            jTextFieldMoradaCliente.setText(morada);
+            jTextFieldUserName.setText(userName);
+            jTextFieldPalavraPasse.setText(password);
+            jTextFieldEmail.setText(email);
+            jTextFieldMontanteGasto.setText(montanteGasto);
+
+
         } catch (Exception ex) {
             Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2200,7 +2210,7 @@ public class JPrincipal extends javax.swing.JFrame {
 
     private void jButtonAlterarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarClienteActionPerformed
 
-        if (jTextFieldNomeCliente.getText().equalsIgnoreCase("")) {
+        if (jTextFieldUserName.getText().equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(null, "Seleccione o cliente que pretende alterar!", "Erro ao alterar cliente",2);
         }
         else {
@@ -2219,7 +2229,9 @@ public class JPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAlterarClienteActionPerformed
 
     private void jButtonAdicionarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarClienteActionPerformed
-        
+        JDialogAdicionarCliente adicionarCliente = new JDialogAdicionarCliente(this, true);
+        adicionarCliente.setVisible(true);
+        jListClientesValueChanged(null);
     }//GEN-LAST:event_jButtonAdicionarClienteActionPerformed
 
     /**
@@ -2268,12 +2280,11 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButtonProcurarVenda;
     private javax.swing.JButton jButtonRemoverProdutoVenda;
     private javax.swing.JButton jButtonVender;
+    private javax.swing.JComboBox jComboBoxUsernames;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -2392,7 +2403,6 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldRegistoInfarmed;
     private javax.swing.JTextField jTextFieldTemperatura;
     private javax.swing.JTextField jTextFieldUserName;
-    private javax.swing.JTextField jTextFieldVendaNomeCliente;
     private javax.swing.JTextField jTextFieldVendasTotalMontante;
     private javax.swing.JTextField jTextFieldVendasTotalProdutos;
     // End of variables declaration//GEN-END:variables
@@ -2465,6 +2475,12 @@ public class JPrincipal extends javax.swing.JFrame {
         jTextFieldReceita.setEditable(false);
         jTextFieldRegistoInfarmed.setEditable(false);
         jTextFieldTemperatura.setEditable(false);
+        jTextFieldNomeCliente.setEditable(false);
+        jTextFieldMontanteGasto.setEditable(false);
+        jTextFieldMoradaCliente.setEditable(false);
+        jTextFieldEmail.setEditable(false);
+        jTextFieldUserName.setEditable(false);
+        jTextFieldPalavraPasse.setEditable(false);
 
         // stocks
         jRadioButtonAdicionarQ.setSelected(true);

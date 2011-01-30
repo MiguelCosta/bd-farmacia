@@ -97,7 +97,7 @@ public class JDialogVender extends java.awt.Dialog {
         }
         catch (SQLException ex){}
 
-        jLabelNomeCliente.setText("Nome do Cliente:");
+        jLabelNomeCliente.setText("Username:");
 
         jTextAreaFactura.setColumns(20);
         jTextAreaFactura.setRows(5);
@@ -140,8 +140,8 @@ public class JDialogVender extends java.awt.Dialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextFieldVendaNum, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldNomeCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)
-                            .addComponent(jTextFieldData, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE))))
+                            .addComponent(jTextFieldNomeCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE)
+                            .addComponent(jTextFieldData, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -197,7 +197,7 @@ public class JDialogVender extends java.awt.Dialog {
                     produto_todo            = produtos_a_vender.getElementAt(i).toString();
                     String[] id             = produto_todo.split(delims);
                     produto                 = id[0];
-
+                    System.out.println(i);
                     //insere na tabla vendas
                     Negocio.registarVenda(produto, nome_cliente, numero_venda);
 

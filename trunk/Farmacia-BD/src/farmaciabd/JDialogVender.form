@@ -50,8 +50,8 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jTextFieldVendaNum" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
-                              <Component id="jTextFieldNomeCliente" alignment="0" pref="357" max="32767" attributes="0"/>
-                              <Component id="jTextFieldData" alignment="0" pref="357" max="32767" attributes="0"/>
+                              <Component id="jTextFieldNomeCliente" alignment="0" pref="387" max="32767" attributes="0"/>
+                              <Component id="jTextFieldData" alignment="0" pref="387" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -102,7 +102,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelNomeCliente">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Nome do Cliente:"/>
+            <Property name="text" type="java.lang.String" value="Username:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldNomeCliente">

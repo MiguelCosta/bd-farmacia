@@ -812,12 +812,12 @@
                           <Component id="jPanel9" alignment="0" max="32767" attributes="1"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jPanel11" alignment="0" max="32767" attributes="1"/>
-                          <Component id="jPanel10" alignment="0" max="32767" attributes="1"/>
-                          <Component id="jPanel12" alignment="0" max="32767" attributes="1"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jPanel12" max="32767" attributes="1"/>
+                          <Component id="jPanel11" max="32767" attributes="1"/>
+                          <Component id="jPanel10" max="32767" attributes="1"/>
                       </Group>
-                      <EmptySpace pref="45" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -828,9 +828,9 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jPanel10" min="-2" max="-2" attributes="1"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jPanel11" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jPanel12" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -909,48 +909,29 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jTextFieldProcuraStock" min="-2" pref="166" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jButtonProcuraStock" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace pref="49" max="32767" attributes="0"/>
+                          <Component id="jTextFieldProcuraStock" pref="197" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jButtonProcuraStock" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jTextFieldProcuraStock" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jButtonProcuraStock" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="13" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel18">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="A Procura ser&#xe1; feita de acordo com o modo de "/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel19">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="visualiza&#xe7;&#xe3;o em que est&#xe1;!"/>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldProcuraStock">
                   <Events>
                     <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldProcuraStockKeyPressed"/>
@@ -1218,7 +1199,7 @@
                     <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="jListClientesValueChanged"/>
                   </Events>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try {&#xa;    rSet = Negocio.lisCli();&#xa;    DefaultListModel model = new DefaultListModel();&#xa;    while (rSet.next())         &#xa;        model.addElement(rSet.getObject(4).toString());&#xa;        jListClientes.setModel(model);&#xa;    }&#xa;catch (SQLException ex) {Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);}"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try {&#xa;    rSet = Negocio.lisCli();&#xa;    DefaultListModel model = new DefaultListModel();&#xa;    while (rSet.next())         &#xa;        model.addElement(rSet.getObject(1).toString());&#xa;        jListClientes.setModel(model);&#xa;    }&#xa;catch (SQLException ex) {Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);}"/>
                   </AuxValues>
                 </Component>
               </SubComponents>
@@ -1511,8 +1492,8 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextFieldVendaNomeCliente" pref="577" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jComboBoxUsernames" min="-2" pref="275" max="-2" attributes="0"/>
+                          <EmptySpace pref="291" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1521,7 +1502,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextFieldVendaNomeCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jComboBoxUsernames" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -1531,10 +1512,18 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel2">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Nome:"/>
+                    <Property name="text" type="java.lang.String" value="Username:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextFieldVendaNomeCliente">
+                <Component class="javax.swing.JComboBox" name="jComboBoxUsernames">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="0"/>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try {&#xa;    rSet = Negocio.listaUsernames();&#xa;    DefaultComboBoxModel model = new DefaultComboBoxModel();&#xa;        while (rSet.next())&#xa;            model.addElement(rSet.getObject(1).toString());&#xa;    &#xa;    jComboBoxUsernames.setModel(model);&#xa;}&#xa;catch (SQLException ex) { Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); }"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -1743,7 +1732,7 @@
                         </Property>
                       </Properties>
                       <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try {&#xa;    rSet = Produtos.queryProdutos();&#xa;    DefaultListModel model = new DefaultListModel();&#xa;    model.addElement(&quot;Codigo - Nome - Quantidade&quot;);&#xa;        while (rSet.next())&#xa;            model.addElement(rSet.getObject(1).toString() +&quot; - &quot;+ rSet.getObject(3).toString() + &quot; - &quot; + rSet.getObject(4).toString());&#xa;    &#xa;    jListProdutosVenda.setModel(model);&#xa;}&#xa;catch (SQLException ex) { Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); }"/>
+                        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try {&#xa;    rSet = Produtos.queryProdutos();&#xa;    DefaultListModel model = new DefaultListModel();&#xa;    model.addElement(&quot;Codigo - Nome&quot;);&#xa;        while (rSet.next())&#xa;            model.addElement(rSet.getObject(1).toString() +&quot; - &quot;+ rSet.getObject(3).toString());&#xa;    &#xa;    jListProdutosVenda.setModel(model);&#xa;}&#xa;catch (SQLException ex) { Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex); }"/>
                       </AuxValues>
                     </Component>
                   </SubComponents>
