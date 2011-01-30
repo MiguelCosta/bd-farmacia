@@ -160,12 +160,12 @@ public class JPrincipal extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jTextFieldUserName = new javax.swing.JTextField();
-        jTextFieldPalavraPasse = new javax.swing.JTextField();
         jTextFieldEmail = new javax.swing.JTextField();
         jTextFieldMontanteGasto = new javax.swing.JTextField();
         jButtonAlterarCliente = new javax.swing.JButton();
         jButtonAdicionarCliente = new javax.swing.JButton();
         jButtonLimpar = new javax.swing.JButton();
+        jTextFieldPalavraPasse = new javax.swing.JPasswordField();
         jPanel25 = new javax.swing.JPanel();
         jTextFieldProcuraCliente = new javax.swing.JTextField();
         jButtonProcurarCliente = new javax.swing.JButton();
@@ -941,12 +941,6 @@ public class JPrincipal extends javax.swing.JFrame {
 
         jLabel11.setText("Email");
 
-        jTextFieldPalavraPasse.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldPalavraPasseActionPerformed(evt);
-            }
-        });
-
         jButtonAlterarCliente.setText("Alterar Cliente");
         jButtonAlterarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1001,15 +995,17 @@ public class JPrincipal extends javax.swing.JFrame {
                             .addGroup(jPanel24Layout.createSequentialGroup()
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(10, 10, 10)))
-                        .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldNomeCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
-                            .addComponent(jTextFieldMoradaCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel24Layout.createSequentialGroup()
+                        .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextFieldNomeCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
+                            .addComponent(jTextFieldMoradaCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
+                            .addComponent(jTextFieldUserName, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
+                            .addComponent(jTextFieldEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel24Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextFieldMontanteGasto, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE))
-                            .addComponent(jTextFieldUserName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
-                            .addComponent(jTextFieldPalavraPasse, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
-                            .addComponent(jTextFieldEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE))))
+                            .addGroup(jPanel24Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldPalavraPasse, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         jPanel24Layout.setVerticalGroup(
@@ -2312,10 +2308,6 @@ public class JPrincipal extends javax.swing.JFrame {
         }
 }//GEN-LAST:event_jListProdutosValueChanged
 
-    private void jTextFieldPalavraPasseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPalavraPasseActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldPalavraPasseActionPerformed
-
     private void jButtonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparActionPerformed
         jTextFieldNomeCliente.setText(null);
         jTextFieldMoradaCliente.setText(null);
@@ -2609,7 +2601,7 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldNomeGenericoStock;
     private javax.swing.JTextField jTextFieldNomeMedicamento;
     private javax.swing.JTextField jTextFieldNomeProdutoStock;
-    private javax.swing.JTextField jTextFieldPalavraPasse;
+    private javax.swing.JPasswordField jTextFieldPalavraPasse;
     private javax.swing.JTextField jTextFieldPerceAum;
     private javax.swing.JTextField jTextFieldPreco;
     private javax.swing.JTextField jTextFieldProcura;

@@ -800,14 +800,8 @@ public class Negocio {
         commit2();
     }
 
-    static void alterarDataNasCliente(String username, String dataNas) throws SQLException, Exception {
-        String sql = "UPDATE CLIENTES SET data_nascimento = '"+dataNas+"' WHERE username = '"+username+"'";
-        Model.stmt.executeQuery(sql);
-        commit2();
-    }
-
     static void alterarPasswordCliente(String username, String newPassword) throws SQLException, Exception {
-        String sql = "UPDATE CLIENTES SET password = '"+newPassword+"' WHERE username = '"+username+"'";
+        String sql = "UPDATE CLIENTES SET PALAVRA_CHAVE = '"+newPassword+"' WHERE username = '"+username+"'";
         Model.stmt.executeQuery(sql);
         commit2();
     }

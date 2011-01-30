@@ -1254,16 +1254,19 @@
                                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="jTextFieldNomeCliente" alignment="1" pref="245" max="32767" attributes="1"/>
                                       <Component id="jTextFieldMoradaCliente" alignment="1" pref="245" max="32767" attributes="1"/>
-                                      <Group type="102" alignment="1" attributes="0">
+                                      <Component id="jTextFieldUserName" alignment="1" pref="245" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldEmail" alignment="1" pref="245" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jTextFieldMontanteGasto" pref="245" max="32767" attributes="0"/>
                                       </Group>
-                                      <Component id="jTextFieldUserName" alignment="1" pref="245" max="32767" attributes="0"/>
-                                      <Component id="jTextFieldPalavraPasse" alignment="1" pref="245" max="32767" attributes="0"/>
-                                      <Component id="jTextFieldEmail" alignment="1" pref="245" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jTextFieldPalavraPasse" pref="245" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
@@ -1351,11 +1354,6 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldUserName">
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextFieldPalavraPasse">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldPalavraPasseActionPerformed"/>
-                  </Events>
-                </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldEmail">
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldMontanteGasto">
@@ -1383,6 +1381,8 @@
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonLimparActionPerformed"/>
                   </Events>
+                </Component>
+                <Component class="javax.swing.JPasswordField" name="jTextFieldPalavraPasse">
                 </Component>
               </SubComponents>
             </Container>
