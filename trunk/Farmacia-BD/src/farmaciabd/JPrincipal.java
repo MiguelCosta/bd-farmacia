@@ -2409,7 +2409,20 @@ public class JPrincipal extends javax.swing.JFrame {
     private void jButtonAdicionarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarClienteActionPerformed
         JDialogAdicionarCliente adicionarCliente = new JDialogAdicionarCliente(this, true);
         adicionarCliente.setVisible(true);
+
+
+
+        try {
+            rSet = Negocio.lisCli();
+            DefaultListModel model = new DefaultListModel();
+            while (rSet.next())
+                model.addElement(rSet.getObject(1).toString());
+            jListClientes.setModel(model);
+            }
+        catch (SQLException ex) {Logger.getLogger(JPrincipal.class.getName()).log(Level.SEVERE, null, ex);}
+
         jListClientesValueChanged(null);
+
     }//GEN-LAST:event_jButtonAdicionarClienteActionPerformed
 
     private void jRadioButtonAPGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonAPGActionPerformed
