@@ -175,6 +175,7 @@ function preloadImages() {
 				echo "</tr>";
 				while (ocifetch($stmt)){
 					echo "<tr>";
+					
 						echo "<td>";
 						echo ociresult($stmt,1);
 						echo "</td>";

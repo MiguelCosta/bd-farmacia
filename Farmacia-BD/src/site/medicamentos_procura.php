@@ -171,7 +171,8 @@ function preloadImages() {
 			/*Se não for possível procurar por id ou pelo registo infarmed vai usar o resto da informação inserida*/
 			if($pesquisa == "invalida"){
 				
-				$sql = "SELECT * FROM produtos WHERE nome_generico LIKE '%".$_POST['nome']."%'";
+				$sql = "SELECT * FROM produtos WHERE nome_generico LIKE '%".$_POST['nome']."%' OR nome_medicamento LIKE '%".$_POST['nome']."%'";
+				//echo $sql;
 			
 				/*a variável campos, serve para saber se a informação introduzida nos vários campos pode ser realizada*/
 				$campos = "valido";
