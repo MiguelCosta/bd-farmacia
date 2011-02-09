@@ -115,8 +115,9 @@ function preloadImages() {
 				echo "</tr>";
 			while(ocifetch($stmt)){
 				echo "<tr>";
-					echo "<td>";
-					echo ociresult($stmt,1);
+				$id = ociresult($stmt,1);
+					echo "<td><a href = 'mostrar_produto.php?prod_id=$id'>";
+					echo $id;
 					echo "</td>";
 					echo "<td>";
 					echo ociresult($stmt,2);
@@ -152,8 +153,9 @@ function preloadImages() {
 				echo "</tr>";
 			while(ocifetch($stmt)){
 				echo "<tr>";
-					echo "<td>";
-					echo ociresult($stmt,1);
+				$id = ociresult($stmt,1);
+					echo "<td><a href = 'mostrar_produto.php?prod_id=$id'>";
+					echo $id;
 					echo "</td>";
 					echo "<td>";
 					echo ociresult($stmt,2);
@@ -187,8 +189,9 @@ function preloadImages() {
 				echo "</tr>";
 			while(ocifetch($stmt)){
 				echo "<tr>";
-					echo "<td>";
-					echo ociresult($stmt,1);
+					$fact = ociresult($stmt,1);
+					echo "<td><a href = 'mostrar_factura.php?fact_id=$fact'>";
+					echo $fact;
 					echo "</td>";
 					echo "<td>";
 					echo ociresult($stmt,2);
@@ -223,8 +226,9 @@ function preloadImages() {
 				echo "</tr>";
 			while(ocifetch($stmt)){
 				echo "<tr>";
-					echo "<td>";
-					echo ociresult($stmt,1);
+					$fact = ociresult($stmt,1);
+					echo "<td><a href = 'mostrar_factura.php?fact_id=$fact'>";
+					echo $fact;
 					echo "</td>";
 					echo "<td>";
 					echo ociresult($stmt,2);
